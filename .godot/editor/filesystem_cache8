@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696637590
+icon.svg::CompressedTexture2D::3096867051352428339::1694945066::1694945074::1::::<><>::
+player.gd::GDScript::-1::1696407265::0::1::::<>RigidBody2D<>::
+::res://Art/::1694946845
+MiniGolf.png::CompressedTexture2D::4932617176823954759::1694946175::1694946845::1::::<><>::
+Player.png::CompressedTexture2D::7196157065654426240::1694945829::1694946845::1::::<><>::
+::res://Objects/::1696407731
+grass_land.tscn::PackedScene::5122554458677421830::1696407730::0::1::::<><>::uid://ccjnqp1qsnht4::::res://Art/MiniGolf.png<>uid://chvh5iafsfc0y::::res://Objects/player.tscn
+player.tscn::PackedScene::5307994218892428250::1696407731::0::1::::<><>::uid://dar4wj000kt41::::res://Art/Player.png<>res://player.gd
