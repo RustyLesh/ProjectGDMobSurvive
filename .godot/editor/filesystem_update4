@@ -1,3 +1,5 @@
 res://Objects/grass_land.tscn
-res://player.gd
 res://Objects/player.tscn
+res://Objects/bullet.tscn
+res://player.gd
+res://Scripits/bullet.gd

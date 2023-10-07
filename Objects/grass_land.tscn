@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=6 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
-[ext_resource type="PackedScene" uid="uid://chvh5iafsfc0y" path="res://Objects/player.tscn" id="2_8wjfs"]
+[ext_resource type="PackedScene" uid="uid://cui7dhok4j3tb" path="res://Objects/bullet.tscn" id="1_yljrm"]
+[ext_resource type="PackedScene" uid="uid://dq0utpd576hbh" path="res://Objects/player.tscn" id="2_8wjfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vo6ml"]
 resource_name = "GrassLand"
@@ -31,6 +32,10 @@ sources/0 = SubResource("TileSetAtlasSource_vo6ml")
 
 [node name="LVL_GrassLand" type="Node2D"]
 texture_filter = 1
+
+[node name="Bullet" parent="." instance=ExtResource("1_yljrm")]
+position = Vector2(321, 245)
+rotation = -3.16472
 
 [node name="BG" type="TileMap" parent="."]
 z_index = -100
