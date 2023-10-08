@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq0utpd576hbh"]
+[gd_scene load_steps=5 format=3 uid="uid://dq0utpd576hbh"]
 
 [ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="1_cbo8b"]
+[ext_resource type="Script" path="res://Scripits/weapon.gd" id="3_yod0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
 size = Vector2(12, 12)
@@ -24,3 +25,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("3_yod0w")
+
+[node name="BulletContainer" type="Node" parent="Weapon"]

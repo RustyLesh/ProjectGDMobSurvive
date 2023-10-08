@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=7 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
-[ext_resource type="PackedScene" uid="uid://cui7dhok4j3tb" path="res://Objects/bullet.tscn" id="1_yljrm"]
 [ext_resource type="PackedScene" uid="uid://dq0utpd576hbh" path="res://Objects/player.tscn" id="2_8wjfs"]
+[ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://basic_enemy_1.tscn" id="3_43rr8"]
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://enemy_bullet.tscn" id="4_eh44p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vo6ml"]
 resource_name = "GrassLand"
@@ -33,10 +34,6 @@ sources/0 = SubResource("TileSetAtlasSource_vo6ml")
 [node name="LVL_GrassLand" type="Node2D"]
 texture_filter = 1
 
-[node name="Bullet" parent="." instance=ExtResource("1_yljrm")]
-position = Vector2(321, 245)
-rotation = -3.16472
-
 [node name="BG" type="TileMap" parent="."]
 z_index = -100
 texture_filter = 1
@@ -50,3 +47,9 @@ layer_0/tile_data = PackedInt32Array(-65536, 0, 0, 0, 0, 0, 65535, 0, 0, -1, 0, 
 [node name="Player" parent="." instance=ExtResource("2_8wjfs")]
 z_index = 1
 position = Vector2(329, 276)
+
+[node name="BasicEnemy1" parent="." instance=ExtResource("3_43rr8")]
+position = Vector2(214, 148)
+
+[node name="EnemyBullet" parent="." instance=ExtResource("4_eh44p")]
+position = Vector2(317, 232)

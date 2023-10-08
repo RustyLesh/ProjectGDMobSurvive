@@ -1,0 +1,17 @@
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\MobSurvive.deps.json
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\MobSurvive.runtimeconfig.json
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\MobSurvive.dll
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\MobSurvive.pdb
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.csproj.AssemblyReference.cache
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.AssemblyInfoInputs.cache
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.AssemblyInfo.cs
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.csproj.CoreCompileInputs.cache
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.csproj.CopyComplete
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.dll
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\refint\MobSurvive.dll
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.pdb
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\MobSurvive.genruntimeconfig.cache
+C:\Users\flame\Documents\Godot Projects\ProjectGDMobSurvive\.godot\mono\temp\obj\Debug\ref\MobSurvive.dll

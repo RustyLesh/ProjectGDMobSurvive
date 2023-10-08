@@ -1,13 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cui7dhok4j3tb"]
+[gd_scene load_steps=6 format=3 uid="uid://cui7dhok4j3tb"]
 
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="1_1cij1"]
 [ext_resource type="Script" path="res://Scripits/bullet.gd" id="1_yyddl"]
+[ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="3_dspmq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bxk4r"]
 radius = 2.0
 height = 10.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4fn2"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 7.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+color = Color(1, 1, 1, 0.639216)
+
 [node name="Bullet" type="Area2D"]
+z_index = 100
 texture_filter = 1
 script = ExtResource("1_yyddl")
 speed = 100
@@ -18,4 +33,14 @@ texture = ExtResource("1_1cij1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_bxk4r")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_u4fn2")
+lifetime = 4.0
+speed_scale = 2.5
+trail_lifetime = 0.02
+script = ExtResource("3_dspmq")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="destroy" from="." to="GPUParticles2D" method="_on_bullet_destroy"]
+[connection signal="kill" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_kill"]
