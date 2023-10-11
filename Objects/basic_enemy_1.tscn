@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cayww1gltkrhb"]
+[gd_scene load_steps=4 format=3 uid="uid://cayww1gltkrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dr2bv5rkt3x2l" path="res://Art/BasicEnemy1.png" id="1_b4fyx"]
+[ext_resource type="Script" path="res://Objects/enemy_movement.gd" id="1_jglyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
 [node name="BasicEnemy1" type="CharacterBody2D"]
+script = ExtResource("1_jglyl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -14,5 +16,6 @@ texture = ExtResource("1_b4fyx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.78814e-07, -1.78814e-07)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4e3wt")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

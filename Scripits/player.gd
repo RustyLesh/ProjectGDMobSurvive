@@ -1,23 +1,27 @@
 extends CharacterBody2D
 
-@export var force = 100
+@export var speed = 100
+
+var move_input
+var aim_input 
+
+var deadzone = 0.25
 
 func _physics_process(delta):
 	
-	velocity = Vector2(0,0);
+	move_input = Vector2(0,0);
 	
-	if(Input.get_action_strength("move_left") > 0):
-		velocity = Vector2(-force * Input.get_action_strength("move_left"), 0)
+	move_input.x = -Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
+	move_input.y = +Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	
+	velocity = move_input * speed
+	
+	if move_input.length() > deadzone:
 		move_and_slide()
 		
-	if(Input.get_action_strength("move_right") > 0):
-		velocity = Vector2(force * Input.get_action_strength("move_right"), 0)
-		move_and_slide()
+	aim_input = Vector2.ZERO
+	aim_input.x = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
+	aim_input.y = Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 	
-	if(Input.get_action_strength("move_up") > 0):
-		velocity = Vector2(0, -force * Input.get_action_strength("move_up"))
-		move_and_slide()
-		
-	if(Input.get_action_strength("move_down") > 0):
-		velocity = Vector2(0, force * Input.get_action_strength("move_down"))
-		move_and_slide()
+	if aim_input.length() > deadzone:
+		rotation = aim_input.angle() + PI/2

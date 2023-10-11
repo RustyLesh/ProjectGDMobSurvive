@@ -1,7 +1,8 @@
-res://Objects/player.tscn
 res://Objects/grass_land.tscn
+res://Scripits/player.gd
+res://Objects/player.tscn
 res://Objects/bullet.tscn
-res://basic_enemy_1.tscn
-res://enemy_bullet.tscn
+res://Objects/basic_enemy_1.tscn
+res://Objects/enemy_bullet.tscn
+res://test/test.tscn
 res://Scripits/bullet.gd
-res://Scripits/particle_system_bullet.gd

@@ -1,5 +1,8 @@
-res://Objects/bullet.tscn::09e91352133fc0c8e302740071aa01d6::1696751954::res://.godot/exported/133200997/export-5f16ef43959497adc6d179e0428c2f53-bullet.scn
-res://Objects/grass_land.tscn::bdc7dfd2b0e8689c4a33f1cb00bbf678::1696751953::res://.godot/exported/133200997/export-f7b194129ab28d8245ab0cf2a3a64fe7-grass_land.scn
-res://Objects/player.tscn::a435a4532858d1bf904ee926f0946136::1696751954::res://.godot/exported/133200997/export-a66a87271d7fcac44abc280f5d6a1505-player.scn
-res://basic_enemy_1.tscn::e610536102369287ead4bf5d9a9ccfd7::1696751954::res://.godot/exported/133200997/export-788b432b3eea25d7b3eee51f8f3605f8-basic_enemy_1.scn
-res://enemy_bullet.tscn::667d7df04144f9130f0c02054bf58238::1696751954::res://.godot/exported/133200997/export-3b92cad3021407f7a716f5c1b41f5a2a-enemy_bullet.scn
+res://Objects/bullet.tscn::9635834f7fa4d8992318292a56cca10f::1697010303::res://.godot/exported/133200997/export-5f16ef43959497adc6d179e0428c2f53-bullet.scn
+res://Objects/grass_land.tscn::c05a11f98ff2f49100aacf687c16288c::1697010303::res://.godot/exported/133200997/export-f7b194129ab28d8245ab0cf2a3a64fe7-grass_land.scn
+res://Objects/player.tscn::a435a4532858d1bf904ee926f0946136::1697010303::res://.godot/exported/133200997/export-a66a87271d7fcac44abc280f5d6a1505-player.scn
+res://joystick/virtual_joystick.tscn::071a11f1996cf975b0d18e53adc37558::1696984897::res://.godot/exported/133200997/export-7c8949f8c4aebccbc8952e89cc58d938-virtual_joystick.scn
+res://Objects/basic_enemy_1.tscn::0a34f286209badbc9835b5df3c5efd4d::1697010303::res://.godot/exported/133200997/export-ac216b61f84b34ecfc8a5b38879ed7b7-basic_enemy_1.scn
+res://Objects/enemy_bullet.tscn::c3872bbb2533a005d74471825a2a38e8::1697010304::res://.godot/exported/133200997/export-ddaa67cfcf05207c5242f6a05952cd7c-enemy_bullet.scn
+res://test/test.tscn::507bea8a1af9583ccf7c54f67d9a3123::1697010304::res://.godot/exported/133200997/export-1955aacdc9602f33d69f33f7e8b9a131-test.scn
+res://default_env.tres::756de160834ef7cc033c2a79cd80f338::1696984897::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res

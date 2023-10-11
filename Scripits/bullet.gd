@@ -12,8 +12,7 @@ func _physics_process(delta):
 		move_local_y(-speed * delta)
 
 func _on_body_entered(body):
-	print("Hit: " + body.name)
-	
+	pass
 
 func lifetime_kill():
 	await get_tree().create_timer(lifetime).timeout
@@ -23,5 +22,4 @@ func lifetime_kill():
 
 func _on_gpu_particles_2d_kill(time):
 	await get_tree().create_timer(time).timeout
-	print("Free")
 	queue_free()

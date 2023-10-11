@@ -23,3 +23,4 @@ func shoot():
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_container.add_child(bullet_instance)
 		bullet_instance.global_position = get_parent().global_position
+		bullet_instance.rotate(get_parent().rotation)
