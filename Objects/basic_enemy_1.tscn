@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cayww1gltkrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dr2bv5rkt3x2l" path="res://Art/BasicEnemy1.png" id="1_b4fyx"]
-[ext_resource type="Script" path="res://Objects/enemy_movement.gd" id="1_jglyl"]
+[ext_resource type="Script" path="res://Scripits/enemy_movement.gd" id="1_sj88r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
 [node name="BasicEnemy1" type="CharacterBody2D"]
-script = ExtResource("1_jglyl")
+collision_layer = 2
+script = ExtResource("1_sj88r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

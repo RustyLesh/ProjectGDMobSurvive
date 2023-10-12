@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MobSurvive"
-run/main_scene="res://Objects/grass_land.tscn"
+run/main_scene="res://Objects/combat_level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
@@ -112,6 +112,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="walls"
 2d_physics/layer_4="pickups"
+2d_physics/layer_5="spawn_check"
 
 [rendering]
 
