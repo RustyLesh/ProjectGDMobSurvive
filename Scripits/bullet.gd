@@ -4,7 +4,7 @@ signal destroy()
 
 @export var speed = 20
 @export var lifetime := 1
-
+@export var base_damage = 1
 var dead = false
 
 func _ready():
@@ -15,7 +15,11 @@ func _physics_process(delta):
 
 #dies on collision
 func _on_body_entered(body):
+	if body.has_node("Health"):
+		body.get_node("Health").take_damage(base_damage)
+		
 	call_deferred("kill_self")
+
 
 #after life time of bullet runns out, runs the kill function
 func start_kill_timer():
