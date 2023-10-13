@@ -47,7 +47,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_tdfcx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -189, -2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, -128)
+"points": PackedVector2Array(0, 0, 0, 0, -189, -2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, -131)
 }
 point_count = 3
 
