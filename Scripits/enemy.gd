@@ -1,4 +1,4 @@
-extends Node
+extends "entity.gd"
 #Main enemy functions
 
 func _on_health_died():

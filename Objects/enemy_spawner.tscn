@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://de0fet1mqw5v3"]
+[gd_scene load_steps=12 format=3 uid="uid://de0fet1mqw5v3"]
 
 [ext_resource type="Script" path="res://Scripits/enemy_spawner.gd" id="1_byfrc"]
+[ext_resource type="Script" path="res://Scripits/enemy_spawn_manager.gd" id="1_ytne7"]
 [ext_resource type="Script" path="res://Scripits/spawner_check.gd" id="2_kfwt6"]
 
 [sub_resource type="Curve2D" id="Curve2D_cv6m8"]
@@ -51,130 +52,133 @@ _data = {
 }
 point_count = 3
 
-[node name="EnemySpawner" type="Node"]
+[node name="EnemySpawnManager" type="Node"]
+script = ExtResource("1_ytne7")
+
+[node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("1_byfrc")
 
-[node name="SpawnCheck1" type="Marker2D" parent="."]
+[node name="SpawnCheck1" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(28, 24)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck1"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck1"]
 position = Vector2(77, 80)
 scale = Vector2(8.7, 9)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck1"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck1"]
 curve = SubResource("Curve2D_cv6m8")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck1/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck1/Path2D"]
 position = Vector2(7, 153)
 rotation = -1.53633
 
-[node name="SpawnCheck2" type="Marker2D" parent="."]
+[node name="SpawnCheck2" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(417, 18)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck2"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck2"]
 position = Vector2(85, 19)
 scale = Vector2(21.1, 1.5)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck2"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck2"]
 position = Vector2(0, 10)
 curve = SubResource("Curve2D_uliw0")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck2/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck2/Path2D"]
 position = Vector2(-106, 9)
 rotation = -0.00847437
 
-[node name="SpawnCheck3" type="Marker2D" parent="."]
+[node name="SpawnCheck3" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(932, 20)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck3"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck3"]
 position = Vector2(-74, 86)
 scale = Vector2(9.2, 8.5)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck3"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck3"]
 curve = SubResource("Curve2D_6b341")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck3/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck3/Path2D"]
 position = Vector2(-148, 11)
 rotation = -0.0187478
 
-[node name="SpawnCheck4" type="Marker2D" parent="."]
+[node name="SpawnCheck4" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(33, 447)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck4"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck4"]
 position = Vector2(8, 6.5)
 scale = Vector2(1.8, 19.85)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck4"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck4"]
 position = Vector2(7, -3)
 curve = SubResource("Curve2D_p6ebx")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck4/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck4/Path2D"]
 position = Vector2(-3, -160)
 rotation = 1.55205
 
-[node name="SpawnCheck5" type="Marker2D" parent="."]
+[node name="SpawnCheck5" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(933, 443)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck5"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck5"]
 position = Vector2(-7.49999, -26)
 scale = Vector2(1.75, 19.9)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck5"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck5"]
 curve = SubResource("Curve2D_6p4bf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck5/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck5/Path2D"]
 position = Vector2(2, -217)
 rotation = 1.57534
 
-[node name="SpawnCheck6" type="Marker2D" parent="."]
+[node name="SpawnCheck6" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(32, 782)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck6"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck6"]
 position = Vector2(82, -51)
 scale = Vector2(9.2, 7)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck6"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck6"]
 curve = SubResource("Curve2D_wo8rh")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck6/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck6/Path2D"]
 position = Vector2(7, -113)
 rotation = 1.5295
 
-[node name="SpawnCheck7" type="Marker2D" parent="."]
+[node name="SpawnCheck7" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(458, 788)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck7"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck7"]
 position = Vector2(-15, -3.49999)
 scale = Vector2(22.2, 1.35)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck7"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck7"]
 curve = SubResource("Curve2D_eddjy")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck7/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck7/Path2D"]
 position = Vector2(-218, -1)
 rotation = 0.00456618
 
-[node name="SpawnCheck8" type="Marker2D" parent="."]
+[node name="SpawnCheck8" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(943, 781)
 script = ExtResource("2_kfwt6")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="SpawnCheck8"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="EnemySpawner/SpawnCheck8"]
 position = Vector2(-103, -68)
 scale = Vector2(11.3, 7.8)
 
-[node name="Path2D" type="Path2D" parent="SpawnCheck8"]
+[node name="Path2D" type="Path2D" parent="EnemySpawner/SpawnCheck8"]
 curve = SubResource("Curve2D_tdfcx")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnCheck8/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawner/SpawnCheck8/Path2D"]
 position = Vector2(-131.96, -1.39958)
 rotation = 0.0105259
 progress = 57.05
 
-[node name="EnemyContainer" type="Node" parent="."]
+[node name="EnemyContainer" type="Node" parent="EnemySpawner"]

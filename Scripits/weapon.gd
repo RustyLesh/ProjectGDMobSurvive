@@ -9,8 +9,6 @@ var delay := 0.0
 
 func _ready():
 	delay = 1/fire_rate
-	print(delay)
-	print(fire_rate)
 	shoot()
 
 func _process(delta):
@@ -22,5 +20,5 @@ func shoot():
 		await get_tree().create_timer(delay).timeout
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_container.add_child(bullet_instance)
-		bullet_instance.global_position = get_parent().global_position
-		bullet_instance.rotate(get_parent().rotation)
+		bullet_instance.global_position = get_parent().get_node("PlayerBody").global_position
+		bullet_instance.rotate(get_parent().get_node("PlayerBody").rotation)

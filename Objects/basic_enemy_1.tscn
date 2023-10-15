@@ -1,32 +1,40 @@
 [gd_scene load_steps=6 format=3 uid="uid://cayww1gltkrhb"]
 
 [ext_resource type="Texture2D" uid="uid://dr2bv5rkt3x2l" path="res://Art/BasicEnemy1.png" id="1_b4fyx"]
+[ext_resource type="Script" path="res://Scripits/enemy.gd" id="1_fjbue"]
 [ext_resource type="Script" path="res://Scripits/enemy_movement.gd" id="1_sj88r"]
-[ext_resource type="Script" path="res://Objects/enemy.gd" id="1_waftv"]
-[ext_resource type="Script" path="res://Objects/health.gd" id="3_6gaw8"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="4_ndf8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
-[node name="BasicEnemy" type="Node"]
-script = ExtResource("1_waftv")
+[node name="BasicEnemy" type="Node" groups=["Enemy"]]
+script = ExtResource("1_fjbue")
 
-[node name="Area2D" type="CharacterBody2D" parent="."]
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_ndf8k")
+
+[node name="Body" type="CharacterBody2D" parent="."]
 collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_sj88r")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
 texture_filter = 1
 texture = ExtResource("1_b4fyx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2(1.78814e-07, -1.78814e-07)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_4e3wt")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Area2D"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Body"]
 
-[node name="Health" type="Node" parent="Area2D"]
-script = ExtResource("3_6gaw8")
+[node name="Timer" type="Timer" parent="Body"]
+wait_time = 0.5
+autostart = true
 
-[connection signal="died" from="Area2D/Health" to="." method="_on_health_died"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="timeout" from="Body/Timer" to="Body" method="_on_timer_timeout"]

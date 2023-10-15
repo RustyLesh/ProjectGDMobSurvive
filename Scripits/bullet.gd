@@ -7,6 +7,8 @@ signal destroy()
 @export var base_damage = 1
 var dead = false
 
+const Entity = preload("entity.gd")
+
 func _ready():
 	start_kill_timer()
 
@@ -15,8 +17,8 @@ func _physics_process(delta):
 
 #dies on collision
 func _on_body_entered(body):
-	if body.has_node("Health"):
-		body.get_node("Health").take_damage(base_damage)
+	if body.get_parent() is Entity:
+		body.get_parent().take_damage(base_damage)
 		
 	call_deferred("kill_self")
 

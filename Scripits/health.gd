@@ -10,7 +10,6 @@ var is_alive = true
 func take_damage(damage):
 	if damage > 0:
 		current_health -= damage
-		print(current_health)
 		if current_health <= 0:
 			is_alive = false
 			died.emit()
