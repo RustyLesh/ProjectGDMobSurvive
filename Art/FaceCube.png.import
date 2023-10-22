@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr2bv5rkt3x2l"
-path="res://.godot/imported/BasicEnemy1.png-5fa54b07902cafcb6588517a633b5711.ctex"
+uid="uid://c45onsyti4vc8"
+path="res://.godot/imported/FaceCube.png-bc8fa8f12fcd7ee7272c354e300029ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BasicEnemy1.png"
-dest_files=["res://.godot/imported/BasicEnemy1.png-5fa54b07902cafcb6588517a633b5711.ctex"]
+source_file="res://Art/FaceCube.png"
+dest_files=["res://.godot/imported/FaceCube.png-bc8fa8f12fcd7ee7272c354e300029ed.ctex"]
 
 [params]
 

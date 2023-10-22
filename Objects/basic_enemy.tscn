@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cayww1gltkrhb"]
+[gd_scene load_steps=7 format=3 uid="uid://cayww1gltkrhb"]
 
-[ext_resource type="Texture2D" uid="uid://dr2bv5rkt3x2l" path="res://Art/BasicEnemy1.png" id="1_b4fyx"]
-[ext_resource type="Script" path="res://Scripits/enemy.gd" id="1_fjbue"]
-[ext_resource type="Script" path="res://Scripits/enemy_movement.gd" id="1_sj88r"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy.gd" id="1_ygfkv"]
+[ext_resource type="Resource" uid="uid://bx7meobamxkr6" path="res://Scripits/Enemy_Resources/face_cube.tres" id="2_55n0d"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="4_gua2f"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="4_ndf8k"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="5_2vq8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
 [node name="BasicEnemy" type="Node" groups=["Enemy"]]
-script = ExtResource("1_fjbue")
+script = ExtResource("1_ygfkv")
+enemy_resource = ExtResource("2_55n0d")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_ndf8k")
@@ -19,11 +21,11 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_sj88r")
+script = ExtResource("4_gua2f")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
 texture_filter = 1
-texture = ExtResource("1_b4fyx")
+texture = ExtResource("5_2vq8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2(1.78814e-07, -1.78814e-07)
@@ -33,8 +35,7 @@ shape = SubResource("RectangleShape2D_4e3wt")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Body"]
 
 [node name="Timer" type="Timer" parent="Body"]
-wait_time = 0.5
-autostart = true
+wait_time = 0.25
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="Body/Timer" to="Body" method="_on_timer_timeout"]

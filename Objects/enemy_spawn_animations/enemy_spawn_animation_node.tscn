@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqfj5reg2om5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pr5i"]
+
+[node name="Enemy_spawn_animation_node" type="AnimatedSprite2D"]
+top_level = true
+z_index = 4096
+z_as_relative = false
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_4pr5i")

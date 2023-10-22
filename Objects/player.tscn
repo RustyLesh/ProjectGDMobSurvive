@@ -35,9 +35,6 @@ shape = SubResource("RectangleShape2D_o4i0v")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 zoom = Vector2(2.255, 2.255)
-position_smoothing_enabled = true
 position_smoothing_speed = 1.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [connection signal="died" from="Health" to="PlayerBody" method="_on_health_died"]

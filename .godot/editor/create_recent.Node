@@ -1,6 +1,11 @@
+Node
+Container
+AnimatedSprite2D
+Sprite2D
+AnimationPlayer
+Node2D
 Timer
 NavigationRegion2D
-Node
 Label
 Control
 CanvasLayer
@@ -12,9 +17,7 @@ CollisionShape2D
 Area2D
 NavigationAgent2D
 GPUParticles2D
-Sprite2D
 CharacterBody2D
 Camera2D
 RigidBody2D
 TileMap
-Node2D

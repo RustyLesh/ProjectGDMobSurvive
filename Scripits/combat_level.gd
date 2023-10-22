@@ -4,5 +4,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_body_node.global_position = $Tile_Map.global_position
-	camera_node.reset_smoothing()
+	if camera_node is Camera2D:
+		player_body_node.global_position = $Tile_Map.global_position
+		await get_tree().create_timer(.5).timeout
+		camera_node.position_smoothing_enabled = true
+		
+	
