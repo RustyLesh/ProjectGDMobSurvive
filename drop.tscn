@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://h2sp5avqcmm"]
+
+[ext_resource type="Script" path="res://Scripits/Drops/drop.gd" id="1_ouuh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uoae8"]
+
+[node name="Drop" type="Area2D" groups=["Drop"]]
+script = ExtResource("1_ouuh6")
+
+[node name="PickUpCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uoae8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

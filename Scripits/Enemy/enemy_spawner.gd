@@ -21,5 +21,4 @@ func clear_spawn_list():
 	enemy_spawn_list.clear()
 	
 func add_enemy(enemy):
-	print("Add_enemy")
 	enemy_spawn_list.append(enemy)

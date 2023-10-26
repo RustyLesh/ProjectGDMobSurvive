@@ -36,6 +36,7 @@ shape = SubResource("RectangleShape2D_4e3wt")
 
 [node name="Timer" type="Timer" parent="Body"]
 wait_time = 0.25
+autostart = true
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="Body/Timer" to="Body" method="_on_timer_timeout"]

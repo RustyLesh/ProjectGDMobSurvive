@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djwa6agb6fq7s"]
+
+[ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="1_id0mh"]
+
+[node name="InLevelXPManager" type="Node"]
+script = ExtResource("1_id0mh")

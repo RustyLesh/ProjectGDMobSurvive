@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var spawner = $EnemySpawner
+#@onready var spawner = $EnemySpawner
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var spawns: Array[spawn_data] = []
 @onready var base_spawn_animation = preload("res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn")
@@ -9,7 +9,7 @@ var botRight : Vector2
 
 @export var wallSpawnBuffer = 0.0
 @onready var container = $Container
-var time = 0
+@export var time = 0
 func _ready():
 	var tilemap = get_tree().get_first_node_in_group("Level").get_node("Tile_Map")
 	
@@ -31,34 +31,34 @@ func _ready():
 
 func _on_timer_timeout():
 	time += 1
-	print(time)
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
-		if time >= i.time_start && time <= i.time_end:
-			if i.spawn_delay_counter < i.spawn_delay:
-				i.spawn_delay_counter += 1
-			else:
-				i.spawn_delay_counter
-				var new_enemy = load(str(i.enemy.resource_path))
-				var counter = 0
-				while counter < i.enemy_amount:
-					var spawnPos = get_random_position()
-#					if base_spawn_animation is AnimatedSprite2D:
-					var spawn_animation = base_spawn_animation.instantiate()
-						
-					container.add_child(spawn_animation)
-					spawn_animation.sprite_frames = i.spawn_animation
-					spawn_animation.global_position = spawnPos
-					spawn_animation.play()
-					
-					
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.get_node("Body").global_position = spawnPos
-					add_child(enemy_spawn)
-					counter += 1
+		spawn(i)
 
-func spawn():
-	pass
+func spawn(spawn_data):
+	var spawn_animation = base_spawn_animation.instantiate()
+	
+	if time >= spawn_data.time_start && time <= spawn_data.time_end:
+		if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
+			spawn_data.spawn_delay_counter += 1
+		else:
+			spawn_data.spawn_delay_counter
+			var new_enemy = load(str(spawn_data.enemy.resource_path))
+			var counter = 0
+			while counter < spawn_data.enemy_amount:
+				var spawnPos = get_random_position()
+				container.add_child(spawn_animation)
+				spawn_animation.sprite_frames = spawn_data.spawn_animation
+				spawn_animation.global_position = spawnPos
+				spawn_animation.play()
+				
+				await get_tree().create_timer(3).timeout
+				spawn_animation.queue_free()
+				
+				var enemy_spawn = new_enemy.instantiate()
+				enemy_spawn.get_node("Body").global_position = spawnPos
+				add_child(enemy_spawn)
+				counter += 1
 
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)

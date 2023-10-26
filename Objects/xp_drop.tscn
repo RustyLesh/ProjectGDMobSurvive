@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbh2djllix7l2"]
+
+[ext_resource type="Script" path="res://Scripits/Drops/drop_experience.gd" id="1_pmq0a"]
+[ext_resource type="Texture2D" uid="uid://c5ly12w88ilji" path="res://Art/XPDrop.png" id="2_rjkk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpqdi"]
+radius = 43.566
+
+[node name="XP_Drop" type="Area2D"]
+texture_filter = 1
+collision_layer = 8
+script = ExtResource("1_pmq0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1000
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rjkk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xpqdi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
