@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=13 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fiqcay7tx1b2" path="res://Objects/GUI/HUD.tscn" id="4_4psgq"]
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
+[ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fl17l"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -148,3 +149,6 @@ layer_1/tile_data = PackedInt32Array(-1572895, 0, 1, -1507359, 0, 1, -1441823, 0
 
 [node name="XP Manager" type="Node" parent="."]
 script = ExtResource("6_y7ueo")
+
+[node name="TestCodeNode" type="Node" parent="."]
+script = ExtResource("7_wh76m")

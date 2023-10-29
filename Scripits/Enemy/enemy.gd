@@ -1,5 +1,5 @@
 
-extends "res://Scripits/entity.gd"
+extends Entity
 
 @export var enemy_resource = preload("res://Scripits/Enemy/enemy_resource.gd")
 @onready var sprite_node = $Body/Sprite2D

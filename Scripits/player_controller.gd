@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name PlayerController
 @export var speed = 100
 
 var move_input

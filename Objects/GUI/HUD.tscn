@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://fiqcay7tx1b2"]
+[gd_scene load_steps=11 format=3 uid="uid://fiqcay7tx1b2"]
 
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="1_60mpo"]
 [ext_resource type="PackedScene" uid="uid://c8b7sxc0e6j7w" path="res://Objects/hud.tscn" id="2_jhbb4"]
 [ext_resource type="Script" path="res://Scripits/hud_xp.gd" id="3_tdd2o"]
+[ext_resource type="Script" path="res://Objects/GUI/health_label.gd" id="4_qmd5w"]
 
 [sub_resource type="Gradient" id="Gradient_1n4kt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -106,3 +107,11 @@ layout_mode = 1
 offset_top = -1.0
 offset_right = 721.0
 offset_bottom = 98.0
+
+[node name="Health Label" type="Label" parent="HUD/Top Bar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "sdfsdfsf"
+script = ExtResource("4_qmd5w")

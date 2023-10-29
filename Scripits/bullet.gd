@@ -7,8 +7,6 @@ signal destroy()
 @export var base_damage = 1
 var dead = false
 
-const Entity = preload("entity.gd")
-
 func _ready():
 	start_kill_timer()
 

@@ -1,6 +1,6 @@
 extends Node
+class_name Entity
 
-const Health = preload("health.gd")
 @onready var health = $Health
 
 func take_damage(damage):

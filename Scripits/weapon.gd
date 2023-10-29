@@ -1,19 +1,15 @@
 extends Node
-
+class_name Weapon
 var bullet_scene = preload("res://Objects/bullet.tscn")
+#shots per second
+@export var fire_rate = 2.0 : set = set_fire_rate 
 
-@export var fire_rate := 2.0 # seconds
-var delay := 0.0
-
+var delay
 @onready var bullet_container = $BulletContainer
 
 func _ready():
-	delay = 1/fire_rate
+	set_fire_rate(fire_rate)
 	shoot()
-
-func _process(delta):
-	if(Input.is_action_just_pressed("action_1")):
-		shoot()
 	
 func shoot():
 	while true:
@@ -22,3 +18,8 @@ func shoot():
 		bullet_container.add_child(bullet_instance)
 		bullet_instance.global_position = get_parent().get_node("PlayerBody").global_position
 		bullet_instance.rotate(get_parent().get_node("PlayerBody").rotation)
+
+func set_fire_rate(value : float):
+	print("value", value)
+	fire_rate = value
+	delay = 1/fire_rate

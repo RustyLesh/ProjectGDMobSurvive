@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 100.0
 
-@onready var player: Node2D = get_tree().get_nodes_in_group(("player"))[0].get_node("PlayerBody")
+@onready var player: Node2D = get_tree().get_first_node_in_group(("player")).get_node("PlayerBody")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D 
 
 func _ready():

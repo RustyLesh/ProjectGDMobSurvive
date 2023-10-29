@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq0utpd576hbh"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0utpd576hbh"]
 
 [ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="1_cbo8b"]
 [ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
+[ext_resource type="PackedScene" uid="uid://d2ipya06c0n65" path="res://Objects/stat_container.tscn" id="2_i0kg7"]
 [ext_resource type="Script" path="res://Scripits/weapon.gd" id="3_yod0w"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 
@@ -11,6 +12,8 @@ size = Vector2(12, 12)
 
 [node name="Player" type="Node" groups=["player"]]
 script = ExtResource("1_5g5kj")
+
+[node name="Stat Container" parent="." instance=ExtResource("2_i0kg7")]
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource("3_yod0w")

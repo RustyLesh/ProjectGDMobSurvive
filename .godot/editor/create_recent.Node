@@ -1,6 +1,8 @@
-Node
-Panel
 Label
+Node
+HBoxContainer
+Button
+Panel
 TextureProgressBar
 PanelContainer
 Sprite2D

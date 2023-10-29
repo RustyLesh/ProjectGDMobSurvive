@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://14pmcnlmox4s"]
+[gd_scene load_steps=7 format=3 uid="uid://14pmcnlmox4s"]
 
 [ext_resource type="Script" path="res://Scripits/bullet.gd" id="1_13mud"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="1_bj84t"]
+[ext_resource type="PackedScene" uid="uid://d2ipya06c0n65" path="res://Objects/stat_container.tscn" id="2_nrggb"]
 [ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="3_j0klu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti5rs"]
@@ -26,6 +27,8 @@ texture_filter = 1
 priority = 1
 script = ExtResource("1_13mud")
 speed = 50
+
+[node name="Stat Container" parent="." instance=ExtResource("2_nrggb")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bj84t")
