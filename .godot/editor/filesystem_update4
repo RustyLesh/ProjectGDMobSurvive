@@ -8,12 +8,10 @@ res://drop.tscn
 res://Objects/xp_drop.tscn
 res://Objects/GUI/HUD.tscn
 res://Objects/combat_level.tscn
-res://Objects/uprade_menu.tscn
 res://Objects/upgrade_manager.tscn
 res://Objects/stat_container.tscn
 res://Objects/enemy_bullet.tscn
 res://Objects/bullet.tscn
 res://Objects/basic_enemy.tscn
-res://stat_container.gd
-res://Scripits/weapon.gd
 res://Scripits/input_test.gd
+res://upgrade_manager.gd

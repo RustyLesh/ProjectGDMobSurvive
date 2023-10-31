@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=2 format=3 uid="uid://e8tem5dlqo3n"]
+
+[ext_resource type="Script" path="res://Scripits/upgrade_resource.gd" id="1_jjfvo"]
+
+[resource]
+script = ExtResource("1_jjfvo")
+name = "Movement Speed Flat"
