@@ -31,6 +31,7 @@ func _ready():
 
 func pause_timer():
 	timer.paused = true
+	print("paused timer")
 	on_spawn_timer_pause.emit()
 
 func play_timer():
@@ -66,6 +67,14 @@ func spawn(spawn_data):
 				var enemy_spawn = new_enemy.instantiate()
 				enemy_spawn.get_node("Body").global_position = spawnPos
 				add_child(enemy_spawn)
+				
+				if enemy_spawn is Entity:
+					if enemy_spawn.entity_type == Entity.EntityType.BOSS:
+						var boss: Boss = enemy_spawn as Boss
+						print("Is boss")
+						pause_timer()
+						boss.on_boss_death.connect(play_timer)
+						return
 				counter += 1
 
 func get_random_position_off_screen():

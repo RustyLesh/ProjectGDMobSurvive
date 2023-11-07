@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1f76x14o0557"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_spawn_manager.gd" id="1_v546m"]
-[ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://Objects/basic_enemy.tscn" id="2_k0a2q"]
+[ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://Objects/Enemy Spawning/basic_enemy.tscn" id="2_2jmav"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_spawner.gd" id="2_xb8cf"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="3_dgelc"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_hbty5"]
 
 [sub_resource type="Resource" id="Resource_ewwal"]
 script = ExtResource("3_dgelc")
-time_start = 0
+time_start = 5
 time_end = 60
-enemy = ExtResource("2_k0a2q")
+enemy = ExtResource("2_2jmav")
 spawn_animation = ExtResource("4_hbty5")
 enemy_amount = 1
 spawn_delay = 1

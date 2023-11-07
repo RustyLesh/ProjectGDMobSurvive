@@ -29,7 +29,7 @@ func update_upgrade_options():
 	confirm_button.disabled = true
 	description_panel.clear_info()
 	
-	if upgrade_option_resources.size() == 0:
+	if upgrade_option_resources.size() == 0: #If no upgrades, remove all buttons
 		for upgrade in upgrade_option_ui:
 			upgrade.queue_free()
 		return
@@ -41,12 +41,12 @@ func update_upgrade_options():
 		upgrade_options_container.add_child(upgrade_button_instance)
 		upgrade_button_instance.on_option_selected.connect(highlight_upgrade)
 		
-	if upgrade_option_ui.size() > upgrade_option_resources.size(): #if there are to many buttons, delete them
+	while upgrade_option_ui.size() > upgrade_option_resources.size(): #if there are to many buttons, delete them
 		var upgradeOption = upgrade_option_ui.pop_back()
 		if upgradeOption is UpgradeOption:
 			upgradeOption.queue_free()
 	
-	for upgrade_option in upgrade_option_ui:
+	for upgrade_option in upgrade_option_ui: #init buttons, refresh their ui
 		if upgrade_option is UpgradeOption:
 			upgrade_option.init_button(upgrade_option_ui.find(upgrade_option) + 1, upgrade_manager.get_upgrade(upgrade_option_ui.find(upgrade_option) + 1))
 
@@ -54,7 +54,9 @@ func highlight_upgrade(option_no: int):
 	selected_resource = upgrade_manager.get_upgrade(option_no)
 	description_panel.update_ui(selected_resource)
 	selected_option = option_no
-	confirm_button.disabled = false
+	
+	if upgrade_manager.current_upgrade_points > 0:
+		confirm_button.disabled = false
 
 func _on_reroll_pressed():
 	upgrade_manager.roll_upgrade_options()

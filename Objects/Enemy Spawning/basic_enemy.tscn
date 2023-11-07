@@ -1,31 +1,31 @@
 [gd_scene load_steps=7 format=3 uid="uid://cayww1gltkrhb"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy.gd" id="1_ygfkv"]
-[ext_resource type="Resource" uid="uid://bx7meobamxkr6" path="res://Scripits/Enemy_Resources/face_cube.tres" id="2_55n0d"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="4_gua2f"]
-[ext_resource type="Script" path="res://Scripits/health.gd" id="4_ndf8k"]
-[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="5_2vq8l"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy.gd" id="1_fx2s2"]
+[ext_resource type="Resource" uid="uid://bx7meobamxkr6" path="res://Scripits/Enemy_Resources/face_cube.tres" id="2_ve6qq"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="3_ygwsl"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="4_nyrub"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="5_1rys0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
 [node name="BasicEnemy" type="Node" groups=["Enemy"]]
-script = ExtResource("1_ygfkv")
-enemy_resource = ExtResource("2_55n0d")
+script = ExtResource("1_fx2s2")
+enemy_resource = ExtResource("2_ve6qq")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("4_ndf8k")
+script = ExtResource("3_ygwsl")
 
 [node name="Body" type="CharacterBody2D" parent="."]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("4_gua2f")
+script = ExtResource("4_nyrub")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
 texture_filter = 1
-texture = ExtResource("5_2vq8l")
+texture = ExtResource("5_1rys0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2(1.78814e-07, -1.78814e-07)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=29 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -7,8 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
+[ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/attack_speed_flat.tres" id="7_27ohv"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
+[ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://Objects/Enemy Spawning/basic_enemy.tscn" id="8_875sd"]
+[ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/attack_speed_percent.tres" id="8_dipeo"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_3xv3n"]
+[ext_resource type="Resource" uid="uid://bdxv6tmupmprg" path="res://Resources/Upgrades/damage_flat.tres" id="9_udn75"]
+[ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/damage_percent.tres" id="10_q0py5"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="10_ugrhp"]
+[ext_resource type="Resource" uid="uid://bqsm0wdqyqyqi" path="res://Resources/Upgrades/max_life_flat_upgrade.tres" id="11_s014y"]
+[ext_resource type="PackedScene" uid="uid://bmvnb8r3pe8kr" path="res://Objects/Enemy Spawning/boss_enemy.tscn" id="11_ty5ra"]
+[ext_resource type="Resource" uid="uid://cxrx58jgh0fj7" path="res://Resources/Upgrades/max_life_multiplier_upgrade.tres" id="12_e8y1b"]
+[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/movement_speed_flat_upgrade.tres" id="13_skxst"]
 [ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/projectile_life_time.tres" id="14_248tb"]
+[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/projectile_count_upgrade.tres" id="14_ktsh8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fl17l"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -119,6 +131,24 @@ physics_layer_0/collision_mask = 47
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 
+[sub_resource type="Resource" id="Resource_ewwal"]
+script = ExtResource("9_3xv3n")
+time_start = 0
+time_end = 60
+enemy = ExtResource("8_875sd")
+spawn_animation = ExtResource("10_ugrhp")
+enemy_amount = 1
+spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_f6yue"]
+script = ExtResource("9_3xv3n")
+time_start = 60
+time_end = 61
+enemy = ExtResource("11_ty5ra")
+spawn_animation = ExtResource("10_ugrhp")
+enemy_amount = 1
+spawn_delay = 0
+
 [node name="Combat_Level" type="Node2D" groups=["Level"]]
 texture_filter = 1
 script = ExtResource("1_2hpuq")
@@ -146,9 +176,10 @@ layer_1/tile_data = PackedInt32Array(-1572895, 0, 1, -1507359, 0, 1, -1441823, 0
 [node name="Player" parent="." instance=ExtResource("2_8wjfs")]
 
 [node name="Upgrade Manager" parent="." instance=ExtResource("4_x36hy")]
-base_uprgade_pool = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("14_248tb")])
+base_uprgade_pool = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("14_248tb"), ExtResource("7_27ohv"), ExtResource("8_dipeo"), ExtResource("9_udn75"), ExtResource("10_q0py5"), ExtResource("11_s014y"), ExtResource("12_e8y1b"), ExtResource("13_skxst"), ExtResource("14_ktsh8")])
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
+spawns = Array[ExtResource("9_3xv3n")]([SubResource("Resource_ewwal"), SubResource("Resource_f6yue")])
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 

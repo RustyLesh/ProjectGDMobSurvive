@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=17 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
 [ext_resource type="PackedScene" uid="uid://c8b7sxc0e6j7w" path="res://Objects/hud.tscn" id="3_xrel2"]
 [ext_resource type="Script" path="res://Scripits/GUI/hud_xp.gd" id="4_fh5v3"]
 [ext_resource type="Script" path="res://Scripits/GUI/health_label.gd" id="5_fu2ar"]
+[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_points_counter.gd" id="7_5e6md"]
 
@@ -31,6 +32,9 @@ shadow_color = Color(0, 0, 0, 0.698039)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6rqp"]
 font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph4yx"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_g0dvu")
@@ -133,7 +137,21 @@ label_settings = SubResource("LabelSettings_e6rqp")
 uppercase = true
 script = ExtResource("5_fu2ar")
 
+[node name="Button" type="Button" parent="HUD"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 8.0
+offset_right = 712.0
+offset_bottom = 88.0
+theme_override_colors/icon_normal_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ph4yx")
+icon = ExtResource("6_c5d6r")
+icon_alignment = 1
+expand_icon = true
+
 [node name="Uprade Menu" parent="." instance=ExtResource("6_ex6gh")]
+visible = false
 offset_top = 112.0
 
 [node name="Upgrade Points Counter" type="Label" parent="."]
@@ -143,3 +161,5 @@ offset_right = 192.0
 offset_bottom = 152.0
 text = "Pts: "
 script = ExtResource("7_5e6md")
+
+[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
