@@ -1,4 +1,5 @@
 extends Label
+class_name HealthLabel
 
 var max_health
 var current_health

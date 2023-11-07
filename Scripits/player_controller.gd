@@ -7,7 +7,7 @@ var aim_input
 
 var deadzone = 0.25
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	move_input = Vector2(0,0);
 	

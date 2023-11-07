@@ -4,7 +4,7 @@ class_name StatMod
 enum StatModType
 {
 	FLAT,
-	MULTIPLIER,
+	MULTIPLIER, ## Percent Multplier
 }
 
 @export var stat_mod_type: StatModType

@@ -1,17 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=15 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
 [ext_resource type="PackedScene" uid="uid://dq0utpd576hbh" path="res://Objects/player.tscn" id="2_8wjfs"]
-[ext_resource type="PackedScene" uid="uid://fiqcay7tx1b2" path="res://Objects/GUI/HUD.tscn" id="4_4psgq"]
+[ext_resource type="PackedScene" uid="uid://dufpfjbbnms4o" path="res://Objects/GUI/in_level_ui.tscn" id="2_h6upt"]
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
-[ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/upgrade_manager.tscn" id="4_x36hy"]
-[ext_resource type="Resource" uid="uid://bqsm0wdqyqyqi" path="res://Resources/Upgrades/max_life_flat_upgrade.tres" id="5_vcsfw"]
-[ext_resource type="Resource" uid="uid://cxrx58jgh0fj7" path="res://Resources/Upgrades/max_life_multiplier_upgrade.tres" id="6_h2gm4"]
+[ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
-[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/movement_speed_flat_upgrade.tres" id="7_sglwr"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
-[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/projectile_count_upgrade.tres" id="8_68aqm"]
+[ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/projectile_life_time.tres" id="14_248tb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fl17l"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -126,6 +123,8 @@ sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 texture_filter = 1
 script = ExtResource("1_2hpuq")
 
+[node name="UI" parent="." instance=ExtResource("2_h6upt")]
+
 [node name="Tile_Map" type="TileMap" parent="."]
 z_index = -100
 texture_filter = 1
@@ -147,9 +146,7 @@ layer_1/tile_data = PackedInt32Array(-1572895, 0, 1, -1507359, 0, 1, -1441823, 0
 [node name="Player" parent="." instance=ExtResource("2_8wjfs")]
 
 [node name="Upgrade Manager" parent="." instance=ExtResource("4_x36hy")]
-base_uprgade_pool = Array[Resource("res://Scripits/upgrade_resource.gd")]([ExtResource("5_vcsfw"), ExtResource("6_h2gm4"), ExtResource("7_sglwr"), ExtResource("8_68aqm")])
-
-[node name="UI" parent="." instance=ExtResource("4_4psgq")]
+base_uprgade_pool = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("14_248tb")])
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
 

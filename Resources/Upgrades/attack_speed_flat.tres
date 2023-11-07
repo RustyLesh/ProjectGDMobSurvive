@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://cd45e5xtfstgy"]
+
+[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="1_r8ryj"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_d6m14"]
+[ext_resource type="Script" path="res://Scripits/base_stat_upgrade.gd" id="3_be0p4"]
+
+[sub_resource type="Resource" id="Resource_mav2s"]
+script = ExtResource("3_be0p4")
+mod_type = 0
+base_stat_type = 2
+value = 1.0
+
+[resource]
+script = ExtResource("2_d6m14")
+name = "Attack Speed Flat"
+description = ""
+icon = ExtResource("1_r8ryj")
+upgrade = SubResource("Resource_mav2s")
+max_uses = 3

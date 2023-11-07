@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://bekpf8uww5mio"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_3am54"]
+[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="1_d1u8i"]
+[ext_resource type="Script" path="res://Scripits/base_stat_upgrade.gd" id="3_61i2n"]
+
+[sub_resource type="Resource" id="Resource_a1ge1"]
+script = ExtResource("3_61i2n")
+mod_type = 1
+base_stat_type = 2
+value = 10.0
+
+[resource]
+script = ExtResource("1_3am54")
+name = "Attack Speed Percent"
+description = ""
+icon = ExtResource("1_d1u8i")
+upgrade = SubResource("Resource_a1ge1")
+max_uses = 3

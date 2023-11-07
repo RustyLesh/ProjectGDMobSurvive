@@ -1,2 +1,3 @@
 UpgradeResource
+BaseStatUpgrade
 EnemyResource

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://bosd6cm7dcgh"]
+
+[ext_resource type="Texture2D" uid="uid://cfwq2mxyxa4td" path="res://Art/Upgrade Icons/Sword.png" id="1_21r2h"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_l7csg"]
+[ext_resource type="Script" path="res://Scripits/base_stat_upgrade.gd" id="3_5kpnk"]
+
+[sub_resource type="Resource" id="Resource_xo5uc"]
+script = ExtResource("3_5kpnk")
+mod_type = 1
+base_stat_type = 1
+value = 5.0
+
+[resource]
+script = ExtResource("1_l7csg")
+name = "Damage Multiplier"
+description = ""
+icon = ExtResource("1_21r2h")
+upgrade = SubResource("Resource_xo5uc")
+max_uses = 5

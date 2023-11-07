@@ -1,7 +1,7 @@
 
 extends Entity
 
-@export var enemy_resource = preload("res://Scripits/Enemy/enemy_resource.gd")
+@export var enemy_resource = EnemyResource.new()
 @onready var sprite_node = $Body/Sprite2D
 
 var xp_drop: PackedScene = preload("res://Objects/xp_drop.tscn")

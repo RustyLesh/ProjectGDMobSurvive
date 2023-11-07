@@ -6,7 +6,7 @@ signal max_health_changed(max_health)
 signal current_health_changed(max_health)
 signal died()
 
-@export var max_health = 1
+@export var max_health = 100
 @export var current_health = max_health
 var is_alive = true
 
@@ -24,7 +24,7 @@ func take_damage(damage):
 
 func heal(value):
 	if value > 0:
-		current_health = clamp(current_health + value, 0, max_health)
+		current_health = clamp(current_health + value, 1, max_health)
 		current_health_changed.emit(current_health)
 
 func set_max_health(value : int):
@@ -32,5 +32,4 @@ func set_max_health(value : int):
 		max_health = value
 		if current_health > max_health:
 			current_health = max_health
-			print("health changed ", max_health)
 		max_health_changed.emit(max_health)

@@ -18,7 +18,6 @@ func _ready():
 		var stat:= BaseStat.new()
 		stat.base_type = BaseStat.BaseStatType[base_stat]
 		base_stats.append(stat)
-	
 	init_stats()
 
 func get_stat(base_stat_type : BaseStat.BaseStatType) -> BaseStat:
@@ -52,7 +51,9 @@ func init_stats():
 	base_stats[BaseStat.BaseStatType.MAX_LIFE].on_value_changed.connect(update_max_life)
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].on_value_changed.connect(update_movement_speed)
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].on_value_changed.connect(update_fire_rate)
-
+	base_stats[BaseStat.BaseStatType.PROJ_COUNT].on_value_changed.connect(update_extra_prop_count)
+	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
+	
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)
 
@@ -61,8 +62,12 @@ func update_max_life(value: int):
 
 func update_fire_rate(value: float):
 	weapon.fire_rate = value
-	print(value)
 
 func update_movement_speed(value: float):
 	player_body.speed = value
 
+func update_extra_prop_count(value: int):
+	weapon.extra_proj_count = value
+
+func update_bullet_lifetime(value: float):
+	weapon.bullet_lifetime = value

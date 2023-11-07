@@ -4,7 +4,7 @@ class_name Stat
 signal on_value_changed(value)
 
 @export var stat_mod_container : Array[StatMod] = []
-		
+
 @export var value : float:
 	get: 
 		if is_dirty:
@@ -26,7 +26,7 @@ func calculate_value():
 			StatMod.StatModType.FLAT:
 				temp_value += stat_mod.value
 			StatMod.StatModType.MULTIPLIER:
-				temp_value *= stat_mod.value
+				temp_value *= 1 + (stat_mod.value / 100)
 	value = temp_value
 	is_dirty = false
 

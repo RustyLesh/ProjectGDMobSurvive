@@ -1,8 +1,9 @@
-Node
 Label
-HBoxContainer
 Button
+Control
 Panel
+Node
+HBoxContainer
 TextureProgressBar
 PanelContainer
 Sprite2D
@@ -14,7 +15,6 @@ AnimationPlayer
 Node2D
 Timer
 NavigationRegion2D
-Control
 CanvasLayer
 Marker2D
 PathFollow2D

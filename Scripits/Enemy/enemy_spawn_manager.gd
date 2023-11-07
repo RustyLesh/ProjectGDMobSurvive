@@ -7,6 +7,10 @@ extends Node2D
 var topLeft : Vector2
 var botRight : Vector2 
 
+@onready var timer: Timer = $Timer
+signal on_spawn_timer_pause()
+signal on_spawn_timer_play()
+
 @export var wallSpawnBuffer = 0.0
 @onready var container = $Container
 @export var time = 0
@@ -24,10 +28,14 @@ func _ready():
 		botRight.y -= wallSpawnBuffer
 		
 		botRight *= -1
-		
-		print(topLeft)
-		print(botRight)
-		print(botRightArray.size())
+
+func pause_timer():
+	timer.paused = true
+	on_spawn_timer_pause.emit()
+
+func play_timer():
+	timer.paused = false
+	on_spawn_timer_play.emit()
 
 func _on_timer_timeout():
 	time += 1

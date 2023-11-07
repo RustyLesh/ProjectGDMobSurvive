@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Bullet
 signal destroy()
 
 @export var speed = 20
