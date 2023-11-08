@@ -5,7 +5,7 @@ class_name Enemy
 
 var xp_drop: PackedScene = preload("res://Objects/xp_drop.tscn")
 @export var xp_value : float = 10
-
+@export var damage: float = 10
 func _init():
 	entity_type = EntityType.GRUNT
 
@@ -26,3 +26,5 @@ func Spawn_XP():
 		xpDrop.global_position = $Body.global_position
 		get_parent().add_child(xpDrop)
 		
+func deal_damage() -> float:
+	return damage

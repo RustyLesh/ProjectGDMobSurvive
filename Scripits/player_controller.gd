@@ -25,3 +25,4 @@ func _physics_process(_delta):
 	
 	if aim_input.length() > deadzone:
 		rotation = aim_input.angle() + PI/2
+

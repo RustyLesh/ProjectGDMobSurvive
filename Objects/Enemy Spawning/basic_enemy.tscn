@@ -9,9 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
-[node name="BasicEnemy" type="Node" groups=["Enemy"]]
+[node name="BasicEnemy" type="Node" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 script = ExtResource("1_fx2s2")
 enemy_resource = ExtResource("2_ve6qq")
+sprite = NodePath("Body/Sprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_ygwsl")

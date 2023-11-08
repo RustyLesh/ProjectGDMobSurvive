@@ -19,11 +19,12 @@ spawn_animation = ExtResource("3_tgfim")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
-[node name="Boss Enemy" type="Node" groups=["Enemy"]]
+[node name="Boss Enemy" type="Node" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
 script = ExtResource("1_llghj")
 enemy_resource = SubResource("Resource_ijp61")
 xp_value = 100.0
 entity_type = 1
+sprite = NodePath("Body/Sprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_8kbki")

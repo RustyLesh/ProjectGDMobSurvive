@@ -10,8 +10,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
 size = Vector2(12, 12)
 
-[node name="Player" type="Node" groups=["player"]]
+[node name="Player" type="Node" node_paths=PackedStringArray("sprite") groups=["player"]]
 script = ExtResource("1_5g5kj")
+i_frame_duration = 0.25
+sprite = NodePath("PlayerBody/Sprite2D")
 
 [node name="Stat Container" parent="." instance=ExtResource("2_i0kg7")]
 
@@ -38,4 +40,4 @@ shape = SubResource("RectangleShape2D_o4i0v")
 zoom = Vector2(2.255, 2.255)
 position_smoothing_speed = 1.0
 
-[connection signal="died" from="Health" to="PlayerBody" method="_on_health_died"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
