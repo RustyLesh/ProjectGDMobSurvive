@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx1x8qfhvevi4"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy.gd" id="1_80lsg"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="2_awy41"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="3_c46uv"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_wyt6i"]
+[ext_resource type="Texture2D" uid="uid://ctoccfbavy0iw" path="res://Art/Enemies/blue_wisp.png" id="4_62akk"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="4_un5h3"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="5_8k6di"]
+
+[sub_resource type="Resource" id="Resource_halke"]
+script = ExtResource("2_awy41")
+enemy_name = "FaceCube"
+max_health = 10
+move_speed = 100
+sprite = ExtResource("4_62akk")
+spawn_animation = ExtResource("3_wyt6i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
+size = Vector2(11.3137, 11.3137)
+
+[node name="Blue Wisp" type="Node" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
+script = ExtResource("1_80lsg")
+enemy_resource = SubResource("Resource_halke")
+xp_value = 15.0
+sprite = NodePath("Body/Sprite2D")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_c46uv")
+
+[node name="Body" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("4_un5h3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture_filter = 1
+texture = ExtResource("5_8k6di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(1.78814e-07, -1.78814e-07)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_4e3wt")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Body"]
+
+[node name="Timer" type="Timer" parent="Body"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="timeout" from="Body/Timer" to="Body" method="_on_timer_timeout"]

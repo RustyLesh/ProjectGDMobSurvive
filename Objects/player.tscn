@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="1_cbo8b"]
 [ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
 [ext_resource type="PackedScene" uid="uid://d2ipya06c0n65" path="res://Objects/stat_container.tscn" id="2_i0kg7"]
-[ext_resource type="Script" path="res://Scripits/weapon.gd" id="3_yod0w"]
+[ext_resource type="Script" path="res://Scripits/Weapons/weapon_manager.gd" id="3_f1cye"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
@@ -13,14 +13,16 @@ size = Vector2(12, 12)
 [node name="Player" type="Node" node_paths=PackedStringArray("sprite") groups=["player"]]
 script = ExtResource("1_5g5kj")
 i_frame_duration = 0.25
+entity_type = 2
 sprite = NodePath("PlayerBody/Sprite2D")
 
 [node name="Stat Container" parent="." instance=ExtResource("2_i0kg7")]
 
-[node name="Weapon" type="Node" parent="."]
-script = ExtResource("3_yod0w")
+[node name="Weapon Manager" type="Node" parent="." node_paths=PackedStringArray("weapons")]
+script = ExtResource("3_f1cye")
+weapons = [null]
 
-[node name="BulletContainer" type="Node" parent="Weapon"]
+[node name="Bullet Container" type="Node" parent="Weapon Manager"]
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("5_yio5s")

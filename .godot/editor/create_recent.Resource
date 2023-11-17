@@ -1,3 +1,5 @@
+WeaponResource
+WeaponUpgrade
 UpgradeResource
 BaseStatUpgrade
 EnemyResource

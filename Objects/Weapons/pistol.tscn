@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://da7ww05aoof2x"]
+
+[ext_resource type="Script" path="res://Scripits/Weapons/pistol.gd" id="1_ugvqq"]
+
+[node name="pistol" type="Node"]
+script = ExtResource("1_ugvqq")
+fire_rate = 1.0
+weapon_resource = null

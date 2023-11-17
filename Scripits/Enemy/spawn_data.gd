@@ -2,7 +2,6 @@ extends Resource
 
 class_name spawn_data
 
-
 @export var time_start: int
 @export var time_end: int
 @export var enemy: Resource
@@ -10,4 +9,4 @@ class_name spawn_data
 @export var enemy_amount: int
 @export var spawn_delay: int
 
-var spawn_delay_counter = 0
+var spawn_delay_counter := 9999

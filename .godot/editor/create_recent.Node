@@ -1,9 +1,11 @@
-Timer
-Button
+Node
 Label
+TextureRect
 Control
 Panel
-Node
+Button
+VBoxContainer
+Timer
 HBoxContainer
 TextureProgressBar
 PanelContainer

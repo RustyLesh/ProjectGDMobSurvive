@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfwq2mxyxa4td" path="res://Art/Upgrade Icons/Sword.png" id="1_21r2h"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_l7csg"]
-[ext_resource type="Script" path="res://Scripits/base_stat_upgrade.gd" id="3_5kpnk"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_5kpnk"]
 
 [sub_resource type="Resource" id="Resource_xo5uc"]
 script = ExtResource("3_5kpnk")

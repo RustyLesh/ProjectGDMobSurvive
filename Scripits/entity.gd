@@ -3,7 +3,8 @@ class_name Entity
 
 enum EntityType{
 	GRUNT,
-	BOSS
+	BOSS,
+	PLAYER,
 }
 
 @onready var health = $Health

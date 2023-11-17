@@ -11,7 +11,7 @@ var base_stats: Array[BaseStat]
 
 @onready var health : Health = $"../Health"
 @onready var player_body : PlayerController = $"../PlayerBody"
-@onready var weapon : Weapon = $"../Weapon"
+@onready var weapon_manager : WeaponManager = $"../Weapon Manager"
 
 func _ready():
 	for base_stat in BaseStat.BaseStatType.keys():
@@ -61,13 +61,13 @@ func update_max_life(value: int):
 	health.set_max_health(value)
 
 func update_fire_rate(value: float):
-	weapon.fire_rate = value
+	weapon_manager.fire_rate = value
 
 func update_movement_speed(value: float):
 	player_body.speed = value
 
 func update_extra_prop_count(value: int):
-	weapon.extra_proj_count = value
+	weapon_manager.extra_proj_count = value
 
 func update_bullet_lifetime(value: float):
-	weapon.bullet_lifetime = value
+	weapon_manager.bullet_lifetime = value

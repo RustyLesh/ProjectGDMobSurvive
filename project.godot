@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="MobSurvive"
-run/main_scene="res://Objects/combat_level.tscn"
+run/main_scene="res://Objects/Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerSetup="*res://player_setup.tscn"
 
 [display]
 

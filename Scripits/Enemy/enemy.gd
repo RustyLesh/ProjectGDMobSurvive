@@ -28,3 +28,4 @@ func Spawn_XP():
 		
 func deal_damage() -> float:
 	return damage
+

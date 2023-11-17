@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq0utpd576hbh"]
+
+[ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
+[ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="1_cbo8b"]
+[ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
+[ext_resource type="PackedScene" uid="uid://d2ipya06c0n65" path="res://Objects/stat_container.tscn" id="2_i0kg7"]
+[ext_resource type="Script" path="res://Scripits/weapon.gd" id="3_yod0w"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
+size = Vector2(12, 12)
+
+[node name="Player" type="Node" node_paths=PackedStringArray("sprite") groups=["player"]]
+script = ExtResource("1_5g5kj")
+i_frame_duration = 0.25
+entity_type = 2
+sprite = NodePath("PlayerBody/Sprite2D")
+
+[node name="Stat Container" parent="." instance=ExtResource("2_i0kg7")]
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("3_yod0w")
+
+[node name="BulletContainer" type="Node" parent="Weapon"]
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_yio5s")
+max_health = null
+current_health = null
+
+[node name="PlayerBody" type="CharacterBody2D" parent="." groups=["player"]]
+collision_mask = 14
+script = ExtResource("2_cktqb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerBody"]
+texture_filter = 1
+texture = ExtResource("1_cbo8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" groups=["player"]]
+shape = SubResource("RectangleShape2D_o4i0v")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+zoom = Vector2(2.255, 2.255)
+position_smoothing_speed = 1.0
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]

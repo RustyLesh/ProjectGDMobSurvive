@@ -3,5 +3,5 @@ class_name Upgrade
 
 @export var value: float 
 
-func apply_upgrade(player_stat_container: Node) -> Resource:
+func apply_upgrade(player: Node) -> Resource:
 	return self

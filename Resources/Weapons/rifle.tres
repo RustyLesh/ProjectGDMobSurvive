@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://csqmkf7ke8qby"]
+
+[ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
+[ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
+
+[resource]
+script = ExtResource("1_380wp")
+weapon_name = "Rifle"
+description = "Pew pew"
+weapon = ExtResource("2_3nes6")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])

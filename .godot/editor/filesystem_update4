@@ -1,13 +1,24 @@
-res://Objects/player.tscn
+res://Objects/Weapons/pistol.tscn
 res://Scripits/Enemy/enemy_spawner.gd
 res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Objects/enemy_spawn_manager.tscn
-res://Objects/GUI/upgrade_manager.tscn
-res://Objects/GUI/HUD.tscn
+res://Resources/Upgrades/attack_speed_flat.tres
+res://Resources/Upgrades/attack_speed_percent.tres
+res://Resources/Upgrades/damage_flat.tres
+res://Resources/Upgrades/damage_percent.tres
+res://Resources/Upgrades/max_life_flat_upgrade.tres
+res://Resources/Upgrades/max_life_multiplier_upgrade.tres
+res://Resources/Upgrades/movement_speed_flat_upgrade.tres
+res://Resources/Upgrades/projectile_life_time.tres
+res://Resources/Upgrades/projectile_count_upgrade.tres
+res://Resources/Weapons/pistol.tres
+res://Scripits/Weapons/weapon.gd
+res://Objects/Weapons/rifle.tscn
+res://Resources/Weapons/rifle.tres
+res://Objects/combat_level.tscn
+res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
-res://Objects/stat_container.tscn
 res://Objects/GUI/upgrade_option.tscn
-res://Objects/Enemy Spawning/basic_enemy.tscn
-res://Objects/Enemy Spawning/boss_enemy.tscn
-res://Scripits/player.gd
+res://player_setup.tscn
+res://Objects/player.tscn
+res://Objects/bullet.tscn

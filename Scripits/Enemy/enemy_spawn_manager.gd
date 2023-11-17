@@ -14,6 +14,7 @@ signal on_spawn_timer_play()
 @export var wallSpawnBuffer = 0.0
 @onready var container = $Container
 @export var time = 0
+
 func _ready():
 	var tilemap = get_tree().get_first_node_in_group("Level").get_node("Tile_Map")
 	
@@ -45,16 +46,16 @@ func _on_timer_timeout():
 		spawn(i)
 
 func spawn(spawn_data):
-	var spawn_animation = base_spawn_animation.instantiate()
-	
 	if time >= spawn_data.time_start && time <= spawn_data.time_end:
+		spawn_data.spawn_delay_counter = 9999 #Force first wave to spawn immediately
 		if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
 			spawn_data.spawn_delay_counter += 1
 		else:
-			spawn_data.spawn_delay_counter
+			spawn_data.spawn_delay_counter = 0
 			var new_enemy = load(str(spawn_data.enemy.resource_path))
 			var counter = 0
 			while counter < spawn_data.enemy_amount:
+				var spawn_animation = base_spawn_animation.instantiate()
 				var spawnPos = get_random_position()
 				container.add_child(spawn_animation)
 				spawn_animation.sprite_frames = spawn_data.spawn_animation
