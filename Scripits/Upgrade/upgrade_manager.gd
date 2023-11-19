@@ -8,7 +8,6 @@ class_name UpgradeManager
 @onready var player_stat_container = player.get_node("Stat Container")
 @onready var player_body 
 
-@export var base_uprgade_pool: Array[UpgradeResource] #Starting upgrades, should not be changed in game
 var upgrade_pool: Array[UpgradeResource] #When upgrades are rolled an choseen, the are removed from here.
 var removed_upgrades: Array[UpgradeResource]
 var current_upgrade_points : int = 0:
@@ -71,7 +70,7 @@ func get_upgrade_options() -> Array[UpgradeResource]:
 	return options_return
 
 func init_upgrade_pool(): #copy over base upgrades and add upgrades from other sources to the upgrade pool
-	upgrade_pool = base_uprgade_pool.duplicate()
+	upgrade_pool = PlayerSetup.upgrade_pool.duplicate()
 	#add upgrades from other sources to upgrade pool here
 
 func roll_upgrade_options():

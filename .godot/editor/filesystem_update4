@@ -11,10 +11,10 @@ res://Resources/Upgrades/max_life_multiplier_upgrade.tres
 res://Resources/Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Upgrades/projectile_life_time.tres
 res://Resources/Upgrades/projectile_count_upgrade.tres
+res://Resources/Upgrades/pierce.tres
 res://Resources/Weapons/pistol.tres
-res://Scripits/Weapons/weapon.gd
-res://Objects/Weapons/rifle.tscn
 res://Resources/Weapons/rifle.tres
+res://Scripits/Weapons/pistol.gd
 res://Objects/combat_level.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
@@ -22,3 +22,12 @@ res://Objects/GUI/upgrade_option.tscn
 res://player_setup.tscn
 res://Objects/player.tscn
 res://Objects/bullet.tscn
+res://Objects/Weapons/rifle.tscn
+res://Scripits/Upgrade/upgrade_manager.gd
+res://player_setup.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/Weapons/rifle.gd
+res://Objects/stat_container.tscn
+res://Scripits/stat_container.gd

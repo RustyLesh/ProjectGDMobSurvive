@@ -4,7 +4,7 @@ extends Weapon
 
 func init_weapon():
 	while true:
-		for i in 1 + weapon_manager.extra_proj_count:
+		for i in weapon_manager.base_extra_proj + 1 + weapon_manager.extra_proj_count:
 			var bullet_instance = bullet_scene.instantiate()
 			if bullet_instance is Bullet:
 				bullet_instance.lifetime = weapon_manager.bullet_lifetime

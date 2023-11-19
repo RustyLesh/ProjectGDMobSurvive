@@ -4,11 +4,14 @@ var bullet_scene = preload("res://Objects/bullet.tscn")
 
 #Shots per second
 #Global weapon stats
-@export var fire_rate = 2.0 : set = set_fire_rate 
+
 @export var extra_proj_count: int = 0;
-@export var shot_angle_variation = 15
+@export var pierce: int = 0
+@export var fire_rate: float = 2.0: set = set_fire_rate 
+@export var shot_angle_variation: float = 15
 @export var bullet_lifetime: float = 1.0
 @export var weapons: Array[Weapon]
+
 var delay
 @onready var bullet_container = $"Bullet Container"
 @onready var player_body = $"../PlayerBody"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=28 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -7,18 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
-[ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/attack_speed_flat.tres" id="7_27ohv"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
-[ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/attack_speed_percent.tres" id="8_dipeo"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_3xv3n"]
-[ext_resource type="Resource" uid="uid://bdxv6tmupmprg" path="res://Resources/Upgrades/damage_flat.tres" id="9_udn75"]
-[ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/damage_percent.tres" id="10_q0py5"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="10_ugrhp"]
-[ext_resource type="Resource" uid="uid://bqsm0wdqyqyqi" path="res://Resources/Upgrades/max_life_flat_upgrade.tres" id="11_s014y"]
-[ext_resource type="Resource" uid="uid://cxrx58jgh0fj7" path="res://Resources/Upgrades/max_life_multiplier_upgrade.tres" id="12_e8y1b"]
-[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/movement_speed_flat_upgrade.tres" id="13_skxst"]
-[ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/projectile_life_time.tres" id="14_248tb"]
-[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/projectile_count_upgrade.tres" id="14_ktsh8"]
 [ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://Objects/Enemy Spawning/face_cube.tscn" id="16_x2rem"]
 [ext_resource type="PackedScene" uid="uid://i33ht8h2i6w1" path="res://Objects/Enemy Spawning/red_diamond.tscn" id="19_3kucp"]
 [ext_resource type="PackedScene" uid="uid://yp6ntslmsiha" path="res://Objects/Enemy Spawning/slime_eye.tscn" id="20_3mvc6"]
@@ -216,7 +207,6 @@ layer_1/tile_data = PackedInt32Array(-1572895, 0, 1, -1507359, 0, 1, -1441823, 0
 [node name="Player" parent="." instance=ExtResource("2_8wjfs")]
 
 [node name="Upgrade Manager" parent="." instance=ExtResource("4_x36hy")]
-base_uprgade_pool = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("14_248tb"), ExtResource("7_27ohv"), ExtResource("8_dipeo"), ExtResource("9_udn75"), ExtResource("10_q0py5"), ExtResource("11_s014y"), ExtResource("12_e8y1b"), ExtResource("13_skxst"), ExtResource("14_ktsh8")])
 bonus_points = 5
 number_of_choices = 3
 

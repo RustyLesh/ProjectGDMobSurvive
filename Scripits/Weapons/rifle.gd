@@ -7,6 +7,7 @@ func init_weapon():
 		for i in 1 + weapon_manager.extra_proj_count:
 			var bullet_instance = bullet_scene.instantiate()
 			if bullet_instance is Bullet:
+				bullet_instance.pierce = weapon_manager.pierce
 				bullet_instance.lifetime = weapon_manager.bullet_lifetime
 			weapon_manager.bullet_container.add_child(bullet_instance)
 			bullet_instance.global_position = weapon_manager.player_body.global_position

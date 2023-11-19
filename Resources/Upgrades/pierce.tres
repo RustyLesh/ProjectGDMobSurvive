@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://cdn30i7s7ws3e"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="1_oebdw"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_q50y6"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="1_x52se"]
+
+[sub_resource type="Resource" id="Resource_ajvot"]
+script = ExtResource("1_oebdw")
+mod_type = 0
+base_stat_type = 6
+value = 1.0
+
+[resource]
+script = ExtResource("1_q50y6")
+name = "Increase pierce"
+description = "Bullets hit more enemies before dissapearing"
+icon = ExtResource("1_x52se")
+upgrade = SubResource("Resource_ajvot")
+max_uses = 4

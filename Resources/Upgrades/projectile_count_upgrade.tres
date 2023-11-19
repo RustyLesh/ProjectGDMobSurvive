@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://dxwrjweydftq6"]
 
-[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="1_gfvto"]
+[ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="1_dif5e"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_tv355"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_ptmw3"]
 
@@ -14,6 +14,6 @@ value = 1.0
 script = ExtResource("2_tv355")
 name = "Projectile Counter"
 description = ""
-icon = ExtResource("1_gfvto")
+icon = ExtResource("1_dif5e")
 upgrade = SubResource("Resource_qudyi")
-max_uses = 2
+max_uses = 5

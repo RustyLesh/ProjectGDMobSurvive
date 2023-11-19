@@ -53,6 +53,7 @@ func init_stats():
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].on_value_changed.connect(update_fire_rate)
 	base_stats[BaseStat.BaseStatType.PROJ_COUNT].on_value_changed.connect(update_extra_prop_count)
 	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
+	base_stats[BaseStat.BaseStatType.PIERCE].on_value_changed.connect(update_pierce)
 	
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)
@@ -71,3 +72,6 @@ func update_extra_prop_count(value: int):
 
 func update_bullet_lifetime(value: float):
 	weapon_manager.bullet_lifetime = value
+
+func update_pierce(value: float):
+	weapon_manager.pierce = value

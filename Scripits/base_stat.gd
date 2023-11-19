@@ -9,6 +9,7 @@ enum BaseStatType
 	MOVEMENT_SPEED,
 	PROJ_COUNT, #Extra pojectiles 
 	BULLET_LIFE_TIME,
+	PIERCE,
 	COUNT
 }
 

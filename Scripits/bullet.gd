@@ -5,6 +5,9 @@ signal destroy()
 @export var speed = 20
 @export var lifetime := 1
 @export var base_damage = 1
+@export var pierce_counter:int = 0
+@export var pierce: int
+
 var dead = false
 
 func _ready():
@@ -17,8 +20,10 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.get_parent() is Entity:
 		body.get_parent().take_damage(base_damage)
-		
-	call_deferred("kill_self")
+		if pierce_counter >= pierce:
+			call_deferred("kill_self")
+		else: 
+			pierce_counter += 1
 
 
 #after life time of bullet runns out, runs the kill function
