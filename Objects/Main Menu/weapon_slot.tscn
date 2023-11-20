@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpvlv2tyyajyn"]
+
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_button.gd" id="1_hnqxh"]
+[ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="2_m2b2s"]
+
+[node name="WeaponSlot" type="Button"]
+custom_minimum_size = Vector2(0, 60)
+script = ExtResource("1_hnqxh")
+weapon = ExtResource("2_m2b2s")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,5 +1,5 @@
 extends Button
-
+class_name WeaponSelectButton
 signal on_weapon_select(weapon: Weapon)
 
 @export var weapon: WeaponResource

@@ -1,3 +1,4 @@
+res://Objects/GUI
 res://Resources/Upgrades
 res://Scripits/Upgrade
 res://Resources/Weapons
@@ -8,7 +9,6 @@ res://Objects/Weapons
 res://Art/Enemies
 res://Objects/enemy_spawn_animations
 res://Scripits/GUI
-res://Objects/GUI
 res://Scripits
 res://Objects
 res://Scripits/Drops

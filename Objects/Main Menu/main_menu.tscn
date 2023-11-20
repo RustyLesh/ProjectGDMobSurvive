@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
-[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_button.gd" id="2_g2oc3"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_weapon_info.gd" id="3_8uejl"]
-[ext_resource type="Resource" uid="uid://bvrowcy1buu1b" path="res://Resources/Weapons/pistol.tres" id="3_rfwu6"]
-[ext_resource type="Resource" uid="uid://blb7xninexq1t" path="res://Resources/Weapons/rifle.tres" id="4_s4r8t"]
+[ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="3_rfwu6"]
+[ext_resource type="Resource" uid="uid://csqmkf7ke8qby" path="res://Resources/Weapons/rifle.tres" id="4_s4r8t"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_apfln"]
 
@@ -28,50 +28,37 @@ offset_bottom = 1272.0
 theme_override_font_sizes/font_size = 50
 text = "Start"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_top = 280.0
-offset_right = 720.0
-offset_bottom = 536.0
+[node name="Weapon Select Menu" type="Node" parent="."]
+script = ExtResource("2_0m2n6")
+weapons = Array[Resource("res://Scripits/Weapons/weapon_resource.gd")]([ExtResource("3_rfwu6"), ExtResource("4_s4r8t")])
 
-[node name="Weapon 1" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-script = ExtResource("2_g2oc3")
-weapon = ExtResource("3_rfwu6")
-
-[node name="Weapon 2" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-script = ExtResource("2_g2oc3")
-weapon = ExtResource("4_s4r8t")
-
-[node name="Selected Weapon" type="Node" parent="."]
+[node name="Selected Weapon" type="Node" parent="Weapon Select Menu"]
 script = ExtResource("3_8uejl")
 
-[node name="Icon" type="TextureRect" parent="Selected Weapon"]
+[node name="Icon" type="TextureRect" parent="Weapon Select Menu/Selected Weapon"]
 offset_left = 40.0
 offset_top = 104.0
 offset_right = 144.0
 offset_bottom = 208.0
 texture = SubResource("CanvasTexture_apfln")
 
-[node name="Name" type="Label" parent="Selected Weapon"]
+[node name="Name" type="Label" parent="Weapon Select Menu/Selected Weapon"]
 offset_left = 152.0
 offset_top = 104.0
 offset_right = 696.0
 offset_bottom = 144.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
 
-[node name="Description" type="Label" parent="Selected Weapon"]
+[node name="Description" type="Label" parent="Weapon Select Menu/Selected Weapon"]
 offset_left = 152.0
 offset_top = 152.0
 offset_right = 696.0
 offset_bottom = 208.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Weapon Select Menu"]
+offset_top = 280.0
+offset_right = 720.0
+offset_bottom = 536.0
+
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
-[connection signal="on_weapon_select" from="VBoxContainer/Weapon 1" to="Selected Weapon" method="_on_weapon_select"]
-[connection signal="pressed" from="VBoxContainer/Weapon 1" to="VBoxContainer/Weapon 1" method="_on_pressed"]
-[connection signal="on_weapon_select" from="VBoxContainer/Weapon 2" to="Selected Weapon" method="_on_weapon_select"]
-[connection signal="pressed" from="VBoxContainer/Weapon 2" to="VBoxContainer/Weapon 2" method="_on_pressed"]

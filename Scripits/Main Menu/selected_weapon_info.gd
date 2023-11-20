@@ -1,8 +1,9 @@
 extends Node
+class_name WeaponSelectInfo
 
-@onready var weapon_name : Label = $Name
-@onready var description : Label = $Description
-@onready var icon : TextureRect = $Icon
+@onready var weapon_name: Label = $Name
+@onready var description: Label = $Description
+@onready var icon: TextureRect = $Icon
 
 func _on_weapon_select(weapon):
 	if weapon is WeaponResource:

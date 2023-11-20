@@ -1,33 +1,27 @@
-res://Objects/Weapons/pistol.tscn
+res://Objects/GUI/upgrade_option.tscn
 res://Scripits/Enemy/enemy_spawner.gd
 res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/attack_speed_percent.tres
 res://Resources/Upgrades/damage_flat.tres
-res://Resources/Upgrades/damage_percent.tres
-res://Resources/Upgrades/max_life_flat_upgrade.tres
-res://Resources/Upgrades/max_life_multiplier_upgrade.tres
 res://Resources/Upgrades/movement_speed_flat_upgrade.tres
-res://Resources/Upgrades/projectile_life_time.tres
 res://Resources/Upgrades/projectile_count_upgrade.tres
-res://Resources/Upgrades/pierce.tres
 res://Resources/Weapons/pistol.tres
+res://Resources/Upgrades/damage_percent.tres
+res://Resources/Upgrades/projectile_life_time.tres
+res://Resources/Upgrades/pierce.tres
 res://Resources/Weapons/rifle.tres
-res://Scripits/Weapons/pistol.gd
+res://Scripits/Main Menu/main_menu.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
+res://Scripits/Main Menu/weapon_select_button.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
 res://Objects/combat_level.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
-res://Objects/GUI/upgrade_option.tscn
 res://player_setup.tscn
 res://Objects/player.tscn
 res://Objects/bullet.tscn
-res://Objects/Weapons/rifle.tscn
-res://Scripits/Upgrade/upgrade_manager.gd
-res://player_setup.gd
-res://Scripits/Main Menu/selected_weapon_info.gd
-res://Scripits/Weapons/weapon.gd
-res://Scripits/Weapons/weapon_manager.gd
-res://Scripits/Weapons/rifle.gd
-res://Objects/stat_container.tscn
-res://Scripits/stat_container.gd
+res://Objects/Weapons/pistol.tscn
+res://Objects/Main Menu/main_menu.tscn
+res://Objects/Main Menu/weapon_slot.tscn
