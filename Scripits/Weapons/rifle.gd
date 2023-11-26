@@ -9,6 +9,7 @@ func init_weapon():
 			if bullet_instance is Bullet:
 				bullet_instance.pierce = weapon_manager.pierce
 				bullet_instance.lifetime = weapon_manager.bullet_lifetime
+				bullet_instance.on_hit_effects = on_hit_effects
 			weapon_manager.bullet_container.add_child(bullet_instance)
 			bullet_instance.global_position = weapon_manager.player_body.global_position
 			var shot_angle = deg_to_rad( randi_range(-shot_angle_variation/2 ,shot_angle_variation / 2))

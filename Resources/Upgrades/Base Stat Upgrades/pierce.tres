@@ -16,4 +16,5 @@ name = "Increase pierce"
 description = "Bullets hit more enemies before dissapearing"
 icon = ExtResource("1_x52se")
 upgrade = SubResource("Resource_ajvot")
+added_upgrades = Array[ExtResource("1_q50y6")]([])
 max_uses = 4

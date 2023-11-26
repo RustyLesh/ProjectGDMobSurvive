@@ -54,6 +54,8 @@ func select_upgrade(choice: int):
 			selected_upgrade.current_uses += 1
 		
 		selected_upgrade.upgrade.apply_upgrade(player)
+		if selected_upgrade.added_upgrades.size() > 0:
+			upgrade_pool.append(selected_upgrade.added_upgrades)
 		spent_points += 1
 		current_upgrade_points_changed.emit(current_upgrade_points)
 		

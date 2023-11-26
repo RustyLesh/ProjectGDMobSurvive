@@ -16,4 +16,5 @@ name = "Movement Speed Flat"
 description = ""
 icon = ExtResource("1_1ou4u")
 upgrade = SubResource("Resource_iy37m")
+added_upgrades = Array[ExtResource("2_eltbr")]([])
 max_uses = 2

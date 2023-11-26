@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name WeaponSelectInfo
 
 @onready var weapon_name: Label = $Name

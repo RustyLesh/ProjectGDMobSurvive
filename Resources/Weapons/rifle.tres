@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
 [ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
-[ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
-[ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/attack_speed_percent.tres" id="4_kxeyq"]
-[ext_resource type="Resource" uid="uid://bdxv6tmupmprg" path="res://Resources/Upgrades/damage_flat.tres" id="5_u5lyu"]
-[ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/damage_percent.tres" id="6_4ufd7"]
-[ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/projectile_life_time.tres" id="7_ogqs4"]
-[ext_resource type="Resource" uid="uid://cdn30i7s7ws3e" path="res://Resources/Upgrades/pierce.tres" id="8_cfu0p"]
+[ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
+[ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres" id="4_kxeyq"]
+[ext_resource type="Resource" uid="uid://bdxv6tmupmprg" path="res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres" id="5_u5lyu"]
+[ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres" id="6_4ufd7"]
+[ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres" id="7_ogqs4"]
+[ext_resource type="Resource" uid="uid://cdn30i7s7ws3e" path="res://Resources/Upgrades/Base Stat Upgrades/pierce.tres" id="8_cfu0p"]
 
 [resource]
 script = ExtResource("1_380wp")

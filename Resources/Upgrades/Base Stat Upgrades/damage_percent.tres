@@ -16,4 +16,5 @@ name = "Damage Multiplier"
 description = ""
 icon = ExtResource("1_21r2h")
 upgrade = SubResource("Resource_xo5uc")
+added_upgrades = Array[ExtResource("1_l7csg")]([])
 max_uses = 5

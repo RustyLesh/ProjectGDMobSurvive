@@ -1,4 +1,6 @@
 UpgradeResource
+OnHitEffectUpgrade
+SlowOnHit
 BaseStatUpgrade
 WeaponResource
 WeaponUpgrade

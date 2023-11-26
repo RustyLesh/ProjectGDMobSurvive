@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 @onready var vbox: VBoxContainer = $VBoxContainer
 @onready var selected_weapon_infobox: WeaponSelectInfo = $"Selected Weapon"
@@ -16,4 +16,6 @@ func _ready():
 		if weapon_button_instace is WeaponSelectButton:
 			weapon_button_instace.weapon = weapons[i]
 			weapon_button_instace.on_weapon_select.connect(selected_weapon_infobox._on_weapon_select)
-			
+			weapon_button_instace.icon = weapons[i].icon
+			weapon_button_instace.text = weapons[i].weapon_name
+	selected_weapon_infobox._on_weapon_select(weapons[0]) 

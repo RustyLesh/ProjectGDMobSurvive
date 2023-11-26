@@ -1,0 +1,149 @@
+[gd_scene load_steps=15 format=3 uid="uid://vnfr5eyvnfur"]
+
+[ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
+[ext_resource type="Texture2D" uid="uid://c5a6x1s6uymdg" path="res://Art/GUI/Icons/gear_icon.png" id="2_qnedt"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/main_menu_option.gd" id="3_6n16w"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/selected_weapon_info.gd" id="3_8uejl"]
+[ext_resource type="Texture2D" uid="uid://di1ceskp2eifk" path="res://Art/GUI/Icons/helmet_icon.png" id="3_opn5j"]
+[ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="3_rfwu6"]
+[ext_resource type="Texture2D" uid="uid://chgdfn0pand26" path="res://Art/GUI/Icons/weapon_icon.png" id="4_rvs8r"]
+[ext_resource type="Resource" uid="uid://csqmkf7ke8qby" path="res://Resources/Weapons/rifle.tres" id="4_s4r8t"]
+[ext_resource type="Texture2D" uid="uid://d2uf4x1qtmm7d" path="res://Art/GUI/Icons/combat_icon.png" id="5_q38tk"]
+[ext_resource type="Resource" uid="uid://ckty8glqppsvt" path="res://Resources/Weapons/test_weapon.tres" id="5_yb7sm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_apfln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kcg0"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74mk5")
+
+[node name="Mode Menu" type="Node" parent="."]
+
+[node name="Menu Options" type="Panel" parent="Mode Menu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -120.0
+offset_right = 352.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mpyl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Mode Menu/Menu Options"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 696.0
+offset_bottom = 104.0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Mode Menu/Menu Options/MarginContainer"]
+z_as_relative = false
+layout_mode = 2
+alignment = 1
+
+[node name="Options" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("2_qnedt")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 4
+
+[node name="Gear" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("3_opn5j")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 5
+
+[node name="Weapons" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("4_rvs8r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 2
+
+[node name="Combat" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("5_q38tk")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 3
+
+[node name="Weapon Select Menu" type="Node" parent="."]
+script = ExtResource("2_0m2n6")
+weapons = Array[Resource("res://Scripits/Weapons/weapon_resource.gd")]([ExtResource("3_rfwu6"), ExtResource("4_s4r8t"), ExtResource("5_yb7sm")])
+
+[node name="Selected Weapon" type="Node" parent="Weapon Select Menu"]
+script = ExtResource("3_8uejl")
+
+[node name="Icon" type="TextureRect" parent="Weapon Select Menu/Selected Weapon"]
+offset_left = 40.0
+offset_top = 104.0
+offset_right = 144.0
+offset_bottom = 208.0
+texture = SubResource("CanvasTexture_apfln")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="Weapon Select Menu/Selected Weapon"]
+offset_left = 152.0
+offset_top = 104.0
+offset_right = 696.0
+offset_bottom = 144.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
+
+[node name="Description" type="Label" parent="Weapon Select Menu/Selected Weapon"]
+offset_left = 152.0
+offset_top = 152.0
+offset_right = 696.0
+offset_bottom = 208.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Weapon Select Menu"]
+offset_top = 280.0
+offset_right = 720.0
+offset_bottom = 536.0
+
+[node name="Combat Prep Menu" type="Node" parent="."]
+
+[node name="Start" type="Button" parent="Combat Prep Menu"]
+offset_left = 384.0
+offset_top = 968.0
+offset_right = 712.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]

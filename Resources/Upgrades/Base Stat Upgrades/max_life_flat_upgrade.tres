@@ -16,4 +16,5 @@ name = "Max Life Flat"
 description = ""
 icon = ExtResource("1_afk12")
 upgrade = SubResource("Resource_snm66")
+added_upgrades = Array[ExtResource("2_0ehoj")]([])
 max_uses = 5

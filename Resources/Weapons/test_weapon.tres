@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://ckty8glqppsvt"]
+
+[ext_resource type="Texture2D" uid="uid://ghqd4icedypq" path="res://Art/Weapon Icons/DualPistols.png" id="1_o06vw"]
+[ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="2_7aoc4"]
+[ext_resource type="Resource" uid="uid://c7msjj21lwgnn" path="res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres" id="3_4norn"]
+[ext_resource type="PackedScene" uid="uid://da7ww05aoof2x" path="res://Objects/Weapons/pistol.tscn" id="11_kg5n4"]
+
+[resource]
+script = ExtResource("2_7aoc4")
+icon = ExtResource("1_o06vw")
+weapon_name = "Test wep"
+description = "Test"
+weapon = ExtResource("11_kg5n4")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("3_4norn")])

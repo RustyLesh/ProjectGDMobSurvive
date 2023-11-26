@@ -16,4 +16,5 @@ name = "Projectile Counter"
 description = ""
 icon = ExtResource("1_dif5e")
 upgrade = SubResource("Resource_qudyi")
+added_upgrades = Array[ExtResource("2_tv355")]([])
 max_uses = 5

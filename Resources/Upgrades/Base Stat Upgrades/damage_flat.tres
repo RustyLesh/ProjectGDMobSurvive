@@ -16,4 +16,5 @@ name = "Damage Flat"
 description = ""
 icon = ExtResource("1_uk558")
 upgrade = SubResource("Resource_mybaq")
+added_upgrades = Array[ExtResource("1_4gipl")]([])
 max_uses = 5

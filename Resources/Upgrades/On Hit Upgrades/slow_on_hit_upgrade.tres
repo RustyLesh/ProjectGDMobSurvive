@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=7 format=3 uid="uid://c7msjj21lwgnn"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="1_4fbtu"]
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="1_nawtx"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_obvlx"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="1_uer8y"]
+
+[sub_resource type="Resource" id="Resource_kvi1x"]
+script = ExtResource("1_uer8y")
+
+[sub_resource type="Resource" id="Resource_rng5m"]
+script = ExtResource("1_4fbtu")
+effect = SubResource("Resource_kvi1x")
+value = 500.0
+
+[resource]
+script = ExtResource("1_obvlx")
+name = "Slow on hit"
+description = "slow enemy on hit"
+icon = ExtResource("1_nawtx")
+upgrade = SubResource("Resource_rng5m")
+added_upgrades = Array[ExtResource("1_obvlx")]([])
+max_uses = 5

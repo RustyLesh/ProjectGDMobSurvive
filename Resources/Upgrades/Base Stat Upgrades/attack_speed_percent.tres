@@ -16,4 +16,5 @@ name = "Attack Speed Percent"
 description = ""
 icon = ExtResource("1_d1u8i")
 upgrade = SubResource("Resource_a1ge1")
+added_upgrades = Array[ExtResource("1_3am54")]([])
 max_uses = 3

@@ -16,4 +16,5 @@ name = "Max Life Percent"
 description = ""
 icon = ExtResource("1_6x1ox")
 upgrade = SubResource("Resource_xnp0g")
+added_upgrades = Array[ExtResource("2_unhxn")]([])
 max_uses = 5

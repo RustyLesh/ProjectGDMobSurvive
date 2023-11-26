@@ -16,4 +16,5 @@ name = "Attack Speed Flat"
 description = ""
 icon = ExtResource("1_pjuf0")
 upgrade = SubResource("Resource_mav2s")
+added_upgrades = Array[ExtResource("2_d6m14")]([])
 max_uses = 3

@@ -1,27 +1,28 @@
-res://Objects/GUI/upgrade_option.tscn
+res://Objects/Main Menu/main_menu.tscn
 res://Scripits/Enemy/enemy_spawner.gd
 res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Upgrades/attack_speed_flat.tres
-res://Resources/Upgrades/attack_speed_percent.tres
-res://Resources/Upgrades/damage_flat.tres
-res://Resources/Upgrades/movement_speed_flat_upgrade.tres
-res://Resources/Upgrades/projectile_count_upgrade.tres
+res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
+res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
+res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
+res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
+res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres
 res://Resources/Weapons/pistol.tres
-res://Resources/Upgrades/damage_percent.tres
-res://Resources/Upgrades/projectile_life_time.tres
-res://Resources/Upgrades/pierce.tres
+res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
+res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
+res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Weapons/rifle.tres
+res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
+res://Resources/Weapons/test_weapon.tres
 res://Scripits/Main Menu/main_menu.gd
-res://Scripits/Main Menu/selected_weapon_info.gd
-res://Scripits/Main Menu/weapon_select_button.gd
-res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/Main Menu/main_menu_option.gd
 res://Objects/combat_level.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
-res://player_setup.tscn
-res://Objects/player.tscn
-res://Objects/bullet.tscn
-res://Objects/Weapons/pistol.tscn
-res://Objects/Main Menu/main_menu.tscn
+res://Objects/GUI/upgrade_option.tscn
 res://Objects/Main Menu/weapon_slot.tscn
+res://Objects/player.tscn
+res://Objects/Weapons/rifle.tscn
+res://Objects/Weapons/pistol.tscn
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
