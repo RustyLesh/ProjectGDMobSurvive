@@ -58,6 +58,9 @@ func init_stats():
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)
 
+func remove_mod_from_base_stat(stat_type : BaseStat.BaseStatType, source: Resource):
+	base_stats[stat_type].remove_stat(source)
+	
 func update_max_life(value: int):
 	health.set_max_health(value)
 

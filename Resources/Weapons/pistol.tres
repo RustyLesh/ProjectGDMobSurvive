@@ -33,4 +33,4 @@ icon = ExtResource("1_jw5ly")
 weapon_name = "Dual Pistols"
 description = "Pew Pew"
 weapon = ExtResource("2_8si5s")
-upgrades = Array[ExtResource("9_fqv03")]([ExtResource("3_nu6ey"), ExtResource("4_eswq7"), ExtResource("5_w8ani"), ExtResource("6_lxvul"), ExtResource("7_gfakv"), SubResource("Resource_pt3sp"), null])
+upgrades = Array[ExtResource("9_fqv03")]([ExtResource("3_nu6ey"), ExtResource("4_eswq7"), ExtResource("5_w8ani"), ExtResource("6_lxvul"), ExtResource("7_gfakv"), SubResource("Resource_pt3sp")])

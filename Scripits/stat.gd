@@ -34,3 +34,8 @@ func sort_by_type(a, b):
 	if a.stat_mod_type < b.stat_mod_type:
 		return true
 	return false
+
+func remove_stat(source: Resource):
+	for stat_mod in stat_mod_container:
+		if stat_mod.source == source:
+			stat_mod_container.erase(stat_mod)
