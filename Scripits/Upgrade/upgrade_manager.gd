@@ -5,7 +5,7 @@ class_name UpgradeManager
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var  player: Node = get_tree().get_first_node_in_group(("player"))
-@onready var player_stat_container = player.get_node("Stat Container")
+@onready var player_stat_container = player.combat_stat_container
 @onready var player_body 
 
 var upgrade_pool: Array[UpgradeResource] #When upgrades are rolled an choseen, the are removed from here.

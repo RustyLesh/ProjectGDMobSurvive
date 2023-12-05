@@ -14,12 +14,15 @@ var bullet_scene = preload("res://Objects/bullet.tscn")
 @onready var bullet_container = $"Bullet Container"
 @onready var player_body = $"../PlayerBody"
 @onready var explosion_area_check: ExplosionAreaCheck = $ExplosionAreaCheck
-
+@onready var stat_container: CombatStatContainer = $"../Combat Stat Container"
 var delay
 
 func _ready():
+	await get_tree().create_timer(.1).timeout
 	set_fire_rate(fire_rate)
-	
+	extra_proj_count = stat_container.get_stat(BaseStat.BaseStatType.PROJ_COUNT).value
+	pierce = stat_container.get_stat(BaseStat.BaseStatType.PIERCE).value
+
 func set_fire_rate(value : float):
 	fire_rate = value
 	delay = 1/fire_rate

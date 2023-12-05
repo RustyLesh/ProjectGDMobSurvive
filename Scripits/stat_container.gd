@@ -1,6 +1,6 @@
 extends Node
 class_name StatContainer
-#[BaseStat.BaseStatType, BastStat]
+
 var base_stats: Array[BaseStat]
 
 #Base stats
@@ -9,16 +9,9 @@ var base_stats: Array[BaseStat]
 @export var fire_rate = 2
 @export var movement_speed = 100
 
-@onready var health : Health = $"../Health"
-@onready var player_body : PlayerController = $"../PlayerBody"
-@onready var weapon_manager : WeaponManager = $"../Weapon Manager"
-
-func _ready():
-	for base_stat in BaseStat.BaseStatType.keys():
-		var stat:= BaseStat.new()
-		stat.base_type = BaseStat.BaseStatType[base_stat]
-		base_stats.append(stat)
-	init_stats()
+var health : Health
+var player_body : PlayerController
+var weapon_manager : WeaponManager
 
 func get_stat(base_stat_type : BaseStat.BaseStatType) -> BaseStat:
 	return base_stats[base_stat_type]
@@ -40,21 +33,14 @@ func init_stats():
 	movement_speed_mod.value = movement_speed
 	movement_speed_mod.stat_mod_type = StatMod.StatModType.FLAT	
 	
+	if health is Health:
+		health.init_health(max_life)
+		
 	base_stats[BaseStat.BaseStatType.MAX_LIFE].apply_stat(life_mod)
 	base_stats[BaseStat.BaseStatType.DAMAGE].apply_stat(damage_mod)
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].apply_stat(fire_rate_mod)
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].apply_stat(movement_speed_mod)
-	
-	if health is Health:
-		health.init_health(max_life)
-		
-	base_stats[BaseStat.BaseStatType.MAX_LIFE].on_value_changed.connect(update_max_life)
-	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].on_value_changed.connect(update_movement_speed)
-	base_stats[BaseStat.BaseStatType.FIRE_RATE].on_value_changed.connect(update_fire_rate)
-	base_stats[BaseStat.BaseStatType.PROJ_COUNT].on_value_changed.connect(update_extra_prop_count)
-	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
-	base_stats[BaseStat.BaseStatType.PIERCE].on_value_changed.connect(update_pierce)
-	
+
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)
 
@@ -78,3 +64,11 @@ func update_bullet_lifetime(value: float):
 
 func update_pierce(value: float):
 	weapon_manager.pierce = value
+
+func init_stat_signals():
+	base_stats[BaseStat.BaseStatType.MAX_LIFE].on_value_changed.connect(update_max_life)
+	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].on_value_changed.connect(update_movement_speed)
+	base_stats[BaseStat.BaseStatType.FIRE_RATE].on_value_changed.connect(update_fire_rate)
+	base_stats[BaseStat.BaseStatType.PROJ_COUNT].on_value_changed.connect(update_extra_prop_count)
+	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
+	base_stats[BaseStat.BaseStatType.PIERCE].on_value_changed.connect(update_pierce)

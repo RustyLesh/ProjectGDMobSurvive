@@ -2,7 +2,7 @@ extends Entity
 class_name Player
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var weapon_manager: WeaponManager = $"Weapon Manager"
-
+@onready var combat_stat_container = $"Combat Stat Container"
 @export var i_frame_colour:= Color.RED
 @export var i_frame_duration : float  = 0.2#seconds
 @export var weapon: WeaponResource
@@ -12,6 +12,7 @@ var is_invulnerable: bool = false
 signal on_player_death()
 
 func _ready():
+	await get_tree().create_timer(.5).timeout
 	weapon = PlayerSetup.weapon
 	print(weapon)
 	if weapon_manager is WeaponManager:

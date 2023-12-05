@@ -5,7 +5,7 @@ class_name Weapon
 @export var fire_rate = 2.0 : set = set_fire_rate 
 @export var bullet_scene = preload("res://Objects/bullet.tscn")
 @export var on_hit_effects: Array[OnHitEffect]
-
+@export var base_stat_mods: Array[BaseStat]
 var delay
 
 func init_weapon():

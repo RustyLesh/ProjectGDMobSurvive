@@ -1,4 +1,4 @@
-res://Objects/Main Menu/main_menu.tscn
+res://Objects/GUI/upgrade_option.tscn
 res://Scripits/Enemy/enemy_spawner.gd
 res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
@@ -14,23 +14,30 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Weapons/rifle.tres
 res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
 res://Resources/Weapons/test_weapon.tres
-res://Scripits/Main Menu/main_menu.gd
+res://Resources/Gear/amulet.tres
+res://Resources/Gear/amulet2.tres
+res://Scripits/Main Menu/gear_menu.gd
+res://Scripits/gear_modifier.gd
 res://Objects/combat_level.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
-res://Objects/GUI/upgrade_option.tscn
+res://Objects/Main Menu/main_menu.tscn
 res://Objects/Main Menu/weapon_slot.tscn
 res://Objects/player.tscn
 res://Objects/Weapons/rifle.tscn
 res://Objects/Weapons/pistol.tscn
-res://Scripits/gear.gd
-res://Objects/Main Menu/gear_slot.gd
-res://Scripits/Main Menu/gear_manager.gd
-res://Scripits/gear_modifier.gd
-res://Scripits/stat_mod.gd
-res://Scripits/Upgrade/base_stat_upgrade.gd
-res://Scripits/Upgrade/on_hit_effect_upgrade.gd
+res://player_setup.tscn
+res://Objects/Main Menu/inventory_item.tscn
+res://Scripits/Upgrade/upgrade_resource.gd
 res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
+res://Scripits/Main Menu/selected_item_info.gd
+res://Scripits/Main Menu/character_menu.gd
+res://Scripits/Main Menu/main_menu.gd
 res://Scripits/stat.gd
-res://Scripits/stat_container.gd
-res://player_setup.gd
+res://Scripits/base_stat.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Weapons/pistol.gd
+res://Scripits/Main Menu/equiped_gear_menu.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/player.gd

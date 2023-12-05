@@ -36,6 +36,11 @@ func sort_by_type(a, b):
 	return false
 
 func remove_stat(source: Resource):
+	is_dirty = true
 	for stat_mod in stat_mod_container:
 		if stat_mod.source == source:
 			stat_mod_container.erase(stat_mod)
+			return
+
+func get_string() -> String:
+	return "empty"

@@ -14,3 +14,6 @@ enum BaseStatType
 }
 
 @export var base_type: BaseStatType
+
+func get_string() -> String:
+	return str(value, " ", BaseStatType.keys()[base_type])

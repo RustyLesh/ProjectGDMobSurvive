@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Gear" load_steps=6 format=3 uid="uid://dujk6sj2cfjjg"]
+
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="1_3uc7b"]
+[ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="1_6yjny"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_bvewt"]
+[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres" id="3_1ravd"]
+
+[sub_resource type="Resource" id="Resource_qhqh0"]
+script = ExtResource("2_bvewt")
+mod_type = 0
+upgrade = ExtResource("3_1ravd")
+
+[resource]
+script = ExtResource("1_3uc7b")
+name = "amy 2"
+description = "desc amy2"
+icon = ExtResource("1_6yjny")
+gear_type = 2
+mod_list = Array[ExtResource("2_bvewt")]([SubResource("Resource_qhqh0")])

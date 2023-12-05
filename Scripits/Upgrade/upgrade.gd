@@ -6,6 +6,11 @@ class_name Upgrade
 
 func apply_upgrade(player: Node):
 	pass
-
-func remove_upgrade(player: Node):
+func apply_upgrade_main_menu(player_stat_container: StatContainer):
 	pass
+	
+func remove_upgrade(stat_container: MainMenuStatContainer):
+	pass
+
+func get_upgrade_string() -> String:
+	return "empty"

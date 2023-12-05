@@ -20,7 +20,7 @@ i_frame_duration = 0.25
 entity_type = 2
 sprite = NodePath("PlayerBody/Sprite2D")
 
-[node name="Stat Container" parent="." instance=ExtResource("2_i0kg7")]
+[node name="Combat Stat Container" parent="." instance=ExtResource("2_i0kg7")]
 
 [node name="Weapon Manager" type="Node" parent="."]
 script = ExtResource("3_f1cye")

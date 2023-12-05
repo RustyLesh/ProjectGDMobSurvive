@@ -11,6 +11,8 @@ enum MenuType
 	CHARACTER,
 }
 
+signal on_start_combat()
+
 #Menu to start on launch
 @export var starting_menu: MenuType 
 var current_menu: MenuType
@@ -18,7 +20,8 @@ var current_menu: MenuType
 @onready var weapon_select_menu = $"Weapon Select Menu"
 @onready var combat_menu = $"Combat Prep Menu"
 @onready var gear_menu = $"Gear Menu"
-
+@onready var equipment_menu = $"Equiped Gear Menu"
+@onready var character_menu: CharacterMenu = $"Character Menu"
 func _ready():
 	weapon_select_menu.visible = false
 	combat_menu.visible = false
@@ -39,7 +42,10 @@ func change_menu(change_to: MenuType):
 	
 		MenuType.GEAR:
 			gear_menu.visible = false
-			
+		
+		MenuType.CHARACTER:
+			character_menu.visible = false
+		
 	current_menu = change_to
 
 	match current_menu:
@@ -51,3 +57,7 @@ func change_menu(change_to: MenuType):
 			
 		MenuType.GEAR:
 			gear_menu.visible = true
+			
+		MenuType.CHARACTER:
+			character_menu.update_ui()
+			character_menu.visible = true

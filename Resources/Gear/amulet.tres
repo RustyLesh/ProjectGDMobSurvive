@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Gear" load_steps=9 format=3 uid="uid://b0ts7ri14t386"]
+
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="1_765vs"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="1_jkkmg"]
+[ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="1_mok7y"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="2_y8gun"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_5r5o7"]
+
+[sub_resource type="Resource" id="Resource_183th"]
+script = ExtResource("2_y8gun")
+mod_type = 1
+base_stat_type = 1
+value = 17.0
+
+[sub_resource type="Resource" id="Resource_vc450"]
+script = ExtResource("3_5r5o7")
+name = ""
+description = ""
+upgrade = SubResource("Resource_183th")
+added_upgrades = Array[ExtResource("3_5r5o7")]([])
+max_uses = 0
+
+[sub_resource type="Resource" id="Resource_qhqh0"]
+script = ExtResource("1_765vs")
+mod_type = 0
+upgrade = SubResource("Resource_vc450")
+
+[resource]
+script = ExtResource("1_jkkmg")
+name = "amy 1"
+description = "desc amy"
+icon = ExtResource("1_mok7y")
+gear_type = 2
+mod_list = Array[ExtResource("1_765vs")]([SubResource("Resource_qhqh0")])

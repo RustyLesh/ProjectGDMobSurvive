@@ -1,3 +1,4 @@
+Gear
 UpgradeResource
 OnHitEffectUpgrade
 SlowOnHit
