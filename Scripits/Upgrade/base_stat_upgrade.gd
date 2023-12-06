@@ -23,7 +23,6 @@ func apply_upgrade_main_menu(player_stat_container: StatContainer):
 		player_stat_container.add_mod_to_base_stat(statmod, base_stat_type)
 	
 func remove_upgrade(stat_container: MainMenuStatContainer):
-	print("removed", BaseStat.BaseStatType.keys()[base_stat_type])
 	if stat_container is StatContainer:
 		stat_container.remove_mod_from_base_stat(base_stat_type, self)
 

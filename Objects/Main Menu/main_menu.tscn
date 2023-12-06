@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=31 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -28,6 +28,16 @@ bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 [sub_resource type="CanvasTexture" id="CanvasTexture_apfln"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kcg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlhyl"]
+bg_color = Color(0.470588, 0.6, 0.843137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0big1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh4tj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxlbl"]
+bg_color = Color(0.733333, 0.65098, 0.627451, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1uyx"]
 bg_color = Color(0.0901961, 0.211765, 0.243137, 1)
@@ -208,14 +218,18 @@ layout_mode = 0
 offset_left = 32.0
 offset_top = 168.0
 offset_right = 696.0
-offset_bottom = 704.0
+offset_bottom = 680.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_rlhyl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0big1")
 
 [node name="Upgrades" type="RichTextLabel" parent="Character Menu"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 168.0
+offset_top = 696.0
 offset_right = 696.0
-offset_bottom = 704.0
+offset_bottom = 1144.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_uh4tj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rxlbl")
 
 [node name="Equiped Gear Menu" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -4,7 +4,7 @@ class_name GearModifier
 enum GearModType
 {
 	APPLY_NOW,
-	APPLY_IN_COMBAT
+	ADD_TO_COMBAT_POOL
 }
 
 @export var mod_type: GearModType

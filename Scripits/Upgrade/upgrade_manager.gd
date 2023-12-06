@@ -72,7 +72,8 @@ func get_upgrade_options() -> Array[UpgradeResource]:
 	return options_return
 
 func init_upgrade_pool(): #copy over base upgrades and add upgrades from other sources to the upgrade pool
-	upgrade_pool = PlayerSetup.upgrade_pool.duplicate()
+	upgrade_pool = PlayerSetup.weapon_upgrade_pool.duplicate()
+	upgrade_pool.append_array(PlayerSetup.gear_upgrade_pool)
 	#add upgrades from other sources to upgrade pool here
 
 func roll_upgrade_options():
