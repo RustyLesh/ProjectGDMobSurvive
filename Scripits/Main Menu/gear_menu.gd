@@ -1,4 +1,5 @@
 extends Control
+class_name GearMenu
 
 @onready var item_list: ItemList = $"MarginContainer/Item List"
 @onready var selected_info_box: SelectedItemInfo = $"Item Info"
@@ -8,13 +9,22 @@ extends Control
 var inv_item_button: Resource = preload("res://Objects/Main Menu/inventory_item.tscn")
 
 @export var gear_list: Array[Gear]
+@export var gear_list_filtered: Array[Gear]
 @export var selected_item: int
+
 func _ready():
 	for i in gear_list.size():
 		var inv_item_button_scene = load(str(inv_item_button.resource_path))
 		var inv_item_button_instance = inv_item_button_scene.instantiate()
 		if item_list is ItemList:
 			item_list.add_item(gear_list[i].name, gear_list[i].icon)
+
+func refresh_item_list():
+	item_list.clear()
+	if !gear_list_filtered.is_empty():
+		for i in gear_list.size():
+			if item_list is ItemList:
+				item_list.add_item(gear_list_filtered[i].name, gear_list_filtered[i].icon)
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	selected_info_box.on_item_select(gear_list[index])
@@ -60,3 +70,10 @@ func remove_selected_item():
 	gear_list.erase(gear_list[selected_item])
 	item_list.remove_item(selected_item)
 
+func filter_by_type(gear_type: Gear.GearType):
+	gear_list_filtered.clear()
+	for gear in gear_list:
+		if gear.gear_type == gear_type:
+			gear_list_filtered.append(gear)
+	
+	refresh_item_list()

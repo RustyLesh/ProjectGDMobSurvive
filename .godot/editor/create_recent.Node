@@ -1,12 +1,14 @@
+Control
+Label
+TextEdit
+Panel
+VScrollBar
 RichTextLabel
 HBoxContainer
 Button
 ItemList
-Label
 ScrollContainer
 MarginContainer
-Panel
-Control
 GridContainer
 Node
 Sprite2D
@@ -28,5 +30,3 @@ PathFollow2D
 Path2D
 VisibleOnScreenNotifier2D
 NavigationAgent2D
-GPUParticles2D
-CharacterBody2D

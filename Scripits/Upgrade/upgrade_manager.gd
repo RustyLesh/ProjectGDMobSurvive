@@ -45,7 +45,6 @@ func get_upgrade(choice: int) -> UpgradeResource:
 	return null
 
 func select_upgrade(choice: int):
-	print("current points: ", current_upgrade_points, " current_level: ", current_level, " spent points: ", spent_points  )
 	if current_upgrade_points > 0:
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]
 		if selected_upgrade.current_uses >=  selected_upgrade.max_uses - 1:
@@ -54,7 +53,8 @@ func select_upgrade(choice: int):
 			selected_upgrade.current_uses += 1
 		
 		selected_upgrade.upgrade.apply_upgrade(player)
-		if selected_upgrade.added_upgrades.size() > 0:
+		#Check if there are any added upgrades and if this is the first time applying the selecting upgrade.
+		if selected_upgrade.added_upgrades.size() > 0 && selected_upgrade.current_uses == 0: 
 			upgrade_pool.append(selected_upgrade.added_upgrades)
 		spent_points += 1
 		current_upgrade_points_changed.emit(current_upgrade_points)
