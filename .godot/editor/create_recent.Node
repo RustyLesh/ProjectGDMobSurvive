@@ -1,11 +1,11 @@
-Control
+Button
 Label
-TextEdit
 Panel
+Control
+TextEdit
 VScrollBar
 RichTextLabel
 HBoxContainer
-Button
 ItemList
 ScrollContainer
 MarginContainer

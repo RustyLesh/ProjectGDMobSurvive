@@ -296,6 +296,7 @@ layout_mode = 2
 script = ExtResource("13_tyj7l")
 
 [node name="Gear Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -382,19 +383,20 @@ amulet_colour = Color(0.345098, 0.54902, 1, 1)
 helmet_colour = Color(0.839216, 0.690196, 0.737255, 1)
 ring_colour = Color(0.737255, 0.741176, 0.619608, 1)
 
-[node name="gear_type_filter" type="Button" parent="Gear Menu/Gear Filters"]
+[node name="gear_type_filter" type="Label" parent="Gear Menu/Gear Filters"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 400.0
 offset_right = 208.0
 offset_bottom = 448.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j10a5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Stat Container" type="Node" parent="."]
 script = ExtResource("15_eji0x")
 
 [node name="Ability Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -450,4 +452,3 @@ vertical_alignment = 1
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Amulet" to="Equiped Gear Menu/GearUIContainer/Amulet" method="_on_pressed"]
 [connection signal="item_selected" from="Gear Menu/MarginContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="equip_gear"]
-[connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]

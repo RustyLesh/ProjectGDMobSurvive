@@ -49,3 +49,17 @@ func on_gear_slot_selected(gear_type: Gear.GearType):
 	gear_menu.filter_by_type(gear_type)
 	if main_menu.current_menu != MainMenu.MenuType.GEAR:
 		main_menu.change_menu(MainMenu.MenuType.GEAR)
+
+func get_gear_in_slot(gear_type : Gear.GearType) -> Gear:
+	var return_gear
+	match gear_type:
+		Gear.GearType.HELMET:
+			return_gear = helmet_slot.equiped_gear
+		
+		Gear.GearType.AMULET:
+			return_gear = amulet_slot.equiped_gear
+		
+		Gear.GearType.RING:
+			return_gear = ring_slot.equiped_gear
+			
+	return return_gear

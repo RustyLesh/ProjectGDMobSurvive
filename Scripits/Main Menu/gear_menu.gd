@@ -26,10 +26,6 @@ func refresh_item_list():
 			if item_list is ItemList:
 				item_list.add_item(gear_list_filtered[i].name, gear_list_filtered[i].icon)
 
-func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	selected_info_box.on_item_select(gear_list[index])
-	selected_item = index
-
 func equip_gear():
 	#Equip selected item. Get already equiped item
 	var return_gear: Gear = equiped_gear_menu.equip_gear(gear_list[selected_item]) 
@@ -58,10 +54,10 @@ func equip_gear():
 				
 	if return_gear != null: #Add gear back to inventory
 		add_item(return_gear)
+		selected_info_box.on_item_select(equiped_gear_menu.get_gear_in_slot(return_gear.gear_type))
 	remove_selected_item() #Remove selected item from inventory
+	selected_item = -1
 	
-	selected_item = 0
-
 func add_item(gear: Gear):
 	gear_list.append(gear)
 	item_list.add_item(gear.name, gear.icon)
@@ -77,3 +73,11 @@ func filter_by_type(gear_type: Gear.GearType):
 			gear_list_filtered.append(gear)
 	
 	refresh_item_list()
+
+func remove_filters():
+	gear_list_filtered = gear_list.duplicate()
+	refresh_item_list()
+	
+func _on_item_list_item_selected(index):
+	selected_info_box.on_item_select(gear_list[index])
+	selected_item = index

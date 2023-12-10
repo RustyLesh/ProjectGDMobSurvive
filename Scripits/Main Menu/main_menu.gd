@@ -1,5 +1,6 @@
 extends Control
 class_name MainMenu
+
 enum MenuType
 {
 	SPLASH,
@@ -9,6 +10,7 @@ enum MenuType
 	OPTIONS,
 	GEAR,
 	CHARACTER,
+	ABILITIES,
 }
 
 signal on_start_combat()
@@ -17,11 +19,12 @@ signal on_start_combat()
 @export var starting_menu: MenuType 
 var current_menu: MenuType
 
-@onready var weapon_select_menu = $"Weapon Select Menu"
-@onready var combat_menu = $"Combat Prep Menu"
-@onready var gear_menu = $"Gear Menu"
 @onready var equipment_menu = $"Equiped Gear Menu"
+@onready var weapon_select_menu = $"Weapon Select Menu"
+@onready var ability_menu = $"Ability Menu"
+@onready var gear_menu = $"Gear Menu"
 @onready var character_menu: CharacterMenu = $"Character Menu"
+@onready var combat_menu = $"Combat Prep Menu"
 
 func _ready():
 	weapon_select_menu.visible = false
@@ -29,6 +32,7 @@ func _ready():
 	gear_menu.visible = false
 	equipment_menu.visible = false
 	character_menu.visible = false
+	ability_menu.visible = false
 	
 	change_menu(starting_menu)
 	
@@ -52,6 +56,9 @@ func change_menu(change_to: MenuType):
 			character_menu.visible = false
 			equipment_menu.visible = false
 		
+		MenuType.ABILITIES:
+			ability_menu.visible = false
+		
 	current_menu = change_to
 
 	match current_menu:
@@ -70,3 +77,6 @@ func change_menu(change_to: MenuType):
 			character_menu.update_ui()
 			character_menu.visible = true
 			equipment_menu.visible = true
+			
+		MenuType.ABILITIES:
+			ability_menu.visible = true
