@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cevoevausr57b"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_node.gd" id="1_svlkv"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="2_uhoiy"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="3_rgcat"]
+
+[node name="Enemy" type="Node"]
+script = ExtResource("1_svlkv")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_rgcat")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_uhoiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -1,10 +1,10 @@
 extends Resource
 
-class_name spawn_data
+class_name SpawnDataResource
 
 @export var time_start: int
 @export var time_end: int
-@export var enemy: Resource
+@export var enemy_resource: EnemyResource
 @export var spawn_animation: SpriteFrames
 @export var enemy_amount: int
 @export var spawn_delay: int

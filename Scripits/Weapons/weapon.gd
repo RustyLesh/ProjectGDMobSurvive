@@ -1,7 +1,8 @@
 extends Node
 class_name Weapon
 
-@onready var weapon_manager = get_parent()
+@onready var weapon_manager: WeaponManager = get_parent()
+@onready var stat_container: StatContainer = weapon_manager.stat_container
 @export var fire_rate = 2.0 : set = set_fire_rate 
 @export var bullet_scene = preload("res://Objects/bullet.tscn")
 @export var on_hit_effects: Array[OnHitEffect]

@@ -2,10 +2,12 @@ extends CharacterBody2D
 class_name EnemyMovement
 var speed: float = 100.0
 
-@onready var player: Node2D = get_tree().get_first_node_in_group(("player")).get_node("PlayerBody")
+@onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("PlayerBody")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D 
-@onready var enemy_node := $".." as Enemy
+@onready var enemy_node := $".." as EnemyNode
+
 func _ready():
+	await get_tree().create_timer(.001).timeout
 	make_path()
 
 func _physics_process(delta: float):
@@ -16,10 +18,10 @@ func _physics_process(delta: float):
 		var collision = get_slide_collision(i).get_collider().get_parent()
 		if collision is Player:
 			collision.take_damage(enemy_node.deal_damage())
-			
 
 func make_path():
-	nav_agent.target_position = player.global_position
+	nav_agent.target_position = enemy_node.enemy_ai_movement.get_target_position(global_position, player.global_position)
 	
 func _on_timer_timeout():
 	make_path()
+

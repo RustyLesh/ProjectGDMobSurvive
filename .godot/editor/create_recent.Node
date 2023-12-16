@@ -1,3 +1,7 @@
+Health
+EnemyMovement
+EnemyNode
+Node
 Button
 Label
 Panel
@@ -10,7 +14,6 @@ ItemList
 ScrollContainer
 MarginContainer
 GridContainer
-Node
 Sprite2D
 CollisionShape2D
 Area2D
@@ -28,5 +31,3 @@ CanvasLayer
 Marker2D
 PathFollow2D
 Path2D
-VisibleOnScreenNotifier2D
-NavigationAgent2D

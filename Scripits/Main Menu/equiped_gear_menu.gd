@@ -13,6 +13,8 @@ class_name EquipedGearMenu
 
 @onready var item_info_panel : SelectedItemInfo = $"../Gear Menu/Item Info"
 
+signal on_equiped_gear_selected()
+
 func _ready():
 	helmet_slot.init_gear_slot(Gear.GearType.HELMET)
 	ring_slot.init_gear_slot(Gear.GearType.RING)
@@ -39,12 +41,12 @@ func equip_gear(gear: Gear) -> Gear:
 		Gear.GearType.RING:
 			return_gear = ring_slot.equiped_gear
 			ring_slot.equip_gear(gear)
-			
 	return return_gear
 
 func on_gear_selected(gear: Gear):
 	item_info_panel.on_item_select(gear)
-
+	on_equiped_gear_selected.emit()
+	
 func on_gear_slot_selected(gear_type: Gear.GearType):
 	gear_menu.filter_by_type(gear_type)
 	if main_menu.current_menu != MainMenu.MenuType.GEAR:

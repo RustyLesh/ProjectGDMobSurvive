@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1f76x14o0557"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_spawn_manager.gd" id="1_v546m"]
-[ext_resource type="PackedScene" uid="uid://cayww1gltkrhb" path="res://Objects/Enemy Spawning/face_cube.tscn" id="2_rqioi"]
+[ext_resource type="PackedScene" uid="uid://cevoevausr57b" path="res://Objects/Enemy Spawning/enemy.tscn" id="2_rqioi"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_spawner.gd" id="2_xb8cf"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="3_dgelc"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_hbty5"]

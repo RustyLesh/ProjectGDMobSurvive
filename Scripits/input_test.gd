@@ -1,6 +1,6 @@
 extends Node
 
-@onready var player_stat_container: Node = get_tree().get_first_node_in_group(("player")).combat_stat_container
+@onready var player_stat_container: Node = get_tree().get_first_node_in_group(("Player")).combat_stat_container
 @onready var upgrade_mamanger: Node = get_parent().get_node("Upgrade Manager")
 
 func _input(event):

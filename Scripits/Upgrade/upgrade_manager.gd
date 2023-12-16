@@ -4,7 +4,7 @@ class_name UpgradeManager
 #Tracks upgrade pool
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
-@onready var  player: Node = get_tree().get_first_node_in_group(("player"))
+@onready var  player: Node = get_tree().get_first_node_in_group(("Player"))
 @onready var player_stat_container = player.combat_stat_container
 @onready var player_body 
 

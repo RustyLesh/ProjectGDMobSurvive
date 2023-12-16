@@ -4,7 +4,7 @@ signal destroy()
 
 @export var speed = 20
 @export var lifetime := 1
-@export var base_damage = 1
+@export var base_damage := 1
 @export var pierce_counter:int = 0
 @export var pierce: int
 

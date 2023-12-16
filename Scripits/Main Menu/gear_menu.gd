@@ -5,12 +5,14 @@ class_name GearMenu
 @onready var selected_info_box: SelectedItemInfo = $"Item Info"
 @onready var equiped_gear_menu: EquipedGearMenu = $"../Equiped Gear Menu"
 @onready var stat_container: MainMenuStatContainer = $"../Stat Container"
+@onready var selected_item_options: HBoxContainer = $"Selected Item Options"
 
 var inv_item_button: Resource = preload("res://Objects/Main Menu/inventory_item.tscn")
 
 @export var gear_list: Array[Gear]
 @export var gear_list_filtered: Array[Gear]
 @export var selected_item: int
+@export var is_equiped_item_selected: bool
 
 func _ready():
 	for i in gear_list.size():
@@ -57,6 +59,9 @@ func equip_gear():
 		selected_info_box.on_item_select(equiped_gear_menu.get_gear_in_slot(return_gear.gear_type))
 	remove_selected_item() #Remove selected item from inventory
 	selected_item = -1
+	selected_item_options.equip_button.disabled = true
+	selected_item_options.delete_button.disabled = true
+	is_equiped_item_selected = true
 	
 func add_item(gear: Gear):
 	gear_list.append(gear)
@@ -81,3 +86,16 @@ func remove_filters():
 func _on_item_list_item_selected(index):
 	selected_info_box.on_item_select(gear_list[index])
 	selected_item = index
+	selected_item_options.enable_all_buttons()
+	is_equiped_item_selected = false
+
+
+func _on_equiped_gear_menu_on_equiped_gear_selected():
+	is_equiped_item_selected = true
+
+func _on_craft_pressed():
+	pass
+	#if is_equiped_item_selected == false:
+		#Open craft menu using selected item index from item list
+	#else
+		#open craft menu with the item in selected slot.

@@ -3,9 +3,13 @@ class_name Player
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var weapon_manager: WeaponManager = $"Weapon Manager"
 @onready var combat_stat_container = $"Combat Stat Container"
+@onready var sprite: Sprite2D = $PlayerBody/Sprite2D
+@onready var player_body: PlayerController = $PlayerBody
+
 @export var i_frame_colour:= Color.RED
 @export var i_frame_duration : float  = 0.2#seconds
 @export var weapon: WeaponResource
+
 var weapon_inst: Weapon
 var is_invulnerable: bool = false
 

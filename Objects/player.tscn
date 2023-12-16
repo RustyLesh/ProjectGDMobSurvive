@@ -14,11 +14,13 @@ radius = 45.0999
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
 size = Vector2(12, 12)
 
-[node name="Player" type="Node" node_paths=PackedStringArray("sprite") groups=["player"]]
+[node name="Player" type="Node"]
 script = ExtResource("1_5g5kj")
 i_frame_duration = 0.25
 entity_type = 2
-sprite = NodePath("PlayerBody/Sprite2D")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_yio5s")
 
 [node name="Combat Stat Container" parent="." instance=ExtResource("2_i0kg7")]
 
@@ -32,9 +34,6 @@ script = ExtResource("4_fegn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon Manager/ExplosionAreaCheck"]
 shape = SubResource("CircleShape2D_aup0v")
-
-[node name="Health" type="Node" parent="."]
-script = ExtResource("5_yio5s")
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." groups=["player"]]
 collision_mask = 14

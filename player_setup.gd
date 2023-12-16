@@ -5,3 +5,6 @@ extends Node
 @export var gear_upgrade_pool: Array[UpgradeResource]
 
 @export var base_stats: Array[BaseStat]
+
+@export var inventory: Array[Gear]
+@export var gear_drops: Array[Gear]

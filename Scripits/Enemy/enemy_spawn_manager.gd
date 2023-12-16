@@ -1,35 +1,35 @@
 extends Node2D
 
 #@onready var spawner = $EnemySpawner
-@onready var player = get_tree().get_first_node_in_group("player")
-@export var spawns: Array[spawn_data] = []
-@onready var base_spawn_animation = preload("res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn")
+@onready var player = get_tree().get_first_node_in_group("Player").get_node("PlayerBody")
+@export var spawns: Array[SpawnDataResource]
 var topLeft : Vector2
 var botRight : Vector2 
+
+@onready var tilemap = $"../Tile_Map"
 
 @onready var timer: Timer = $Timer
 signal on_spawn_timer_pause()
 signal on_spawn_timer_play()
 
 @export var wallSpawnBuffer = 0.0
-@onready var container = $Container
 @export var time = 0
 
 func _ready():
-	var tilemap = get_tree().get_first_node_in_group("Level").get_node("Tile_Map")
-	
 	if tilemap is TileMap:
 		topLeft = tilemap.map_to_local(Vector2(0,0))
-		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(1)
+		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(0)
 		botRight = tilemap.map_to_local(botRightArray[botRightArray.size() - 1])
+		print(botRight)
+
 		topLeft.x += wallSpawnBuffer
 		topLeft.y += wallSpawnBuffer
 		
 		botRight.x -= wallSpawnBuffer
 		botRight.y -= wallSpawnBuffer
 		
-		botRight *= -1
-
+		print(topLeft)
+		
 func pause_timer():
 	timer.paused = true
 	print("paused timer")
@@ -41,42 +41,24 @@ func play_timer():
 
 func _on_timer_timeout():
 	time += 1
-	var enemy_spawns = spawns
-	for i in enemy_spawns:
+	for i in spawns:
 		spawn(i)
 
-func spawn(spawn_data):
-	if time >= spawn_data.time_start && time <= spawn_data.time_end:
-		spawn_data.spawn_delay_counter = 9999 #Force first wave to spawn immediately
-		if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
-			spawn_data.spawn_delay_counter += 1
-		else:
-			spawn_data.spawn_delay_counter = 0
-			var new_enemy = load(str(spawn_data.enemy.resource_path))
-			var counter = 0
-			while counter < spawn_data.enemy_amount:
-				var spawn_animation = base_spawn_animation.instantiate()
-				var spawnPos = get_random_position()
-				container.add_child(spawn_animation)
-				spawn_animation.sprite_frames = spawn_data.spawn_animation
-				spawn_animation.global_position = spawnPos
-				spawn_animation.play()
-				
-				await get_tree().create_timer(3).timeout
-				spawn_animation.queue_free()
-				
-				var enemy_spawn = new_enemy.instantiate()
-				enemy_spawn.get_node("Body").global_position = spawnPos
-				add_child(enemy_spawn)
-				
-				if enemy_spawn is Entity:
-					if enemy_spawn.entity_type == Entity.EntityType.BOSS:
-						var boss: Boss = enemy_spawn as Boss
-						print("Is boss")
-						pause_timer()
-						boss.on_boss_death.connect(play_timer)
-						return
-				counter += 1
+func spawn(spawn_data: SpawnDataResource):
+	if spawn_data is SpawnDataResource:
+		if time >= spawn_data.time_start && time <= spawn_data.time_end:
+			if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
+				spawn_data.spawn_delay_counter += 1
+			else:
+				spawn_data.spawn_delay_counter = 0
+				var new_enemy = load(str(spawn_data.enemy_resource.enemy_base_object.resource_path))
+				var counter = 0
+				while counter < spawn_data.enemy_amount:
+					var enemy_spawn: EnemyNode = new_enemy.instantiate()
+					add_child(enemy_spawn)
+					enemy_spawn.init_enemy(spawn_data.enemy_resource)
+					enemy_spawn.character_body.global_position = get_random_position()
+					counter += 1
 
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
@@ -107,7 +89,7 @@ func get_random_position_off_screen():
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
 	return Vector2(x_spawn, y_spawn)
 
-func get_random_position():
+func get_random_position() -> Vector2:
 	var pos : Vector2 = Vector2.ZERO
 	pos.x = randf_range(topLeft.x, botRight.x)
 	pos.y = randf_range(topLeft.y, botRight.y)

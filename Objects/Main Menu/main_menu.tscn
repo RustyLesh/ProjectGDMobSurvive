@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=40 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
 [ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/amulet2.tres" id="17_gna4i"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
 bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -46,7 +47,15 @@ bg_color = Color(0.0901961, 0.211765, 0.243137, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakal"]
 bg_color = Color(0.0823529, 0.113725, 0.184314, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6bgu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y10b0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg43g"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j10a5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djugb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xocqt"]
 
@@ -356,20 +365,24 @@ offset_top = 312.0
 offset_right = 680.0
 offset_bottom = 376.0
 theme_override_constants/separation = 65
+script = ExtResource("21_86al2")
 
 [node name="Equip" type="Button" parent="Gear Menu/Selected Item Options"]
 custom_minimum_size = Vector2(170.29, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e6bgu")
 text = "Equip"
 
 [node name="Craft" type="Button" parent="Gear Menu/Selected Item Options"]
 custom_minimum_size = Vector2(170.29, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y10b0")
 text = "Craft"
 
 [node name="Delete" type="Button" parent="Gear Menu/Selected Item Options"]
 custom_minimum_size = Vector2(170.29, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gg43g")
 text = "Delete"
 
 [node name="Gear Filters" type="Control" parent="Gear Menu"]
@@ -389,9 +402,11 @@ offset_top = 400.0
 offset_right = 208.0
 offset_bottom = 448.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j10a5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_djugb")
 
 [node name="Stat Container" type="Node" parent="."]
 script = ExtResource("15_eji0x")
+damage = 10
 
 [node name="Ability Menu" type="Control" parent="."]
 visible = false
@@ -445,9 +460,11 @@ vertical_alignment = 1
 
 [connection signal="on_start_combat" from="." to="Stat Container" method="_on_main_menu_on_start_combat"]
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
+[connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Ring" to="Equiped Gear Menu/GearUIContainer/Ring" method="_on_pressed"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Amulet" to="Equiped Gear Menu/GearUIContainer/Amulet" method="_on_pressed"]
 [connection signal="item_selected" from="Gear Menu/MarginContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="equip_gear"]
+[connection signal="pressed" from="Gear Menu/Selected Item Options/Craft" to="Gear Menu" method="_on_craft_pressed"]
 [connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]

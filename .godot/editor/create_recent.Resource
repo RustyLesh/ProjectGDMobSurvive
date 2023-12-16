@@ -1,3 +1,4 @@
+EnemyResource
 Gear
 UpgradeResource
 OnHitEffectUpgrade
@@ -5,4 +6,3 @@ SlowOnHit
 BaseStatUpgrade
 WeaponResource
 WeaponUpgrade
-EnemyResource

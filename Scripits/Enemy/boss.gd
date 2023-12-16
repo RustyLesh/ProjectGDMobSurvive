@@ -1,4 +1,4 @@
-extends Enemy
+extends EnemyNode
 class_name Boss
 
 signal on_boss_death()
