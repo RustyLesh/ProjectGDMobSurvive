@@ -1,5 +1,6 @@
 extends Upgrade
 class_name BaseStatUpgrade
+#Upgrade to modify a base stat
 
 @export var mod_type: StatMod.StatModType
 @export var base_stat_type: BaseStat.BaseStatType

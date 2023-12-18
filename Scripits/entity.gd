@@ -1,7 +1,9 @@
 extends Node
 class_name Entity
+#Base for any scene that can take damage
 
-enum EntityType{
+enum EntityType
+{
 	GRUNT,
 	BOSS,
 	PLAYER,
@@ -15,4 +17,3 @@ func take_damage(damage):
 	if health is Health:
 		#Damage logic here
 		health.take_damage(damage)
-		print("Damage: " , damage)

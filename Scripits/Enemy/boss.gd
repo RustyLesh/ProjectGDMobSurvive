@@ -1,5 +1,6 @@
 extends EnemyNode
 class_name Boss
+#Base for boss classes
 
 signal on_boss_death()
 

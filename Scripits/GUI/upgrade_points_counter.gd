@@ -1,5 +1,6 @@
 extends Label
 class_name UpgradePointsCounter
+#HUD element to show how many upgrade points for player to spend
 
 func _ready():
 	var upgrade_manager = get_parent().get_parent().get_node("Upgrade Manager")

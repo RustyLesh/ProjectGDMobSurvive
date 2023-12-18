@@ -1,4 +1,5 @@
 extends Resource
+#Used in enemy spawn manager to spawn enemies
 
 class_name SpawnDataResource
 
@@ -9,4 +10,5 @@ class_name SpawnDataResource
 @export var enemy_amount: int
 @export var spawn_delay: int
 
+#Default high value to spawn immediatly on time start
 var spawn_delay_counter := 9999

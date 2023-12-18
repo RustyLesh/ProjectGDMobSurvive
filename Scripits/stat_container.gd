@@ -1,9 +1,11 @@
 extends Node
 class_name StatContainer
+#Initialises and holds all player base stats.
+#Upgrades effect base stats through adding stat modifiers
 
 var base_stats: Array[BaseStat]
 
-#Base stats
+@export_category("Base stats")
 @export var max_life = 100
 @export var damage = 100
 @export var fire_rate = 2
@@ -17,6 +19,7 @@ func get_stat(base_stat_type : BaseStat.BaseStatType) -> BaseStat:
 	return base_stats[base_stat_type]
 
 func init_stats():
+	#Create modifiers for base stats
 	var life_mod := StatMod.new()
 	life_mod.value = max_life
 	life_mod.stat_mod_type = StatMod.StatModType.FLAT
@@ -33,9 +36,11 @@ func init_stats():
 	movement_speed_mod.value = movement_speed
 	movement_speed_mod.stat_mod_type = StatMod.StatModType.FLAT	
 	
+	#Init health
 	if health is Health:
 		health.init_health(max_life)
-		
+	
+	#Apply modifiers for base stats
 	base_stats[BaseStat.BaseStatType.MAX_LIFE].apply_stat(life_mod)
 	base_stats[BaseStat.BaseStatType.DAMAGE].apply_stat(damage_mod)
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].apply_stat(fire_rate_mod)
@@ -65,6 +70,7 @@ func update_bullet_lifetime(value: float):
 func update_pierce(value: float):
 	weapon_manager.pierce = value
 
+#Connect signals for base stats
 func init_stat_signals():
 	base_stats[BaseStat.BaseStatType.MAX_LIFE].on_value_changed.connect(update_max_life)
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].on_value_changed.connect(update_movement_speed)

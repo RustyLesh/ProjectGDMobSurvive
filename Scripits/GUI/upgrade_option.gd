@@ -1,5 +1,6 @@
 extends Control
 class_name UpgradeOption
+#Holds information of rolled upgrade, used to select upgrade in upgrade menu
 
 @export var upgrade : UpgradeResource
 var _option_no: int

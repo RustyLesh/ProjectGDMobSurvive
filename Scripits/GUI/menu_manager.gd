@@ -1,5 +1,6 @@
 extends CanvasLayer
 class_name MenuManager
+#Manages menus in combat
 
 @onready var upgrade_menu: Control = $"Uprade Menu"
 func _ready():
@@ -9,8 +10,6 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):
 		toggle_upgrade_menu()
-
-
 
 func _on_button_pressed():
 	toggle_upgrade_menu()

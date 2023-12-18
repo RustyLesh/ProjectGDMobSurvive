@@ -1,5 +1,6 @@
 extends Label
 class_name HealthLabel
+#HUD element to show life value
 
 var max_health
 var current_health

@@ -11,6 +11,8 @@ script = ExtResource("1_svlkv")
 script = ExtResource("3_rgcat")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 36
 script = ExtResource("2_uhoiy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -25,4 +27,5 @@ texture_filter = 1
 wait_time = 0.1
 autostart = true
 
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

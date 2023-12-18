@@ -2,8 +2,7 @@ extends Node
 class_name WeaponManager
 var bullet_scene = preload("res://Objects/bullet.tscn")
 
-#Shots per second
-#Global weapon stats
+#Holds data for weapon stats
 
 @export var extra_proj_count: int = 0;
 @export var pierce: int = 0
@@ -15,6 +14,7 @@ var bullet_scene = preload("res://Objects/bullet.tscn")
 @onready var player_body = $"../PlayerBody"
 @onready var explosion_area_check: ExplosionAreaCheck = $ExplosionAreaCheck
 @onready var stat_container: CombatStatContainer = $"../Combat Stat Container"
+
 var delay
 
 func _ready():
@@ -23,6 +23,7 @@ func _ready():
 	extra_proj_count = stat_container.get_stat(BaseStat.BaseStatType.PROJ_COUNT).value
 	pierce = stat_container.get_stat(BaseStat.BaseStatType.PIERCE).value
 
+#convert fire rate into shots per second
 func set_fire_rate(value : float):
 	fire_rate = value
 	delay = 1/fire_rate

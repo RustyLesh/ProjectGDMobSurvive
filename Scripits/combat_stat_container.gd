@@ -1,5 +1,6 @@
 extends StatContainer
 class_name CombatStatContainer
+#Player stat container to be used in combat scene
 
 func _ready():
 	base_stats = PlayerSetup.base_stats.duplicate()

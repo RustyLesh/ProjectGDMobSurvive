@@ -1,5 +1,6 @@
 extends Panel
 class_name UpgradeDescriptionPanel
+#Shows info for selected upgrade
 
 @onready var title : Label = $Title
 @onready var description : Label = $Description
@@ -10,6 +11,7 @@ func update_ui(upgrade_resource : UpgradeResource):
 	description.text = upgrade_resource.description
 	uses_counter.text = str(upgrade_resource.current_uses, "/", upgrade_resource.max_uses)
 
+#Clears text fields
 func clear_info():
 	title.text = ""
 	description.text = ""

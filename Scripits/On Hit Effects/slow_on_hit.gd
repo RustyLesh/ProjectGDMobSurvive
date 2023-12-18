@@ -1,5 +1,8 @@
 extends OnHitEffect
 class_name SlowOnHit
 
-func trigger_effect(entity: Entity):
-	print(value)
+@export var duration: int #Seconds
+
+func trigger_effect(enemy: EnemyNode):
+	enemy.apply_slow_to_self(value, duration)
+	print("Slow: ", value)

@@ -1,5 +1,6 @@
 extends Control
 class_name UpgradeMenu
+#Shows the player avaliable upgrades, and applies upgrades on selection
 
 var upgrade_option_resources : Array[UpgradeResource]
 var upgrade_option_ui : Array[UpgradeOption]

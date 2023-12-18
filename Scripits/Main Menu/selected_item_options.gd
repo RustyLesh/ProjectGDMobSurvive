@@ -1,5 +1,6 @@
 extends HBoxContainer
 class_name SelecteditemOptions
+#UI for otions on selected item in gear menu
 
 @onready var equip_button: Button = $Equip
 @onready var craft_button: Button = $Craft

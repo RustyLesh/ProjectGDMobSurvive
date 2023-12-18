@@ -1,5 +1,6 @@
 extends Resource
 class_name StatMod
+#Moidifer to be stored in a Stat resource
 
 enum StatModType
 {

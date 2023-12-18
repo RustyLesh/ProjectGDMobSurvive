@@ -1,4 +1,5 @@
 extends Node
+#Stores player data for going between main menu and combat levels
 
 @export var weapon: WeaponResource
 @export var weapon_upgrade_pool: Array[UpgradeResource]

@@ -1,5 +1,6 @@
 extends Control
 class_name WeaponSelectInfo
+#Menu panel to show information on selected weapon in weapon menu
 
 @onready var weapon_name: Label = $Name
 @onready var description: Label = $Description

@@ -1,5 +1,6 @@
 extends Control
 class_name CharacterMenu
+#Character details menu
 
 @onready var stat_panel: RichTextLabel = $"Stats Scroll Panel/Stats"
 @onready var upgrade_panel: RichTextLabel = $"Upgrades Scroll Panel/Upgrades"

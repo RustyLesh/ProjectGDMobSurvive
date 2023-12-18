@@ -1,5 +1,6 @@
 extends Upgrade
 class_name OnHitEffectUpgrade
+#An upgrade that gives the player an effect that occurs when an enemy is hit.
 
 @export var effect: OnHitEffect
 

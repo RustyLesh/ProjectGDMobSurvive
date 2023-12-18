@@ -1,5 +1,6 @@
 extends Resource
 class_name Upgrade
+#Base upgrade class
 
 @export var value: float 
 var source: Resource

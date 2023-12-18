@@ -1,6 +1,6 @@
 extends Control
 class_name MainMenu
-
+#Game main menu state machine
 enum MenuType
 {
 	SPLASH,
@@ -19,6 +19,7 @@ signal on_start_combat()
 @export var starting_menu: MenuType 
 var current_menu: MenuType
 
+#Menus
 @onready var equipment_menu = $"Equiped Gear Menu"
 @onready var weapon_select_menu = $"Weapon Select Menu"
 @onready var ability_menu = $"Ability Menu"

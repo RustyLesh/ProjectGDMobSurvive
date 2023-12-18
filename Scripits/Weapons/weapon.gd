@@ -1,5 +1,6 @@
 extends Node
 class_name Weapon
+#Base class for player weapon
 
 @onready var weapon_manager: WeaponManager = get_parent()
 @onready var stat_container: StatContainer = weapon_manager.stat_container

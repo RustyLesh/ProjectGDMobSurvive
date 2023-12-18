@@ -16,6 +16,7 @@ class_name EquipedGearMenu
 signal on_equiped_gear_selected()
 
 func _ready():
+	#init gear slots
 	helmet_slot.init_gear_slot(Gear.GearType.HELMET)
 	ring_slot.init_gear_slot(Gear.GearType.RING)
 	amulet_slot.init_gear_slot(Gear.GearType.AMULET)
@@ -23,6 +24,7 @@ func _ready():
 	slots.append(ring_slot)
 	slots.append(amulet_slot)
 	
+	#connect signals
 	for slot in slots:
 		slot.on_gear_selected.connect(on_gear_selected)
 		slot.on_gear_slot_clicked.connect(on_gear_slot_selected)

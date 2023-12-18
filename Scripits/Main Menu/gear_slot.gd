@@ -7,6 +7,7 @@ signal on_gear_slot_clicked(gear_type: Gear.GearType)
 @export var equiped_gear: Gear
 @export var gear_slot_type: Gear.GearType
 
+#Assign gear type to a slot
 func init_gear_slot(gear_slot: Gear.GearType):
 	gear_slot_type = gear_slot
 	

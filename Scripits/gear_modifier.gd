@@ -1,5 +1,6 @@
 extends Resource
 class_name GearModifier
+#Mods that gear holds which is applied to player on equip
 
 enum GearModType
 {

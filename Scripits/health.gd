@@ -1,5 +1,6 @@
 extends Node
 class_name Health
+#Stores health and deals with taking damage for entities
 
 signal on_damaged(value)
 signal max_health_changed(max_health)

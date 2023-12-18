@@ -1,5 +1,6 @@
 extends StatContainer
 class_name MainMenuStatContainer
+#Stores stats for player when in main menu
 
 func _ready():
 	weapon_manager = WeaponManager.new()

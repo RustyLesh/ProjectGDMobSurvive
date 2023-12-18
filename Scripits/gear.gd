@@ -1,5 +1,6 @@
 extends  Resource
 class_name Gear
+#Base for equippable items
 
 enum GearType
 {

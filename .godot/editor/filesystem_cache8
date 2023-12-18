@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1702756720
+::res://::1702840704
 default_env.tres::Environment::-1::1696984897::0::1::::<><>::
 drop.tscn::PackedScene::16122981596480380::1698837307::0::1::::<><>::res://Scripits/Drops/drop.gd
 enemy_spawn_animation.tscn::PackedScene::2114366399554118338::1697888694::0::1::::<><>::uid://c80drsg53pe65
@@ -82,21 +82,22 @@ virtual_joystick.tscn::PackedScene::8038149555967335895::1696984897::0::1::::<><
 joystick_base_outline.png::CompressedTexture2D::3288008411285325467::1696984897::1696984898::1::::<><>::
 joystick_tip.png::CompressedTexture2D::3132432681801126628::1696984897::1696984898::1::::<><>::
 joystick_tip_arrows.png::CompressedTexture2D::8548255698028078709::1696984897::1696984898::1::::<><>::
-::res://Objects/::1702756713
-bullet.tscn::PackedScene::6195081953113777103::1702756435::0::1::::<><>::uid://rrn4joq58nuh
-combat_level.tscn::PackedScene::5122554458677421830::1702756435::0::1::::<><>::res://Scripits/combat_level.gd<>uid://ccjnqp1qsnht4
+::res://Objects/::1702796851
+bullet.tscn::PackedScene::6195081953113777103::1702796850::0::1::::<><>::uid://rrn4joq58nuh::::res://Art/Bullet.png<>res://Scripits/bullet.gd<>res://Scripits/particle_system_bullet.gd
+combat_level.tscn::PackedScene::5122554458677421830::1702796850::0::1::::<><>::res://Scripits/combat_level.gd<>uid://ccjnqp1qsnht4::::res://Art/MiniGolf.png<>uid://dq0utpd576hbh::::res://Objects/player.tscn<>uid://dufpfjbbnms4o::::res://Objects/GUI/in_level_ui.tscn<>uid://b1f76x14o0557::::res://Objects/enemy_spawn_manager.tscn<>uid://bbilxeadesj14::::res://Objects/GUI/upgrade_manager.tscn<>res://Scripits/in_level_xp_manager.gd<>uid://dg66dot1gmgx5::::res://Resources/Enemies/wisp.tres<>res://Scripits/input_test.gd<>res://Scripits/Enemy/spawn_data.gd<>uid://bek76am48n6e2::::res://Objects/enemy_spawn_animations/default_spawn.tres
 enemy_bullet.tscn::PackedScene::1885709199520492440::1699139955::0::1::::<><>::res://Scripits/bullet.gd<>uid://b72lsyuegw6r6
 enemy_spawn_manager.tscn::PackedScene::4223652059971143004::1702753804::0::1::::<><>::res://Scripits/Enemy/enemy_spawn_manager.gd<>uid://cevoevausr57b
-hud.tscn::PackedScene::7093113885523268562::1697451691::0::1::::<><>::
-player.tscn::PackedScene::8335142056970555453::1702756713::0::1::::<><>::res://Scripits/player.gd<>uid://dar4wj000kt41::::res://Art/Player.png<>res://Scripits/player_controller.gd<>uid://d2ipya06c0n65::::res://Objects/stat_container.tscn<>res://Scripits/Weapons/weapon_manager.gd<>res://Scripits/explosion_area_check.gd<>res://Scripits/health.gd
+hud.tscn::PackedScene::7093113885523268562::1702796851::0::1::::<><>::
+in_level_xp_manager.tscn::PackedScene::7836433323377865930::1698558420::0::1::::<><>::res://Scripits/in_level_xp_manager.gd
+player.tscn::PackedScene::8335142056970555453::1702796850::0::1::::<><>::res://Scripits/player.gd<>uid://dar4wj000kt41::::res://Art/Player.png<>res://Scripits/player_controller.gd<>uid://d2ipya06c0n65::::res://Objects/stat_container.tscn<>res://Scripits/Weapons/weapon_manager.gd<>res://Scripits/explosion_area_check.gd<>res://Scripits/health.gd
 stat_container.tscn::PackedScene::9071829505316150136::1701513709::0::1::::<><>::res://Scripits/combat_stat_container.gd
 xp_drop.tscn::PackedScene::7245546745396584809::1698837307::0::1::::<><>::res://Scripits/Drops/drop_experience.gd<>uid://c5ly12w88ilji
-::res://Objects/Enemy Spawning/::1702756435
-enemy.tscn::PackedScene::5097806959771756513::1702756435::0::1::::<><>::res://Scripits/Enemy/enemy_node.gd<>res://Scripits/Enemy/enemy_movement.gd<>res://Scripits/health.gd
+::res://Objects/Enemy Spawning/::1702809087
+enemy.tscn::PackedScene::5097806959771756513::1702809087::0::1::::<><>::res://Scripits/Enemy/enemy_node.gd<>res://Scripits/Enemy/enemy_movement.gd<>res://Scripits/health.gd
 ::res://Objects/Enemy Spawning/Bosses/::1702753261
 boss_enemy.tscn::PackedScene::3272831607709276345::1699832131::0::1::::<><>::res://Scripits/Enemy/boss.gd<>res://Scripits/Enemy/enemy_resource.gd<>res://Scripits/health.gd<>uid://bek76am48n6e2
-::res://Objects/enemy_spawn_animations/::1702756713
-default_spawn.tres::SpriteFrames::2689818159065333303::1702756713::0::1::::<><>::uid://c80drsg53pe65::::res://Art/EnemySpawn.png
+::res://Objects/enemy_spawn_animations/::1702794594
+default_spawn.tres::SpriteFrames::2689818159065333303::1702794594::0::1::::<><>::uid://c80drsg53pe65::::res://Art/EnemySpawn.png
 enemy_spawn_animation_node.tscn::PackedScene::103540146964982118::1698128600::0::1::::<><>::
 ::res://Objects/GUI/::1702377130
 HUD.tscn::PackedScene::368434322250277389::1700029952::0::1::::<><>::uid://dmr0fcamx7t56
@@ -104,48 +105,48 @@ in_level_ui.tscn::PackedScene::8574280970789528128::1702377130::0::1::::<><>::re
 upgrade_manager.tscn::PackedScene::2473833719779626341::1699431473::0::1::::<><>::res://Scripits/Upgrade/upgrade_manager.gd
 upgrade_menu.tscn::PackedScene::2297591096692694542::1702377130::0::1::::<><>::res://Scripits/GUI/upgrade_menu.gd<>res://Scripits/GUI/upgrade_description_panel.gd
 upgrade_option.tscn::PackedScene::1349451372116023358::1702377130::0::1::::<><>::res://Scripits/GUI/upgrade_option.gd
-::res://Objects/Main Menu/::1702756435
+::res://Objects/Main Menu/::1702796850
 gear_filters.gd::GDScript::-1::1702205925::0::1::::GearFilerUI<>Control<>::
 inventory_item.tscn::PackedScene::1357431354932099052::1702367090::0::1::::<><>::res://Scripits/Main Menu/inventory_item_button.gd
-main_menu.tscn::PackedScene::1501138153660425349::1702756435::0::1::::<><>::res://Scripits/Main Menu/main_menu.gd<>res://Scripits/Main Menu/weapon_select_menu.gd<>uid://c5a6x1s6uymdg
+main_menu.tscn::PackedScene::1501138153660425349::1702796850::0::1::::<><>::res://Scripits/Main Menu/main_menu.gd<>res://Scripits/Main Menu/weapon_select_menu.gd<>uid://c5a6x1s6uymdg::::res://Art/GUI/Icons/gear_icon.png<>res://Scripits/Main Menu/main_menu_option.gd<>res://Scripits/Main Menu/selected_weapon_info.gd<>uid://di1ceskp2eifk::::res://Art/GUI/Icons/helmet_icon.png<>uid://dq7j8mmcqn7ue::::res://Resources/Weapons/pistol.tres<>uid://chgdfn0pand26::::res://Art/GUI/Icons/weapon_icon.png<>uid://csqmkf7ke8qby::::res://Resources/Weapons/rifle.tres<>uid://d2uf4x1qtmm7d::::res://Art/GUI/Icons/combat_icon.png<>uid://ckty8glqppsvt::::res://Resources/Weapons/test_weapon.tres<>uid://c0apiq8vtwnyh::::res://Art/GUI/Icons/char_icon.png<>uid://clt5ki8xow54h::::res://Art/GUI/Icons/fire.png<>res://Scripits/Main Menu/character_menu.gd<>res://Scripits/Main Menu/gear_menu.gd<>res://Scripits/Main Menu/gear_slot.gd<>res://Scripits/Main Menu/equiped_gear_menu.gd<>res://Scripits/main_menu_stat_container.gd<>uid://b0ts7ri14t386::::res://Resources/Gear/amulet.tres<>res://Scripits/Main Menu/selected_item_info.gd<>uid://dujk6sj2cfjjg::::res://Resources/Gear/amulet2.tres<>res://Objects/Main Menu/gear_filters.gd<>res://Scripits/Main Menu/selected_item_options.gd
 weapon_slot.tscn::PackedScene::5869732791988648353::1702377130::0::1::::<><>::res://Scripits/Main Menu/weapon_select_button.gd
 ::res://Objects/Weapons/::1702367090
 pistol.tscn::PackedScene::7226698559963137681::1702367090::0::1::::<><>::res://Scripits/Weapons/pistol.gd
 rifle.tscn::PackedScene::2234745845075961994::1702367090::0::1::::<><>::res://Scripits/Weapons/rifle.gd
 ::res://Resources/::1702720454
-::res://Resources/Enemies/::1702756713
-wisp.tres::Resource/EnemyResource::7646279173308829956::1702756713::0::1::::<><>::res://Scripits/Enemy/enemy_resource.gd<>uid://cevoevausr57b::::res://Objects/Enemy Spawning/enemy.tscn<>uid://bek76am48n6e2::::res://Objects/enemy_spawn_animations/default_spawn.tres<>uid://ctoccfbavy0iw::::res://Art/Enemies/blue_wisp.png
-::res://Resources/Gear/::1702756713
-amulet2.tres::Resource/Gear::8582281813718383940::1702756713::0::1::::<><>::res://Scripits/gear.gd<>uid://bjpjlmm0to6er::::res://Art/Equipment/amulet2.png<>res://Scripits/gear_modifier.gd<>uid://dxwrjweydftq6::::res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd<>uid://c5ly12w88ilji::::res://Art/XPDrop.png<>uid://b72lsyuegw6r6::::res://Art/Bubble.png
-amulet.tres::Resource/Gear::4181515909722042265::1702756713::0::1::::<><>::res://Scripits/gear_modifier.gd<>res://Scripits/gear.gd<>uid://1mo147s8hfi4::::res://Art/Equipment/amulet1.png<>res://Scripits/Upgrade/base_stat_upgrade.gd<>res://Scripits/Upgrade/upgrade_resource.gd
+::res://Resources/Enemies/::1702794594
+wisp.tres::Resource/EnemyResource::7646279173308829956::1702794594::0::1::::<><>::res://Scripits/Enemy/grunt_enemy_ai.gd<>res://Scripits/Enemy/enemy_resource.gd<>uid://cevoevausr57b::::res://Objects/Enemy Spawning/enemy.tscn<>uid://bek76am48n6e2::::res://Objects/enemy_spawn_animations/default_spawn.tres<>uid://ctoccfbavy0iw::::res://Art/Enemies/blue_wisp.png
+::res://Resources/Gear/::1702794594
+amulet2.tres::Resource/Gear::8582281813718383940::1702794594::0::1::::<><>::res://Scripits/gear.gd<>uid://bjpjlmm0to6er::::res://Art/Equipment/amulet2.png<>res://Scripits/gear_modifier.gd<>uid://dxwrjweydftq6::::res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd<>uid://c5ly12w88ilji::::res://Art/XPDrop.png<>uid://b72lsyuegw6r6::::res://Art/Bubble.png
+amulet.tres::Resource/Gear::4181515909722042265::1702794594::0::1::::<><>::res://Scripits/gear_modifier.gd<>res://Scripits/gear.gd<>uid://1mo147s8hfi4::::res://Art/Equipment/amulet1.png<>res://Scripits/Upgrade/base_stat_upgrade.gd<>res://Scripits/Upgrade/upgrade_resource.gd
 helm.tres::Resource/Resource::996301939337641312::1701685837::0::1::::<><>::uid://djus01x5bmgnl
 potion_amulet.tres::Resource/Resource::3819149780418310735::1702376330::0::1::::<><>::res://Scripits/gear.gd<>uid://cl8kw84gumvjv
 ring.tres::Resource/Resource::7100674657883049723::1701636404::0::1::::<><>::res://Scripits/gear.gd
 ::res://Resources/Upgrades/::1700533695
-::res://Resources/Upgrades/Base Stat Upgrades/::1702756713
-attack_speed_flat.tres::Resource/UpgradeResource::5045105118228336560::1702756713::0::1::::<><>::uid://t6psobihjovw::::res://Art/Upgrade Icons/FireRate.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-attack_speed_percent.tres::Resource/UpgradeResource::2688741284843664862::1702756713::0::1::::<><>::res://Scripits/Upgrade/upgrade_resource.gd<>uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/base_stat_upgrade.gd
-damage_flat.tres::Resource/UpgradeResource::2645799336820269396::1702756713::0::1::::<><>::res://Scripits/Upgrade/upgrade_resource.gd<>uid://cfwq2mxyxa4td::::res://Art/Upgrade Icons/Sword.png<>res://Scripits/Upgrade/base_stat_upgrade.gd
-damage_percent.tres::Resource/UpgradeResource::100190027347951859::1702756713::0::1::::<><>::uid://cfwq2mxyxa4td::::res://Art/Upgrade Icons/Sword.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+::res://Resources/Upgrades/Base Stat Upgrades/::1702794594
+attack_speed_flat.tres::Resource/UpgradeResource::5045105118228336560::1702794594::0::1::::<><>::uid://t6psobihjovw::::res://Art/Upgrade Icons/FireRate.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+attack_speed_percent.tres::Resource/UpgradeResource::2688741284843664862::1702794594::0::1::::<><>::res://Scripits/Upgrade/upgrade_resource.gd<>uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/base_stat_upgrade.gd
+damage_flat.tres::Resource/UpgradeResource::2645799336820269396::1702794594::0::1::::<><>::res://Scripits/Upgrade/upgrade_resource.gd<>uid://cfwq2mxyxa4td::::res://Art/Upgrade Icons/Sword.png<>res://Scripits/Upgrade/base_stat_upgrade.gd
+damage_percent.tres::Resource/UpgradeResource::100190027347951859::1702794594::0::1::::<><>::uid://cfwq2mxyxa4td::::res://Art/Upgrade Icons/Sword.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
 max_life_flat_upgrade.tres::Resource/Resource::3547375391143327560::1700856511::0::1::::<><>::uid://chp3yeikscd3q
 max_life_multiplier_upgrade.tres::Resource/Resource::6423731004987488798::1700856511::0::1::::<><>::uid://chp3yeikscd3q
-movement_speed_flat_upgrade.tres::Resource/UpgradeResource::350041283250270733::1702756713::0::1::::<><>::uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-pierce.tres::Resource/UpgradeResource::5011990000230189044::1702756713::0::1::::<><>::res://Scripits/Upgrade/base_stat_upgrade.gd<>res://Scripits/Upgrade/upgrade_resource.gd<>uid://rrn4joq58nuh::::res://Art/Bullet.png
-projectile_count_upgrade.tres::Resource/UpgradeResource::8820071189153136099::1702756713::0::1::::<><>::uid://d0i2u6ko3orig::::res://Art/Upgrade Icons/Bullets.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-projectile_life_time.tres::Resource/UpgradeResource::4995624548581287367::1702756713::0::1::::<><>::uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-::res://Resources/Upgrades/On Hit Upgrades/::1702756713
-slow_on_hit_upgrade.tres::Resource/UpgradeResource::7044766390483659455::1702756713::0::1::::<><>::res://Scripits/Upgrade/on_hit_effect_upgrade.gd<>uid://b72lsyuegw6r6::::res://Art/Bubble.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/On Hit Effects/slow_on_hit.gd
+movement_speed_flat_upgrade.tres::Resource/UpgradeResource::350041283250270733::1702794594::0::1::::<><>::uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+pierce.tres::Resource/UpgradeResource::5011990000230189044::1702794594::0::1::::<><>::res://Scripits/Upgrade/base_stat_upgrade.gd<>res://Scripits/Upgrade/upgrade_resource.gd<>uid://rrn4joq58nuh::::res://Art/Bullet.png
+projectile_count_upgrade.tres::Resource/UpgradeResource::8820071189153136099::1702794594::0::1::::<><>::uid://d0i2u6ko3orig::::res://Art/Upgrade Icons/Bullets.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+projectile_life_time.tres::Resource/UpgradeResource::4995624548581287367::1702794594::0::1::::<><>::uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+::res://Resources/Upgrades/On Hit Upgrades/::1702794594
+slow_on_hit_upgrade.tres::Resource/UpgradeResource::7044766390483659455::1702794594::0::1::::<><>::res://Scripits/Upgrade/on_hit_effect_upgrade.gd<>uid://b72lsyuegw6r6::::res://Art/Bubble.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/On Hit Effects/slow_on_hit.gd
 ::res://Resources/Wave Spawns/::1699784470
-::res://Resources/Weapons/::1702756713
-pistol.tres::Resource/WeaponResource::8348949670482149460::1702756713::0::1::::<><>::res://Scripits/Weapons/weapon_resource.gd<>uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn<>uid://cd45e5xtfstgy::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres<>uid://bekpf8uww5mio::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres<>uid://bdxv6tmupmprg::::res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres<>uid://e8tem5dlqo3n::::res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres<>uid://dxwrjweydftq6::::res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres<>uid://rrn4joq58nuh::::res://Art/Bullet.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-rifle.tres::Resource/WeaponResource::6070017371299495170::1702756713::0::1::::<><>::uid://leppq3elwt6d::::res://Art/Weapon Icons/AssaultRifle.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://63r643f2g1xu::::res://Objects/Weapons/rifle.tscn<>uid://cd45e5xtfstgy::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres<>uid://bekpf8uww5mio::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres<>uid://bdxv6tmupmprg::::res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres<>uid://bosd6cm7dcgh::::res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres<>uid://cdf6hawehunhv::::res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres<>uid://cdn30i7s7ws3e::::res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
-test_weapon.tres::Resource/WeaponResource::5515469452999490765::1702756713::0::1::::<><>::uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://c7msjj21lwgnn::::res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn
-::res://Scripits/::1702756129
-base_stat.gd::GDScript::-1::1701766395::0::1::::BaseStat<>Stat<>::
-bullet.gd::GDScript::-1::1702377129::0::1::::Bullet<>Area2D<>::
-combat_level.gd::GDScript::-1::1699868689::0::1::::<>Node2D<>::
-combat_stat_container.gd::GDScript::-1::1701514525::0::1::::CombatStatContainer<>StatContainer<>::
-entity.gd::GDScript::-1::1702755241::0::1::::Entity<>Node<>::
+::res://Resources/Weapons/::1702794594
+pistol.tres::Resource/WeaponResource::8348949670482149460::1702794594::0::1::::<><>::res://Scripits/Weapons/weapon_resource.gd<>uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn<>uid://cd45e5xtfstgy::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres<>uid://bekpf8uww5mio::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres<>uid://bdxv6tmupmprg::::res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres<>uid://e8tem5dlqo3n::::res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres<>uid://dxwrjweydftq6::::res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres<>uid://rrn4joq58nuh::::res://Art/Bullet.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+rifle.tres::Resource/WeaponResource::6070017371299495170::1702794594::0::1::::<><>::uid://leppq3elwt6d::::res://Art/Weapon Icons/AssaultRifle.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://63r643f2g1xu::::res://Objects/Weapons/rifle.tscn<>uid://cd45e5xtfstgy::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres<>uid://bekpf8uww5mio::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres<>uid://bdxv6tmupmprg::::res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres<>uid://bosd6cm7dcgh::::res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres<>uid://cdf6hawehunhv::::res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres<>uid://cdn30i7s7ws3e::::res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
+test_weapon.tres::Resource/WeaponResource::5515469452999490765::1702794594::0::1::::<><>::uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://c7msjj21lwgnn::::res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn
+::res://Scripits/::1702796949
+base_stat.gd::GDScript::-1::1702794653::0::1::::BaseStat<>Stat<>::
+bullet.gd::GDScript::-1::1702796949::0::1::::Bullet<>Area2D<>::
+combat_level.gd::GDScript::-1::1702796070::0::1::::<>Node2D<>::
+combat_stat_container.gd::GDScript::-1::1702796091::0::1::::CombatStatContainer<>StatContainer<>::
+entity.gd::GDScript::-1::1702796826::0::1::::Entity<>Node<>::
 explosion_area_check.gd::GDScript::-1::1700522250::0::1::::ExplosionAreaCheck<>Area2D<>::
 gear.gd::GDScript::-1::1702028724::0::1::::Gear<>Resource<>::
 gear_modifier.gd::GDScript::-1::1701846038::0::1::::GearModifier<>Resource<>::
@@ -156,24 +157,22 @@ main_menu_stat_container.gd::GDScript::-1::1701514115::0::1::::MainMenuStatConta
 particle_system_bullet.gd::GDScript::-1::1696759118::0::1::::<>GPUParticles2D<>::
 player.gd::GDScript::-1::1702755627::0::1::::Player<>Entity<>::
 player_controller.gd::GDScript::-1::1699429413::0::1::::PlayerController<>CharacterBody2D<>::
-spawner_check.gd::GDScript::-1::1702752735::0::1::::<>Marker2D<>::
+spawner_check.gd::GDScript::-1::1702794594::0::1::::<>Marker2D<>::
 stat.gd::GDScript::-1::1701766909::0::1::::Stat<>Resource<>::
 stat_container.gd::GDScript::-1::1702028894::0::1::::StatContainer<>Node<>::
 stat_mod.gd::GDScript::-1::1701252149::0::1::::StatMod<>Resource<>::
-::res://Scripits/Drops/::1698558420
-drop.gd::GDScript::-1::1698298482::0::1::::Drop<>Area2D<>::
-drop_base_resource.gd::GDScript::-1::1698236581::0::1::::<>Resource<>::
-drop_experience.gd::GDScript::-1::1698321442::0::1::::XP_Drop<>Drop<>::
-in_level_xp_manager.tscn::PackedScene::7836433323377865930::1698558420::0::1::::<><>::res://Scripits/in_level_xp_manager.gd
-::res://Scripits/Enemy/::1702756713
+::res://Scripits/Drops/::1702796265
+drop.gd::GDScript::-1::1702796229::0::1::::Drop<>Area2D<>::
+drop_base_resource.gd::GDScript::-1::1702796229::0::1::::DropResource<>Resource<>::
+drop_experience.gd::GDScript::-1::1702796265::0::1::::XP_Drop<>Drop<>::
+::res://Scripits/Enemy/::1702807756
 boss.gd::GDScript::-1::1702720358::0::1::::Boss<>EnemyNode<>::
-enemy_movement.gd::GDScript::-1::1702756264::0::1::::EnemyMovement<>CharacterBody2D<>::
-enemy_movement_ai.gd::GDScript::-1::1702756433::0::1::::EnemyMovementAI<>Resource<>::
-enemy_node.gd::GDScript::-1::1702756235::0::1::::EnemyNode<>Entity<>::
-enemy_resource.gd::GDScript::-1::1702755146::0::1::::EnemyResource<>Resource<>::
-enemy_spawner.gd::GDScript::-1::1702756713::0::1::::<>Node<>::
-enemy_spawn_manager.gd::GDScript::-1::1702755885::0::1::::<>Node2D<>::
-grunt_enemy_ai.gd::GDScript::-1::1702756524::0::1::::<>EnemyMovementAI<>::
+enemy_movement.gd::GDScript::-1::1702797009::0::1::::EnemyMovement<>CharacterBody2D<>::
+enemy_movement_ai.gd::GDScript::-1::1702796369::0::1::::EnemyMovementAI<>Resource<>::
+enemy_node.gd::GDScript::-1::1702797037::0::1::::EnemyNode<>Entity<>::
+enemy_resource.gd::GDScript::-1::1702797134::0::1::::EnemyResource<>Resource<>::
+enemy_spawn_manager.gd::GDScript::-1::1702807756::0::1::::EnemySpawnManager<>Node2D<>::
+grunt_enemy_ai.gd::GDScript::-1::1702756783::0::1::::GruntMovementAI<>EnemyMovementAI<>::
 mob_data.gd::GDScript::-1::1699320197::0::1::::MobData<>Resource<>::
 spawn_data.gd::GDScript::-1::1702720131::0::1::::SpawnDataResource<>Resource<>::
 ::res://Scripits/GUI/::1702756212
@@ -185,8 +184,8 @@ upgrade_description_panel.gd::GDScript::-1::1699230565::0::1::::UpgradeDescripti
 upgrade_menu.gd::GDScript::-1::1699353954::0::1::::UpgradeMenu<>Control<>::
 upgrade_option.gd::GDScript::-1::1699176876::0::1::::UpgradeOption<>Control<>::
 upgrade_points_counter.gd::GDScript::-1::1699353661::0::1::::UpgradePointsCounter<>Label<>::
-::res://Scripits/Main Menu/::1702294744
-character_menu.gd::GDScript::-1::1701928994::0::1::::CharacterMenu<>Control<>::
+::res://Scripits/Main Menu/::1702807805
+character_menu.gd::GDScript::-1::1702796041::0::1::::CharacterMenu<>Control<>::
 equiped_gear_menu.gd::GDScript::-1::1702289486::0::1::::EquipedGearMenu<>MarginContainer<>::
 gear_menu.gd::GDScript::-1::1702294744::0::1::::GearMenu<>Control<>::
 gear_slot.gd::GDScript::-1::1702083100::0::1::::GearSlot<>Button<>::
@@ -196,24 +195,24 @@ main_menu_option.gd::GDScript::-1::1701038968::0::1::::MainMenuOption<>Button<>:
 selected_item_info.gd::GDScript::-1::1702205341::0::1::::SelectedItemInfo<>Panel<>::
 selected_item_options.gd::GDScript::-1::1702275778::0::1::::SelecteditemOptions<>HBoxContainer<>::
 selected_weapon_info.gd::GDScript::-1::1701846266::0::1::::WeaponSelectInfo<>Control<>::
-weapon_select_button.gd::GDScript::-1::1700462851::0::1::::WeaponSelectButton<>Button<>::
-weapon_select_menu.gd::GDScript::-1::1701039080::0::1::::<>Control<>::
+weapon_select_button.gd::GDScript::-1::1702807805::0::1::::WeaponSelectButton<>Button<>::
+weapon_select_menu.gd::GDScript::-1::1702807756::0::1::::WeaponSelectMenu<>Control<>::
 ::res://Scripits/On Hit Effects/::1700541847
 on_hit_effect.gd::GDScript::-1::1700541847::0::1::::OnHitEffect<>Resource<>::
 slow_on_hit.gd::GDScript::-1::1700541847::0::1::::SlowOnHit<>OnHitEffect<>::
-::res://Scripits/Upgrade/::1702756115
-base_stat_upgrade.gd::GDScript::-1::1701851242::0::1::::BaseStatUpgrade<>Upgrade<>::
+::res://Scripits/Upgrade/::1702794678
+base_stat_upgrade.gd::GDScript::-1::1702794678::0::1::::BaseStatUpgrade<>Upgrade<>::
 on_hit_effect_upgrade.gd::GDScript::-1::1701252703::0::1::::OnHitEffectUpgrade<>Upgrade<>::
 upgrade.gd::GDScript::-1::1701850254::0::1::::Upgrade<>Resource<>::
 upgrade_manager.gd::GDScript::-1::1702756115::0::1::::UpgradeManager<>Node<>::
 upgrade_resource.gd::GDScript::-1::1701744458::0::1::::UpgradeResource<>Resource<>::
 weapon_upgrade.gd::GDScript::-1::1699924665::0::1::::WeaponUpgrade<>Upgrade<>::
-::res://Scripits/Weapons/::1702377118
+::res://Scripits/Weapons/::1702808164
 pistol.gd::GDScript::-1::1702377118::0::1::::<>Weapon<>::
 rifle.gd::GDScript::-1::1700532529::0::1::::<>Weapon<>::
-weapon.gd::GDScript::-1::1702377050::0::1::::Weapon<>Node<>::
-weapon_manager.gd::GDScript::-1::1701767619::0::1::::WeaponManager<>Node<>::
-weapon_resource.gd::GDScript::-1::1700335317::0::1::::WeaponResource<>Resource<>::
+weapon.gd::GDScript::-1::1702808164::0::1::::Weapon<>Node<>::
+weapon_manager.gd::GDScript::-1::1702808145::0::1::::WeaponManager<>Node<>::
+weapon_resource.gd::GDScript::-1::1702807822::0::1::::WeaponResource<>Resource<>::
 ::res://test/::1702754799
 button_test.gd::GDScript::-1::1698987596::0::1::::<>Button<>::
 test.tscn::PackedScene::3566301953465693758::1697451691::0::1::::<><>::uid://dmr0fcamx7t56

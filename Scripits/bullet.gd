@@ -2,11 +2,13 @@ extends Area2D
 class_name Bullet
 signal destroy()
 
+#Projectile movement 
+
 @export var speed = 20
 @export var lifetime := 1
 @export var base_damage := 1
-@export var pierce_counter:int = 0
-@export var pierce: int
+@export var pierce: int #Max number of enemies can pierce
+@export var pierce_counter:int = 0 #Keeps track of how many enemies has pierced
 
 var on_hit_effects: Array[OnHitEffect]
 
@@ -18,13 +20,14 @@ func _ready():
 func _physics_process(delta):
 		move_local_y(-speed * delta)
 
-#dies on collision
 func _on_body_entered(body):
 	if body.get_parent() is Entity:
 		body.get_parent().take_damage(base_damage)
+		#Applies hit effects if there are any
 		if on_hit_effects.size() > 0:
 			for hit_effect in on_hit_effects:
 				hit_effect.trigger_effect(body.get_parent())
+		#Destroy self if 0 pierces remain
 		if pierce_counter >= pierce:
 			call_deferred("kill_self")
 		else: 

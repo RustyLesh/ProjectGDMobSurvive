@@ -1,5 +1,7 @@
 extends Entity
 class_name Player
+#Stores references for objects in player scene
+
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var weapon_manager: WeaponManager = $"Weapon Manager"
 @onready var combat_stat_container = $"Combat Stat Container"

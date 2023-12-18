@@ -1,7 +1,6 @@
 extends Node
 class_name UpgradeManager
-
-#Tracks upgrade pool
+#Tracks upgrade pool, and upgrade points. Lets player spend points on upgrades.
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var  player: Node = get_tree().get_first_node_in_group(("Player"))
@@ -23,7 +22,7 @@ var current_level: int = 0
 signal current_upgrade_points_changed(points: int)
 signal on_reroll()
 
-var max_posible_choices: int = 5 #Hard cap on possible alowed choices. main limite is ui space
+var max_posible_choices: int = 5 #Hard cap on possible alowed choices. main limit is ui space
 		
 func _ready():
 	if player is Player:

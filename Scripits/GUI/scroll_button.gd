@@ -1,5 +1,6 @@
 extends Button
 class_name ScrollButton
+#Button to be used in scrollable menus
 
 var just_pressed = false
 var prev_pos

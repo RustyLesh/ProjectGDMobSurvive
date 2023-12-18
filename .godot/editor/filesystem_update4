@@ -1,5 +1,5 @@
-res://Objects/hud.tscn
-res://Scripits/Enemy/enemy_spawner.gd
+res://Objects/enemy_spawn_manager.tscn
+res://Scripits/spawner_check.gd
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
@@ -15,11 +15,47 @@ res://Resources/Weapons/test_weapon.tres
 res://Resources/Gear/amulet.tres
 res://Resources/Gear/amulet2.tres
 res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Enemies/wisp.tres
+res://Scripits/stat_mod.gd
+res://Scripits/stat.gd
+res://Scripits/stat_container.gd
+res://Scripits/GUI/upgrade_description_panel.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/GUI/hud_xp.gd
+res://Scripits/Main Menu/gear_slot.gd
+res://Scripits/Main Menu/equiped_gear_menu.gd
+res://Scripits/entity.gd
+res://Scripits/Enemy/boss.gd
+res://Scripits/gear.gd
+res://Scripits/gear_modifier.gd
 res://Scripits/Enemy/grunt_enemy_ai.gd
+res://Scripits/health.gd
+res://Scripits/GUI/health_label.gd
+res://Scripits/input_test.gd
 res://Objects/Main Menu/main_menu.tscn
 res://Objects/Enemy Spawning/enemy.tscn
 res://Objects/bullet.tscn
-res://Objects/combat_level.tscn
 res://Objects/player.tscn
-res://Scripits/entity.gd
+res://Objects/hud.tscn
+res://Scripits/in_level_xp_manager.gd
+res://Scripits/Main Menu/main_menu.gd
+res://Scripits/Main Menu/main_menu_option.gd
+res://Scripits/particle_system_bullet.gd
+res://Scripits/On Hit Effects/slow_on_hit.gd
+res://Scripits/Upgrade/on_hit_effect_upgrade.gd
+res://Scripits/player_controller.gd
+res://player_setup.gd
+res://Scripits/GUI/scroll_button.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Main Menu/selected_item_options.gd
+res://Scripits/GUI/upgrade_menu.gd
+res://Scripits/GUI/upgrade_option.gd
+res://Scripits/GUI/upgrade_points_counter.gd
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/main_menu_stat_container.gd
+res://Resources/Enemies/wisp.tres
+res://Scripits/player.gd
+res://Scripits/On Hit Effects/on_hit_effect.gd
+res://Scripits/Enemy/enemy_node.gd
+res://Scripits/Enemy/enemy_resource.gd

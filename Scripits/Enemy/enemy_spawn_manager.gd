@@ -1,13 +1,16 @@
 extends Node2D
+class_name EnemySpawnManager
 
-#@onready var spawner = $EnemySpawner
-@onready var player = get_tree().get_first_node_in_group("Player").get_node("PlayerBody")
+#Manages enemy spawning from spawn data resources
+
+@onready var player = get_tree().get_first_node_i_group("Player").get_node("PlayerBody")
 @export var spawns: Array[SpawnDataResource]
 var topLeft : Vector2
 var botRight : Vector2 
 
 @onready var tilemap = $"../Tile_Map"
 
+#Keeps track of time for spawning enemies
 @onready var timer: Timer = $Timer
 signal on_spawn_timer_pause()
 signal on_spawn_timer_play()
@@ -16,6 +19,7 @@ signal on_spawn_timer_play()
 @export var time = 0
 
 func _ready():
+	#Creates points for each corner of the tilemap for spawning algorithm
 	if tilemap is TileMap:
 		topLeft = tilemap.map_to_local(Vector2(0,0))
 		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(0)
@@ -29,16 +33,19 @@ func _ready():
 		botRight.y -= wallSpawnBuffer
 		
 		print(topLeft)
-		
+
+#Pause spawn timer
 func pause_timer():
 	timer.paused = true
 	print("paused timer")
 	on_spawn_timer_pause.emit()
 
+#Resume spawn timer
 func play_timer():
 	timer.paused = false
 	on_spawn_timer_play.emit()
 
+#Adds time to spawn timer
 func _on_timer_timeout():
 	time += 1
 	for i in spawns:
