@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://player_setup.gd" id="1_bv4kj"]
 
-[node name="Player Setup" type="Node"]
+[node name="Player Setup" type="Node" groups=["Saveable"]]
 script = ExtResource("1_bv4kj")

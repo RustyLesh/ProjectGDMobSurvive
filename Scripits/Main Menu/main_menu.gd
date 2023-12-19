@@ -26,6 +26,7 @@ var current_menu: MenuType
 @onready var gear_menu = $"Gear Menu"
 @onready var character_menu: CharacterMenu = $"Character Menu"
 @onready var combat_menu = $"Combat Prep Menu"
+@onready var options_menu = $"Options Menu"
 
 func _ready():
 	weapon_select_menu.visible = false
@@ -34,6 +35,7 @@ func _ready():
 	equipment_menu.visible = false
 	character_menu.visible = false
 	ability_menu.visible = false
+	options_menu.visible = false
 	
 	change_menu(starting_menu)
 	
@@ -60,6 +62,9 @@ func change_menu(change_to: MenuType):
 		MenuType.ABILITIES:
 			ability_menu.visible = false
 		
+		MenuType.OPTIONS:
+			options_menu.visible = false
+			
 	current_menu = change_to
 
 	match current_menu:
@@ -81,3 +86,7 @@ func change_menu(change_to: MenuType):
 			
 		MenuType.ABILITIES:
 			ability_menu.visible = true
+			
+		MenuType.OPTIONS:
+			options_menu.visible = true
+			options_menu.update_ui()

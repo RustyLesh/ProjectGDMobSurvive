@@ -9,3 +9,4 @@ extends Node
 
 @export var inventory: Array[Gear]
 @export var gear_drops: Array[Gear]
+

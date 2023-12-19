@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=45 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -23,6 +23,10 @@
 [ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/amulet2.tres" id="17_gna4i"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
+[ext_resource type="PackedScene" uid="uid://bhdree73yyqmt" path="res://ButtonsTest.tscn" id="24_nbqtq"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
+[ext_resource type="PackedScene" uid="uid://b7vh7erfrrbo0" path="res://test_data.tscn" id="27_dnv86"]
+[ext_resource type="Script" path="res://Objects/Main Menu/save_manager.gd" id="30_d86fg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
 bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -62,15 +66,23 @@ bg_color = Color(0.0823529, 0.113725, 0.184314, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_5a0d5"]
 font_size = 146
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg0gq"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
 script = ExtResource("1_74mk5")
-starting_menu = 5
+starting_menu = 4
+
+[node name="Stat Container" type="Node" parent="."]
+script = ExtResource("15_eji0x")
+damage = 10
+
+[node name="Save Manager" type="Node" parent="."]
+script = ExtResource("30_d86fg")
 
 [node name="Mode Menu" type="Control" parent="."]
 layout_mode = 1
@@ -79,6 +91,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = 16.0
+offset_right = -368.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -89,10 +105,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -120.0
-offset_right = 352.0
-offset_bottom = -8.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = 720.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7mpyl")
@@ -305,6 +321,7 @@ layout_mode = 2
 script = ExtResource("13_tyj7l")
 
 [node name="Gear Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -404,15 +421,11 @@ offset_bottom = 448.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j10a5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_djugb")
 
-[node name="Stat Container" type="Node" parent="."]
-script = ExtResource("15_eji0x")
-damage = 10
-
 [node name="Ability Menu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 720.0
+offset_bottom = 1168.0
 
 [node name="Equiped Abilites" type="MarginContainer" parent="Ability Menu"]
 layout_mode = 2
@@ -458,6 +471,55 @@ label_settings = SubResource("LabelSettings_5a0d5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="Ability Menu"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 464.0
+offset_right = 528.0
+offset_bottom = 560.0
+script = ExtResource("30_d86fg")
+
+[node name="Options Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1160.0
+script = ExtResource("26_6ety7")
+
+[node name="Test Data" parent="Options Menu" groups=["Saveable"] instance=ExtResource("27_dnv86")]
+
+[node name="Buttons" parent="Options Menu" instance=ExtResource("24_nbqtq")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 616.0
+offset_bottom = 120.0
+
+[node name="Save" type="Button" parent="Options Menu"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 992.0
+offset_right = 304.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 36
+text = "Save"
+
+[node name="Load" type="Button" parent="Options Menu"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 992.0
+offset_right = 704.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 36
+text = "Load"
+
+[node name="Label" type="Label" parent="Options Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 392.0
+offset_right = 664.0
+offset_bottom = 704.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg0gq")
+
 [connection signal="on_start_combat" from="." to="Stat Container" method="_on_main_menu_on_start_combat"]
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
@@ -468,3 +530,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="equip_gear"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Craft" to="Gear Menu" method="_on_craft_pressed"]
 [connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]
+[connection signal="pressed" from="Ability Menu/Button" to="Ability Menu/Button" method="save_game"]
+[connection signal="pressed" from="Options Menu/Save" to="Options Menu" method="_on_save_pressed"]
+[connection signal="pressed" from="Options Menu/Load" to="Options Menu" method="_on_load_pressed"]

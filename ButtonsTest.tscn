@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhdree73yyqmt"]
+
+[ext_resource type="Script" path="res://Objects/Main Menu/save_test.gd" id="1_vx1f3"]
+[ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="2_airlw"]
+[ext_resource type="Script" path="res://Objects/Main Menu/save_test_button.gd" id="3_ld720"]
+[ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="4_hpbu8"]
+[ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="5_e3x40"]
+[ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="6_ai6em"]
+
+[node name="Buttons" type="HBoxContainer"]
+offset_left = 56.0
+offset_top = 272.0
+offset_right = 672.0
+offset_bottom = 392.0
+theme_override_constants/separation = 23
+script = ExtResource("1_vx1f3")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("2_airlw")
+script = ExtResource("3_ld720")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("4_hpbu8")
+script = ExtResource("3_ld720")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("5_e3x40")
+script = ExtResource("3_ld720")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("6_ai6em")
+script = ExtResource("3_ld720")
