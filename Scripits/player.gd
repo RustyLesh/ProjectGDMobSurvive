@@ -28,7 +28,6 @@ func _ready():
 	
 func _on_health_died():
 	on_player_death.emit()
-	get_tree().reload_current_scene() #Reset the game
 	
 func xp_pickup(value : float):
 	if xp_manager is XPManager:

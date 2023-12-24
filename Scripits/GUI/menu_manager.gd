@@ -3,9 +3,12 @@ class_name MenuManager
 #Manages menus in combat
 
 @onready var upgrade_menu: Control = $"Uprade Menu"
+@onready var end_screen = $"End Screen"
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	upgrade_menu.visible = false
+	end_screen.visible = false
 	
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=22 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_points_counter.gd" id="7_5e6md"]
+[ext_resource type="Script" path="res://Scripits/GUI/end_screen.gd" id="9_ygsdw"]
 
 [sub_resource type="Gradient" id="Gradient_1n4kt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -36,11 +37,22 @@ font_size = 30
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph4yx"]
 bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8fmg"]
+
+[sub_resource type="SystemFont" id="SystemFont_oi2go"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tga6w"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apyte"]
+bg_color = Color(0.258824, 0.258824, 0.258824, 1)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_g0dvu")
 
 [node name="TouchSticks" type="Control" parent="."]
-z_index = 1000
+visible = false
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 960.0
@@ -50,6 +62,7 @@ offset_bottom = 1280.0
 [node name="Test" type="Node2D" parent="TouchSticks"]
 
 [node name="Sticks" type="CanvasLayer" parent="TouchSticks/Test"]
+layer = 0
 
 [node name="Virtual joystick left" parent="TouchSticks/Test/Sticks" instance=ExtResource("2_7xvjj")]
 offset_top = -317.0
@@ -84,7 +97,6 @@ offset_right = 720.0
 offset_bottom = 1280.0
 
 [node name="XP Bar" type="TextureProgressBar" parent="HUD"]
-z_index = 100
 layout_mode = 2
 offset_top = 97.0
 offset_right = 720.0
@@ -162,4 +174,52 @@ offset_bottom = 152.0
 text = "Pts: "
 script = ExtResource("7_5e6md")
 
+[node name="End Screen" type="Control" parent="."]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+script = ExtResource("9_ygsdw")
+
+[node name="Background" type="Panel" parent="End Screen"]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8fmg")
+
+[node name="Title" type="Label" parent="End Screen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 96.0
+offset_right = 640.0
+offset_bottom = 248.0
+theme_override_fonts/font = SubResource("SystemFont_oi2go")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_tga6w")
+text = "Title Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info Label" type="Label" parent="End Screen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 408.0
+theme_override_fonts/font = SubResource("SystemFont_oi2go")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_apyte")
+text = "Info box"
+
+[node name="Return to Main Menu" type="Button" parent="End Screen"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 1024.0
+offset_right = 544.0
+offset_bottom = 1104.0
+theme_override_font_sizes/font_size = 30
+text = "Return to menu"
+
 [connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="End Screen/Return to Main Menu" to="End Screen" method="return_to_main_menu"]

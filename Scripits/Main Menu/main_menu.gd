@@ -27,6 +27,7 @@ var current_menu: MenuType
 @onready var character_menu: CharacterMenu = $"Character Menu"
 @onready var combat_menu = $"Combat Prep Menu"
 @onready var options_menu = $"Options Menu"
+@onready var save_manager = $"Save Manager"
 
 func _ready():
 	weapon_select_menu.visible = false
@@ -36,9 +37,9 @@ func _ready():
 	character_menu.visible = false
 	ability_menu.visible = false
 	options_menu.visible = false
-	
+		
 	change_menu(starting_menu)
-	
+
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
 

@@ -1,4 +1,6 @@
 res://
+res://Objects
+res://Scripits/GUI
 res://Scripits/Main Menu
 res://Objects/Main Menu
 res://Scripits/Enemy
@@ -14,9 +16,7 @@ res://Resources/Weapons
 res://Objects/Weapons
 res://Art/Enemies
 res://Objects/enemy_spawn_animations
-res://Scripits/GUI
 res://Scripits
-res://Objects
 res://Scripits/Drops
 res://Art
 C:/Users/flame/Documents/Godot Projects

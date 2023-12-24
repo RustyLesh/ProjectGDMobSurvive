@@ -4,6 +4,18 @@ class_name SaveManager
 # dict of relevant variables.
 		
 
+func _ready():
+	await get_tree().create_timer(1).timeout
+	
+		#Check if game has loaded since launch
+	if GameData.has_first_load == false:
+		load_game()
+		GameData.has_first_load = true
+	else:
+		save_game()
+	
+
+
 func save_game():
 	print("Saving")
 	var save_game_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -27,6 +39,7 @@ func save_game():
 		save_game_file.store_line(json_string)
 
 func load_game():
+	print("Loading")
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 

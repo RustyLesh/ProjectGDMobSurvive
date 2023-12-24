@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dt13r06u87fib" path="res://joystick/textures/joystick_tip_arrows.png" id="3_3etdg"]
 
 [node name="Virtual Joystick" type="Control"]
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -16,6 +17,7 @@ grow_vertical = 0
 script = ExtResource("1_8x4dy")
 
 [node name="Base" type="TextureRect" parent="."]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,6 +36,7 @@ texture = ExtResource("2_jhjs2")
 stretch_mode = 5
 
 [node name="Tip" type="TextureRect" parent="Base"]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

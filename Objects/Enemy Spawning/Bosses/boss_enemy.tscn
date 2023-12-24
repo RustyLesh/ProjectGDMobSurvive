@@ -1,30 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmvnb8r3pe8kr"]
+[gd_scene load_steps=6 format=3 uid="uid://bmvnb8r3pe8kr"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/boss.gd" id="1_llghj"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="2_g8x20"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="3_8kbki"]
-[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_tgfim"]
-[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="4_0xbpq"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="4_i7b6s"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="5_dgko7"]
-
-[sub_resource type="Resource" id="Resource_ijp61"]
-script = ExtResource("2_g8x20")
-enemy_name = "Big bubble boss"
-max_health = 10
-move_speed = 100
-sprite = ExtResource("4_0xbpq")
-spawn_animation = ExtResource("3_tgfim")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e3wt"]
 size = Vector2(11.3137, 11.3137)
 
-[node name="Boss Enemy" type="Node" node_paths=PackedStringArray("sprite") groups=["Enemy"]]
+[node name="Boss Enemy" type="Node" groups=["Enemy"]]
 script = ExtResource("1_llghj")
-enemy_resource = SubResource("Resource_ijp61")
 xp_value = 100.0
 entity_type = 1
-sprite = NodePath("Body/Sprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_8kbki")

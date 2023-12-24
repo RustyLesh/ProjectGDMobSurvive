@@ -1,12 +1,12 @@
-Label
-Node
 Button
+Panel
+Label
 Control
+Node
 HBoxContainer
 Health
 EnemyMovement
 EnemyNode
-Panel
 TextEdit
 VScrollBar
 RichTextLabel

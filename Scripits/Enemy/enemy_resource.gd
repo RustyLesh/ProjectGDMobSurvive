@@ -16,7 +16,8 @@ enum EnemyType
 @export var contact_damage: int
 @export var sprite : CompressedTexture2D
 @export var spawn_animation : SpriteFrames 
-
+@export var stage_xp_value: float
+@export var weapon_xp_value: float
 @export var collision_shape: Shape2D
 @export var collision_pos_offset: Vector2
 

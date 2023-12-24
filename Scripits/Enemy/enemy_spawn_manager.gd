@@ -3,7 +3,7 @@ class_name EnemySpawnManager
 
 #Manages enemy spawning from spawn data resources
 
-@onready var player = get_tree().get_first_node_i_group("Player").get_node("PlayerBody")
+@onready var player = get_tree().get_first_node_in_group("Player").get_node("PlayerBody")
 @export var spawns: Array[SpawnDataResource]
 var topLeft : Vector2
 var botRight : Vector2 
