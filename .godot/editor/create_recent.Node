@@ -1,8 +1,10 @@
+Timer
+Node
+Line2D
 Button
 Panel
 Label
 Control
-Node
 HBoxContainer
 Health
 EnemyMovement
@@ -19,7 +21,6 @@ CollisionShape2D
 Area2D
 TextureRect
 VBoxContainer
-Timer
 TextureProgressBar
 PanelContainer
 Container
@@ -29,4 +30,3 @@ Node2D
 NavigationRegion2D
 CanvasLayer
 Marker2D
-PathFollow2D

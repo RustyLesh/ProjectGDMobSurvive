@@ -1,15 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq0utpd576hbh"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0utpd576hbh"]
 
 [ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="1_cbo8b"]
 [ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
 [ext_resource type="PackedScene" uid="uid://d2ipya06c0n65" path="res://Objects/stat_container.tscn" id="2_i0kg7"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_manager.gd" id="3_f1cye"]
-[ext_resource type="Script" path="res://Scripits/explosion_area_check.gd" id="4_fegn2"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aup0v"]
-radius = 45.0999
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
 size = Vector2(12, 12)
@@ -28,12 +24,6 @@ script = ExtResource("5_yio5s")
 script = ExtResource("3_f1cye")
 
 [node name="Bullet Container" type="Node" parent="Weapon Manager"]
-
-[node name="ExplosionAreaCheck" type="Area2D" parent="Weapon Manager"]
-script = ExtResource("4_fegn2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon Manager/ExplosionAreaCheck"]
-shape = SubResource("CircleShape2D_aup0v")
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." groups=["player"]]
 collision_mask = 14

@@ -1,3 +1,6 @@
+res://Scripits/On Hit Effects
+res://Resources/Upgrades/On Hit Upgrades
+C:/Users/flame/AppData/Local/Programs/Microsoft VS Code
 res://
 res://Objects
 res://Scripits/GUI
@@ -8,7 +11,6 @@ res://Objects/Enemy Spawning
 res://Objects/Enemy Spawning/Bosses
 res://Resources/Enemies
 res://Resources/Gear
-res://Resources/Upgrades/On Hit Upgrades
 res://Objects/GUI
 res://Resources/Upgrades
 res://Scripits/Upgrade
@@ -18,7 +20,3 @@ res://Art/Enemies
 res://Objects/enemy_spawn_animations
 res://Scripits
 res://Scripits/Drops
-res://Art
-C:/Users/flame/Documents/Godot Projects
-C:/Program Files (x86)/Android/android-sdk
-C:/Users/flame/Documents/Godot Projects/Builds

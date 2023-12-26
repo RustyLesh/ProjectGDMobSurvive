@@ -1,6 +1,7 @@
+UpgradeResource
+ChainLightningOnHit
 EnemyResource
 Gear
-UpgradeResource
 OnHitEffectUpgrade
 SlowOnHit
 BaseStatUpgrade

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjurp71bsgnjv"]
+
+[ext_resource type="Script" path="res://test/effect_proc_line.gd" id="1_74iot"]
+
+[node name="effect_proc_line" type="Line2D"]
+z_index = 1000
+width = 2.0
+default_color = Color(0.960784, 0.952941, 0.0313726, 0.792157)
+script = ExtResource("1_74iot")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="delete_line"]

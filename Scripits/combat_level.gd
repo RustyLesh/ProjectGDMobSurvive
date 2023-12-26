@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var player_body_node = $Player.get_node("PlayerBody")
 @onready var camera_node = player_body_node.get_node("Camera2D")
-
+@onready var explosion_area_check = $ExplosionAreaCheck as ExplosionAreaCheck
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if camera_node is Camera2D:

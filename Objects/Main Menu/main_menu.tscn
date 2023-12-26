@@ -486,6 +486,7 @@ script = ExtResource("26_6ety7")
 [node name="Test Data" parent="Options Menu" instance=ExtResource("27_dnv86")]
 
 [node name="Buttons" parent="Options Menu" instance=ExtResource("24_nbqtq")]
+visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
