@@ -1,31 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=14 format=3 uid="uid://dq7j8mmcqn7ue"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://dq7j8mmcqn7ue"]
 
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_1rrd2"]
 [ext_resource type="Texture2D" uid="uid://ghqd4icedypq" path="res://Art/Weapon Icons/DualPistols.png" id="1_jw5ly"]
 [ext_resource type="PackedScene" uid="uid://da7ww05aoof2x" path="res://Objects/Weapons/pistol.tscn" id="2_8si5s"]
-[ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_nu6ey"]
-[ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres" id="4_eswq7"]
-[ext_resource type="Resource" uid="uid://bdxv6tmupmprg" path="res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres" id="5_w8ani"]
-[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres" id="6_lxvul"]
-[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres" id="7_gfakv"]
-[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="8_b5d0d"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="9_fqv03"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="10_ijif4"]
-
-[sub_resource type="Resource" id="Resource_ajvot"]
-script = ExtResource("10_ijif4")
-mod_type = 0
-base_stat_type = 6
-value = 1.0
-
-[sub_resource type="Resource" id="Resource_pt3sp"]
-script = ExtResource("9_fqv03")
-name = "Increase pierce"
-description = "Bullets hit more enemies before dissapearing"
-icon = ExtResource("8_b5d0d")
-upgrade = SubResource("Resource_ajvot")
-added_upgrades = Array[ExtResource("9_fqv03")]([])
-max_uses = 1
 
 [resource]
 script = ExtResource("1_1rrd2")
@@ -33,4 +10,4 @@ icon = ExtResource("1_jw5ly")
 weapon_name = "Dual Pistols"
 description = "Pew Pew"
 weapon = ExtResource("2_8si5s")
-upgrades = Array[ExtResource("9_fqv03")]([ExtResource("3_nu6ey"), ExtResource("4_eswq7"), ExtResource("5_w8ani"), ExtResource("6_lxvul"), ExtResource("7_gfakv"), SubResource("Resource_pt3sp")])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])

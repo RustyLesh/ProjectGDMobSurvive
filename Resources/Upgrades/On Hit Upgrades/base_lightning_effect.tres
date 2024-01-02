@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChainLightningOnHit" load_steps=2 format=3 uid="uid://b6qrt0qfmb8ep"]
+
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="1_0e20w"]
+
+[resource]
+script = ExtResource("1_0e20w")
+_proc_range = 0.0
+_max_chain_count = 0
+_damage = 0.0
+_proc_chance = 0.0

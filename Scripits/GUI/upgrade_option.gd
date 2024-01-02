@@ -10,7 +10,7 @@ signal on_option_selected(option_no: int)
 func init_button(option_no, upgrade_resource : UpgradeResource):
 	_option_no = option_no
 	upgrade = upgrade_resource
-	button.icon = upgrade_resource.icon
+	button.icon = upgrade_resource._icon
 	
 func _on_button_pressed():
 	on_option_selected.emit(_option_no)

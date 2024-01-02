@@ -1,7 +1,10 @@
+Sprite2D
+Button
+CollisionShape2D
+Area2D
 Timer
 Node
 Line2D
-Button
 Panel
 Label
 Control
@@ -16,9 +19,6 @@ ItemList
 ScrollContainer
 MarginContainer
 GridContainer
-Sprite2D
-CollisionShape2D
-Area2D
 TextureRect
 VBoxContainer
 TextureProgressBar

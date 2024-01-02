@@ -3,7 +3,7 @@ class_name UpgradeManager
 #Tracks upgrade pool, and upgrade points. Lets player spend points on upgrades.
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
-@onready var  player: Node = get_tree().get_first_node_in_group(("Player"))
+@onready var player: Node = get_tree().get_first_node_in_group(("Player"))
 @onready var player_stat_container = player.combat_stat_container
 @onready var player_body 
 
@@ -46,7 +46,7 @@ func get_upgrade(choice: int) -> UpgradeResource:
 func select_upgrade(choice: int):
 	if current_upgrade_points > 0:
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]
-		if selected_upgrade.current_uses >=  selected_upgrade.max_uses - 1:
+		if selected_upgrade.current_uses >=  selected_upgrade._max_uses - 1:
 			removed_upgrades.append(upgrade_pool.pop_at(upgrade_pool.size() - (choice)))
 		else:
 			selected_upgrade.current_uses += 1
@@ -86,7 +86,7 @@ func print_upgrade_names(): #Prints to console the names of upgrades from upgrad
 			print(upgrade_pool[i].name)
 	else:
 		for upgrade in upgrade_pool:
-			print(upgrade.name)
+			print(upgrade._name)
 
 func reset_upgrade_uses(): #Reset resource uses to 0
 	if removed_upgrades.size() > 0:

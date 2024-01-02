@@ -17,17 +17,17 @@ func _ready():
 	for slot in equiped_gear_menu.slots:
 		slot.on_gear_slot_clicked.connect(on_filter_gear_type)
 
-func on_filter_gear_type(gear_type:Gear.GearType):
+func on_filter_gear_type(gear_type:GearResource.GearType):
 	var new_sb = StyleBoxFlat.new()
 
 	match gear_type:
-		Gear.GearType.AMULET:
+		GearResource.GearType.AMULET:
 			new_sb.bg_color = amulet_colour
 			gear_type_filter_label.text = "Amulet"
-		Gear.GearType.HELMET:
+		GearResource.GearType.HELMET:
 			new_sb.bg_color = helmet_colour
 			gear_type_filter_label.text = "Helmet"	
-		Gear.GearType.RING:
+		GearResource.GearType.RING:
 			new_sb.bg_color = ring_colour
 			gear_type_filter_label.text = "Ring"	
 			

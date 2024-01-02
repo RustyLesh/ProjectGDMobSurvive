@@ -14,4 +14,4 @@ func on_player_death():
 	visible = true
 
 func return_to_main_menu():
-	get_tree().change_scene_to_file("res://Objects/Main Menu/main_menu.tscn")
+	GameData.go_to_main_menu()

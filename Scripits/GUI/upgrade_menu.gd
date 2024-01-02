@@ -61,3 +61,6 @@ func highlight_upgrade(option_no: int):
 
 func _on_reroll_pressed():
 	upgrade_manager.roll_upgrade_options()
+
+func return_to_main_menu():
+	GameData.go_to_main_menu()

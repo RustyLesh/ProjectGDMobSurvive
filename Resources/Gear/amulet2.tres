@@ -1,77 +1,41 @@
-[gd_resource type="Resource" script_class="Gear" load_steps=18 format=3 uid="uid://dujk6sj2cfjjg"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://dujk6sj2cfjjg"]
 
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_3uc7b"]
-[ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="1_6yjny"]
+[ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="1_vb8fe"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_bvewt"]
-[ext_resource type="Resource" uid="uid://dxwrjweydftq6" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_count_upgrade.tres" id="3_1ravd"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_qkaku"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_ul7nm"]
-[ext_resource type="Texture2D" uid="uid://c5ly12w88ilji" path="res://Art/XPDrop.png" id="6_rwbys"]
-[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="8_c328c"]
+[ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="3_adv5d"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_kv2co"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="5_jyv1u"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="6_jsir1"]
+
+[sub_resource type="Resource" id="Resource_cuud7"]
+script = ExtResource("5_jyv1u")
+_duration = 15
+_slow_amount = 0.0
+_proc_chance = 0.0
+
+[sub_resource type="Resource" id="Resource_o8gnt"]
+script = ExtResource("6_jsir1")
+_effect = SubResource("Resource_cuud7")
+
+[sub_resource type="Resource" id="Resource_ui2dq"]
+script = ExtResource("4_kv2co")
+_name = "Slow on hit"
+_description = "to fast? no"
+_icon = ExtResource("3_adv5d")
+upgrade = SubResource("Resource_o8gnt")
+added_upgrades = Array[ExtResource("4_kv2co")]([])
+_max_uses = 1
 
 [sub_resource type="Resource" id="Resource_qhqh0"]
 script = ExtResource("2_bvewt")
-mod_type = 0
-upgrade = ExtResource("3_1ravd")
-
-[sub_resource type="Resource" id="Resource_l8xs5"]
-script = ExtResource("5_ul7nm")
-mod_type = 0
-base_stat_type = 2
-value = 1.0
-
-[sub_resource type="Resource" id="Resource_64ax7"]
-script = ExtResource("4_qkaku")
-name = ""
-description = ""
-upgrade = SubResource("Resource_l8xs5")
-added_upgrades = Array[ExtResource("4_qkaku")]([])
-max_uses = 0
-
-[sub_resource type="Resource" id="Resource_bav1j"]
-script = ExtResource("2_bvewt")
-mod_type = 0
-upgrade = SubResource("Resource_64ax7")
-
-[sub_resource type="Resource" id="Resource_f80ka"]
-script = ExtResource("5_ul7nm")
-mod_type = 0
-base_stat_type = 0
-value = 10.0
-
-[sub_resource type="Resource" id="Resource_2t6wl"]
-script = ExtResource("4_qkaku")
-name = "Added Life"
-description = ""
-icon = ExtResource("6_rwbys")
-upgrade = SubResource("Resource_f80ka")
-added_upgrades = Array[ExtResource("4_qkaku")]([])
-max_uses = 2
-
-[sub_resource type="Resource" id="Resource_dudsn"]
-script = ExtResource("5_ul7nm")
-mod_type = 0
-base_stat_type = 0
-value = 2.0
-
-[sub_resource type="Resource" id="Resource_c1q1p"]
-script = ExtResource("4_qkaku")
-name = "Added pierce"
-description = ""
-icon = ExtResource("8_c328c")
-upgrade = SubResource("Resource_dudsn")
-added_upgrades = Array[ExtResource("4_qkaku")]([SubResource("Resource_2t6wl")])
-max_uses = 2
-
-[sub_resource type="Resource" id="Resource_0oc5y"]
-script = ExtResource("2_bvewt")
 mod_type = 1
-upgrade = SubResource("Resource_c1q1p")
+upgrade_resource = SubResource("Resource_ui2dq")
 
 [resource]
 script = ExtResource("1_3uc7b")
-name = "amy 2"
-description = "desc amy2"
-icon = ExtResource("1_6yjny")
-gear_type = 2
-mod_list = Array[ExtResource("2_bvewt")]([SubResource("Resource_qhqh0"), SubResource("Resource_bav1j"), SubResource("Resource_0oc5y")])
+_item_name = "Saphire Ammy"
+_description = "blue n gold"
+_icon = ExtResource("1_vb8fe")
+_gear_type = 2
+mod_list = Array[ExtResource("2_bvewt")]([SubResource("Resource_qhqh0")])

@@ -1,27 +1,15 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=7 format=3 uid="uid://b4e75fcown2xx"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://b4e75fcown2xx"]
 
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_rs5ut"]
-[ext_resource type="Texture2D" uid="uid://cl8kw84gumvjv" path="res://Art/Equipment/potion_amulet.png" id="1_t1yrf"]
-[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="3_34syw"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="4_vvvl6"]
-
-[sub_resource type="Resource" id="Resource_c1x2k"]
-script = ExtResource("3_34syw")
-proc_range = 60.0
-max_chain_count = 5
-value = 0.0
-proc_chance = 0.0
 
 [sub_resource type="Resource" id="Resource_xnm5k"]
 script = ExtResource("4_vvvl6")
-effect = SubResource("Resource_c1x2k")
-value = 50.0
 
 [resource]
 script = ExtResource("1_rs5ut")
-name = "Chain Lightning"
-description = "chance to chain lightning enemies"
-icon = ExtResource("1_t1yrf")
+_name = ""
+_description = ""
 upgrade = SubResource("Resource_xnm5k")
 added_upgrades = Array[ExtResource("1_rs5ut")]([])
-max_uses = 1
+_max_uses = 0

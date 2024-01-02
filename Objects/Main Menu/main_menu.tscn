@@ -1,10 +1,9 @@
-[gd_scene load_steps=45 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=42 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
 [ext_resource type="Texture2D" uid="uid://c5a6x1s6uymdg" path="res://Art/GUI/Icons/gear_icon.png" id="2_qnedt"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu_option.gd" id="3_6n16w"]
-[ext_resource type="PackedScene" uid="uid://da6lttdlhpic7" path="res://Objects/save_manager.tscn" id="3_7cqhy"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_weapon_info.gd" id="3_8uejl"]
 [ext_resource type="Texture2D" uid="uid://di1ceskp2eifk" path="res://Art/GUI/Icons/helmet_icon.png" id="3_opn5j"]
 [ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="3_rfwu6"]
@@ -19,9 +18,7 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_slot.gd" id="13_tyj7l"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/equiped_gear_menu.gd" id="13_wh3x6"]
 [ext_resource type="Script" path="res://Scripits/main_menu_stat_container.gd" id="15_eji0x"]
-[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/amulet.tres" id="15_hcrem"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
-[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/amulet2.tres" id="17_gna4i"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 [ext_resource type="PackedScene" uid="uid://bhdree73yyqmt" path="res://ButtonsTest.tscn" id="24_nbqtq"]
@@ -80,8 +77,6 @@ starting_menu = 4
 [node name="Stat Container" type="Node" parent="."]
 script = ExtResource("15_eji0x")
 damage = 10
-
-[node name="Save Manager" parent="." instance=ExtResource("3_7cqhy")]
 
 [node name="Mode Menu" type="Control" parent="."]
 layout_mode = 1
@@ -325,7 +320,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("13_owegc")
-gear_list = Array[Resource("res://Scripits/gear.gd")]([ExtResource("15_hcrem"), ExtResource("17_gna4i"), ExtResource("15_hcrem"), ExtResource("15_hcrem"), ExtResource("15_hcrem")])
 
 [node name="Item Info" type="Panel" parent="Gear Menu"]
 layout_mode = 0

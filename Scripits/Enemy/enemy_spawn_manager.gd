@@ -18,6 +18,8 @@ signal on_spawn_timer_play()
 @export var wallSpawnBuffer = 0.0
 @export var time = 0
 
+@export var disable_spawns: bool
+
 func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
 	if tilemap is TileMap:
@@ -33,6 +35,8 @@ func _ready():
 		botRight.y -= wallSpawnBuffer
 		
 		print(topLeft)
+		if disable_spawns == true:
+			pause_timer()
 
 #Pause spawn timer
 func pause_timer():

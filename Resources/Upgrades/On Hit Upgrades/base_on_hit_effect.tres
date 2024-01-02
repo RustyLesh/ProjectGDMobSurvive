@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="OnHitEffect" load_steps=2 format=3 uid="uid://crsgruddrhvhj"]
+
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/on_hit_effect.gd" id="1_8ogrm"]
+
+[resource]
+script = ExtResource("1_8ogrm")
+_proc_chance = 0.0

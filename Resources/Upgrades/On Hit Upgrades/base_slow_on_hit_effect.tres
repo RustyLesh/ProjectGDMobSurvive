@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlowOnHit" load_steps=2 format=3 uid="uid://idx34my3q70q"]
+
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="1_d4nbk"]
+
+[resource]
+script = ExtResource("1_d4nbk")
+_duration = 0
+_slow_amount = 0.0
+_proc_chance = 0.0

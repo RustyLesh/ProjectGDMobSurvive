@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://blp54isql4xy7"]
+[gd_scene load_steps=3 format=3 uid="uid://blp54isql4xy7"]
 
 [ext_resource type="Script" path="res://Scripits/player_stats.gd" id="1_wh4dh"]
+[ext_resource type="Resource" uid="uid://cknyfs0rbwnpt" path="res://test/new_resource.tres" id="2_au68a"]
 
 [node name="Player Stats" type="Node" groups=["Saveable"]]
 script = ExtResource("1_wh4dh")
+test_resource = ExtResource("2_au68a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(264, 224)

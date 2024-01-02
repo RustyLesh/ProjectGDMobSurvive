@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://c8fvcr1d28t2b"]
+
+[ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="1_qpuyl"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_e1ki3"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_j8saq"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_a3n1k"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="6_x80aw"]
+
+[sub_resource type="Resource" id="Resource_liu0k"]
+script = ExtResource("5_a3n1k")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_sqki0"]
+script = ExtResource("4_j8saq")
+_name = "Multi Prodge"
+_description = "more shots"
+_icon = ExtResource("1_qpuyl")
+upgrade = SubResource("Resource_liu0k")
+added_upgrades = Array[ExtResource("4_j8saq")]([])
+_max_uses = 2
+
+[sub_resource type="Resource" id="Resource_s0d0f"]
+script = ExtResource("2_e1ki3")
+mod_type = 1
+upgrade_resource = SubResource("Resource_sqki0")
+
+[resource]
+script = ExtResource("6_x80aw")
+_item_name = "Gold onyx"
+_description = "Black n gold"
+_icon = ExtResource("1_qpuyl")
+_gear_type = 1
+mod_list = Array[ExtResource("2_e1ki3")]([SubResource("Resource_s0d0f")])

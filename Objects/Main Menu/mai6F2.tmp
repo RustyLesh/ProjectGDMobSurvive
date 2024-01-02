@@ -1,0 +1,536 @@
+[gd_scene load_steps=45 format=3 uid="uid://vnfr5eyvnfur"]
+
+[ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
+[ext_resource type="Texture2D" uid="uid://c5a6x1s6uymdg" path="res://Art/GUI/Icons/gear_icon.png" id="2_qnedt"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/main_menu_option.gd" id="3_6n16w"]
+[ext_resource type="PackedScene" uid="uid://da6lttdlhpic7" path="res://Objects/save_manager.tscn" id="3_7cqhy"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/selected_weapon_info.gd" id="3_8uejl"]
+[ext_resource type="Texture2D" uid="uid://di1ceskp2eifk" path="res://Art/GUI/Icons/helmet_icon.png" id="3_opn5j"]
+[ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="3_rfwu6"]
+[ext_resource type="Texture2D" uid="uid://chgdfn0pand26" path="res://Art/GUI/Icons/weapon_icon.png" id="4_rvs8r"]
+[ext_resource type="Resource" uid="uid://csqmkf7ke8qby" path="res://Resources/Weapons/rifle.tres" id="4_s4r8t"]
+[ext_resource type="Texture2D" uid="uid://d2uf4x1qtmm7d" path="res://Art/GUI/Icons/combat_icon.png" id="5_q38tk"]
+[ext_resource type="Resource" uid="uid://ckty8glqppsvt" path="res://Resources/Weapons/test_weapon.tres" id="5_yb7sm"]
+[ext_resource type="Texture2D" uid="uid://c0apiq8vtwnyh" path="res://Art/GUI/Icons/char_icon.png" id="6_6jlfw"]
+[ext_resource type="Texture2D" uid="uid://clt5ki8xow54h" path="res://Art/GUI/Icons/fire.png" id="6_ksgun"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/character_menu.gd" id="13_8xsmm"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/gear_menu.gd" id="13_owegc"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/gear_slot.gd" id="13_tyj7l"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/equiped_gear_menu.gd" id="13_wh3x6"]
+[ext_resource type="Script" path="res://Scripits/main_menu_stat_container.gd" id="15_eji0x"]
+[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/amulet.tres" id="15_hcrem"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
+[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/amulet2.tres" id="17_gna4i"]
+[ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
+[ext_resource type="PackedScene" uid="uid://bhdree73yyqmt" path="res://ButtonsTest.tscn" id="24_nbqtq"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
+[ext_resource type="PackedScene" uid="uid://b7vh7erfrrbo0" path="res://test_data.tscn" id="27_dnv86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_apfln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kcg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlhyl"]
+bg_color = Color(0.470588, 0.6, 0.843137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0big1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh4tj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxlbl"]
+bg_color = Color(0.733333, 0.65098, 0.627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1uyx"]
+bg_color = Color(0.0901961, 0.211765, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakal"]
+bg_color = Color(0.0823529, 0.113725, 0.184314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6bgu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y10b0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg43g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j10a5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djugb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xocqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5a0d5"]
+font_size = 146
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg0gq"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+script = ExtResource("1_74mk5")
+starting_menu = 4
+
+[node name="Stat Container" type="Node" parent="."]
+script = ExtResource("15_eji0x")
+damage = 10
+
+[node name="Save Manager" parent="." instance=ExtResource("3_7cqhy")]
+
+[node name="Mode Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = 16.0
+offset_right = -368.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Menu Options" type="Panel" parent="Mode Menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = 720.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mpyl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Mode Menu/Menu Options"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 696.0
+offset_bottom = 104.0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Mode Menu/Menu Options/MarginContainer"]
+z_as_relative = false
+layout_mode = 2
+alignment = 1
+
+[node name="Options" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("2_qnedt")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 4
+
+[node name="Gear" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("3_opn5j")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 5
+
+[node name="Weapons" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("4_rvs8r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 2
+
+[node name="Abilites" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("6_ksgun")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 7
+
+[node name="Character" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("6_6jlfw")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 6
+
+[node name="Combat" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("5_q38tk")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 3
+
+[node name="Weapon Select Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+script = ExtResource("2_0m2n6")
+weapons = Array[Resource("res://Scripits/Weapons/weapon_resource.gd")]([ExtResource("3_rfwu6"), ExtResource("4_s4r8t"), ExtResource("5_yb7sm")])
+
+[node name="Selected Weapon" type="Control" parent="Weapon Select Menu"]
+anchors_preset = 0
+offset_left = -8.0
+offset_top = 72.0
+offset_right = -8.0
+offset_bottom = 72.0
+script = ExtResource("3_8uejl")
+
+[node name="Icon" type="TextureRect" parent="Weapon Select Menu/Selected Weapon"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 104.0
+offset_right = 144.0
+offset_bottom = 208.0
+texture = SubResource("CanvasTexture_apfln")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="Weapon Select Menu/Selected Weapon"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 104.0
+offset_right = 696.0
+offset_bottom = 144.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
+
+[node name="Description" type="Label" parent="Weapon Select Menu/Selected Weapon"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 152.0
+offset_right = 696.0
+offset_bottom = 208.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Weapon Select Menu"]
+layout_mode = 0
+offset_top = 312.0
+offset_right = 720.0
+offset_bottom = 568.0
+
+[node name="Combat Prep Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Start" type="Button" parent="Combat Prep Menu"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 968.0
+offset_right = 712.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Character Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_8xsmm")
+
+[node name="Stats Scroll Panel" type="VScrollBar" parent="Character Menu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 696.0
+offset_bottom = 560.0
+
+[node name="Stats" type="RichTextLabel" parent="Character Menu/Stats Scroll Panel"]
+layout_mode = 0
+offset_right = 672.0
+offset_bottom = 400.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_rlhyl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0big1")
+
+[node name="Upgrades Scroll Panel" type="VScrollBar" parent="Character Menu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 576.0
+offset_right = 696.0
+offset_bottom = 1144.0
+
+[node name="Upgrades" type="RichTextLabel" parent="Character Menu/Upgrades Scroll Panel"]
+layout_mode = 0
+offset_right = 672.0
+offset_bottom = 568.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_uh4tj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rxlbl")
+
+[node name="Equiped Gear Menu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 148.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("13_wh3x6")
+
+[node name="GearUIContainer" type="HBoxContainer" parent="Equiped Gear Menu"]
+z_as_relative = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_constants/separation = 63
+alignment = 1
+
+[node name="Helmet" type="Button" parent="Equiped Gear Menu/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+script = ExtResource("13_tyj7l")
+
+[node name="Ring" type="Button" parent="Equiped Gear Menu/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+script = ExtResource("13_tyj7l")
+
+[node name="Amulet" type="Button" parent="Equiped Gear Menu/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+script = ExtResource("13_tyj7l")
+
+[node name="Gear Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_owegc")
+gear_list = Array[Resource("res://Scripits/gear.gd")]([ExtResource("15_hcrem"), ExtResource("17_gna4i"), ExtResource("15_hcrem"), ExtResource("15_hcrem"), ExtResource("15_hcrem")])
+
+[node name="Item Info" type="Panel" parent="Gear Menu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 152.0
+offset_right = 696.0
+offset_bottom = 384.0
+script = ExtResource("15_ohjmx")
+
+[node name="Name" type="Label" parent="Gear Menu/Item Info"]
+layout_mode = 0
+offset_right = 296.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1uyx")
+
+[node name="Description" type="Label" parent="Gear Menu/Item Info"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 296.0
+offset_bottom = 152.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xakal")
+
+[node name="Mod list" type="RichTextLabel" parent="Gear Menu/Item Info"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = 664.0
+offset_bottom = 248.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Gear Menu"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 456.0
+offset_right = 712.0
+offset_bottom = 1144.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Item List" type="ItemList" parent="Gear Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+auto_height = true
+max_columns = 5
+same_column_width = true
+icon_mode = 0
+
+[node name="Selected Item Options" type="HBoxContainer" parent="Gear Menu"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 312.0
+offset_right = 680.0
+offset_bottom = 376.0
+theme_override_constants/separation = 65
+script = ExtResource("21_86al2")
+
+[node name="Equip" type="Button" parent="Gear Menu/Selected Item Options"]
+custom_minimum_size = Vector2(170.29, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e6bgu")
+text = "Equip"
+
+[node name="Craft" type="Button" parent="Gear Menu/Selected Item Options"]
+custom_minimum_size = Vector2(170.29, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y10b0")
+text = "Craft"
+
+[node name="Delete" type="Button" parent="Gear Menu/Selected Item Options"]
+custom_minimum_size = Vector2(170.29, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gg43g")
+text = "Delete"
+
+[node name="Gear Filters" type="Control" parent="Gear Menu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_rjjum")
+default_colour = Color(0.278431, 0.278431, 0.278431, 1)
+amulet_colour = Color(0.345098, 0.54902, 1, 1)
+helmet_colour = Color(0.839216, 0.690196, 0.737255, 1)
+ring_colour = Color(0.737255, 0.741176, 0.619608, 1)
+
+[node name="gear_type_filter" type="Button" parent="Gear Menu/Gear Filters"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 400.0
+offset_right = 208.0
+offset_bottom = 448.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j10a5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_djugb")
+
+[node name="Ability Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1168.0
+
+[node name="Equiped Abilites" type="MarginContainer" parent="Ability Menu"]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 720.0
+offset_bottom = 148.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="GearUIContainer" type="HBoxContainer" parent="Ability Menu/Equiped Abilites"]
+z_as_relative = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="Ability Slot 1" type="Button" parent="Ability Menu/Equiped Abilites/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+
+[node name="Ability Slot 2" type="Button" parent="Ability Menu/Equiped Abilites/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+
+[node name="Ability Slot 3" type="Button" parent="Ability Menu/Equiped Abilites/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+
+[node name="Ability Slot 4" type="Button" parent="Ability Menu/Equiped Abilites/GearUIContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ability Menu"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 168.0
+offset_right = 696.0
+offset_bottom = 1144.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xocqt")
+text = "Abilities"
+label_settings = SubResource("LabelSettings_5a0d5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Ability Menu"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 464.0
+offset_right = 528.0
+offset_bottom = 560.0
+
+[node name="Options Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1160.0
+script = ExtResource("26_6ety7")
+
+[node name="Test Data" parent="Options Menu" instance=ExtResource("27_dnv86")]
+
+[node name="Buttons" parent="Options Menu" instance=ExtResource("24_nbqtq")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 616.0
+offset_bottom = 120.0
+
+[node name="Save" type="Button" parent="Options Menu"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 992.0
+offset_right = 304.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 36
+text = "Save"
+
+[node name="Load" type="Button" parent="Options Menu"]
+visible = false
+layout_mode = 0
+offset_left = 416.0
+offset_top = 992.0
+offset_right = 704.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 36
+text = "Load"
+
+[node name="Label" type="Label" parent="Options Menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 392.0
+offset_right = 664.0
+offset_bottom = 704.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg0gq")
+
+[connection signal="on_start_combat" from="." to="Stat Container" method="_on_main_menu_on_start_combat"]
+[connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
+[connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
+[connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]
+[connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Ring" to="Equiped Gear Menu/GearUIContainer/Ring" method="_on_pressed"]
+[connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Amulet" to="Equiped Gear Menu/GearUIContainer/Amulet" method="_on_pressed"]
+[connection signal="item_selected" from="Gear Menu/MarginContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="equip_gear"]
+[connection signal="pressed" from="Gear Menu/Selected Item Options/Craft" to="Gear Menu" method="_on_craft_pressed"]
+[connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]
+[connection signal="pressed" from="Ability Menu/Button" to="Ability Menu/Button" method="save_game"]
+[connection signal="pressed" from="Options Menu/Save" to="Options Menu" method="_on_save_pressed"]
+[connection signal="pressed" from="Options Menu/Load" to="Options Menu" method="_on_load_pressed"]

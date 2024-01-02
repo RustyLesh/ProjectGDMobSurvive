@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TestResource" load_steps=3 format=3 uid="uid://cknyfs0rbwnpt"]
+
+[ext_resource type="Script" path="res://test/test_resource.gd" id="1_vcuja"]
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="2_we232"]
+
+[resource]
+script = ExtResource("1_vcuja")
+value = 4234
+sprite_texture = ExtResource("2_we232")

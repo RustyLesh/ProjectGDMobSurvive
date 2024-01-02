@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://djkymukm287pn"]
+
+[ext_resource type="Script" path="res://Scripits/input_test.gd" id="1_2eujv"]
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(328, 256)
+script = ExtResource("1_2eujv")

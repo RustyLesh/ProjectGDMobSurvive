@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BaseStatUpgrade" load_steps=2 format=3 uid="uid://5nyoqmrekj2t"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="1_pq6am"]
+
+[resource]
+script = ExtResource("1_pq6am")
+value = 0.0
+mod_type = 0
+base_stat_type = 0

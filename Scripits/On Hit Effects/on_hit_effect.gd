@@ -1,8 +1,14 @@
 extends Resource
 class_name OnHitEffect
 
-@export var value: float
-@export var proc_chance: float
+@export var _proc_chance: float
+var base_res_path: String
 
-func trigger_effect(enemy: EnemyNode):
+func get_upgrade_string() -> String:
+	return "Base on hit effect resource"
+
+func trigger_effect(_enemy: EnemyNode):
 	pass
+
+func get_save_data() -> Dictionary:
+	return {"proc_chance": _proc_chance}

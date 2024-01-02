@@ -20,11 +20,13 @@ config/icon="res://icon.svg"
 PlayerSetup="*res://player_setup.tscn"
 PlayerStats="*res://player_stats.tscn"
 GameData="*res://game_data.tscn"
+SaveManager="*res://Objects/save_manager.tscn"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/handheld/orientation=1

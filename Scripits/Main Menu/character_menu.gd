@@ -15,5 +15,5 @@ func update_ui():
 		stat_panel.add_text(stat.get_string() + "\n")
 	
 	for upgrade in PlayerSetup.gear_upgrade_pool:
-		upgrade_panel.add_text(upgrade.name + "\n")
+		upgrade_panel.add_text(upgrade._name + "\n")
 		

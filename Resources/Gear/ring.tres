@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Gear" load_steps=2 format=3 uid="uid://c8fvcr1d28t2b"]
-
-[ext_resource type="Script" path="res://Scripits/gear.gd" id="1_wnjbn"]
-
-[resource]
-script = ExtResource("1_wnjbn")
-name = ""
-description = ""
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])

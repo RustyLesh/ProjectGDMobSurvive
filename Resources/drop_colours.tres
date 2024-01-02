@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropColours" load_steps=2 format=3 uid="uid://dl85oiy7kilep"]
+
+[ext_resource type="Script" path="res://Scripits/drop_colours_resource.gd" id="1_i5s3d"]
+
+[resource]
+script = ExtResource("1_i5s3d")
+common_drop = Color(0.968627, 0.968627, 0.968627, 1)
+uncommon_drop = Color(0, 1, 0.992157, 1)
+rare_drop = Color(1, 0.976471, 0.313726, 1)
+boss_drop = Color(1, 0, 0, 0.796078)

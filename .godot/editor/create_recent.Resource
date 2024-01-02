@@ -1,9 +1,11 @@
-UpgradeResource
-ChainLightningOnHit
-EnemyResource
-Gear
-OnHitEffectUpgrade
 SlowOnHit
+ChainLightningOnHit
+OnHitEffectUpgrade
+OnHitEffect
 BaseStatUpgrade
+TestResource
+DropColours
+UpgradeResource
+EnemyResource
 WeaponResource
 WeaponUpgrade

@@ -1,7 +1,7 @@
 extends ScrollButton
 class_name InventoryItemButton
 
-@export var gear: Gear
+@export var gear: GearResource
 @export var id: int
 
 signal gear_bubtton_pressed(id: int)

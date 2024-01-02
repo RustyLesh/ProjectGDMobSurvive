@@ -9,8 +9,17 @@ enum GearModType
 }
 
 @export var mod_type: GearModType
-@export var upgrade: UpgradeResource
+@export var upgrade_resource: UpgradeResource
 
 var source
 
+func get_save_data() -> Dictionary:
+	return {
+		"mod_type": mod_type,
+		"upgrade": upgrade_resource.get_save_data(),
+	}
 
+func set_resource_data(data_dict):
+	mod_type = data_dict["mod_type"]
+	upgrade_resource = UpgradeResource.new()
+	upgrade_resource.set_resource_data(data_dict["upgrade"])
