@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://blt5ktnkpxrkt"]
+
+[ext_resource type="Script" path="res://Scripits/GUI/ability_button.gd" id="1_g76o4"]
+
+[node name="Ability 1" type="Button"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_g76o4")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=24 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_points_counter.gd" id="7_5e6md"]
+[ext_resource type="Script" path="res://Scripits/GUI/ability_hud.gd" id="7_ovuu8"]
+[ext_resource type="PackedScene" uid="uid://blt5ktnkpxrkt" path="res://Objects/GUI/ability_button.tscn" id="8_6gxat"]
 [ext_resource type="Script" path="res://Scripits/GUI/end_screen.gd" id="9_ygsdw"]
 
 [sub_resource type="Gradient" id="Gradient_1n4kt"]
@@ -66,9 +68,9 @@ offset_bottom = 1280.0
 layer = 0
 
 [node name="Virtual joystick left" parent="TouchSticks/Test/Sticks" instance=ExtResource("2_7xvjj")]
-offset_top = -317.0
-offset_right = 320.0
-offset_bottom = 0.0
+offset_top = -512.0
+offset_right = 360.0
+offset_bottom = 8.0
 joystick_mode = 1
 visibility_mode = 1
 action_left = "move_left"
@@ -80,10 +82,10 @@ action_down = "move_down"
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -336.0
-offset_top = -324.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -360.0
+offset_top = -512.0
+offset_right = -8.0
+offset_bottom = -104.0
 grow_horizontal = 0
 joystick_mode = 1
 visibility_mode = 1
@@ -163,6 +165,42 @@ icon = ExtResource("6_c5d6r")
 icon_alignment = 1
 expand_icon = true
 
+[node name="Abilty HUD" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("7_ovuu8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Abilty HUD"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 360.0
+offset_bottom = 88.0
+theme_override_constants/separation = 11
+
+[node name="Ability 1" parent="HUD/Abilty HUD/HBoxContainer" instance=ExtResource("8_6gxat")]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Ability 2" type="Button" parent="HUD/Abilty HUD/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Ability 3" type="Button" parent="HUD/Abilty HUD/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Ability 4" type="Button" parent="HUD/Abilty HUD/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
 [node name="Uprade Menu" parent="." instance=ExtResource("6_ex6gh")]
 visible = false
 offset_top = 112.0
@@ -222,6 +260,11 @@ offset_right = 544.0
 offset_bottom = 1104.0
 theme_override_font_sizes/font_size = 30
 text = "Return to menu"
+
+[node name="Seperator" type="Line2D" parent="."]
+points = PackedVector2Array(360, 1280, 360, 768)
+width = 2.0
+default_color = Color(1, 1, 1, 0.490196)
 
 [connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="End Screen/Return to Main Menu" to="End Screen" method="return_to_main_menu"]
