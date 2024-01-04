@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1704264310
+::res://::1704352988
 ButtonsTest.tscn::PackedScene::2884975315306524587::1703648146::0::1::::<><>::res://Objects/Main Menu/save_test.gd<>uid://bsa3rai1ow8co
 default_env.tres::Environment::-1::1696984897::0::1::::<><>::
 drop.tscn::PackedScene::16122981596480380::1703726451::0::1::::<><>::res://Scripits/Drops/drop.gd
@@ -111,9 +111,10 @@ boss_enemy.tscn::PackedScene::3272831607709276345::1703413002::0::1::::<><>::res
 ::res://Objects/enemy_spawn_animations/::1704262511
 default_spawn.tres::SpriteFrames::2689818159065333303::1704262511::0::1::::<><>::uid://c80drsg53pe65::::res://Art/EnemySpawn.png
 enemy_spawn_animation_node.tscn::PackedScene::103540146964982118::1698128600::0::1::::<><>::
-::res://Objects/GUI/::1704264310
+::res://Objects/GUI/::1704278327
+ability_button.tscn::PackedScene::3199561527262069331::1704276450::0::1::::<><>::res://Scripits/GUI/ability_button.gd
 HUD.tscn::PackedScene::368434322250277389::1700029952::0::1::::<><>::uid://dmr0fcamx7t56
-in_level_ui.tscn::PackedScene::8574280970789528128::1704264310::0::1::::<><>::res://Scripits/GUI/menu_manager.gd<>uid://dmr0fcamx7t56::::res://joystick/virtual_joystick.tscn<>uid://c8b7sxc0e6j7w::::res://Objects/hud.tscn<>res://Scripits/GUI/hud_xp.gd<>res://Scripits/GUI/health_label.gd<>uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>uid://7y78wcnmvbd3::::res://Objects/GUI/upgrade_menu.tscn<>res://Scripits/GUI/upgrade_points_counter.gd<>res://Scripits/GUI/end_screen.gd
+in_level_ui.tscn::PackedScene::8574280970789528128::1704278327::0::1::::<><>::res://Scripits/GUI/menu_manager.gd<>uid://dmr0fcamx7t56::::res://joystick/virtual_joystick.tscn<>uid://c8b7sxc0e6j7w::::res://Objects/hud.tscn<>res://Scripits/GUI/hud_xp.gd<>res://Scripits/GUI/health_label.gd<>uid://deg5wj2d0bvwo::::res://Art/Upgrade Icons/Up Arrow.png<>uid://7y78wcnmvbd3::::res://Objects/GUI/upgrade_menu.tscn<>res://Scripits/GUI/upgrade_points_counter.gd<>res://Scripits/GUI/ability_hud.gd<>uid://blt5ktnkpxrkt::::res://Objects/GUI/ability_button.tscn<>res://Scripits/GUI/end_screen.gd
 upgrade_manager.tscn::PackedScene::2473833719779626341::1699431473::0::1::::<><>::res://Scripits/Upgrade/upgrade_manager.gd
 upgrade_menu.tscn::PackedScene::2297591096692694542::1704264310::0::1::::<><>::res://Scripits/GUI/upgrade_menu.gd<>res://Scripits/GUI/upgrade_description_panel.gd
 upgrade_option.tscn::PackedScene::1349451372116023358::1702377130::0::1::::<><>::res://Scripits/GUI/upgrade_option.gd
@@ -138,7 +139,7 @@ amulet2.tres::Resource/GearResource::8582281813718383940::1704262511::0::1::::<>
 amulet.tres::Resource/GearResource::4181515909722042265::1704262511::0::1::::<><>::res://Scripits/gear_modifier.gd<>res://Scripits/gear.gd<>uid://bjpjlmm0to6er::::res://Art/Equipment/amulet2.png<>uid://4bkhdtkiugtp::::res://Art/box_drop.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
 gold_ring.tres::Resource/GearResource::7100674657883049723::1704262511::0::1::::<><>::uid://bkwsklubs1lqi::::res://Art/Equipment/gold_ring.png<>res://Scripits/gear_modifier.gd<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd<>res://Scripits/gear.gd
 helm.tres::Resource/GearResource::996301939337641312::1704262511::0::1::::<><>::uid://djus01x5bmgnl::::res://Art/Equipment/crown1.png<>res://Scripits/gear.gd<>res://Scripits/gear_modifier.gd<>uid://dar4wj000kt41::::res://Art/Player.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
-potion_amulet.tres::Resource/GearResource::3819149780418310735::1704161421::0::1::::<><>::res://Scripits/gear.gd<>uid://cl8kw84gumvjv::::res://Art/Equipment/potion_amulet.png<>res://Scripits/gear_modifier.gd<>uid://chp3yeikscd3q::::res://Art/Upgrade Icons/Life.png<>res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
+potion_amulet.tres::Resource/Resource::3819149780418310735::1704161421::0::1::::<><>::res://Scripits/gear.gd<>uid://cl8kw84gumvjv
 ::res://Resources/Upgrades/::1700533695
 ::res://Resources/Upgrades/Base Stat Upgrades/::1704262511
 attack_speed_flat.tres::Resource/UpgradeResource::5045105118228336560::1704262511::0::1::::<><>::res://Scripits/Upgrade/upgrade_resource.gd<>res://Scripits/Upgrade/base_stat_upgrade.gd
@@ -161,9 +162,10 @@ chain_lightning_on_hit_upgrade.tres::Resource/UpgradeResource::44321514441703508
 slow_on_hit_upgrade.tres::Resource/UpgradeResource::7044766390483659455::1704262511::0::1::::<><>::res://Scripits/Upgrade/on_hit_effect_upgrade.gd<>res://Scripits/Upgrade/upgrade_resource.gd
 ::res://Resources/Wave Spawns/::1699784470
 ::res://Resources/Weapons/::1704262511
+pistol.tres::Resource/WeaponResource::8348949670482149460::1704262511::0::1::::<><>::res://Scripits/Weapons/weapon_resource.gd<>uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn
 rifle.tres::Resource/WeaponResource::6070017371299495170::1704262511::0::1::::<><>::uid://leppq3elwt6d::::res://Art/Weapon Icons/AssaultRifle.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://63r643f2g1xu::::res://Objects/Weapons/rifle.tscn<>uid://cd45e5xtfstgy::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres<>uid://bekpf8uww5mio::::res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres<>uid://bdxv6tmupmprg::::res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres<>uid://bosd6cm7dcgh::::res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres<>uid://cdf6hawehunhv::::res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres<>uid://cdn30i7s7ws3e::::res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 test_weapon.tres::Resource/WeaponResource::5515469452999490765::1704262511::0::1::::<><>::uid://ghqd4icedypq::::res://Art/Weapon Icons/DualPistols.png<>res://Scripits/Weapons/weapon_resource.gd<>uid://c7msjj21lwgnn::::res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres<>uid://b4e75fcown2xx::::res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres<>uid://da7ww05aoof2x::::res://Objects/Weapons/pistol.tscn
-::res://Scripits/::1703978922
+::res://Scripits/::1704275853
 base_stat.gd::GDScript::-1::1702794653::0::1::::BaseStat<>Stat<>::
 bullet.gd::GDScript::-1::1702796949::0::1::::Bullet<>Area2D<>::
 combat_level.gd::GDScript::-1::1703558287::0::1::::<>Node2D<>::
@@ -186,6 +188,8 @@ spawner_check.gd::GDScript::-1::1703708476::0::1::::<>Marker2D<>::
 stat.gd::GDScript::-1::1702861615::0::1::::Stat<>Resource<>::
 stat_container.gd::GDScript::-1::1702864643::0::1::::StatContainer<>Node<>::
 stat_mod.gd::GDScript::-1::1702842217::0::1::::StatMod<>Resource<>::
+::res://Scripits/Abilities/::1704275870
+ability_resource.gd::GDScript::-1::1704278271::0::1::::AbilityResource<>Resource<>::
 ::res://Scripits/Drops/::1703978458
 drop.gd::GDScript::-1::1703727589::0::1::::Drop<>Area2D<>::
 drop_base_resource.gd::GDScript::-1::1703727589::0::1::::DropResource<>Resource<>::
@@ -202,12 +206,13 @@ enemy_spawn_manager.gd::GDScript::-1::1703720992::0::1::::EnemySpawnManager<>Nod
 grunt_enemy_ai.gd::GDScript::-1::1702868454::0::1::::GruntMovementAI<>EnemyMovementAI<>::
 mob_data.gd::GDScript::-1::1699320197::0::1::::MobData<>Resource<>::
 spawn_data.gd::GDScript::-1::1702865282::0::1::::SpawnDataResource<>Resource<>::
-::res://Scripits/GUI/::1704264488
+::res://Scripits/GUI/::1704276434
+ability_button.gd::GDScript::-1::1704278271::0::1::::AbilityButton<>Button<>::
+ability_hud.gd::GDScript::-1::1704278322::0::1::::<>Control<>::
 end_screen.gd::GDScript::-1::1703746294::0::1::::<>Control<>::
 health_label.gd::GDScript::-1::1703412866::0::1::::HealthLabel<>Label<>::
 hud_xp.gd::GDScript::-1::1702865373::0::1::::HudXP<>TextureProgressBar<>::
 menu_manager.gd::GDScript::-1::1703412040::0::1::::MenuManager<>CanvasLayer<>::
-ability_hud.gd::GDScript::-1::1704264488::0::1::::<>Control<>::
 scroll_button.gd::GDScript::-1::1702890420::0::1::::ScrollButton<>Button<>::
 upgrade_description_panel.gd::GDScript::-1::1704008799::0::1::::UpgradeDescriptionPanel<>Panel<>::
 upgrade_menu.gd::GDScript::-1::1703746288::0::1::::UpgradeMenu<>Control<>::

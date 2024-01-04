@@ -1,5 +1,3 @@
-res://Scripits/Drops/gear_drop.gd
-res://Scripits/Main Menu/character_menu.gd
 res://Objects/Main Menu/main_menu.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -31,5 +29,5 @@ res://Objects/GUI/upgrade_menu.tscn
 res://Scripits/GUI/ability_hud.gd
 res://Scripits/Abilities/ability_resource.gd
 res://Scripits/GUI/ability_button.gd
-res://Scripits/GUI/upgrade_menu.gd
-res://Scripits/GUI/upgrade_option.gd
+res://Objects/GUI/ability_button.tscn
+res://Scripits/GUI/menu_manager.gd
