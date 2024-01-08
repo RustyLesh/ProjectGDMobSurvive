@@ -1,7 +1,7 @@
 extends Control
 class_name GearMenu
 
-@onready var item_list: ItemList = $"MarginContainer/Item List"
+@onready var item_list: ItemList = $"ScrollContainer/Item List"
 @onready var selected_info_box: SelectedItemInfo = $"Item Info"
 @onready var equiped_gear_menu: EquipedGearMenu = $"../Equiped Gear Menu"
 @onready var stat_container: MainMenuStatContainer = $"../Stat Container"
@@ -49,11 +49,7 @@ func equip_gear():
 				#Check mod type and remove from corrisponding pool
 				if mod.mod_type == GearModifier.GearModType.APPLY_NOW: 
 					mod.upgrade_resource.upgrade.remove_upgrade(stat_container)
-				else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
-					#Find mod in gear_upgrade_pool
-					for gear_mod in PlayerSetup.gear_upgrade_pool:
-						if gear_mod.upgrade.source == mod.upgrade_resource.upgrade.source:
-							PlayerSetup.gear_upgrade_pool.erase(gear_mod)
+		PlayerSetup.remove_upgrades_by_source(return_gear._gear_type)
 	
 	#Apply mods from selected item
 	for mod in gear_list[selected_item].mod_list:
@@ -61,8 +57,9 @@ func equip_gear():
 			if mod.mod_type == GearModifier.GearModType.APPLY_NOW:
 				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container)
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
-				mod.upgrade_resource.upgrade.source = gear_list[selected_item]
-				PlayerSetup.gear_upgrade_pool.append(mod.upgrade_resource)
+				mod.slot_source = gear_list[selected_item]._gear_type
+				mod.upgrade_resource.upgrade.source_type = gear_list[selected_item]._gear_type
+				PlayerSetup.upgrade_pool.append(mod.upgrade_resource)
 				
 	if return_gear != null: #Add gear back to inventory
 		add_item(return_gear)

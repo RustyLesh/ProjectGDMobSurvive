@@ -12,4 +12,3 @@ func _on_weapon_select(weapon):
 		weapon_name.text = weapon.weapon_name
 		description.text = weapon.description
 		PlayerSetup.weapon = weapon
-		PlayerSetup.weapon_upgrade_pool = weapon.upgrades

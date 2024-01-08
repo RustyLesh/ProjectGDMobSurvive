@@ -7,3 +7,7 @@ class_name WeaponResource
 @export var description: String
 @export var weapon: Resource
 @export var upgrades: Array[UpgradeResource]
+
+func _init():
+    for upgrade in upgrades:
+        upgrade.source_type = GearResource.GearType.WEAPON

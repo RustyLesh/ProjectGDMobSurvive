@@ -7,6 +7,7 @@ enum GearType
 	HELMET,
 	RING,
 	AMULET,
+	WEAPON
 }
 
 @export var _item_name: String
@@ -40,3 +41,6 @@ func set_resource_data(data_dict):
 		gear_mod.set_resource_data(mod_data)
 		mod_list.append(gear_mod)
 
+func init_gear_drop():
+	for mod in mod_list:
+		mod.init_gear_mod(_gear_type)

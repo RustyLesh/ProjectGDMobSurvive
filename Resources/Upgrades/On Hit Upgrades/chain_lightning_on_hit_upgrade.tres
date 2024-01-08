@@ -13,3 +13,4 @@ _description = ""
 upgrade = SubResource("Resource_xnm5k")
 added_upgrades = Array[ExtResource("1_rs5ut")]([])
 _max_uses = 0
+source_type = 0

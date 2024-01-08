@@ -8,6 +8,8 @@ class_name UpgradeResource
 @export var upgrade: Upgrade
 @export var added_upgrades: Array[UpgradeResource]
 @export var _max_uses: int
+@export var source_type: GearResource.GearType
+
 var current_uses: int = 0
 
 func get_save_data() -> Dictionary:
@@ -30,7 +32,6 @@ func set_resource_data(data_dict):
 	_name = data_dict["name"]
 	_description = data_dict["description"]
 	_icon  = load(data_dict["icon"])
-	
 	var upgrade_data = data_dict["upgrade"]
 	upgrade = load(upgrade_data["resource_path"])
 	upgrade.set_resource_data(data_dict["upgrade"])

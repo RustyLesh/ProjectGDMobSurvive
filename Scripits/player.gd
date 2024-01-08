@@ -20,7 +20,6 @@ signal on_player_death()
 func _ready():
 	await get_tree().create_timer(.5).timeout
 	weapon = PlayerSetup.weapon
-	print(weapon)
 	if weapon_manager is WeaponManager:
 		weapon_inst = weapon.weapon.instantiate()
 		weapon_manager.add_child(weapon_inst)

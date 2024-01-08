@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=46 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://ckty8glqppsvt" path="res://Resources/Weapons/test_weapon.tres" id="5_yb7sm"]
 [ext_resource type="Texture2D" uid="uid://c0apiq8vtwnyh" path="res://Art/GUI/Icons/char_icon.png" id="6_6jlfw"]
 [ext_resource type="Texture2D" uid="uid://clt5ki8xow54h" path="res://Art/GUI/Icons/fire.png" id="6_ksgun"]
+[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="9_rgsly"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/character_menu.gd" id="13_8xsmm"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_menu.gd" id="13_owegc"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_slot.gd" id="13_tyj7l"]
@@ -21,7 +22,9 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
 [ext_resource type="PackedScene" uid="uid://bhdree73yyqmt" path="res://ButtonsTest.tscn" id="24_nbqtq"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_manage_menu.gd" id="26_4foof"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
 [ext_resource type="PackedScene" uid="uid://b7vh7erfrrbo0" path="res://test_data.tscn" id="27_dnv86"]
 
@@ -57,6 +60,8 @@ bg_color = Color(0.0823529, 0.113725, 0.184314, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j10a5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djugb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eugqw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xocqt"]
 
@@ -109,10 +114,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7mpyl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Mode Menu/Menu Options"]
 layout_mode = 2
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 696.0
-offset_bottom = 104.0
+offset_right = 704.0
+offset_bottom = 112.0
 theme_override_constants/margin_left = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Mode Menu/Menu Options/MarginContainer"]
@@ -121,7 +124,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Options" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
@@ -131,8 +134,19 @@ expand_icon = true
 script = ExtResource("3_6n16w")
 menu_option_type = 4
 
+[node name="Character" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 5
+icon = ExtResource("6_6jlfw")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6n16w")
+menu_option_type = 6
+
 [node name="Gear" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
@@ -143,7 +157,7 @@ script = ExtResource("3_6n16w")
 menu_option_type = 5
 
 [node name="Weapons" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
@@ -154,7 +168,7 @@ script = ExtResource("3_6n16w")
 menu_option_type = 2
 
 [node name="Abilites" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
@@ -164,19 +178,23 @@ expand_icon = true
 script = ExtResource("3_6n16w")
 menu_option_type = 7
 
-[node name="Character" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Upgrades" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.219608, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0.988235, 0.776471, 1)
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
-icon = ExtResource("6_6jlfw")
+icon = ExtResource("9_rgsly")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_6n16w")
-menu_option_type = 6
+menu_option_type = 8
 
 [node name="Combat" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_constants/h_separation = 5
@@ -315,7 +333,6 @@ layout_mode = 2
 script = ExtResource("13_tyj7l")
 
 [node name="Gear Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -348,25 +365,6 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = 664.0
 offset_bottom = 248.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Gear Menu"]
-layout_mode = 2
-offset_left = 8.0
-offset_top = 456.0
-offset_right = 712.0
-offset_bottom = 1144.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-
-[node name="Item List" type="ItemList" parent="Gear Menu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-auto_height = true
-max_columns = 5
-same_column_width = true
-icon_mode = 0
 
 [node name="Selected Item Options" type="HBoxContainer" parent="Gear Menu"]
 layout_mode = 0
@@ -413,6 +411,39 @@ offset_right = 208.0
 offset_bottom = 448.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j10a5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_djugb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Gear Menu"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 464.0
+offset_right = 702.0
+offset_bottom = 1144.0
+horizontal_scroll_mode = 0
+
+[node name="Item List" type="ItemList" parent="Gear Menu/ScrollContainer"]
+custom_minimum_size = Vector2(670, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+theme_override_constants/outline_size = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eugqw")
+max_text_lines = 2
+auto_height = true
+item_count = 5
+max_columns = 5
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(120, 120)
+item_0/text = ""
+item_0/icon = ExtResource("23_tud67")
+item_1/text = ""
+item_1/icon = ExtResource("23_tud67")
+item_2/text = ""
+item_2/icon = ExtResource("23_tud67")
+item_3/text = ""
+item_3/icon = ExtResource("23_tud67")
+item_4/text = ""
+item_4/icon = ExtResource("23_tud67")
 
 [node name="Ability Menu" type="Control" parent="."]
 visible = false
@@ -464,14 +495,8 @@ label_settings = SubResource("LabelSettings_5a0d5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Ability Menu"]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 464.0
-offset_right = 528.0
-offset_bottom = 560.0
-
 [node name="Options Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1160.0
@@ -515,16 +540,33 @@ offset_right = 664.0
 offset_bottom = 704.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_cg0gq")
 
-[connection signal="on_start_combat" from="." to="Stat Container" method="_on_main_menu_on_start_combat"]
+[node name="Upgrade Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1160.0
+script = ExtResource("26_4foof")
+
+[node name="Upgrade Pool List" type="ItemList" parent="Upgrade Menu"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 720.0
+offset_bottom = 576.0
+
+[node name="Selected Upgrade List" type="ItemList" parent="Upgrade Menu"]
+layout_mode = 0
+offset_top = 640.0
+offset_right = 720.0
+offset_bottom = 1160.0
+
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Ring" to="Equiped Gear Menu/GearUIContainer/Ring" method="_on_pressed"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Amulet" to="Equiped Gear Menu/GearUIContainer/Amulet" method="_on_pressed"]
-[connection signal="item_selected" from="Gear Menu/MarginContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="equip_gear"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Craft" to="Gear Menu" method="_on_craft_pressed"]
 [connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]
-[connection signal="pressed" from="Ability Menu/Button" to="Ability Menu/Button" method="save_game"]
+[connection signal="item_selected" from="Gear Menu/ScrollContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Options Menu/Save" to="Options Menu" method="_on_save_pressed"]
 [connection signal="pressed" from="Options Menu/Load" to="Options Menu" method="_on_load_pressed"]

@@ -2,7 +2,7 @@ extends Resource
 class_name Upgrade
 #Base upgrade class
 
-var source: Resource
+var source_type: GearResource.GearType
 var base_res_path: String
 
 func apply_upgrade(_player: Node):

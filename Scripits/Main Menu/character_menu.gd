@@ -14,6 +14,6 @@ func update_ui():
 	for stat in stat_container.base_stats:
 		stat_panel.add_text(stat.get_string() + "\n")
 	
-	for upgrade in PlayerSetup.gear_upgrade_pool:
+	for upgrade in PlayerSetup.upgrade_pool:
 		upgrade_panel.add_text(upgrade._name + "\n")
 		

@@ -21,11 +21,13 @@ _icon = ExtResource("3_evn2f")
 upgrade = SubResource("Resource_fx8nk")
 added_upgrades = Array[ExtResource("4_og7y8")]([])
 _max_uses = 0
+source_type = 0
 
 [sub_resource type="Resource" id="Resource_hsk8m"]
 script = ExtResource("2_yi7fq")
 mod_type = 0
 upgrade_resource = SubResource("Resource_bjrwu")
+slot_source = 0
 
 [resource]
 script = ExtResource("1_8f72s")

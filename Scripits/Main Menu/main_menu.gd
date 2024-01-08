@@ -11,6 +11,7 @@ enum MenuType
 	GEAR,
 	CHARACTER,
 	ABILITIES,
+	UPGRADES,
 }
 
 signal on_start_combat()
@@ -27,6 +28,7 @@ var current_menu: MenuType
 @onready var character_menu: CharacterMenu = $"Character Menu"
 @onready var combat_menu = $"Combat Prep Menu"
 @onready var options_menu = $"Options Menu"
+@onready var upgrade_menu = $"Upgrade Menu"
 
 func _ready():
 	weapon_select_menu.visible = false
@@ -36,11 +38,13 @@ func _ready():
 	character_menu.visible = false
 	ability_menu.visible = false
 	options_menu.visible = false
-		
+	upgrade_menu.visible = false
+	
 	change_menu(starting_menu)
 	get_tree().paused = false
 
 func _on_button_pressed():
+	on_start_combat.emit()
 	get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
 
 func change_menu(change_to: MenuType):
@@ -65,6 +69,10 @@ func change_menu(change_to: MenuType):
 		
 		MenuType.OPTIONS:
 			options_menu.visible = false
+
+		MenuType.UPGRADES:
+			upgrade_menu.visible = false		
+
 			
 	current_menu = change_to
 
@@ -92,3 +100,7 @@ func change_menu(change_to: MenuType):
 		MenuType.OPTIONS:
 			options_menu.visible = true
 			options_menu.update_ui()
+
+		MenuType.UPGRADES:
+			upgrade_menu.visible = true
+

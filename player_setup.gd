@@ -2,9 +2,8 @@ extends Node
 #Stores player data for going between main menu and combat levels
 
 @export var weapon: WeaponResource
-@export var weapon_upgrade_pool: Array[UpgradeResource]
-@export var gear_upgrade_pool: Array[UpgradeResource]
 
+@export var upgrade_pool: Array[UpgradeResource]
 @export var base_stats: Array[BaseStat]
 
 @export var inventory: Array[GearResource]
@@ -12,6 +11,15 @@ extends Node
 
 const FILE_NAME = "user://player_setup.save"
 
+func remove_upgrades_by_source(slot_type: GearResource.GearType):
+	var remove_pool: Array[UpgradeResource]
+	for upgrade in upgrade_pool:
+		if upgrade.source_type == slot_type:
+			remove_pool.append(upgrade)
+	
+	for upgrade in remove_pool:
+		upgrade_pool.erase(upgrade)
+			
 func save():
 	var inv_dict: Array[Dictionary]
 
