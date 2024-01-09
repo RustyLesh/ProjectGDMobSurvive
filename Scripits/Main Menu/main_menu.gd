@@ -1,6 +1,5 @@
-extends Control
-class_name MainMenu
-#Game main menu state machine
+##Game main menu state machine
+class_name MainMenu extends Control
 enum MenuType
 {
 	SPLASH,
@@ -103,4 +102,5 @@ func change_menu(change_to: MenuType):
 
 		MenuType.UPGRADES:
 			upgrade_menu.visible = true
+			upgrade_menu.update_ui()
 

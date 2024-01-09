@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=56 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -27,6 +27,11 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_manage_menu.gd" id="26_4foof"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
 [ext_resource type="PackedScene" uid="uid://b7vh7erfrrbo0" path="res://test_data.tscn" id="27_dnv86"]
+[ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="28_lwtkj"]
+[ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="29_wxsjs"]
+[ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="30_05pl0"]
+[ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="31_te1yv"]
+[ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="32_2vy7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
 bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
@@ -71,13 +76,23 @@ font_size = 146
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg0gq"]
 bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4a1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a82hu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m03w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scb76"]
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1280.0
 script = ExtResource("1_74mk5")
-starting_menu = 4
+starting_menu = 5
 
 [node name="Stat Container" type="Node" parent="."]
 script = ExtResource("15_eji0x")
@@ -333,6 +348,7 @@ layout_mode = 2
 script = ExtResource("13_tyj7l")
 
 [node name="Gear Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -541,23 +557,86 @@ offset_bottom = 704.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_cg0gq")
 
 [node name="Upgrade Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1160.0
 script = ExtResource("26_4foof")
 
-[node name="Upgrade Pool List" type="ItemList" parent="Upgrade Menu"]
+[node name="Upgrade Pool Container" type="ScrollContainer" parent="Upgrade Menu"]
 layout_mode = 0
 offset_top = 64.0
 offset_right = 720.0
 offset_bottom = 576.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4a1t")
 
-[node name="Selected Upgrade List" type="ItemList" parent="Upgrade Menu"]
+[node name="Upgrade Pool List" type="ItemList" parent="Upgrade Menu/Upgrade Pool Container"]
+custom_minimum_size = Vector2(720, 500)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a82hu")
+auto_height = true
+item_count = 6
+max_columns = 0
+same_column_width = true
+item_0/text = "upgrade text"
+item_0/icon = ExtResource("28_lwtkj")
+item_1/text = "upgrade text"
+item_1/icon = ExtResource("29_wxsjs")
+item_2/text = "upgrade text"
+item_2/icon = ExtResource("30_05pl0")
+item_3/text = "upgrade text"
+item_3/icon = ExtResource("31_te1yv")
+item_4/text = "upgrade text"
+item_4/icon = ExtResource("28_lwtkj")
+item_5/text = "upgrade text"
+item_5/icon = ExtResource("32_2vy7k")
+
+[node name="Selected Upgrade Container" type="ScrollContainer" parent="Upgrade Menu"]
 layout_mode = 0
 offset_top = 640.0
 offset_right = 720.0
 offset_bottom = 1160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ajl1")
+
+[node name="Selected Upgrade List" type="ItemList" parent="Upgrade Menu/Selected Upgrade Container"]
+custom_minimum_size = Vector2(720, 500)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a82hu")
+auto_height = true
+item_count = 6
+max_columns = 0
+same_column_width = true
+item_0/text = "upgrade text"
+item_0/icon = ExtResource("28_lwtkj")
+item_1/text = "upgrade text"
+item_1/icon = ExtResource("29_wxsjs")
+item_2/text = "upgrade text"
+item_2/icon = ExtResource("30_05pl0")
+item_3/text = "upgrade text"
+item_3/icon = ExtResource("31_te1yv")
+item_4/text = "upgrade text"
+item_4/icon = ExtResource("28_lwtkj")
+item_5/text = "upgrade text"
+item_5/icon = ExtResource("32_2vy7k")
+
+[node name="Add Button" type="Button" parent="Upgrade Menu"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 584.0
+offset_right = 296.0
+offset_bottom = 632.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2m03w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_scb76")
+text = "Add"
+
+[node name="Remove Button" type="Button" parent="Upgrade Menu"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 584.0
+offset_right = 672.0
+offset_bottom = 632.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2m03w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_scb76")
+text = "Remove"
 
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
@@ -570,3 +649,7 @@ offset_bottom = 1160.0
 [connection signal="item_selected" from="Gear Menu/ScrollContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Options Menu/Save" to="Options Menu" method="_on_save_pressed"]
 [connection signal="pressed" from="Options Menu/Load" to="Options Menu" method="_on_load_pressed"]
+[connection signal="item_selected" from="Upgrade Menu/Upgrade Pool Container/Upgrade Pool List" to="Upgrade Menu" method="on_upgrade_pool_item_selected"]
+[connection signal="item_selected" from="Upgrade Menu/Selected Upgrade Container/Selected Upgrade List" to="Upgrade Menu" method="on_selected_upgrades_item_selected"]
+[connection signal="pressed" from="Upgrade Menu/Add Button" to="Upgrade Menu" method="select_upgrade"]
+[connection signal="pressed" from="Upgrade Menu/Remove Button" to="Upgrade Menu" method="remove_upgrade"]
