@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://bdxv6tmupmprg"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://bdxv6tmupmprg"]
 
+[ext_resource type="Texture2D" uid="uid://cfwq2mxyxa4td" path="res://Art/Upgrade Icons/Sword.png" id="1_1gov2"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_4gipl"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_kgpi0"]
 
@@ -13,7 +14,7 @@ _base_stat_type = 0
 script = ExtResource("1_4gipl")
 _name = ""
 _description = ""
+_icon = ExtResource("1_1gov2")
 upgrade = SubResource("Resource_mybaq")
 added_upgrades = Array[ExtResource("1_4gipl")]([])
 _max_uses = 0
-source_type = 0

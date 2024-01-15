@@ -1,4 +1,6 @@
+Label
 Button
+TextureProgressBar
 ScrollContainer
 VScrollBar
 Node
@@ -11,7 +13,6 @@ CollisionShape2D
 Area2D
 Timer
 Panel
-Label
 Health
 EnemyMovement
 EnemyNode
@@ -21,7 +22,6 @@ MarginContainer
 GridContainer
 TextureRect
 VBoxContainer
-TextureProgressBar
 PanelContainer
 Container
 AnimatedSprite2D

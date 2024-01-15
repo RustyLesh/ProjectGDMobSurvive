@@ -1,13 +1,15 @@
 extends Node
 # Go through everything in the Saveable category and ask them to return a
 # dict of relevant variables.
-		
+
+var has_first_load: bool = false
+
 func _ready():
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.3).timeout
 	
 		#Check if game has loaded since launch
-	if GameData.has_first_load == false:
-		GameData.has_first_load = true
+	if has_first_load == false:
+		has_first_load = true
 		load_game()
 
 func save_game():
@@ -33,6 +35,7 @@ func save_game():
 		save_game_file.store_line(json_string)
 
 func load_game():
+	print("Loading")
 	var save_nodes = get_tree().get_nodes_in_group("Saveable")
 	for node in save_nodes:
 		if !node.has_method("load_data") :
@@ -42,11 +45,9 @@ func load_game():
 		if !FileAccess.file_exists(node.FILE_NAME):
 			print("File: ", node.FILE_NAME, " does not exist. Node: ", node.name, " skipped")
 			continue
-		
 		node.load_data()
 
 func load_file(file_name):
-	print("Loading")
 	if not FileAccess.file_exists(file_name):
 		print("File: ", file_name, "does not exist")
 		return false# Error! We don't have a save to load.

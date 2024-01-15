@@ -28,7 +28,13 @@ func _ready():
 	for slot in slots:
 		slot.on_gear_selected.connect(on_gear_selected)
 		slot.on_gear_slot_clicked.connect(on_gear_slot_selected)
-	
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print("Copying")
+		PlayerSetup.equiped_gear.clear()
+		PlayerSetup.equiped_gear.append_array(get_all_gear())
+
 func equip_gear(gear: GearResource) -> GearResource:
 	var return_gear
 	match gear._gear_type:
@@ -67,3 +73,15 @@ func get_gear_in_slot(gear_type : GearResource.GearType) -> GearResource:
 			return_gear = ring_slot.equiped_gear
 			
 	return return_gear
+
+func get_all_gear() -> Array[GearResource]:
+	var equipped_gear: Array[GearResource]
+
+	if helmet_slot.equiped_gear != null:
+		equipped_gear.append(helmet_slot.equiped_gear)
+	if amulet_slot.equiped_gear != null:
+		equipped_gear.append(amulet_slot.equiped_gear)
+	if ring_slot.equiped_gear != null:
+		equipped_gear.append(ring_slot.equiped_gear)
+		
+	return equipped_gear

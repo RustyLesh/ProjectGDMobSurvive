@@ -1,20 +1,21 @@
 [gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://dxwrjweydftq6"]
 
-[ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="1_dif5e"]
+[ext_resource type="Texture2D" uid="uid://4bkhdtkiugtp" path="res://Art/box_drop.png" id="1_weigo"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_tv355"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_ptmw3"]
 
 [sub_resource type="Resource" id="Resource_qudyi"]
 script = ExtResource("3_ptmw3")
-value = 1.0
-mod_type = 0
-base_stat_type = 4
+_value = 0.0
+_mod_type = 0
+_base_stat_type = 0
 
 [resource]
 script = ExtResource("2_tv355")
-name = "Projectile Counter"
-description = ""
-icon = ExtResource("1_dif5e")
+_name = ""
+_description = ""
+_icon = ExtResource("1_weigo")
 upgrade = SubResource("Resource_qudyi")
 added_upgrades = Array[ExtResource("2_tv355")]([])
-max_uses = 5
+_max_uses = 0
+source_type = 0

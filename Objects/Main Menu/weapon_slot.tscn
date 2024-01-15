@@ -1,11 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpvlv2tyyajyn"]
+[gd_scene load_steps=7 format=3 uid="uid://cpvlv2tyyajyn"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_button.gd" id="1_hnqxh"]
+
+[sub_resource type="Gradient" id="Gradient_qbvmk"]
+colors = PackedColorArray(0.176419, 0.176419, 0.176419, 1, 0.226707, 0.226707, 0.226707, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lip5o"]
+gradient = SubResource("Gradient_qbvmk")
+
+[sub_resource type="Gradient" id="Gradient_unjak"]
+offsets = PackedFloat32Array(0, 0.45082, 1)
+colors = PackedColorArray(0, 0.298039, 0.882353, 1, 0, 0.364706, 0, 1, 0, 0.921569, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kt7ln"]
+gradient = SubResource("Gradient_unjak")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kk1ba"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="WeaponSlot" type="Button"]
 custom_minimum_size = Vector2(0, 60)
 offset_right = 368.0
 offset_bottom = 60.0
 script = ExtResource("1_hnqxh")
+
+[node name="XP Progress Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_lip5o")
+texture_progress = SubResource("GradientTexture1D_kt7ln")
+
+[node name="XP Label" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -36.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "XP Value"
+label_settings = SubResource("LabelSettings_kk1ba")
+max_lines_visible = 1
+
+[node name="Level Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "lvl"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://cdn30i7s7ws3e"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://cdn30i7s7ws3e"]
 
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="1_oebdw"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_q50y6"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="1_sisl1"]
 
 [sub_resource type="Resource" id="Resource_ajvot"]
 script = ExtResource("1_oebdw")
@@ -13,7 +14,7 @@ _base_stat_type = 0
 script = ExtResource("1_q50y6")
 _name = ""
 _description = ""
+_icon = ExtResource("1_sisl1")
 upgrade = SubResource("Resource_ajvot")
 added_upgrades = Array[ExtResource("1_q50y6")]([])
 _max_uses = 0
-source_type = 0

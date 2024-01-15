@@ -1,4 +1,4 @@
-list=Array[Dictionary]([{
+list=[{
 "base": &"Button",
 "class": &"AbilityButton",
 "icon": "",
@@ -448,4 +448,4 @@ list=Array[Dictionary]([{
 "icon": "",
 "language": &"GDScript",
 "path": "res://Scripits/Drops/drop_experience.gd"
-}])
+}]

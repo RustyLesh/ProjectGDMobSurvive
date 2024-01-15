@@ -20,4 +20,4 @@ func get_save_data() -> Dictionary:
 	return {}
 
 func set_resource_data(_data_dict):
-	pass
+	print("Upgrade class set data")

@@ -17,3 +17,6 @@ weapon_name = "Rifle"
 description = "Pew"
 weapon = ExtResource("2_3nes6")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("3_1oe0l"), ExtResource("4_kxeyq"), ExtResource("5_u5lyu"), ExtResource("6_4ufd7"), ExtResource("7_ogqs4"), ExtResource("8_cfu0p")])
+weapon_xp = 0
+level = 0
+unlocked = true

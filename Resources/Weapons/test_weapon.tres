@@ -13,3 +13,6 @@ weapon_name = "Test wep"
 description = "Test"
 weapon = ExtResource("11_kg5n4")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([ExtResource("3_4norn"), ExtResource("4_j4cq1")])
+weapon_xp = 0
+level = 0
+unlocked = false

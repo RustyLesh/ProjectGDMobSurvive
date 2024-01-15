@@ -22,5 +22,5 @@ func get_save_data() -> Dictionary:
 
 func set_resource_data(data_dict):
 	var effect_data = data_dict["effect"]
-	_effect = load(effect_data["resource_path"])
+	_effect = load(effect_data["resource_path"]).duplicate()
 	_effect.set_resource_data(effect_data)

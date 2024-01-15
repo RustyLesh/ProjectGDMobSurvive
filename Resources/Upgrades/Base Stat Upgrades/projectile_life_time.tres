@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://cdf6hawehunhv"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://cdf6hawehunhv"]
 
+[ext_resource type="Texture2D" uid="uid://cwlaqkdfkhd5g" path="res://Art/box_drop_sprite.png" id="1_j6fwg"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_2yjqe"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_kcady"]
 
@@ -13,7 +14,7 @@ _base_stat_type = 0
 script = ExtResource("2_2yjqe")
 _name = ""
 _description = ""
+_icon = ExtResource("1_j6fwg")
 upgrade = SubResource("Resource_e11hf")
 added_upgrades = Array[ExtResource("2_2yjqe")]([])
 _max_uses = 0
-source_type = 0

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://blrr2n3rnkr1r"]
+[gd_scene load_steps=5 format=3 uid="uid://blrr2n3rnkr1r"]
 
 [ext_resource type="Script" path="res://player_setup.gd" id="1_bv4kj"]
+[ext_resource type="Resource" uid="uid://dq7j8mmcqn7ue" path="res://Resources/Weapons/pistol.tres" id="2_yrqul"]
+[ext_resource type="Resource" uid="uid://csqmkf7ke8qby" path="res://Resources/Weapons/rifle.tres" id="3_cxwhb"]
+[ext_resource type="Resource" uid="uid://ckty8glqppsvt" path="res://Resources/Weapons/test_weapon.tres" id="4_ijh5i"]
 
 [node name="Player Setup" type="Node" groups=["Saveable"]]
 script = ExtResource("1_bv4kj")
+weapon_storage = Array[Resource("res://Scripits/Weapons/weapon_resource.gd")]([ExtResource("2_yrqul"), ExtResource("3_cxwhb"), ExtResource("4_ijh5i")])

@@ -4,14 +4,14 @@ class_name XPManager
 signal on_xp_changed(current_xp: float, xp_for_next_level: float, level : int)
 signal on_level(level : int)
 
-@export var current_xp : float
+@export var current_xp : float 
 @export var current_total_xp : float
 @export var xp_for_next_level : float
 
 @export var xp_multiplier : float
 @export var current_level : int
 
-@export var xp_constant: float = 0.3
+@export var xp_constant: float = 0.3 #higher = more xp needed to level
 
 #for checking if level changed
 var level_buffer

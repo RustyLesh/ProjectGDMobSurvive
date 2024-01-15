@@ -6,15 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_xnp0g"]
 script = ExtResource("3_4iijj")
-mod_type = 1
-base_stat_type = 0
-value = 10.0
+_value = 0.0
+_mod_type = 0
+_base_stat_type = 0
 
 [resource]
 script = ExtResource("2_unhxn")
-name = "Max Life Percent"
-description = ""
-icon = ExtResource("1_6x1ox")
+_name = ""
+_description = ""
+_icon = ExtResource("1_6x1ox")
 upgrade = SubResource("Resource_xnp0g")
 added_upgrades = Array[ExtResource("2_unhxn")]([])
-max_uses = 5
+_max_uses = 0
+source_type = 0

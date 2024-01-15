@@ -6,15 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_iy37m"]
 script = ExtResource("3_egsis")
-value = 20.0
-mod_type = 0
-base_stat_type = 3
+_value = 0.0
+_mod_type = 0
+_base_stat_type = 0
 
 [resource]
 script = ExtResource("2_eltbr")
-name = "Movement Speed Flat"
-description = ""
-icon = ExtResource("1_1ou4u")
+_name = ""
+_description = ""
+_icon = ExtResource("1_1ou4u")
 upgrade = SubResource("Resource_iy37m")
 added_upgrades = Array[ExtResource("2_eltbr")]([])
-max_uses = 2
+_max_uses = 0
+source_type = 0

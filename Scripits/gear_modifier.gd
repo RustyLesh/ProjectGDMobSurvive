@@ -15,7 +15,7 @@ enum GearModType
 func get_save_data() -> Dictionary:
 	return {
 		"mod_type": mod_type,
-		"upgrade": upgrade_resource.get_save_data(),
+		"upgrade_resource": upgrade_resource.get_save_data(),
 		"slot_source": slot_source,
 	}
 
@@ -23,7 +23,6 @@ func set_resource_data(data_dict):
 	slot_source = data_dict["slot_source"]
 	mod_type = data_dict["mod_type"]
 	upgrade_resource = UpgradeResource.new()
-	upgrade_resource.set_resource_data(data_dict["upgrade"])
-
+	upgrade_resource.set_resource_data(data_dict["upgrade_resource"])
 func init_gear_mod(slot: GearResource.GearType):
 	slot_source = slot

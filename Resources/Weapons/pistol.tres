@@ -11,3 +11,6 @@ weapon_name = "Dual Pistols"
 description = "Pew Pew"
 weapon = ExtResource("2_8si5s")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+weapon_xp = 0
+level = 0
+unlocked = true

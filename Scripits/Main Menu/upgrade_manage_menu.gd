@@ -1,6 +1,8 @@
 extends Control
 class_name UpgradeManageMenu
 
+const FILE_NAME = "user://main_menu_upgrade_pools.save"
+
 @onready var upgrade_pool_ui = $"Upgrade Pool Container/Upgrade Pool List"
 @onready var selected_upgrade_list_ui = $"Selected Upgrade Container/Selected Upgrade List"
 
@@ -14,21 +16,30 @@ var highlighted_in_upgrade_pool : int = -1
 var highlighted_in_selected_upgrades : int = -1
 
 func _ready():
+	await get_tree().create_timer(0.5).timeout
 	add_button.disabled = true
 	remove_button.disabled = true
 	main_menu.on_start_combat.connect(on_combat_start)
+	upgrade_pool = PlayerSetup.upgrade_pool.duplicate()
+	selected_upgrades = PlayerSetup.selected_upgrades.duplicate()
+	update_ui()
 
 func on_combat_start():
-	print("Upgrade menu combat start")
-	PlayerSetup.upgrade_pool = selected_upgrades.duplicate()
+	PlayerSetup.selected_upgrades = selected_upgrades.duplicate()
+	PlayerSetup.upgrade_pool = upgrade_pool.duplicate()
 
-func remove_upgrade_by_slot_type(gear_type: GearResource.GearType):
+func remove_upgrade_by_slot_type(gear_type):
 	var remove_pool: Array[UpgradeResource]
-	for upgrade_resource in selected_upgrades:
-		if gear_type == upgrade_resource.source_type:
+	for upgrade_resource in upgrade_pool:
+		if upgrade_resource.source_type == gear_type:
 			remove_pool.append(upgrade_resource)
-	
+
+	for upgrade_resource in selected_upgrades:
+		if upgrade_resource.source_type == gear_type:
+			remove_pool.append(upgrade_resource)
+
 	for upgrade_resource in remove_pool:
+		print(upgrade_resource._name)
 		upgrade_pool.erase(upgrade_resource)
 		selected_upgrades.erase(upgrade_resource)
 	
@@ -90,3 +101,8 @@ func remove_upgrades_by_source(slot_type: GearResource.GearType):
 	
 	for upgrade in remove_pool:
 		selected_upgrades.erase(upgrade)
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		PlayerSetup.selected_upgrades = selected_upgrades.duplicate()
+		PlayerSetup.upgrade_pool = upgrade_pool.duplicate()

@@ -42,7 +42,11 @@ func _ready():
 	change_menu(starting_menu)
 	get_tree().paused = false
 
-func _on_button_pressed():
+func on_quit_button_pressed():
+	GameData.quit_game()
+	
+#Combat start
+func _on_button_pressed(): 
 	on_start_combat.emit()
 	get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
 
@@ -98,7 +102,7 @@ func change_menu(change_to: MenuType):
 			
 		MenuType.OPTIONS:
 			options_menu.visible = true
-			options_menu.update_ui()
+			#options_menu.update_ui()
 
 		MenuType.UPGRADES:
 			upgrade_menu.visible = true

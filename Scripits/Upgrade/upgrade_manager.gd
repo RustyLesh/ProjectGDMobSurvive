@@ -31,7 +31,7 @@ func _ready():
 	if xp_manager is XPManager:
 		xp_manager.on_level.connect(level_changed)
 		
-	init_upgrade_pool()
+	upgrade_pool = PlayerSetup.selected_upgrades.duplicate()
 	roll_upgrade_options()
 	
 func level_changed(level: int):
@@ -70,16 +70,12 @@ func get_upgrade_options() -> Array[UpgradeResource]:
 			options_return.append(upgrade)
 	return options_return
 
-func init_upgrade_pool():
-	upgrade_pool = PlayerSetup.upgrade_pool.duplicate()
-
 func roll_upgrade_options():
 	upgrade_pool.shuffle()
 	on_reroll.emit()
 	
 func print_upgrade_names(): #Prints to console the names of upgrades from upgrade options array
 	if upgrade_pool.size() >= number_of_choices:
-		print("Upgrades:")
 		for i in range(upgrade_pool.size()-1, upgrade_pool.size()-(number_of_choices + 1), -1):
 			print(upgrade_pool[i].name)
 	else:

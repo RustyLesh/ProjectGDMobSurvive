@@ -13,7 +13,7 @@ var inv_item_button: Resource = preload("res://Objects/Main Menu/inventory_item.
 var gear_list_filtered: Array[GearResource]
 var gear_list: Array[GearResource]
 
-@export var selected_item: int
+@export var selected_item: int = -1
 @export var is_equiped_item_selected: bool
 
 func _ready():
@@ -23,7 +23,13 @@ func _ready():
 		var inv_item_button_instance = inv_item_button_scene.instantiate()
 		if item_list is ItemList:
 			item_list.add_item(gear_list[i]._item_name, gear_list[i]._icon)
-
+	
+	await get_tree().create_timer(.3).timeout
+	print("equiping")
+	for gear in PlayerSetup.equiped_gear:
+		print("equiping part 2")
+		equip_gear(gear)
+	
 func refresh_item_list():
 	item_list.clear()
 	if !gear_list_filtered.is_empty():
@@ -39,9 +45,12 @@ func update_ui():
 	gear_list = PlayerSetup.inventory
 	refresh_item_list()
 
-func equip_gear():
+func on_equip_button_pressed():
+	equip_gear(gear_list[selected_item])
+
+func equip_gear(gear: GearResource):
 	#Equip selected item. Get already equiped item
-	var return_gear: GearResource = equiped_gear_menu.equip_gear(gear_list[selected_item]) 
+	var return_gear: GearResource = equiped_gear_menu.equip_gear(gear) 
 	
 	#Remove existing mods if any
 	if return_gear != null:
@@ -50,19 +59,15 @@ func equip_gear():
 				#Check mod type and remove from corrisponding pool
 				if mod.mod_type == GearModifier.GearModType.APPLY_NOW: 
 					mod.upgrade_resource.upgrade.remove_upgrade(stat_container)
-				else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
-					print("remove")
-					upgrade_menu.remove_upgrades_by_source(return_gear._gear_type)
 	
+	upgrade_menu.remove_upgrades_by_source(gear._gear_type)
+		
 	#Apply mods from selected item
-	for mod in gear_list[selected_item].mod_list:
+	for mod in gear.mod_list:
 		if mod is GearModifier:
-			mod.slot_source = gear_list[selected_item]._gear_type
-			mod.upgrade_resource.source_type = gear_list[selected_item]._gear_type
-			mod.upgrade_resource.upgrade.source_type = gear_list[selected_item]._gear_type
-			print(gear_list[selected_item]._gear_type)
-			print(mod.slot_source)
-			print(mod.upgrade_resource.upgrade.source_type)
+			mod.slot_source = gear._gear_type
+			mod.upgrade_resource.source_type = gear._gear_type
+			mod.upgrade_resource.upgrade.source_type = gear._gear_type
 			if mod.mod_type == GearModifier.GearModType.APPLY_NOW:
 				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container)
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
@@ -71,7 +76,8 @@ func equip_gear():
 	if return_gear != null: #Add gear back to inventory
 		add_item(return_gear)
 		selected_info_box.on_item_select(equiped_gear_menu.get_gear_in_slot(return_gear._gear_type))
-	remove_selected_item() #Remove selected item from inventory
+	if selected_item >= 0:
+		remove_selected_item() #Remove selected item from inventory
 	selected_item = -1
 	selected_item_options.equip_button.disabled = true
 	selected_item_options.delete_button.disabled = true
