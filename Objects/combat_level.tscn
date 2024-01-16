@@ -165,7 +165,7 @@ rarity = 2
 [sub_resource type="Resource" id="Resource_58na0"]
 script = ExtResource("16_erw8r")
 gear_resource = ExtResource("21_428a4")
-drop_weight = 5.0
+drop_weight = 100.0
 rarity = 3
 
 [node name="Combat_Level" type="Node2D" groups=["Level"]]

@@ -2,7 +2,8 @@ extends Control
 class_name WeaponSelectMenu
 #Menu for selecting player weapon
 
-@onready var vbox: VBoxContainer = $VBoxContainer
+@onready var vbox: VBoxContainer = $"Weapon Container/VBoxContainer"
+@onready var weapon_scroll_container = $"Weapon Container"
 @onready var selected_weapon_infobox: WeaponSelectInfo = $"Selected Weapon"
 
 var select_weapon_button: Resource = preload("res://Objects/Main Menu/weapon_slot.tscn")
@@ -19,6 +20,7 @@ func _ready():
 			vbox.add_child(weapon_button_instace)
 		#Assign properties to weapon select buttons
 		if weapon_button_instace is WeaponSelectButton:
+			weapon_button_instace.custom_minimum_size = Vector2(weapon_scroll_container.size.x, 0)
 			weapon_button_instace.weapon = weapons[i]
 			weapon_button_instace.on_weapon_select.connect(selected_weapon_infobox._on_weapon_select)
 			weapon_button_instace.on_weapon_select.connect(on_weapon_select)

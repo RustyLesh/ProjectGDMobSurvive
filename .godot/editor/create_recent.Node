@@ -1,7 +1,8 @@
+Panel
+ScrollContainer
 Label
 Button
 TextureProgressBar
-ScrollContainer
 VScrollBar
 Node
 ItemList
@@ -12,7 +13,6 @@ Sprite2D
 CollisionShape2D
 Area2D
 Timer
-Panel
 Health
 EnemyMovement
 EnemyNode

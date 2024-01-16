@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://dq7j8mmcqn7ue"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=6 format=3 uid="uid://dq7j8mmcqn7ue"]
 
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_1rrd2"]
 [ext_resource type="Texture2D" uid="uid://ghqd4icedypq" path="res://Art/Weapon Icons/DualPistols.png" id="1_jw5ly"]
 [ext_resource type="PackedScene" uid="uid://da7ww05aoof2x" path="res://Objects/Weapons/pistol.tscn" id="2_8si5s"]
+[ext_resource type="Script" path="res://Scripits/Weapons/weapon_xp_tree.gd" id="4_3v7jh"]
+
+[sub_resource type="Resource" id="Resource_etu77"]
+script = ExtResource("4_3v7jh")
+level = 0
+level_1 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+level_2 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+level_3 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+level_4 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+level_5 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
 
 [resource]
 script = ExtResource("1_1rrd2")
@@ -13,4 +23,5 @@ weapon = ExtResource("2_8si5s")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
 weapon_xp = 0
 level = 0
+weapon_tree = SubResource("Resource_etu77")
 unlocked = true

@@ -25,9 +25,18 @@ func _ready():
 	slots.append(amulet_slot)
 	
 	#connect signals
+	main_menu.on_start_combat.connect(on_start_combat)
 	for slot in slots:
 		slot.on_gear_selected.connect(on_gear_selected)
 		slot.on_gear_slot_clicked.connect(on_gear_slot_selected)
+	
+	if !PlayerSetup.equiped_gear.is_empty():
+		for gear in PlayerSetup.equiped_gear:
+			equip_gear(gear)
+
+func on_start_combat():
+	PlayerSetup.equiped_gear.clear()
+	PlayerSetup.equiped_gear.append_array(get_all_gear())
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

@@ -1,4 +1,3 @@
-res://Scripits/player_stats.gd
 res://Objects/Main Menu/main_menu.tscn
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -21,20 +20,20 @@ res://Objects/combat_level.tscn
 res://Objects/Main Menu/weapon_slot.tscn
 res://Objects/save_manager.tscn
 res://Objects/GUI/in_level_ui.tscn
-res://Scripits/Upgrade/base_stat_upgrade.gd
-res://Scripits/base_stat.gd
-res://Scripits/Upgrade/on_hit_effect_upgrade.gd
-res://Scripits/Upgrade/upgrade.gd
-res://Scripits/gear_modifier.gd
-res://Scripits/Upgrade/upgrade_resource.gd
-res://player_setup.gd
-res://Objects/Main Menu/save_manager.gd
-res://Scripits/gear.gd
-res://Scripits/On Hit Effects/on_hit_effect.gd
-res://Scripits/stat_mod.gd
 res://Scripits/Main Menu/gear_menu.gd
+res://Scripits/Main Menu/selected_item_options.gd
 res://Scripits/Main Menu/equiped_gear_menu.gd
-res://Scripits/Main Menu/gear_slot.gd
-res://Scripits/game_data.gd
 res://Scripits/Main Menu/main_menu.gd
-res://Scripits/Main Menu/inventory_item_button.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
+res://player_setup.gd
+res://Scripits/Main Menu/selected_item_info.gd
+res://Scripits/Upgrade/upgrade_resource.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/player_stats.gd
+res://Scripits/Weapons/weapon_xp_tree.gd
+res://Resources/Weapons/pistol.tres
+res://Resources/Weapons/rifle.tres
+res://Resources/Weapons/test_weapon.tres
+res://Scripits/Weapons/weapon_resource.gd

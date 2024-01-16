@@ -32,6 +32,7 @@ func set_resource_data(data_dict):
 	_name = data_dict["name"]
 	_description = data_dict["description"]
 	_icon  = load(data_dict["icon"])
+	_max_uses = data_dict["max_uses"]
 	var upgrade_data = data_dict["upgrade"]
 	upgrade = load(upgrade_data["resource_path"]).duplicate()
 	upgrade.set_resource_data(data_dict["upgrade"])

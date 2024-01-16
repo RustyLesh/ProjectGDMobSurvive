@@ -104,7 +104,10 @@ func remove_filters():
 	refresh_item_list()
 	
 func _on_item_list_item_selected(index):
-	selected_info_box.on_item_select(gear_list[index])
+	if gear_list_filtered.is_empty():
+		selected_info_box.on_item_select(gear_list[index])
+	else:
+		selected_info_box.on_item_select(gear_list_filtered[index])
 	selected_item = index
 	selected_item_options.enable_all_buttons()
 	is_equiped_item_selected = false

@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 class_name WeaponSelectInfo
 #Menu panel to show information on selected weapon in weapon menu
 
