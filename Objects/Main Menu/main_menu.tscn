@@ -257,7 +257,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2kcg0")
 [node name="Weapon Container" type="ScrollContainer" parent="Weapon Select Menu"]
 layout_mode = 1
 offset_left = 8.0
-offset_top = 424.0
+offset_top = 328.0
 offset_right = 712.0
 offset_bottom = 1152.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e7llh")

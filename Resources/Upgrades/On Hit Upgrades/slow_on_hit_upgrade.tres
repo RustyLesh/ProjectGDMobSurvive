@@ -1,11 +1,19 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://c7msjj21lwgnn"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=7 format=3 uid="uid://c7msjj21lwgnn"]
 
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="1_4fbtu"]
 [ext_resource type="Texture2D" uid="uid://c5ly12w88ilji" path="res://Art/XPDrop.png" id="1_bayfv"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_obvlx"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="3_pgkwa"]
+
+[sub_resource type="Resource" id="Resource_yeu1l"]
+script = ExtResource("3_pgkwa")
+_duration = 10
+_slow_amount = 50.0
+_proc_chance = 50.0
 
 [sub_resource type="Resource" id="Resource_rng5m"]
 script = ExtResource("1_4fbtu")
+_effect = SubResource("Resource_yeu1l")
 
 [resource]
 script = ExtResource("1_obvlx")

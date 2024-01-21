@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvf74h55jo8wc"]
+
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="1_53mly"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_info_panel.gd" id="1_pvveu"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_info_panel.gd" id="3_2xwr2"]
+[ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="3_mc65y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfq7t"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jfhj"]
+bg_color = Color(0.380392, 0.662745, 0.623529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxw7i"]
+bg_color = Color(0.294118, 0.537255, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j70vs"]
+bg_color = Color(0.847059, 0.611765, 0.713726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmir8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qx2q"]
+bg_color = Color(0, 0, 0, 0.701961)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.45098, 0.0156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkiou"]
+bg_color = Color(0, 0, 0, 0.709804)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.678431, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_t815s"]
+variation_embolden = 0.67
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_te06o"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 0.760784)
+
+[node name="Weapon Info" type="Panel"]
+custom_minimum_size = Vector2(0, 500)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 344.0
+offset_bottom = 500.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfq7t")
+script = ExtResource("1_pvveu")
+
+[node name="Weapon Actions" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 704.0
+offset_bottom = 64.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Equip Button" type="Button" parent="Weapon Actions"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1jfhj")
+text = "Equip"
+
+[node name="Skill Tree Button" type="Button" parent="Weapon Actions"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1jfhj")
+text = "Skill Tree"
+
+[node name="Lists" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 704.0
+offset_bottom = 504.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Mod List Scroll" type="ScrollContainer" parent="Lists"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="Upgrade List" type="ItemList" parent="Lists/Mod List Scroll"]
+custom_minimum_size = Vector2(350, 439.905)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxw7i")
+item_count = 2
+same_column_width = true
+fixed_column_width = 384
+fixed_icon_size = Vector2i(25, 25)
+item_0/text = "5567ghjghjjh"
+item_0/icon = ExtResource("1_53mly")
+item_1/text = ""
+item_1/icon = ExtResource("1_53mly")
+
+[node name="Upgrade List Scroll" type="ScrollContainer" parent="Lists"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="Mods List" type="ItemList" parent="Lists/Upgrade List Scroll"]
+custom_minimum_size = Vector2(350, 439.905)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_j70vs")
+item_count = 2
+same_column_width = true
+fixed_column_width = 384
+fixed_icon_size = Vector2i(25, 25)
+item_0/text = "----------------------------"
+item_0/icon = ExtResource("1_53mly")
+item_1/text = ""
+item_1/icon = ExtResource("1_53mly")
+
+[node name="Upgrade info" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 64.0
+offset_right = 704.0
+offset_bottom = 504.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hmir8")
+script = ExtResource("3_2xwr2")
+
+[node name="Close" type="Button" parent="Upgrade info"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+icon = ExtResource("3_mc65y")
+expand_icon = true
+
+[node name="Confirmation Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 704.0
+offset_bottom = 504.0
+
+[node name="Confirm" type="Button" parent="Confirmation Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 224.0
+offset_right = 344.0
+offset_bottom = 288.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5qx2q")
+text = "Yes
+"
+
+[node name="Decline" type="Button" parent="Confirmation Panel"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 224.0
+offset_right = 696.0
+offset_bottom = 288.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkiou")
+text = "No
+"
+
+[node name="Text Label" type="Label" parent="Confirmation Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 656.0
+offset_bottom = 144.0
+theme_override_fonts/font = SubResource("FontVariation_t815s")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_te06o")
+text = "Would like like to equip the selected weapon?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text Label2" type="Label" parent="Confirmation Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 152.0
+offset_right = 656.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_te06o")
+text = "This will remove all selected weapon upgrades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Weapon Actions/Equip Button" to="." method="_on_equip_button_pressed"]
+[connection signal="item_selected" from="Lists/Mod List Scroll/Upgrade List" to="." method="on_upgrade_list_select"]
+[connection signal="pressed" from="Upgrade info/Close" to="." method="on_close_upgrade_info_panel_pressed"]
+[connection signal="pressed" from="Confirmation Panel/Confirm" to="." method="equip_confirmed"]
+[connection signal="pressed" from="Confirmation Panel/Decline" to="." method="equip_decline"]

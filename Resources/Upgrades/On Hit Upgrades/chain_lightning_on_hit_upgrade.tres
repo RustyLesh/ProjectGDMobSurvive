@@ -1,11 +1,20 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://b4e75fcown2xx"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=7 format=3 uid="uid://b4e75fcown2xx"]
 
 [ext_resource type="Texture2D" uid="uid://t6psobihjovw" path="res://Art/Upgrade Icons/FireRate.png" id="1_dtvpw"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_rs5ut"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="3_rq1p0"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="4_vvvl6"]
+
+[sub_resource type="Resource" id="Resource_ib8j4"]
+script = ExtResource("3_rq1p0")
+_proc_range = 200.0
+_max_chain_count = 5
+_damage = 5.0
+_proc_chance = 50.0
 
 [sub_resource type="Resource" id="Resource_xnm5k"]
 script = ExtResource("4_vvvl6")
+_effect = SubResource("Resource_ib8j4")
 
 [resource]
 script = ExtResource("1_rs5ut")
