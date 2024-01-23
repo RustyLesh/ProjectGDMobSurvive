@@ -58,7 +58,7 @@ func equip_gear(gear: GearResource):
 			if mod is GearModifier:
 				#Check mod type and remove from corrisponding pool
 				if mod.mod_type == GearModifier.GearModType.APPLY_NOW: 
-					mod.upgrade_resource.upgrade.remove_upgrade(stat_container)
+					mod.upgrade_resource.upgrade.remove_upgrade(stat_container, mod.slot_source)
 	
 	upgrade_menu.remove_upgrades_by_source(gear._gear_type)
 		
@@ -69,7 +69,7 @@ func equip_gear(gear: GearResource):
 			mod.upgrade_resource.source_type = gear._gear_type
 			mod.upgrade_resource.upgrade.source_type = gear._gear_type
 			if mod.mod_type == GearModifier.GearModType.APPLY_NOW:
-				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container)
+				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container, gear._gear_type)
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
 				upgrade_menu.upgrade_pool.append(mod.upgrade_resource)
 				

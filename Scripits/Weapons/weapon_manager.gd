@@ -29,3 +29,4 @@ func set_fire_rate(value : float):
 
 func apply_on_hit_effect_to_weapons(effect: OnHitEffect):
 	get_parent().weapon_inst.on_hit_effects.append(effect)
+

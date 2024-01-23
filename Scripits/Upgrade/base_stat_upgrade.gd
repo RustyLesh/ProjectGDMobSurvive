@@ -13,23 +13,23 @@ func apply_upgrade(player: Node):
 	var statmod := StatMod.new()
 	statmod.value = _value
 	statmod.stat_mod_type = _mod_type
-	statmod.source = self
+	statmod.source = GearResource.GearType.UPGRADE
 	var player_stat_container = player.combat_stat_container
 	if player_stat_container is StatContainer:
 			player_stat_container.add_mod_to_base_stat(statmod, _base_stat_type)
 
-func apply_upgrade_main_menu(player_stat_container: StatContainer):
+func apply_upgrade_main_menu(player_stat_container: StatContainer, gear_type: GearResource.GearType):
 	var statmod := StatMod.new()
 	statmod.value = _value
 	statmod.stat_mod_type = _mod_type
-	statmod.source = self
+	statmod.source = gear_type
 	
 	if player_stat_container is StatContainer:
 		player_stat_container.add_mod_to_base_stat(statmod, _base_stat_type)
 	
-func remove_upgrade(stat_container: MainMenuStatContainer):
+func remove_upgrade(stat_container: MainMenuStatContainer, gear_type: GearResource.GearType):
 	if stat_container is StatContainer:
-		stat_container.remove_mod_from_base_stat(_base_stat_type, self)
+		stat_container.remove_mod_from_base_stat(_base_stat_type, gear_type)
 
 func get_upgrade_string() -> String:
 	var return_string

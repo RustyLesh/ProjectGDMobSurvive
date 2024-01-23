@@ -27,3 +27,5 @@ weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_uy352")
 unlocked = false
+base_stats = Array[Resource("res://Scripits/base_stat.gd")]([])
+base_stat_mods = Array[Resource("res://Scripits/base_stat_mod.gd")]([])

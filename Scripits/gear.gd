@@ -7,7 +7,8 @@ enum GearType
 	HELMET,
 	RING,
 	AMULET,
-	WEAPON
+	WEAPON,
+	UPGRADE,
 }
 
 @export var _item_name: String

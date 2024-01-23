@@ -17,21 +17,42 @@ res://Resources/Gear/gold_ring.tres
 res://Resources/Enemies/wisp.tres
 res://Resources/Gear/amulet.tres
 res://Resources/Gear/helm.tres
-res://player_setup.tscn
-res://player_stats.tscn
 res://Objects/combat_level.tscn
-res://Objects/Main Menu/weapon_slot.tscn
-res://Objects/save_manager.tscn
-res://Objects/GUI/in_level_ui.tscn
 res://Objects/Main Menu/weapon_info.tscn
+res://Objects/Main Menu/weapon_slot.tscn
+res://Objects/player.tscn
+res://Objects/Weapons/rifle.tscn
+res://Objects/Weapons/pistol.tscn
+res://player_setup.tscn
+res://Scripits/main_menu_stat_container.gd
+res://Scripits/stat_container.gd
 res://Scripits/Main Menu/weapon_info_panel.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/gear.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
+res://Scripits/base_stat_mod.gd
+res://Scripits/base_stat.gd
+res://Scripits/stat.gd
+res://Scripits/stat_mod.gd
+res://Scripits/Main Menu/character_menu.gd
+res://Scripits/gear_modifier.gd
+res://player_setup.gd
+res://Scripits/combat_level.gd
+res://Scripits/player.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/Weapons/rifle.gd
+res://Scripits/bullet.gd
 res://Scripits/Weapons/weapon.gd
 res://Scripits/Weapons/weapon_resource.gd
-res://Scripits/Main Menu/selected_weapon_info.gd
-res://Scripits/Main Menu/weapon_select_menu.gd
-res://Scripits/Main Menu/weapon_select_button.gd
-res://player_setup.gd
-res://Scripits/game_data.gd
-res://Scripits/Main Menu/upgrade_manage_menu.gd
-res://Scripits/Upgrade/upgrade_resource.gd
-res://Scripits/Upgrade/upgrade.gd
+res://Scripits/GUI/end_screen.gd
+res://Scripits/GUI/upgrade_menu.gd
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/Enemy/enemy_node.gd
+res://Scripits/Drops/gear_drop.gd
+res://Scripits/input_test.gd
+res://Objects/GUI/in_level_ui.tscn

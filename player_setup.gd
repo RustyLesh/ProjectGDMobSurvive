@@ -92,3 +92,4 @@ func load_data():
 
 
 	selected_weapon_index = data["selected_weapon_index"]
+	print("player setup selected index: ", selected_weapon_index)

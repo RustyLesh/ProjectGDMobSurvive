@@ -19,9 +19,14 @@ func _ready():
 
 func init_info_panel(_weapon_resource: WeaponResource):
 	upgrade_list.clear()
+	stat_list.clear()
+
 	weapon_resource = _weapon_resource
 	for mod in weapon_resource.upgrades:
 		upgrade_list.add_item(mod._name, mod._icon)
+
+	for mod in weapon_resource.base_stat_mods:
+		stat_list.add_item(mod.get_string())
 
 func set_data(weapon_resource: WeaponResource):
 	pass
@@ -29,8 +34,9 @@ func set_data(weapon_resource: WeaponResource):
 func _on_equip_button_pressed():
 	confirmation_panel.visible = true
 
-func on_upgrade_list_select(_index):
+func on_upgrade_list_select(index):
 	upgrade_info_panel.visible = true
+	upgrade_info_panel.set_ui(weapon_resource.upgrades[index])
 
 func on_close_upgrade_info_panel_pressed():
 	upgrade_info_panel.visible = false

@@ -29,6 +29,7 @@ var current_menu: MenuType
 @onready var options_menu = $"Options Menu"
 @onready var upgrade_menu = $"Upgrade Menu"
 
+@onready var weapon_warning_dialogue: Control = $"Weapon Warning Dialogue"
 func _ready():
 	weapon_select_menu.visible = false
 	combat_menu.visible = false
@@ -39,6 +40,7 @@ func _ready():
 	options_menu.visible = false
 	upgrade_menu.visible = false
 	
+	weapon_warning_dialogue.visible = false
 	change_menu(starting_menu)
 	get_tree().paused = false
 
@@ -46,9 +48,12 @@ func on_quit_button_pressed():
 	GameData.quit_game()
 	
 #Combat start
-func _on_button_pressed(): 
-	on_start_combat.emit()
-	get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
+func _on_button_pressed():
+	if PlayerSetup.weapon == null: #Check if weapon equiped
+		weapon_warning_dialogue.visible = true
+	else:
+		on_start_combat.emit()
+		get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
 
 func change_menu(change_to: MenuType):
 	match current_menu:

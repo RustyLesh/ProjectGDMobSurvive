@@ -9,6 +9,7 @@ func _ready():
 	player.on_player_death.connect(on_player_death)
 	
 func on_player_death():
+	get_tree().paused = true
 	title_label.text = "You Died"
 	title_label.text = str("Weapon: XP: ", PlayerStats.weapon_xp)
 	visible = true

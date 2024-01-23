@@ -1,7 +1,10 @@
 extends Weapon
 
 @export var shot_angle_variation = 15
-func init_weapon():
+
+func init_weapon(_base_stat_mods: Array[BaseStat]):
+	base_stat_mods = _base_stat_mods.duplicate()
+	
 	while true:
 		for i in 1 + weapon_manager.extra_proj_count:
 			var bullet_instance = bullet_scene.instantiate()

@@ -6,6 +6,7 @@ class_name WeaponSelectMenu
 @onready var weapon_scroll_container = $"Weapon Container"
 @onready var selected_weapon_infobox: WeaponSelectInfo = $"Selected Weapon"
 @onready var upgrade_manage_menu: UpgradeManageMenu = $"../Upgrade Menu"
+@onready var stat_container: MainMenuStatContainer = $"../Stat Container"
 
 var select_weapon_button: Resource = preload("res://Objects/Main Menu/weapon_slot.tscn")
 var weapon_info: Resource = preload("res://Objects/Main Menu/weapon_info.tscn")
@@ -34,10 +35,11 @@ func _ready():
 			weapon_button_instace.text = weapons[i].weapon_name
 			weapon_button_instace.on_weapon_select.connect(on_weapon_select)
 			
-	#selected_weapon_infobox._on_weapon_select(weapons[0]) 
 	if PlayerSetup.selected_weapon_index >= 0: #if weapon is already selected, show info
 		selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
-
+		PlayerSetup.weapon = weapons[PlayerSetup.selected_weapon_index]
+		apply_weapon_mods(PlayerSetup.weapon)
+		
 func on_weapon_select(weapon, index):
 	PlayerSetup.selected_weapon_index = weapons.find(weapon)
 
@@ -69,3 +71,14 @@ func equip_weapon(weapon_resource):
 		upgrade.source_type = GearResource.GearType.WEAPON
 		upgrade.upgrade.source_type = GearResource.GearType.WEAPON
 		upgrade_manage_menu.upgrade_pool.append(upgrade)
+	
+	for base_stat in stat_container.base_stats:
+		base_stat.remove_stat(GearResource.GearType.WEAPON)
+	
+	apply_weapon_mods(weapon_resource)
+
+
+func apply_weapon_mods(weapon_resource: WeaponResource):
+	for base_stat_mod in weapon_resource.base_stat_mods:
+		base_stat_mod.source_type = GearResource.GearType.WEAPON
+		base_stat_mod.apply_mod_main_menu(stat_container)

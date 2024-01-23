@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=12 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=16 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
+[ext_resource type="Script" path="res://Scripits/base_stat_mod.gd" id="1_w5652"]
 [ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
 [ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
 [ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres" id="4_kxeyq"]
@@ -10,6 +11,24 @@
 [ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres" id="7_ogqs4"]
 [ext_resource type="Resource" uid="uid://cdn30i7s7ws3e" path="res://Resources/Upgrades/Base Stat Upgrades/pierce.tres" id="8_cfu0p"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_xp_tree.gd" id="10_0diw7"]
+
+[sub_resource type="Resource" id="Resource_ktjkc"]
+script = ExtResource("1_w5652")
+base_stat_type = 1
+value = 50.0
+stat_mod_type = 0
+
+[sub_resource type="Resource" id="Resource_v3d0g"]
+script = ExtResource("1_w5652")
+base_stat_type = 0
+value = 5.0
+stat_mod_type = 1
+
+[sub_resource type="Resource" id="Resource_ojq2v"]
+script = ExtResource("1_w5652")
+base_stat_type = 4
+value = 5.0
+stat_mod_type = 0
 
 [sub_resource type="Resource" id="Resource_jc18q"]
 script = ExtResource("10_0diw7")
@@ -31,3 +50,5 @@ weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
+base_stats = Array[Resource("res://Scripits/base_stat.gd")]([])
+base_stat_mods = Array[ExtResource("1_w5652")]([SubResource("Resource_ktjkc"), SubResource("Resource_v3d0g"), SubResource("Resource_ojq2v")])
