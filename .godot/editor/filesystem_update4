@@ -1,4 +1,4 @@
-res://Objects/Main Menu/main_menu.tscn
+res://Objects/combat_level.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -17,42 +17,25 @@ res://Resources/Gear/gold_ring.tres
 res://Resources/Enemies/wisp.tres
 res://Resources/Gear/amulet.tres
 res://Resources/Gear/helm.tres
-res://Objects/combat_level.tscn
+res://Resources/Gear/potion_amulet.tres
+res://Objects/Main Menu/main_menu.tscn
 res://Objects/Main Menu/weapon_info.tscn
 res://Objects/Main Menu/weapon_slot.tscn
 res://Objects/player.tscn
 res://Objects/Weapons/rifle.tscn
 res://Objects/Weapons/pistol.tscn
 res://player_setup.tscn
-res://Scripits/main_menu_stat_container.gd
-res://Scripits/stat_container.gd
-res://Scripits/Main Menu/weapon_info_panel.gd
-res://Scripits/Main Menu/weapon_select_menu.gd
-res://Scripits/Upgrade/upgrade_manager.gd
-res://Scripits/Upgrade/upgrade.gd
-res://Scripits/gear.gd
-res://Scripits/Upgrade/base_stat_upgrade.gd
-res://Scripits/base_stat_mod.gd
-res://Scripits/base_stat.gd
-res://Scripits/stat.gd
-res://Scripits/stat_mod.gd
-res://Scripits/Main Menu/character_menu.gd
-res://Scripits/gear_modifier.gd
-res://player_setup.gd
-res://Scripits/combat_level.gd
-res://Scripits/player.gd
-res://Scripits/Weapons/weapon_manager.gd
-res://Scripits/Weapons/rifle.gd
-res://Scripits/bullet.gd
-res://Scripits/Weapons/weapon.gd
-res://Scripits/Weapons/weapon_resource.gd
-res://Scripits/GUI/end_screen.gd
-res://Scripits/GUI/upgrade_menu.gd
-res://Scripits/GUI/menu_manager.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/enemy_node.gd
-res://Scripits/Drops/gear_drop.gd
-res://Scripits/input_test.gd
 res://Objects/GUI/in_level_ui.tscn
+res://Scripits/Enemy/enemy_node.gd
+res://Scripits/Drops/drop_pool.gd
+res://Scripits/Drops/drop_experience.gd
+res://Objects/xp_drop.tscn
+res://Scripits/Drops/drop_gear_resource.gd
+res://Scripits/Drops/gear_drop.gd
+res://Scripits/gear.gd
+res://Scripits/Drops/drop.gd
+res://Scripits/drop_colours_resource.gd
+res://Scripits/Main Menu/gear_menu.gd
+res://Scripits/bullet.gd
+res://Scripits/health.gd
+res://Scripits/entity.gd

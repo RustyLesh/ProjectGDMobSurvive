@@ -19,6 +19,7 @@ var xp_drop: PackedScene = preload("res://Objects/xp_drop.tscn")
 @export var slow_colour := Color.BLUE
 @export var contact_damage: float
 
+var drop_pool: DropPool
 var slow_amount: float
 var slow_dutation: int
 var min_move_speed: int = 10
@@ -38,6 +39,7 @@ func init_enemy(enemy_resource: EnemyResource):
 	contact_damage = enemy_resource.contact_damage
 	character_body.speed = enemy_resource.move_speed
 	default_move_speed = character_body.speed
+	drop_pool = enemy_resource.drop_pool
 
 	slow_timer.timeout.connect(revert_slow)
 
@@ -45,12 +47,12 @@ func init_enemy(enemy_resource: EnemyResource):
 		health.init_health(enemy_resource.max_health)
 
 func _on_health_died():
-	#Create Drops
-	call_deferred("Spawn_XP")
+	call_deferred("roll_drop")
+	call_deferred("spawn_XP")
 	queue_free()
 	PlayerStats.weapon_xp += weapon_xp_value
 	
-func Spawn_XP():
+func spawn_XP():
 	if xp_drop is PackedScene:
 		var xpDrop = xp_drop.instantiate()
 		xpDrop.XP_Init(stage_xp_value)
@@ -69,3 +71,11 @@ func revert_slow():
 	print("Slow expired")
 	character_body.speed = default_move_speed
 	sprite.modulate = Color.WHITE
+
+func roll_drop():
+	var drop_gen = drop_pool.get_drop()
+	if drop_gen["has_rolled_drop"]:
+		var drop = drop_gen["drop"]
+		drop.global_position = $CharacterBody2D.global_position
+		get_parent().add_child(drop)
+		print("Dropped", drop.gear_resource._item_name)

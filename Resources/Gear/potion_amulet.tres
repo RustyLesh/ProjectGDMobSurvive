@@ -26,6 +26,7 @@ _max_uses = 0
 script = ExtResource("2_mlawb")
 mod_type = 0
 upgrade_resource = SubResource("Resource_m8mfb")
+slot_source = 0
 
 [resource]
 script = ExtResource("1_ppmww")

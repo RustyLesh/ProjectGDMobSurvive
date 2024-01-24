@@ -16,5 +16,4 @@ enum EntityType
 func take_damage(damage):
 	if health is Health:
 		#Damage logic here
-		print("damage: ", damage)
 		health.take_damage(damage)

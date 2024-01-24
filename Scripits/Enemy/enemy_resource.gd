@@ -23,7 +23,7 @@ enum EnemyType
 @export var weapon_xp_value: float
 @export var collision_shape: Shape2D
 @export var collision_pos_offset: Vector2
-@export var drop_pool: Array[DropResource]
+@export var drop_pool: DropPool
 #Enemy scene which will use given enemy resource
 @export var enemy_base_object: Resource
 @export var enemy_ai_movement: EnemyMovementAI
