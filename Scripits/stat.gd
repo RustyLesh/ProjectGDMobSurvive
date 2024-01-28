@@ -45,7 +45,6 @@ func sort_by_type(a, b):
 func remove_stat(source: GearResource.GearType):
 	is_dirty = true
 	for stat_mod in stat_mod_container:
-		print("stat_source: ",stat_mod.source, ",remove source: ", source)
 		if stat_mod.source == source:
 			stat_mod_container.erase(stat_mod)
 			return

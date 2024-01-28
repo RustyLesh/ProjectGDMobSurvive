@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dplan3pe6ua4i"]
+
+[ext_resource type="Script" path="res://Objects/Main Menu/weapon_skill_tree_panel.gd" id="1_rqq3g"]
+
+[node name="Weapon Skill Tree Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 88)
+offset_left = 8.0
+offset_right = 696.0
+offset_bottom = 88.0
+script = ExtResource("1_rqq3g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 688.0
+offset_bottom = 80.0
+alignment = 1

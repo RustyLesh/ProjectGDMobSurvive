@@ -3,12 +3,18 @@ class_name WeaponXpTree
 
 var base_res_path: String
 
-@export var level: int
-@export var level_1: Array[UpgradeResource]
-@export var level_2: Array[UpgradeResource]
-@export var level_3: Array[UpgradeResource]
-@export var level_4: Array[UpgradeResource]
-@export var level_5: Array[UpgradeResource]
+@export var weapon_level: int
+@export var level_1: Array[GearModifier]
+@export var level_2: Array[GearModifier]
+@export var level_3: Array[GearModifier]
+@export var level_4: Array[GearModifier]
+@export var level_5: Array[GearModifier]
 
-var tree# = [Level_1, Level_2, Level_3, Level_4, Level_5] #int , Level Array
+@export var tree_array = {}
 
+func init_weapon_tree():
+    tree_array[0] = level_1
+    tree_array[1] = level_2
+    tree_array[2] = level_3
+    tree_array[3] = level_4
+    tree_array[4] = level_5

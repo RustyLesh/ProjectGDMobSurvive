@@ -5,6 +5,8 @@ class_name WeaponSelectMenu
 @onready var weapon_list_container: VBoxContainer = $"Weapon Container/VBoxContainer"
 @onready var weapon_scroll_container = $"Weapon Container"
 @onready var selected_weapon_infobox: WeaponSelectInfo = $"Selected Weapon"
+@onready var weapon_skill_tree: WeaponSkillTreeMenu = $"Weapon Skill Tree"
+
 @onready var upgrade_manage_menu: UpgradeManageMenu = $"../Upgrade Menu"
 @onready var stat_container: MainMenuStatContainer = $"../Stat Container"
 
@@ -54,6 +56,7 @@ func on_weapon_select(weapon, index):
 	var weapon_info_instance = weapon_info_scene.instantiate()
 	weapon_list_container.add_child(weapon_info_instance)
 	weapon_info_instance.on_equip.connect(equip_weapon)
+	weapon_info_instance.skill_tree_button.pressed.connect(open_weapon_skill_tree)
 	weapon_info_instance.init_info_panel(weapon)
 	if index >= current_infobox_index && current_infobox_index > -1:
 		weapon_list_container.move_child(weapon_info_instance, index + 2)
@@ -82,3 +85,8 @@ func apply_weapon_mods(weapon_resource: WeaponResource):
 	for base_stat_mod in weapon_resource.base_stat_mods:
 		base_stat_mod.source_type = GearResource.GearType.WEAPON
 		base_stat_mod.apply_mod_main_menu(stat_container)
+
+func open_weapon_skill_tree():
+	weapon_skill_tree.visible = true
+	weapon_skill_tree.update_ui(weapons[PlayerSetup.selected_weapon_index])
+	

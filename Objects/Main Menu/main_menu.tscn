@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=58 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -13,10 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="9_rgsly"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/character_menu.gd" id="13_8xsmm"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_menu.gd" id="13_owegc"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_skill_tree_menu.gd" id="13_sru3u"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_slot.gd" id="13_tyj7l"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/equiped_gear_menu.gd" id="13_wh3x6"]
+[ext_resource type="PackedScene" uid="uid://dplan3pe6ua4i" path="res://Objects/Main Menu/weapon_skill_tree_panel.tscn" id="14_gtoji"]
 [ext_resource type="Script" path="res://Scripits/main_menu_stat_container.gd" id="15_eji0x"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
+[ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="15_xs855"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
@@ -24,6 +27,7 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
 [ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="28_lwtkj"]
 [ext_resource type="Script" path="res://Objects/Main Menu/warning_dialogue_box.gd" id="28_q00y5"]
+[ext_resource type="Script" path="res://test/main_menu_test.gd" id="29_e8edt"]
 [ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="29_wxsjs"]
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="30_05pl0"]
 [ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="31_te1yv"]
@@ -274,10 +278,42 @@ layout_mode = 2
 [node name="Weapon Skill Tree" type="Panel" parent="Weapon Select Menu"]
 visible = false
 layout_mode = 0
-offset_top = 416.0
-offset_right = 720.0
+offset_left = 8.0
+offset_top = 328.0
+offset_right = 712.0
 offset_bottom = 1152.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_n8ugk")
+script = ExtResource("13_sru3u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Weapon Select Menu/Weapon Skill Tree"]
+layout_mode = 0
+offset_right = 704.0
+offset_bottom = 822.0
+theme_override_constants/separation = 18
+
+[node name="Weapon Skill Tree Panel1" parent="Weapon Select Menu/Weapon Skill Tree/VBoxContainer" instance=ExtResource("14_gtoji")]
+layout_mode = 2
+
+[node name="Weapon Skill Tree Panel2" parent="Weapon Select Menu/Weapon Skill Tree/VBoxContainer" instance=ExtResource("14_gtoji")]
+layout_mode = 2
+
+[node name="Weapon Skill Tree Panel3" parent="Weapon Select Menu/Weapon Skill Tree/VBoxContainer" instance=ExtResource("14_gtoji")]
+layout_mode = 2
+
+[node name="Weapon Skill Tree Panel4" parent="Weapon Select Menu/Weapon Skill Tree/VBoxContainer" instance=ExtResource("14_gtoji")]
+layout_mode = 2
+
+[node name="Weapon Skill Tree Panel5" parent="Weapon Select Menu/Weapon Skill Tree/VBoxContainer" instance=ExtResource("14_gtoji")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Weapon Select Menu/Weapon Skill Tree"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = -56.0
+offset_right = 712.0
+offset_bottom = -8.0
+icon = ExtResource("15_xs855")
+expand_icon = true
 
 [node name="Combat Prep Menu" type="Control" parent="."]
 visible = false
@@ -293,6 +329,7 @@ theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="Character Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -663,6 +700,10 @@ offset_bottom = 752.0
 theme_override_font_sizes/font_size = 50
 text = "OK!"
 
+[node name="test" type="Node" parent="."]
+script = ExtResource("29_e8edt")
+
+[connection signal="pressed" from="Weapon Select Menu/Weapon Skill Tree/Button" to="Weapon Select Menu/Weapon Skill Tree" method="close_tree"]
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]

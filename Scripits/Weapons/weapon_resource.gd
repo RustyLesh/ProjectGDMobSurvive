@@ -12,7 +12,7 @@ class_name WeaponResource
 	get:
 		return xp_constant * sqrt(weapon_xp)
 
-@export var weapon_tree = WeaponXpTree
+@export var weapon_tree: WeaponXpTree
 @export var unlocked: bool
 @export var base_stats: Array[BaseStat]
 @export var base_stat_mods: Array[BaseStatMod]
@@ -38,15 +38,10 @@ func get_xp_for_next_level():
 	return  pow(((level + 1) / xp_constant ), 2)
 
 func get_save_data():
-	# var base_mods_dict = []
-	# for mod in base_stat_mods:
-	# 	base_mods_dict.append(mod.get_save_data())
-
 
 	var data_dict = {
 		"weapon_xp": weapon_xp,
 		"unlocked": unlocked,
-		#"base_stat_mods": base_mods_dict,
 	}
 	return {
 		"weapon_name": weapon_name,
@@ -56,10 +51,4 @@ func get_save_data():
 func set_resource_data(data_dict):
 	weapon_xp = data_dict["weapon_xp"]
 	unlocked = data_dict["unlocked"]
-
-	# var mod_data_dict = data_dict["base_stat_mods"]
-	# for mod_data in mod_data_dict:
-	# 	var new_base_stat = BaseStat.new()
-	# 	new_base_stat.set_resource_data(mod_data)
-	# 	base_stat_mods.append(new_base_stat)
 

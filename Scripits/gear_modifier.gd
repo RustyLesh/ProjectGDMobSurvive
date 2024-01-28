@@ -8,9 +8,22 @@ enum GearModType
 	ADD_TO_COMBAT_POOL
 }
 
+func _init():
+	upgrade_resource = UpgradeResource.new()
+
 @export var mod_type: GearModType
 @export var upgrade_resource: UpgradeResource
 @export var slot_source: GearResource.GearType
+
+func init_gear_modifier(_mod_type: GearModType, _upgrade_resource: UpgradeResource, _slot_source: GearResource.GearType):
+	mod_type = _mod_type
+	upgrade_resource = _upgrade_resource
+	slot_source = _slot_source
+
+func set_source_type(gear_type):
+	slot_source = gear_type
+	upgrade_resource.source_type = gear_type
+	upgrade_resource.upgrade.source_type = gear_type
 
 func get_save_data() -> Dictionary:
 	return {

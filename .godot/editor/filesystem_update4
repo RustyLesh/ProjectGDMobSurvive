@@ -1,4 +1,4 @@
-res://Objects/combat_level.tscn
+res://Objects/Main Menu/main_menu.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -13,29 +13,20 @@ res://Resources/Weapons/test_weapon.tres
 res://Scripits/GUI/ability_hud.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Gear/amulet2.tres
-res://Resources/Gear/gold_ring.tres
-res://Resources/Enemies/wisp.tres
 res://Resources/Gear/amulet.tres
-res://Resources/Gear/helm.tres
+res://Resources/Gear/gold_ring.tres
 res://Resources/Gear/potion_amulet.tres
-res://Objects/Main Menu/main_menu.tscn
-res://Objects/Main Menu/weapon_info.tscn
+res://Resources/Enemies/wisp.tres
+res://Resources/Gear/helm.tres
+res://Objects/combat_level.tscn
 res://Objects/Main Menu/weapon_slot.tscn
-res://Objects/player.tscn
-res://Objects/Weapons/rifle.tscn
-res://Objects/Weapons/pistol.tscn
-res://player_setup.tscn
 res://Objects/GUI/in_level_ui.tscn
-res://Scripits/Enemy/enemy_node.gd
-res://Scripits/Drops/drop_pool.gd
-res://Scripits/Drops/drop_experience.gd
-res://Objects/xp_drop.tscn
-res://Scripits/Drops/drop_gear_resource.gd
-res://Scripits/Drops/gear_drop.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.tscn
+res://skill_tree_skill_button.tscn
+res://Scripits/Main Menu/weapon_skill_tree_menu.gd
+res://Scripits/gear_modifier.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.gd
+res://skill_tree_skill_button.gd
+res://Objects/GUI/upgrade_option.tscn
+res://Scripits/stat.gd
 res://Scripits/gear.gd
-res://Scripits/Drops/drop.gd
-res://Scripits/drop_colours_resource.gd
-res://Scripits/Main Menu/gear_menu.gd
-res://Scripits/bullet.gd
-res://Scripits/health.gd
-res://Scripits/entity.gd

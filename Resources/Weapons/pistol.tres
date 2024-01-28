@@ -7,12 +7,13 @@
 
 [sub_resource type="Resource" id="Resource_etu77"]
 script = ExtResource("4_3v7jh")
-level = 0
-level_1 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
-level_2 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
-level_3 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
-level_4 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
-level_5 = Array[Resource("res://Scripits/Upgrade/upgrade_resource.gd")]([])
+weapon_level = 0
+level_1 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+level_2 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+level_3 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+level_4 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+level_5 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+tree_array = {}
 
 [resource]
 script = ExtResource("1_1rrd2")

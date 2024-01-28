@@ -1,12 +1,13 @@
-Control
 Button
-Label
+HBoxContainer
 Panel
+VBoxContainer
 Node
+Control
+Label
 TextureRect
 RichTextLabel
 Sprite2D
-HBoxContainer
 ScrollContainer
 ItemList
 TextureProgressBar
@@ -21,7 +22,6 @@ EnemyNode
 TextEdit
 MarginContainer
 GridContainer
-VBoxContainer
 PanelContainer
 Container
 AnimatedSprite2D

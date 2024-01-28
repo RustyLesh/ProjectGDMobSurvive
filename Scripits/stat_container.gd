@@ -49,6 +49,10 @@ func init_stats():
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)
 
+func remove_all_stats_based_on_source(gear_type: GearResource.GearType):
+	for base_stat in base_stats:
+		base_stat.remove_stat(gear_type)
+
 func remove_mod_from_base_stat(stat_type : BaseStat.BaseStatType, source: GearResource.GearType):
 	base_stats[stat_type].remosve_stat(source)
 	
