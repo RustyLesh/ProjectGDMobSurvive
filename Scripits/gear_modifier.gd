@@ -39,3 +39,6 @@ func set_resource_data(data_dict):
 	upgrade_resource.set_resource_data(data_dict["upgrade_resource"])
 func init_gear_mod(slot: GearResource.GearType):
 	slot_source = slot
+
+func get_upgrade_name():
+	return upgrade_resource._name

@@ -21,6 +21,8 @@ var current_infobox_index: int = -1
 func _ready():
 	weapon_info_scene = load(str(weapon_info.resource_path))
 	weapons = PlayerSetup.weapon_storage
+	for weapon in weapons:
+		weapon.weapon_tree.init_weapon_tree()
 	await get_tree().create_timer(0.4).timeout
 	for i in weapons.size():
 		var weapon_button_scene = load(str(select_weapon_button.resource_path))
@@ -41,7 +43,7 @@ func _ready():
 		selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
 		PlayerSetup.weapon = weapons[PlayerSetup.selected_weapon_index]
 		apply_weapon_mods(PlayerSetup.weapon)
-		
+
 func on_weapon_select(weapon, index):
 	PlayerSetup.selected_weapon_index = weapons.find(weapon)
 
@@ -80,7 +82,6 @@ func equip_weapon(weapon_resource):
 	
 	apply_weapon_mods(weapon_resource)
 
-
 func apply_weapon_mods(weapon_resource: WeaponResource):
 	for base_stat_mod in weapon_resource.base_stat_mods:
 		base_stat_mod.source_type = GearResource.GearType.WEAPON
@@ -88,5 +89,5 @@ func apply_weapon_mods(weapon_resource: WeaponResource):
 
 func open_weapon_skill_tree():
 	weapon_skill_tree.visible = true
-	weapon_skill_tree.update_ui(weapons[PlayerSetup.selected_weapon_index])
+	weapon_skill_tree.on_weapon_select(weapons[PlayerSetup.selected_weapon_index])
 	

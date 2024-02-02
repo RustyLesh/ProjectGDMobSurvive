@@ -1,32 +1,4 @@
-res://Objects/Main Menu/main_menu.tscn
-res://Resources/Weapons/pistol.tres
-res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
-res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
-res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
-res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
-res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
-res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
-res://Resources/Weapons/rifle.tres
-res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
-res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
-res://Resources/Weapons/test_weapon.tres
-res://Scripits/GUI/ability_hud.gd
-res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Gear/amulet2.tres
-res://Resources/Gear/amulet.tres
-res://Resources/Gear/gold_ring.tres
-res://Resources/Gear/potion_amulet.tres
-res://Resources/Enemies/wisp.tres
-res://Resources/Gear/helm.tres
-res://Objects/combat_level.tscn
-res://Objects/Main Menu/weapon_slot.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://Objects/Main Menu/weapon_skill_tree_panel.tscn
-res://skill_tree_skill_button.tscn
-res://Scripits/Main Menu/weapon_skill_tree_menu.gd
-res://Scripits/gear_modifier.gd
-res://Objects/Main Menu/weapon_skill_tree_panel.gd
-res://skill_tree_skill_button.gd
-res://Objects/GUI/upgrade_option.tscn
-res://Scripits/stat.gd
-res://Scripits/gear.gd
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/enemy_node.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/Enemy/enemy_movement_ai.gd

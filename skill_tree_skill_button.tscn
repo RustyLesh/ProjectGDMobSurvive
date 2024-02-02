@@ -1,11 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://deq2louh5alpu"]
+[gd_scene load_steps=5 format=3 uid="uid://deq2louh5alpu"]
 
 [ext_resource type="Script" path="res://skill_tree_skill_button.gd" id="1_beeli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqimd"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g374"]
+bg_color = Color(0.682353, 0.772549, 0.756863, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v40gk"]
 
 [node name="Skill Tree Skill button" type="Button"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wqimd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8g374")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v40gk")
 toggle_mode = true
 expand_icon = true
 script = ExtResource("1_beeli")

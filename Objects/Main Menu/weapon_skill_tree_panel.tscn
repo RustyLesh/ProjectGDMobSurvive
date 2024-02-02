@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dplan3pe6ua4i"]
+[gd_scene load_steps=3 format=3 uid="uid://dplan3pe6ua4i"]
 
 [ext_resource type="Script" path="res://Objects/Main Menu/weapon_skill_tree_panel.gd" id="1_rqq3g"]
+[ext_resource type="PackedScene" uid="uid://deq2louh5alpu" path="res://skill_tree_skill_button.tscn" id="2_pcwel"]
 
 [node name="Weapon Skill Tree Panel" type="Panel"]
 custom_minimum_size = Vector2(0, 88)
@@ -14,4 +15,20 @@ layout_mode = 0
 offset_top = 8.0
 offset_right = 688.0
 offset_bottom = 80.0
+theme_override_constants/separation = 50
 alignment = 1
+
+[node name="Skill Tree Skill button0" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+layout_mode = 2
+
+[node name="Skill Tree Skill button1" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+layout_mode = 2
+
+[node name="Skill Tree Skill button2" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+layout_mode = 2
+
+[node name="Skill Tree Skill button3" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+layout_mode = 2
+
+[node name="Skill Tree Skill button4" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+layout_mode = 2

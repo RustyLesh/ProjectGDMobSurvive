@@ -38,10 +38,10 @@ func get_xp_for_next_level():
 	return  pow(((level + 1) / xp_constant ), 2)
 
 func get_save_data():
-
 	var data_dict = {
 		"weapon_xp": weapon_xp,
 		"unlocked": unlocked,
+		"weapon_tree": weapon_tree.get_saved_data(),
 	}
 	return {
 		"weapon_name": weapon_name,
@@ -51,4 +51,5 @@ func get_save_data():
 func set_resource_data(data_dict):
 	weapon_xp = data_dict["weapon_xp"]
 	unlocked = data_dict["unlocked"]
-
+	print(data_dict["weapon_tree"])
+	weapon_tree.set_resource_data(data_dict["weapon_tree"])

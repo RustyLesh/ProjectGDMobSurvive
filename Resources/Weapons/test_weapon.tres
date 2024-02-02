@@ -15,7 +15,8 @@ level_2 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
 level_3 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
 level_4 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
 level_5 = Array[Resource("res://Scripits/gear_modifier.gd")]([])
-tree_array = {}
+tree_dict = {}
+selected = {}
 
 [resource]
 script = ExtResource("2_7aoc4")

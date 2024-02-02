@@ -1,5 +1,6 @@
 extends Button
 class_name SkillTreeButton
+
 var tree_mod: GearModifier
 
 @onready var parent_tree_panel = get_parent().get_parent()
@@ -12,3 +13,7 @@ func _init():
 
 func _pressed():
 	on_skill_tree_pressed.emit(tree_mod, parent_tree_panel.get_index(), get_index())
+
+func init_button(mod: GearModifier):
+	tree_mod = mod
+	icon = mod.upgrade_resource._icon
