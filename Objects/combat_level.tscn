@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=33 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
-[ext_resource type="Resource" uid="uid://dg66dot1gmgx5" path="res://Resources/Enemies/wisp.tres" id="7_4at4d"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_3xv3n"]
-[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="10_ugrhp"]
+[ext_resource type="Resource" uid="uid://c5lduhvv0u8nt" path="res://Resources/Enemies/turret.tres" id="9_qh5qk"]
 [ext_resource type="Script" path="res://Scripits/explosion_area_check.gd" id="12_l8wgq"]
 [ext_resource type="Script" path="res://Scripits/On Hit Effects/on_hit_effects_helper.gd" id="13_d1jph"]
 [ext_resource type="PackedScene" uid="uid://bjurp71bsgnjv" path="res://test/effect_proc_line.tscn" id="14_f7sxx"]
@@ -132,14 +131,13 @@ physics_layer_0/collision_mask = 47
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 
-[sub_resource type="Resource" id="Resource_n0gy7"]
+[sub_resource type="Resource" id="Resource_wlrwa"]
 script = ExtResource("9_3xv3n")
 time_start = 0
-time_end = 60
-enemy_resource = ExtResource("7_4at4d")
-spawn_animation = ExtResource("10_ugrhp")
-enemy_amount = 5
-spawn_delay = 1
+time_end = 1
+enemy_resource = ExtResource("9_qh5qk")
+enemy_amount = 1
+spawn_delay = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uewyt"]
 radius = 45.0999
@@ -199,7 +197,7 @@ bonus_points = 5
 number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
-spawns = Array[ExtResource("9_3xv3n")]([SubResource("Resource_n0gy7")])
+spawns = Array[ExtResource("9_3xv3n")]([SubResource("Resource_wlrwa")])
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 
@@ -229,3 +227,6 @@ drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubRe
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-56, 72)
 texture = ExtResource("16_lptf0")
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(952, 800)

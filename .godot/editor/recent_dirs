@@ -1,3 +1,4 @@
+res://Resources/Enemies
 res://
 res://Objects/Main Menu
 res://Scripits/Main Menu
@@ -14,7 +15,6 @@ C:/Users/flame/AppData/Local/Programs/Microsoft VS Code
 res://Scripits/Enemy
 res://Objects/Enemy Spawning
 res://Objects/Enemy Spawning/Bosses
-res://Resources/Enemies
 res://Resources/Gear
 res://Resources/Upgrades
 res://Scripits/Upgrade

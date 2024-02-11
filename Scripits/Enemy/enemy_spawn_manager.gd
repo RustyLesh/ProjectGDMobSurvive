@@ -9,6 +9,7 @@ var topLeft : Vector2
 var botRight : Vector2 
 
 @onready var tilemap = $"../Tile_Map"
+@onready var enemy_container = $"Enemy Container"
 
 #Keeps track of time for spawning enemies
 @onready var timer: Timer = $Timer
@@ -26,15 +27,15 @@ func _ready():
 		topLeft = tilemap.map_to_local(Vector2(0,0))
 		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(0)
 		botRight = tilemap.map_to_local(botRightArray[botRightArray.size() - 1])
-		print(botRight)
+		botRight.x *= 2
+		botRight.y *= 2
 
 		topLeft.x += wallSpawnBuffer
 		topLeft.y += wallSpawnBuffer
 		
 		botRight.x -= wallSpawnBuffer
 		botRight.y -= wallSpawnBuffer
-		
-		print(topLeft)
+
 		if disable_spawns == true:
 			pause_timer()
 
@@ -62,18 +63,14 @@ func spawn(spawn_data: SpawnDataResource):
 				spawn_data.spawn_delay_counter += 1
 			else:
 				spawn_data.spawn_delay_counter = 0
-				var new_enemy = load(str(spawn_data.enemy_resource.enemy_base_object.resource_path))
 				var counter = 0
 				while counter < spawn_data.enemy_amount:
-					var enemy_spawn: EnemyNode = new_enemy.instantiate()
-					add_child(enemy_spawn)
-					enemy_spawn.init_enemy(spawn_data.enemy_resource)
-					enemy_spawn.character_body.global_position = get_random_position()
+					var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
 					counter += 1
 
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
-	var player_pos = player.get_node("PlayerBody").global_position
+	var player_pos = player.global_position
 	var top_left = Vector2(player_pos.x - vpr.x/2, player_pos.y - vpr.y/2)
 	var top_right = Vector2(player_pos.x + vpr.x/2, player_pos.y - vpr.y/2)
 	var bottom_left= Vector2(player_pos.x - vpr.x/2, player_pos.y + vpr.y/2)

@@ -16,7 +16,6 @@ func _ready():
 			var selected_node = selected_weapon_tree.selected[selected_panel]
 			var selected_panel_array = selected_weapon_tree.tree_dict[selected_panel]
 			var gear_mod = selected_panel_array[selected_node]
-			print("mod: ", gear_mod.get_name(), " panel: ", selected_panel, " node: ", selected_node)
 			apply_loaded_skill_tree(gear_mod, selected_panel, selected_node)
 	
 	for panel in tree_panels:
@@ -51,7 +50,6 @@ func close_tree():
 
 func apply_tree_node(tree_mod: GearModifier, panel_index: int, selected_index: int):
 	selected_weapon.weapon_tree.selected[panel_index] = selected_index
-	print("Apply tree node: ", panel_index, " ", selected_index)
 	if tree_mod == null:
 		return
 
@@ -74,7 +72,6 @@ func apply_tree_node(tree_mod: GearModifier, panel_index: int, selected_index: i
 
 func apply_loaded_skill_tree(tree_mod: GearModifier, panel_index: int, selected_index: int):
 	selected_weapon.weapon_tree.selected[panel_index] = selected_index
-	print("Apply tree node: ", panel_index, " ", selected_index)
 	if tree_mod == null:
 		return
 

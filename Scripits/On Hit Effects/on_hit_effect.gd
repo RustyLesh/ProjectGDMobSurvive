@@ -7,7 +7,7 @@ var base_res_path: String
 func get_upgrade_string() -> String:
 	return "Base on hit effect resource"
 
-func trigger_effect(_enemy: EnemyNode):
+func trigger_effect(_enemy: EnemyShell):
 	pass
 
 func get_save_data() -> Dictionary:

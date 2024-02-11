@@ -6,14 +6,14 @@ class_name ChainLightningOnHit
 @export var _damage: float
 var explosion_area_check
 var enemies_in_area: Array[Node2D]
-var enemy_proc_buffer: EnemyNode
+var enemy_proc_buffer: EnemyShell
 var enemy_hit
 var on_hit_effects_helper
 
 func _init():
 	base_res_path = "res://Resources/Upgrades/On Hit Upgrades/base_lightning_effect.tres"
 
-func trigger_effect(enemy: EnemyNode):
+func trigger_effect(enemy: EnemyShell):
 	if explosion_area_check == null:
 		explosion_area_check = enemy.get_tree().get_first_node_in_group("Explosion Area Check")
 		on_hit_effects_helper = enemy.get_tree().get_first_node_in_group("On Hit Effects Helper")

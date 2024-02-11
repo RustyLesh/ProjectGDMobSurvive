@@ -1,8 +1,10 @@
+Timer
+Node
+Node2D
 Button
 HBoxContainer
 Panel
 VBoxContainer
-Node
 Control
 Label
 TextureRect
@@ -15,10 +17,8 @@ VScrollBar
 Line2D
 CollisionShape2D
 Area2D
-Timer
 Health
 EnemyMovement
-EnemyNode
 TextEdit
 MarginContainer
 GridContainer
@@ -26,7 +26,6 @@ PanelContainer
 Container
 AnimatedSprite2D
 AnimationPlayer
-Node2D
 NavigationRegion2D
 CanvasLayer
 Marker2D

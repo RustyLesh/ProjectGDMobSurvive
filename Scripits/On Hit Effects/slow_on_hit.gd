@@ -7,7 +7,7 @@ class_name SlowOnHit
 func _init():
 	base_res_path = "res://Resources/Upgrades/On Hit Upgrades/base_slow_on_hit_effect.tres"
 
-func trigger_effect(enemy: EnemyNode):
+func trigger_effect(enemy: EnemyShell):
 	enemy.apply_slow_to_self(_slow_amount, _duration)
 
 func get_upgrade_string() -> String:

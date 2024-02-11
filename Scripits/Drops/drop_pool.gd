@@ -18,7 +18,6 @@ func get_drop() -> Dictionary:
 	for drop_resource in drop_pool:
 		weight_counter += drop_resource.drop_weight
 		if roll <= weight_counter:
-			print("Rolled: ", roll, "Weight counter: ", weight_counter)
 			drop = drop_resource.drop_node.instantiate()
 			drop_resource.init_gear_drop(drop)
 			has_rolled_drop = true

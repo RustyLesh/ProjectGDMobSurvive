@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cevoevausr57b"]
+[gd_scene load_steps=4 format=3 uid="uid://bek6hoqh4174x"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_grunt.gd" id="1_tfxly"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="2_uhoiy"]
-[ext_resource type="Script" path="res://Scripits/health.gd" id="3_rgcat"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turret.gd" id="1_2yyni"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_gswv7"]
+[ext_resource type="Script" path="res://Scripits/Enemy/turret_ai.gd" id="3_0iu4d"]
 
-[node name="Grunt" type="Node"]
-script = ExtResource("1_tfxly")
+[node name="enemy_turret" type="Node"]
+script = ExtResource("1_2yyni")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("3_rgcat")
+script = ExtResource("2_gswv7")
 
 [node name="SlowTimer" type="Timer" parent="."]
 one_shot = true
@@ -16,7 +16,7 @@ one_shot = true
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 2
 collision_mask = 37
-script = ExtResource("2_uhoiy")
+script = ExtResource("3_0iu4d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
@@ -30,5 +30,7 @@ texture_filter = 1
 wait_time = 0.1
 autostart = true
 
-[connection signal="died" from="Health" to="." method="_on_health_died"]
+[node name="Shoot Timer" type="Timer" parent="CharacterBody2D"]
+
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Shoot Timer" to="CharacterBody2D" method="shoot"]

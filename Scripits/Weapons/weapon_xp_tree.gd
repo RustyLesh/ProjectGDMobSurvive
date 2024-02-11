@@ -21,7 +21,6 @@ func init_weapon_tree():
 	tree_dict[4] = level_5
 
 func get_saved_data():
-	print("selected save dict: ", selected)
 	return {
 		"selected": selected,
 	}

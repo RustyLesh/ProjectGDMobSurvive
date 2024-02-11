@@ -1,5 +1,5 @@
-extends EnemyNode
-class_name Boss
+extends EnemyShell
+class_name BossShell
 #Base for boss classes
 
 signal on_boss_death()

@@ -1,3 +1,4 @@
+EnemyResource
 SlowOnHit
 ChainLightningOnHit
 OnHitEffectUpgrade
@@ -6,6 +7,5 @@ BaseStatUpgrade
 TestResource
 DropColours
 UpgradeResource
-EnemyResource
 WeaponResource
 WeaponUpgrade
