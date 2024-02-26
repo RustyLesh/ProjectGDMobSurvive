@@ -5,7 +5,8 @@ class_name EnemyResource
 enum EnemyType
 {
 	GRUNT,
-	BOSS
+	BOSS,
+	ELITE,
 }
 
 @export_category("Enemy Info")

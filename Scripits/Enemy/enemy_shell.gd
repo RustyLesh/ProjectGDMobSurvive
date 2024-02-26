@@ -35,7 +35,14 @@ func spawn_XP():
 		get_parent().add_child(xpDrop)
 
 func roll_drop():
+	#return if drop pool doesnt exist
+	if drop_pool == null:
+		return
+		
 	var drop_gen = drop_pool.get_drop()
+	if drop_gen.size <= 0: #return if drop is empty
+		return
+		
 	if drop_gen["has_rolled_drop"]:
 		var drop = drop_gen["drop"]
 		drop.global_position = $CharacterBody2D.global_position
@@ -50,7 +57,7 @@ func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _pare
 func deal_damage() -> float:
 	return contact_damage
 
-func apply_slow_to_self(value: float, duration: float):
+func apply_slow_to_self(_value: float, _duration: float):
 	pass
 
 func revert_slow():

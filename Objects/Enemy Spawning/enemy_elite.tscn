@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://ix7brwb3bnn5"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_shell.gd" id="1_vwj7h"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_3g64k"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="3_qkpwy"]
+[ext_resource type="Material" uid="uid://dy552bywyo5rn" path="res://Objects/Enemy Spawning/Shaders/green.tres" id="4_4j5oh"]
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="5_4hpdd"]
+
+[sub_resource type="Environment" id="Environment_fjuck"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 1.1
+glow_hdr_scale = 2.83
+glow_hdr_luminance_cap = 11.8
+
+[node name="Elite" type="Node"]
+script = ExtResource("1_vwj7h")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_3g64k")
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("3_qkpwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.675244, 0.63822, 0.703311, 1)
+self_modulate = Color(0.992157, 0.988235, 1, 1)
+texture_filter = 1
+material = ExtResource("4_4j5oh")
+texture = ExtResource("5_4hpdd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CharacterBody2D"]
+environment = SubResource("Environment_fjuck")
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -1,6 +1,10 @@
+Node2D
+CenterContainer
+TextureProgressBar
+WorldEnvironment
+GPUParticles2D
 Timer
 Node
-Node2D
 Button
 HBoxContainer
 Panel
@@ -12,7 +16,6 @@ RichTextLabel
 Sprite2D
 ScrollContainer
 ItemList
-TextureProgressBar
 VScrollBar
 Line2D
 CollisionShape2D
@@ -27,5 +30,3 @@ Container
 AnimatedSprite2D
 AnimationPlayer
 NavigationRegion2D
-CanvasLayer
-Marker2D

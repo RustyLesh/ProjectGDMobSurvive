@@ -6,6 +6,10 @@ var total_pool_weight: float = 0
 var weight_counter: float = 0
 
 func get_drop() -> Dictionary:
+	#return if no drops
+	if drop_pool.size() >= 0:
+		return {}
+
 	total_pool_weight = 0
 	weight_counter = 0
 

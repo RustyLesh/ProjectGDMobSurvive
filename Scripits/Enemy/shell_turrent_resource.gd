@@ -15,8 +15,6 @@ class_name ShellTurretResource
 
 var spawn_scene_path = preload("res://enemy_spawn_animation.tscn")
 
-var enemy_scene
-
 func _init():
 	enemy_shell_scene_path = "res://Objects/Enemy Spawning/enemy_turret.tscn"
 	enemy_scene = load(enemy_shell_scene_path)

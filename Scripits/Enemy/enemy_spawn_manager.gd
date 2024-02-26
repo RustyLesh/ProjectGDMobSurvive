@@ -7,9 +7,10 @@ class_name EnemySpawnManager
 @export var spawns: Array[SpawnDataResource]
 var topLeft : Vector2
 var botRight : Vector2 
-
+var center: Vector2 
 @onready var tilemap = $"../Tile_Map"
 @onready var enemy_container = $"Enemy Container"
+@onready var ui_scene = $"../UI" as MenuManager
 
 #Keeps track of time for spawning enemies
 @onready var timer: Timer = $Timer
@@ -27,6 +28,8 @@ func _ready():
 		topLeft = tilemap.map_to_local(Vector2(0,0))
 		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(0)
 		botRight = tilemap.map_to_local(botRightArray[botRightArray.size() - 1])
+		center.x = botRight.x
+		center.y = botRight.y
 		botRight.x *= 2
 		botRight.y *= 2
 
@@ -35,6 +38,8 @@ func _ready():
 		
 		botRight.x -= wallSpawnBuffer
 		botRight.y -= wallSpawnBuffer
+
+		print("Center: ", center)
 
 		if disable_spawns == true:
 			pause_timer()
@@ -58,15 +63,23 @@ func _on_timer_timeout():
 
 func spawn(spawn_data: SpawnDataResource):
 	if spawn_data is SpawnDataResource:
-		if time >= spawn_data.time_start && time <= spawn_data.time_end:
-			if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
-				spawn_data.spawn_delay_counter += 1
+		#When timer reaches start spawn time
+		if time >= spawn_data.time_start && time <= spawn_data.time_end: 
+			if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.BOSS:
+				spawn_boss(spawn_data.enemy_resource)
+				var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, center, enemy_container)
+				enemy_spawn.on_boss_death.connect(ui_scene.on_boss_death)
 			else:
-				spawn_data.spawn_delay_counter = 0
-				var counter = 0
-				while counter < spawn_data.enemy_amount:
-					var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
-					counter += 1
+				#Check if spawn delay is passed, if not add time to delay counter
+				if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
+					spawn_data.spawn_delay_counter += 1
+				else:
+					spawn_data.spawn_delay_counter = 0
+					var counter = 0
+					while counter < spawn_data.enemy_amount:
+						var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
+						counter += 1
+			
 
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
@@ -102,3 +115,6 @@ func get_random_position() -> Vector2:
 	pos.x = randf_range(topLeft.x, botRight.x)
 	pos.y = randf_range(topLeft.y, botRight.y)
 	return pos
+
+func spawn_boss(enemy_resource: EnemyResource):
+	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)

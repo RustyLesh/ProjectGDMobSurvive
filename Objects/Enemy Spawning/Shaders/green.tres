@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dy552bywyo5rn"]
+
+[ext_resource type="Shader" path="res://Scripits/Shaders/outline.gdshader" id="1_xj3jq"]
+
+[resource]
+shader = ExtResource("1_xj3jq")
+shader_parameter/line_color = Color(0, 0.729412, 0, 1)
+shader_parameter/line_thickness = 2.0

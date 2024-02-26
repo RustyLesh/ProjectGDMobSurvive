@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmvnb8r3pe8kr"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/boss.gd" id="1_llghj"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="3_8kbki"]
+[ext_resource type="Texture2D" uid="uid://dbcfsl4n15x3t" path="res://Art/Enemies/red_pentagram.png" id="4_bkaiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwmlv"]
+radius = 16.1012
+
+[node name="Totem" type="Node" groups=["Enemy"]]
+script = ExtResource("1_llghj")
+entity_type = 1
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_8kbki")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+texture = ExtResource("4_bkaiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1.78814e-07, -1.78814e-07)
+rotation = 0.785398
+shape = SubResource("CircleShape2D_kwmlv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
