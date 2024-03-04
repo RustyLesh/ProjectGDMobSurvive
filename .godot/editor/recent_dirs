@@ -1,6 +1,7 @@
+res://Resources/Enemies/Bosses
+res://Resources/Enemies
 res://
 res://Objects/Enemy Spawning/Shaders
-res://Resources/Enemies
 res://Objects/Main Menu
 res://Scripits/Main Menu
 res://Objects/GUI
@@ -19,4 +20,3 @@ res://Objects/Enemy Spawning/Bosses
 res://Resources/Gear
 res://Resources/Upgrades
 res://Scripits/Upgrade
-res://Resources/Weapons

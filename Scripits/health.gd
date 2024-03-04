@@ -5,6 +5,7 @@ class_name Health
 signal on_damaged(value)
 signal max_health_changed(max_health)
 signal current_health_changed(current_health)
+signal current_health_percent_changed(current_health_percent)
 signal died()
 
 @export var max_health = 100
@@ -22,11 +23,15 @@ func take_damage(damage):
 			is_alive = false
 			died.emit()
 		current_health_changed.emit(current_health)
+		var current_percent = ((current_health * 100 /max_health * 100) )
+		current_health_percent_changed.emit(current_percent)
+		print("Boss current hp: ", current_health, " Boss max hp: ", max_health, " Percent: ", current_percent)
 
 func heal(value):
 	if value > 0:
 		current_health = clamp(current_health + value, 1, max_health)
 		current_health_changed.emit(current_health)
+		current_health_percent_changed.emit((current_health/max_health) * 100)
 
 func set_max_health(value : int):
 	if max_health != value:
@@ -40,3 +45,4 @@ func set_max_health(value : int):
 			current_health = max_health
 
 		max_health_changed.emit(max_health)
+

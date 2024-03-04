@@ -27,6 +27,7 @@ collision_layer = 2
 priority = 1
 script = ExtResource("1_13mud")
 speed = 50
+lifetime = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bj84t")

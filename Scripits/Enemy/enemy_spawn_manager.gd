@@ -69,6 +69,7 @@ func spawn(spawn_data: SpawnDataResource):
 				spawn_boss(spawn_data.enemy_resource)
 				var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, center, enemy_container)
 				enemy_spawn.on_boss_death.connect(ui_scene.on_boss_death)
+				enemy_spawn.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
 			else:
 				#Check if spawn delay is passed, if not add time to delay counter
 				if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
@@ -118,3 +119,5 @@ func get_random_position() -> Vector2:
 
 func spawn_boss(enemy_resource: EnemyResource):
 	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
+
+

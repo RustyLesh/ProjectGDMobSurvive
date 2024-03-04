@@ -1,55 +1,49 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=17 format=3 uid="uid://c5lduhvv0u8nt"]
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=14 format=3 uid="uid://c5lduhvv0u8nt"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="1_k3i04"]
-[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm.tres" id="1_r2p86"]
-[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_qeckk"]
-[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_45k3h"]
-[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="4_opg8e"]
-[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="5_aqvei"]
-[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="5_bbgkm"]
-[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="6_f0vml"]
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="6_u4rkj"]
-[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="7_s5p2w"]
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="1_utata"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="2_b4pjh"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="3_1sw3g"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="4_a7lw3"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_7hybt"]
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="6_bv6ut"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="7_sh6kn"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_1gp25"]
 
-[sub_resource type="Resource" id="Resource_2e57y"]
-script = ExtResource("2_qeckk")
-gear_resource = ExtResource("1_r2p86")
-drop_weight = 100.0
-rarity = 0
+[sub_resource type="Resource" id="Resource_aempi"]
+script = ExtResource("2_b4pjh")
+bullet_scene = ExtResource("1_utata")
 
-[sub_resource type="Resource" id="Resource_gjw1j"]
-script = ExtResource("3_45k3h")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_2e57y")])
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr0l3"]
 
-[sub_resource type="Resource" id="Resource_r5kny"]
-script = ExtResource("6_f0vml")
-bullet_scene = ExtResource("5_bbgkm")
+[sub_resource type="Resource" id="Resource_i37fm"]
+script = ExtResource("3_1sw3g")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sm6md"]
-
-[sub_resource type="Resource" id="Resource_hwlir"]
-script = ExtResource("5_aqvei")
-
-[sub_resource type="Resource" id="Resource_bp2bx"]
-script = ExtResource("6_u4rkj")
+[sub_resource type="Resource" id="Resource_ww5tu"]
+script = ExtResource("4_a7lw3")
 move_speed = 100
 contact_damage = 0
-sprite = ExtResource("4_opg8e")
-spawn_animation = ExtResource("7_s5p2w")
-collision_shape = SubResource("CircleShape2D_sm6md")
+sprite = ExtResource("6_bv6ut")
+spawn_animation = ExtResource("5_7hybt")
+collision_shape = SubResource("CircleShape2D_sr0l3")
 collision_pos_offset = Vector2(0, 0)
 follow_range = 100
 keep_following = false
-bullet_resource = SubResource("Resource_r5kny")
-enemy_ai_movement = SubResource("Resource_hwlir")
+bullet_resource = SubResource("Resource_aempi")
+enemy_ai_movement = SubResource("Resource_i37fm")
 
-[resource]
-script = ExtResource("1_k3i04")
-enemy_icon = ExtResource("4_opg8e")
+[sub_resource type="Resource" id="Resource_8wpyh"]
+script = ExtResource("7_sh6kn")
 enemy_type = 0
-enemy_name = "empty_name"
-max_health = 10
+enemy_name = "Turret"
+max_health = 50
 stage_xp_value = 0.0
 weapon_xp_value = 0.0
-drop_pool = SubResource("Resource_gjw1j")
-enemy_shell_resource = SubResource("Resource_bp2bx")
+enemy_shell_resource = SubResource("Resource_ww5tu")
+
+[resource]
+script = ExtResource("8_1gp25")
+time_start = 0
+time_end = 60
+enemy_resource = SubResource("Resource_8wpyh")
+enemy_amount = 10
+spawn_delay = 1

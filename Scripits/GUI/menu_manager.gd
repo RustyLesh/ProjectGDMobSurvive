@@ -30,3 +30,6 @@ func on_boss_spawn(hp_bar_resource: Resource):
 
 func on_boss_death():
 	hp_bar_instance.queue_free()
+
+func on_boss_current_health_changed(value):
+	hp_bar_instance.value = value / 100

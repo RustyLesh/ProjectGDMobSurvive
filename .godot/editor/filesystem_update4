@@ -1,5 +1,5 @@
-res://Scripits/Enemy/elite_shell_resource.gd
-res://Objects/combat_level.tscn
+res://Scripits/Enemy/boss_totem_attack_ai.gd
+res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -12,30 +12,18 @@ res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
 res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
 res://Resources/Weapons/test_weapon.tres
 res://Scripits/GUI/ability_hud.gd
-res://Resources/Gear/helm.tres
-res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Enemies/turret.tres
-res://Scripits/Shaders/outline.gdshader
-res://Objects/Enemy Spawning/Shaders/blue.tres
+res://Resources/Enemies/Bosses/totem.tres
 res://Resources/Gear/amulet2.tres
 res://Resources/Gear/amulet.tres
+res://Resources/Gear/helm.tres
 res://Resources/Gear/gold_ring.tres
+res://Scripits/Shaders/outline.gdshader
 res://Objects/Enemy Spawning/Shaders/green.tres
 res://Objects/Enemy Spawning/enemy_grunt.tscn
 res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Objects/enemy_bullet.tscn
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
+res://Objects/combat_level.tscn
 res://Objects/Enemy Spawning/enemy_elite.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
 res://Objects/enemy_spawn_manager.tscn
-res://Scripits/Enemy/shell_boss_resource.gd
-res://Scripits/GUI/menu_manager.gd
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/shell_grunt.gd
-res://Scripits/Enemy/boss.gd
-res://Scripits/Enemy/enemy_movement.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Drops/drop_pool.gd
-res://Scripits/Enemy/enemy_resource.gd
+res://Objects/enemy_bullet.tscn

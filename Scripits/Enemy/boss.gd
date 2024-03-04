@@ -15,6 +15,7 @@ var parent
 var spawn_animation_node
 
 signal on_boss_death()
+signal on_current_hp_changed(current_hp)
 
 func ready():
 	entity_type = EntityType.BOSS
@@ -30,6 +31,11 @@ func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _pare
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position
 	parent = _parent
-	
 	parent.add_child(self)
 	set_spawn_position(spawn_position)
+
+	health.init_health(enemy_resource.max_health)
+
+func current_hp_changed(current_hp):
+	on_current_hp_changed.emit(current_hp)
+	print("boss hp :", current_hp)

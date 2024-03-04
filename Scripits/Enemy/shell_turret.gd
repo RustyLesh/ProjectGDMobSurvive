@@ -15,6 +15,7 @@ var enemy_resource
 var spawn_position
 var parent
 var spawn_animation_node
+
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
