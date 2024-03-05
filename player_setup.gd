@@ -13,6 +13,7 @@ extends Node
 @export var inventory: Array[GearResource]
 @export var equiped_gear: Array[GearResource]
 
+@export var difficulty: int
 const FILE_NAME = "user://player_setup.save"
 
 func end_of_stage():

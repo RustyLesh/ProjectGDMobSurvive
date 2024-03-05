@@ -14,6 +14,7 @@ drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([])
 [sub_resource type="Resource" id="Resource_t086v"]
 script = ExtResource("4_dwxnu")
 hp_bar_texture_resource = ExtResource("3_xk2i6")
+difficulty = 0
 
 [sub_resource type="Resource" id="Resource_gqjom"]
 script = ExtResource("5_idpox")

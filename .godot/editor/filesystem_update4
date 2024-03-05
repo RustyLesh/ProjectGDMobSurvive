@@ -1,5 +1,5 @@
 res://Scripits/Enemy/boss_totem_attack_ai.gd
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
+res://Objects/Enemy Spawning/enemy_grunt.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -19,11 +19,20 @@ res://Resources/Gear/helm.tres
 res://Resources/Gear/gold_ring.tres
 res://Scripits/Shaders/outline.gdshader
 res://Objects/Enemy Spawning/Shaders/green.tres
-res://Objects/Enemy Spawning/enemy_grunt.tscn
 res://Objects/Enemy Spawning/enemy_turret.tscn
 res://Objects/combat_level.tscn
+res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
 res://Objects/Enemy Spawning/enemy_elite.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
 res://Objects/enemy_spawn_manager.tscn
 res://Objects/enemy_bullet.tscn
+res://Scripits/Enemy/boss.gd
+res://Scripits/Enemy/shell_boss_resource.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://player_setup.gd
+res://Scripits/Main Menu/difficulty_select_button.gd
+res://Objects/Main Menu/main_menu.tscn
+res://Objects/Main Menu/difficulty_select_container.gd
+res://Scripits/Main Menu/difficulty_select_container.gd
+res://Scripits/bullet_resource.gd
