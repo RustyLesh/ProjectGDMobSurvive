@@ -8,6 +8,7 @@ class_name UpgradeResource
 @export var upgrade: Upgrade
 @export var added_upgrades: Array[UpgradeResource]
 @export var _max_uses: int
+@export var weight: int
 
 var source_type: GearResource.GearType
 

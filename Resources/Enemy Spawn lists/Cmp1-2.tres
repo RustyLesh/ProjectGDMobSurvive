@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://crkffkk3280b"]
+
+[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_shl5e"]
+[ext_resource type="Resource" uid="uid://dv0n5vk7dkbsm" path="res://Resources/Enemies/turret.tres" id="2_t1r7d"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_nleuc"]
+
+[sub_resource type="Resource" id="Resource_a2sda"]
+script = ExtResource("8_nleuc")
+time_start = 0
+time_end = 100
+enemy_resource = ExtResource("2_t1r7d")
+enemy_amount = 5
+spawn_delay = 10
+
+[resource]
+script = ExtResource("1_shl5e")
+spawns = Array[ExtResource("8_nleuc")]([SubResource("Resource_a2sda")])

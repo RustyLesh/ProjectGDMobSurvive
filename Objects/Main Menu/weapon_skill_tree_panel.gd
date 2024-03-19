@@ -11,6 +11,11 @@ func init_panel(callable: Callable):
 	for node in child_nodes:
 		node.on_skill_tree_pressed.connect(callable)
 
+func disable_all_options():
+	for node in child_nodes:
+		if node is Button:
+			node.disabled = true
+
 func deselect_other_nodes(_selected_index: int):
 	selected_index = _selected_index
 	print("Deselecting nodes func")

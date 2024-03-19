@@ -30,6 +30,7 @@ var current_menu: MenuType
 @onready var upgrade_menu = $"Upgrade Menu"
 
 @onready var weapon_warning_dialogue: Control = $"Weapon Warning Dialogue"
+
 func _ready():
 	weapon_select_menu.visible = false
 	combat_menu.visible = false
@@ -53,6 +54,7 @@ func _on_button_pressed():
 		weapon_warning_dialogue.visible = true
 	else:
 		on_start_combat.emit()
+		SaveManager.save_game()
 		get_tree().change_scene_to_file("res://Objects/combat_level.tscn")
 
 func change_menu(change_to: MenuType):

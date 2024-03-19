@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=69 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c0apiq8vtwnyh" path="res://Art/GUI/Icons/char_icon.png" id="6_6jlfw"]
 [ext_resource type="Texture2D" uid="uid://clt5ki8xow54h" path="res://Art/GUI/Icons/fire.png" id="6_ksgun"]
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="9_rgsly"]
+[ext_resource type="Resource" uid="uid://csqmkf7ke8qby" path="res://Resources/Weapons/rifle.tres" id="12_lhhj1"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/character_menu.gd" id="13_8xsmm"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/gear_menu.gd" id="13_owegc"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_skill_tree_menu.gd" id="13_sru3u"]
@@ -20,7 +21,11 @@
 [ext_resource type="Script" path="res://Scripits/main_menu_stat_container.gd" id="15_eji0x"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="15_ohjmx"]
 [ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="15_xs855"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/combat_menu.gd" id="16_0maer"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/difficulty_select_button.gd" id="16_ktv4v"]
+[ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Spawn lists/Cmp1-1.tres" id="17_7jatm"]
+[ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Spawn lists/Cmp1-2.tres" id="18_jjeg2"]
+[ext_resource type="Resource" uid="uid://ds1wnf34mhcbu" path="res://Resources/Enemy Spawn lists/Cmp1-3.tres" id="19_u0gwm"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
@@ -245,11 +250,12 @@ script = ExtResource("3_6n16w")
 menu_option_type = 3
 
 [node name="Weapon Select Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 script = ExtResource("2_0m2n6")
+new_game_start_weapon = ExtResource("12_lhhj1")
 
 [node name="Selected Weapon" type="Panel" parent="Weapon Select Menu"]
+visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_top = 152.0
@@ -342,6 +348,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_0maer")
 
 [node name="Start" type="Button" parent="Combat Prep Menu"]
 layout_mode = 1
@@ -357,6 +367,7 @@ offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
+disabled = true
 text = "Start"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Combat Prep Menu"]
@@ -391,6 +402,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "1"
 script = ExtResource("16_ktv4v")
 difficulty = 1
+enemy_spawns = ExtResource("17_7jatm")
 
 [node name="Diff2" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -409,6 +421,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "2"
 script = ExtResource("16_ktv4v")
 difficulty = 2
+enemy_spawns = ExtResource("18_jjeg2")
 
 [node name="Diff3" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -427,6 +440,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "3"
 script = ExtResource("16_ktv4v")
 difficulty = 3
+enemy_spawns = ExtResource("19_u0gwm")
 
 [node name="Character Menu" type="Control" parent="."]
 visible = false
@@ -805,9 +819,6 @@ script = ExtResource("29_e8edt")
 
 [connection signal="pressed" from="Weapon Select Menu/Weapon Skill Tree/Button" to="Weapon Select Menu/Weapon Skill Tree" method="close_tree"]
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Combat Prep Menu/HBoxContainer/Diff1" to="Combat Prep Menu/HBoxContainer/Diff1" method="_on_pressed"]
-[connection signal="pressed" from="Combat Prep Menu/HBoxContainer/Diff2" to="Combat Prep Menu/HBoxContainer/Diff2" method="_on_pressed"]
-[connection signal="pressed" from="Combat Prep Menu/HBoxContainer/Diff3" to="Combat Prep Menu/HBoxContainer/Diff3" method="_on_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Ring" to="Equiped Gear Menu/GearUIContainer/Ring" method="_on_pressed"]

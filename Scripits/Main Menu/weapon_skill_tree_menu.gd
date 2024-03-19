@@ -9,6 +9,7 @@ var selected_weapon
 func _ready():
 	await get_tree().create_timer(.5).timeout
 	if PlayerSetup.weapon != null:	
+
 		selected_weapon = PlayerSetup.weapon
 		var selected_weapon_tree = selected_weapon.weapon_tree
 		print("size: ", selected_weapon_tree.tree_dict.size())
@@ -17,9 +18,6 @@ func _ready():
 			var selected_panel_array = selected_weapon_tree.tree_dict[selected_panel]
 			var gear_mod = selected_panel_array[selected_node]
 			apply_loaded_skill_tree(gear_mod, selected_panel, selected_node)
-	
-	for panel in tree_panels:
-		panel.init_panel(apply_tree_node)
 
 func on_weapon_select(weapon: WeaponResource):
 	for panel in tree_panels:
@@ -32,8 +30,6 @@ func on_weapon_select(weapon: WeaponResource):
 		if !tree_dict.has(index): #If entry in dict doesnt exist, skip to avoid index error on dict
 			tree_panels[index].visible = false
 			continue
-			
-		
 
 		if index >= tree_dict.size() || tree_dict[index].is_empty():
 			tree_panels[index].visible = false
@@ -44,6 +40,13 @@ func on_weapon_select(weapon: WeaponResource):
 				tree_panels[index].update_panel(tree_dict[index], -1)
 
 	selected_weapon = weapon
+	print("wep level: ", selected_weapon.level, "tree panel size: ", tree_panels.size())
+
+	for panel_index in tree_panels.size():
+		tree_panels[panel_index].init_panel(apply_tree_node)
+		if (selected_weapon.level - 1) < panel_index:
+			tree_panels[panel_index].disable_all_options()
+			
 
 func close_tree():
 	visible = false

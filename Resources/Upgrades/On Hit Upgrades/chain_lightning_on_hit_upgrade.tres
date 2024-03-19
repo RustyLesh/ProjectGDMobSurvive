@@ -24,3 +24,4 @@ _icon = ExtResource("1_dtvpw")
 upgrade = SubResource("Resource_xnm5k")
 added_upgrades = Array[ExtResource("1_rs5ut")]([])
 _max_uses = 0
+weight = 0

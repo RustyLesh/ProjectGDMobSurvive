@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=34 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
 [ext_resource type="PackedScene" uid="uid://c8b7sxc0e6j7w" path="res://Objects/hud.tscn" id="3_xrel2"]
 [ext_resource type="Script" path="res://Scripits/GUI/hud_xp.gd" id="4_fh5v3"]
+[ext_resource type="Script" path="res://Scripits/GUI/stage_timer.gd" id="4_it7su"]
 [ext_resource type="Script" path="res://Scripits/GUI/health_label.gd" id="5_fu2ar"]
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
@@ -15,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://cl8kw84gumvjv" path="res://Art/Equipment/potion_amulet.png" id="10_1umne"]
 [ext_resource type="Texture2D" uid="uid://drjhrt5330mp6" path="res://Art/Equipment/silver_ring.png" id="11_g00cx"]
 [ext_resource type="Texture2D" uid="uid://djus01x5bmgnl" path="res://Art/Equipment/crown1.png" id="12_p4beq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mpb71"]
+font_size = 50
 
 [sub_resource type="Gradient" id="Gradient_1n4kt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -125,6 +129,22 @@ offset_bottom = 1280.0
 
 [node name="Boss HP Bar Pos" type="Node2D" parent="HUD"]
 position = Vector2(0, 160)
+
+[node name="Timer" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 16.0
+offset_right = 104.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "99:99"
+label_settings = SubResource("LabelSettings_mpb71")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_it7su")
 
 [node name="XP Bar" type="TextureProgressBar" parent="HUD"]
 layout_mode = 2

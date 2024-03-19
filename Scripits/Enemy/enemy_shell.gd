@@ -40,7 +40,7 @@ func roll_drop():
 		return
 		
 	var drop_gen = drop_pool.get_drop()
-	if drop_gen.size <= 0: #return if drop is empty
+	if drop_gen.size() <= 0: #return if drop is empty
 		return
 		
 	if drop_gen["has_rolled_drop"]:

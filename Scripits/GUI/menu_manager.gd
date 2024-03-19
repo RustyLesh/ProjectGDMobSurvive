@@ -5,13 +5,16 @@ class_name MenuManager
 @onready var upgrade_menu: Control = $"Uprade Menu"
 @onready var end_screen = $"End Screen"
 @onready var boss_hp_bar_poss = $"HUD/Boss HP Bar Pos" 
+@onready var spawn_manager = get_parent().get_node("EnemySpawner")
+@onready var stage_timer = $"HUD/Timer"
+
 var hp_bar_instance
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	upgrade_menu.visible = false
 	end_screen.visible = false
-	
+	spawn_manager.stage_win.connect(end_screen.on_stage_win)
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):
 		toggle_upgrade_menu()

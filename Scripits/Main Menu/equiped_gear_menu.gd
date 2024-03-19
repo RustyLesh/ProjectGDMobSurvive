@@ -41,8 +41,11 @@ func on_start_combat():
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print("Copying")
-		PlayerSetup.equiped_gear.clear()
-		PlayerSetup.equiped_gear.append_array(get_all_gear())
+		save_data()
+
+func save_data():
+	PlayerSetup.equiped_gear.clear()
+	PlayerSetup.equiped_gear.append_array(get_all_gear())
 
 func equip_gear(gear: GearResource) -> GearResource:
 	var return_gear

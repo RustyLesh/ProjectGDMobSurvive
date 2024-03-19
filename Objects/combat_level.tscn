@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=32 format=3 uid="uid://ce8nyunhu5s8m"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
-[ext_resource type="Resource" uid="uid://bjlgalln7yloe" path="res://Resources/Enemies/Bosses/totem.tres" id="7_1gqpr"]
+[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="7_clgui"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
 [ext_resource type="Script" path="res://Scripits/explosion_area_check.gd" id="12_l8wgq"]
 [ext_resource type="Script" path="res://Scripits/On Hit Effects/on_hit_effects_helper.gd" id="13_d1jph"]
@@ -130,6 +130,10 @@ physics_layer_0/collision_mask = 47
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 
+[sub_resource type="Resource" id="Resource_vfxl8"]
+script = ExtResource("7_clgui")
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_uewyt"]
 radius = 45.0999
 
@@ -188,7 +192,7 @@ bonus_points = 5
 number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("7_1gqpr")])
+enemy_spawns = SubResource("Resource_vfxl8")
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 

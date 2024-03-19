@@ -21,6 +21,7 @@ _icon = ExtResource("3_11p8m")
 upgrade = SubResource("Resource_753ch")
 added_upgrades = Array[ExtResource("3_r4xdx")]([])
 _max_uses = 0
+weight = 0
 
 [sub_resource type="Resource" id="Resource_411fk"]
 script = ExtResource("2_mlawb")

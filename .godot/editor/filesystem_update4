@@ -1,5 +1,12 @@
-res://Scripits/Enemy/boss_totem_attack_ai.gd
-res://Objects/Enemy Spawning/enemy_grunt.tscn
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/Main Menu/combat_menu.gd
+res://Scripits/GUI/end_screen.gd
+res://Scripits/game_data.gd
+res://Scripits/player.gd
+res://player_setup.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/Main Menu/upgrade_manage_menu.gd
+res://Objects/GUI/in_level_ui.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -12,27 +19,45 @@ res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
 res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
 res://Resources/Weapons/test_weapon.tres
 res://Scripits/GUI/ability_hud.gd
-res://Resources/Enemies/Bosses/totem.tres
+res://Objects/enemy_spawn_animations/default_spawn.tres
+res://Resources/EnemyWaves/C1-1/c1-1w1.tres
+res://Resources/EnemyWaves/C1-1/c1-1w2.tres
 res://Resources/Gear/amulet2.tres
 res://Resources/Gear/amulet.tres
-res://Resources/Gear/helm.tres
 res://Resources/Gear/gold_ring.tres
+res://Resources/Gear/potion_amulet.tres
+res://Resources/EnemyWaves/C1-1/c1-1w2a.tres
+res://Resources/EnemyWaves/C1-1/c1-1w3.tres
+res://Resources/EnemyWaves/C1-1/c1-1w3Elite.tres
+res://Resources/EnemyWaves/C1-1/c1-1w3a.tres
+res://Resources/EnemyWaves/C1-1/c1-1w4.tres
+res://Resources/EnemyWaves/C1-1/c1-1w4a.tres
+res://Resources/EnemyWaves/C1-1/c1-1w5Elite.tres
+res://Resources/EnemyWaves/C1-1/c1-1w5.tres
+res://Resources/EnemyWaves/C1-1/c1-1w5a.tres
+res://Resources/Enemies/Bosses/totem.tres
+res://Resources/Enemy Spawn lists/Cmp1-1.tres
+res://Resources/Enemies/turret.tres
+res://Resources/Enemy Spawn lists/Cmp1-2.tres
+res://Resources/Enemy Spawn lists/Cmp1-3.tres
 res://Scripits/Shaders/outline.gdshader
-res://Objects/Enemy Spawning/Shaders/green.tres
-res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Objects/combat_level.tscn
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
-res://Objects/Enemy Spawning/enemy_elite.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
-res://Objects/enemy_spawn_manager.tscn
-res://Objects/enemy_bullet.tscn
-res://Scripits/Enemy/boss.gd
-res://Scripits/Enemy/shell_boss_resource.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://player_setup.gd
-res://Scripits/Main Menu/difficulty_select_button.gd
+res://Resources/Gear/helm.tres
 res://Objects/Main Menu/main_menu.tscn
-res://Objects/Main Menu/difficulty_select_container.gd
-res://Scripits/Main Menu/difficulty_select_container.gd
-res://Scripits/bullet_resource.gd
+res://Objects/combat_level.tscn
+res://Scripits/Main Menu/weapon_skill_tree_menu.gd
+res://Scripits/Main Menu/selected_weapon_info.gd
+res://Objects/Weapons/rifle.tscn
+res://Scripits/Main Menu/weapon_info_panel.gd
+res://Objects/Main Menu/weapon_info.tscn
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/combat_level.gd
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/Enemy/enemy_shell_resource.gd
+res://Scripits/Combat/combat_enemy_spawns.gd
+res://Scripits/Main Menu/upgrade_info_panel.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.gd
+res://Scripits/Weapons/weapon_resource.gd
+res://Scripits/GUI/stage_timer.gd
+res://Objects/hud.tscn
+res://Objects/Enemy Spawning/Shaders/blue.tres

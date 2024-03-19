@@ -3,11 +3,9 @@ class_name EnemySpawnManager
 
 #Manages enemy spawning from spawn data resources
 
+@export var enemy_spawns: EnemySpawns
+
 @onready var player = get_tree().get_first_node_in_group("Player").get_node("PlayerBody")
-@export var spawns: Array[SpawnDataResource]
-var topLeft : Vector2
-var botRight : Vector2 
-var center: Vector2 
 @onready var tilemap = $"../Tile_Map"
 @onready var enemy_container = $"Enemy Container"
 @onready var ui_scene = $"../UI" as MenuManager
@@ -16,11 +14,19 @@ var center: Vector2
 @onready var timer: Timer = $Timer
 signal on_spawn_timer_pause()
 signal on_spawn_timer_play()
+var game_win_time
+
+var spawns: Array[SpawnDataResource]
+var topLeft : Vector2
+var botRight : Vector2 
+var center: Vector2 
 
 @export var wallSpawnBuffer = 0.0
 @export var time = 0
 
 @export var disable_spawns: bool
+
+signal stage_win()
 
 func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
@@ -43,6 +49,14 @@ func _ready():
 
 		if disable_spawns == true:
 			pause_timer()
+		
+		enemy_spawns = PlayerSetup.enemy_spawns
+		spawns = enemy_spawns.spawns
+
+
+	
+	game_win_time = spawns[spawns.size() - 1].time_end + 5
+	print("Game time win: ", game_win_time)
 
 #Pause spawn timer
 func pause_timer():
@@ -58,18 +72,23 @@ func play_timer():
 #Adds time to spawn timer
 func _on_timer_timeout():
 	time += 1
+	ui_scene.stage_timer.update_timer(time)
 	for i in spawns:
 		spawn(i)
+	if time >= game_win_time:
+		on_stage_win()
 
 func spawn(spawn_data: SpawnDataResource):
 	if spawn_data is SpawnDataResource:
 		#When timer reaches start spawn time
 		if time >= spawn_data.time_start && time <= spawn_data.time_end: 
+			#If spawning boss
 			if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.BOSS:
 				spawn_boss(spawn_data.enemy_resource)
 				var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, center, enemy_container)
 				enemy_spawn.on_boss_death.connect(ui_scene.on_boss_death)
 				enemy_spawn.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
+				pause_timer()
 			else:
 				#Check if spawn delay is passed, if not add time to delay counter
 				if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
@@ -81,7 +100,6 @@ func spawn(spawn_data: SpawnDataResource):
 						var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
 						counter += 1
 			
-
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
 	var player_pos = player.global_position
@@ -120,4 +138,6 @@ func get_random_position() -> Vector2:
 func spawn_boss(enemy_resource: EnemyResource):
 	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
 
+func on_stage_win():
+	stage_win.emit()
 

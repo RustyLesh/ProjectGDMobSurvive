@@ -9,11 +9,12 @@ func go_to_main_menu():
 	SaveManager.save_game()
 	get_tree().change_scene_to_file("res://Objects/Main Menu/main_menu.tscn")
 
+#Causes the quit event to be sent
 func quit_game():
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST: 
 		await get_tree().create_timer(0.1).timeout
 		if get_tree().current_scene.name == "Main Menu":
 			quit_process()

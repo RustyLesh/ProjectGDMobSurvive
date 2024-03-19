@@ -32,5 +32,6 @@ autostart = true
 
 [node name="Shoot Timer" type="Timer" parent="CharacterBody2D"]
 
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/Shoot Timer" to="CharacterBody2D" method="shoot"]

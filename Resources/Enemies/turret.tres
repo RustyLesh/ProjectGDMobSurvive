@@ -1,49 +1,36 @@
-[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=14 format=3 uid="uid://c5lduhvv0u8nt"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://dv0n5vk7dkbsm"]
 
-[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="1_utata"]
-[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="2_b4pjh"]
-[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="3_1sw3g"]
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="4_a7lw3"]
-[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_7hybt"]
-[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="6_bv6ut"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="7_sh6kn"]
-[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_1gp25"]
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="1_8i5o3"]
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="2_o0b5v"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="3_lciaj"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="4_usjnf"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_mpls6"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="6_subp8"]
 
-[sub_resource type="Resource" id="Resource_aempi"]
-script = ExtResource("2_b4pjh")
-bullet_scene = ExtResource("1_utata")
+[sub_resource type="Resource" id="Resource_4iit7"]
+script = ExtResource("3_lciaj")
+bullet_scene = ExtResource("2_o0b5v")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sr0l3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8d7mx"]
 
-[sub_resource type="Resource" id="Resource_i37fm"]
-script = ExtResource("3_1sw3g")
-
-[sub_resource type="Resource" id="Resource_ww5tu"]
-script = ExtResource("4_a7lw3")
+[sub_resource type="Resource" id="Resource_u4m2t"]
+script = ExtResource("4_usjnf")
 move_speed = 100
 contact_damage = 0
-sprite = ExtResource("6_bv6ut")
-spawn_animation = ExtResource("5_7hybt")
-collision_shape = SubResource("CircleShape2D_sr0l3")
+sprite = ExtResource("1_8i5o3")
+spawn_animation = ExtResource("5_mpls6")
+collision_shape = SubResource("CircleShape2D_8d7mx")
 collision_pos_offset = Vector2(0, 0)
-follow_range = 100
+follow_range = 200
 keep_following = false
-bullet_resource = SubResource("Resource_aempi")
-enemy_ai_movement = SubResource("Resource_i37fm")
-
-[sub_resource type="Resource" id="Resource_8wpyh"]
-script = ExtResource("7_sh6kn")
-enemy_type = 0
-enemy_name = "Turret"
-max_health = 50
-stage_xp_value = 0.0
-weapon_xp_value = 0.0
-enemy_shell_resource = SubResource("Resource_ww5tu")
+bullet_resource = SubResource("Resource_4iit7")
 
 [resource]
-script = ExtResource("8_1gp25")
-time_start = 0
-time_end = 60
-enemy_resource = SubResource("Resource_8wpyh")
-enemy_amount = 10
-spawn_delay = 1
+script = ExtResource("6_subp8")
+enemy_icon = ExtResource("1_8i5o3")
+enemy_type = 0
+enemy_name = "Turret"
+max_health = 10
+stage_xp_value = 1.0
+weapon_xp_value = 1.0
+enemy_shell_resource = SubResource("Resource_u4m2t")

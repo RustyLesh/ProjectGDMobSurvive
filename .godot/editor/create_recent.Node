@@ -1,3 +1,4 @@
+Label
 HBoxContainer
 Button
 GridContainer
@@ -13,7 +14,6 @@ GPUParticles2D
 Node
 Panel
 VBoxContainer
-Label
 TextureRect
 RichTextLabel
 Sprite2D

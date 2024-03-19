@@ -10,6 +10,8 @@ class_name WeaponSelectMenu
 @onready var upgrade_manage_menu: UpgradeManageMenu = $"../Upgrade Menu"
 @onready var stat_container: MainMenuStatContainer = $"../Stat Container"
 
+@export var new_game_start_weapon: WeaponResource # = preload("res://Resources/Weapons/rifle.tres")
+
 var select_weapon_button: Resource = preload("res://Objects/Main Menu/weapon_slot.tscn")
 var weapon_info: Resource = preload("res://Objects/Main Menu/weapon_info.tscn")
 
@@ -43,12 +45,19 @@ func _ready():
 		selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
 		PlayerSetup.weapon = weapons[PlayerSetup.selected_weapon_index]
 		apply_weapon_mods(PlayerSetup.weapon)
+	else:
+		await get_tree().create_timer(1).timeout
+		new_game_setup()
+
+
+func new_game_setup():
+	on_weapon_select(new_game_start_weapon, 1)
+	equip_weapon(new_game_start_weapon)
 
 func on_weapon_select(weapon, index):
 	PlayerSetup.selected_weapon_index = weapons.find(weapon)
 
 	#Info box creation
-	print("onweapon select")
 	if index == current_infobox_index -1:
 		weapon_list_container.get_child(current_infobox_index).queue_free()
 		current_infobox_index = -1
@@ -69,13 +78,12 @@ func on_weapon_select(weapon, index):
 	selected_weapon_infobox.on_weapon_select(weapon, index)
 
 func equip_weapon(weapon_resource):
-	print("equip func")
 	PlayerSetup.weapon = weapon_resource
 	upgrade_manage_menu.remove_upgrade_by_slot_type(GearResource.GearType.WEAPON)
 	for upgrade in weapon_resource.upgrades:
 		upgrade.source_type = GearResource.GearType.WEAPON
 		upgrade.upgrade.source_type = GearResource.GearType.WEAPON
-		upgrade_manage_menu.upgrade_pool.append(upgrade)
+		upgrade_manage_menu.selected_upgrades.append(upgrade)
 	
 	for base_stat in stat_container.base_stats:
 		base_stat.remove_stat(GearResource.GearType.WEAPON)

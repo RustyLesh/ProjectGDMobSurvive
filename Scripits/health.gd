@@ -25,7 +25,7 @@ func take_damage(damage):
 		current_health_changed.emit(current_health)
 		var current_percent = ((current_health * 100 /max_health * 100) )
 		current_health_percent_changed.emit(current_percent)
-		print("Boss current hp: ", current_health, " Boss max hp: ", max_health, " Percent: ", current_percent)
+		print("current hp: ", current_health, " max hp: ", max_health)
 
 func heal(value):
 	if value > 0:

@@ -6,15 +6,16 @@
 
 [sub_resource type="Resource" id="Resource_a1ge1"]
 script = ExtResource("3_61i2n")
-_value = 0.0
-_mod_type = 0
-_base_stat_type = 0
+_value = 1.0
+_mod_type = 1
+_base_stat_type = 2
 
 [resource]
 script = ExtResource("1_3am54")
-_name = ""
+_name = "fire rate %"
 _description = ""
 _icon = ExtResource("1_7ubrr")
 upgrade = SubResource("Resource_a1ge1")
 added_upgrades = Array[ExtResource("1_3am54")]([])
-_max_uses = 0
+_max_uses = 2
+weight = 0
