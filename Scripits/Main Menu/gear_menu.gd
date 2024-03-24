@@ -12,6 +12,7 @@ var inv_item_button: Resource = preload("res://Objects/Main Menu/inventory_item.
 
 var gear_list_filtered: Array[GearResource]
 var gear_list: Array[GearResource]
+var filter_applied: bool
 
 @export var selected_item: int = -1
 @export var is_equiped_item_selected: bool
@@ -32,7 +33,7 @@ func _ready():
 	
 func refresh_item_list():
 	item_list.clear()
-	if !gear_list_filtered.is_empty():
+	if filter_applied:
 		for i in gear_list_filtered.size()-1:
 			if item_list is ItemList:
 				item_list.add_item(gear_list_filtered[i]._item_name, gear_list_filtered[i]._icon)
@@ -71,7 +72,9 @@ func equip_gear(gear: GearResource):
 			if mod.mod_type == GearModifier.GearModType.APPLY_NOW:
 				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container, gear._gear_type)
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
-				upgrade_menu.upgrade_pool.append(mod.upgrade_resource)
+				print("Append")
+				mod.upgrade_resource.forced_upgrade = mod.forced_upgrade
+				upgrade_menu.selected_upgrades.append(mod.upgrade_resource)
 				
 	if return_gear != null: #Add gear back to inventory
 		add_item(return_gear)
@@ -96,18 +99,21 @@ func filter_by_type(gear_type: GearResource.GearType):
 	for gear in gear_list:
 		if gear._gear_type == gear_type:
 			gear_list_filtered.append(gear)
+	filter_applied = true
 	
 	refresh_item_list()
 
 func remove_filters():
 	gear_list_filtered = gear_list.duplicate()
+	filter_applied = false
 	refresh_item_list()
 	
 func _on_item_list_item_selected(index):
-	if gear_list_filtered.is_empty():
-		selected_info_box.on_item_select(gear_list[index])
-	else:
+	if filter_applied:
 		selected_info_box.on_item_select(gear_list_filtered[index])
+	else:
+		selected_info_box.on_item_select(gear_list[index])
+		
 	selected_item = index
 	selected_item_options.enable_all_buttons()
 	is_equiped_item_selected = false

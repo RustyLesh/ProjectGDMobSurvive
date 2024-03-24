@@ -11,6 +11,7 @@ enum StatModType
 @export var stat_mod_type: StatModType
 @export var value: float = 0
 @export var source: GearResource.GearType
+@export var force_equip: bool
 
 func get_save_data():
 	return{

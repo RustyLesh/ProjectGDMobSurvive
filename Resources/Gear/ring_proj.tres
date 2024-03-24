@@ -27,6 +27,7 @@ script = ExtResource("2_e1ki3")
 mod_type = 1
 upgrade_resource = SubResource("Resource_sqki0")
 slot_source = 1
+forced_upgrade = false
 
 [resource]
 script = ExtResource("6_x80aw")

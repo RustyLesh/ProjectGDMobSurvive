@@ -33,7 +33,6 @@ func on_filter_gear_type(gear_type:GearResource.GearType):
 			
 	gear_type_filter_label.add_theme_stylebox_override("normal", new_sb)
 
-
 func set_filters_to_default():
 	gear_filter_default = StyleBoxFlat.new()
 	gear_filter_default.bg_color = default_colour

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://41r2pnr54srt"]
+
+[ext_resource type="Texture2D" uid="uid://d07yoo6p26ssd" path="res://Art/Equipment/purple ammy.png" id="1_2oi8o"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="2_1t73e"]
+
+[resource]
+script = ExtResource("2_1t73e")
+_item_name = ""
+_description = ""
+_icon = ExtResource("1_2oi8o")
+_gear_type = 0
+mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])

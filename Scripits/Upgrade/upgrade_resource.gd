@@ -10,6 +10,7 @@ class_name UpgradeResource
 @export var _max_uses: int
 @export var weight: int
 
+var forced_upgrade: bool
 var source_type: GearResource.GearType
 
 var current_uses: int = 0
@@ -27,6 +28,7 @@ func get_save_data() -> Dictionary:
 		"added_upgrades": added_uprades_data,
 		"max_uses": _max_uses,
 		"source_type": source_type,
+		"forced_upgrade": forced_upgrade
 	}
 
 func set_resource_data(data_dict):
@@ -37,5 +39,6 @@ func set_resource_data(data_dict):
 	var upgrade_data = data_dict["upgrade"]
 	upgrade = load(upgrade_data["resource_path"]).duplicate()
 	upgrade.set_resource_data(data_dict["upgrade"])
+	forced_upgrade = data_dict["forced_upgrade"]
 
 	source_type = data_dict["source_type"]

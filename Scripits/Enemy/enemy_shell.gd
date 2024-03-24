@@ -37,14 +37,15 @@ func spawn_XP():
 func roll_drop():
 	#return if drop pool doesnt exist
 	if drop_pool == null:
+		print("no drop pool")
 		return
-		
 	var drop_gen = drop_pool.get_drop()
+
 	if drop_gen.size() <= 0: #return if drop is empty
 		return
 		
 	if drop_gen["has_rolled_drop"]:
-		var drop = drop_gen["drop"]
+		var drop = drop_gen["drop"] #May be able to streamline by not creating a new variable and using directly
 		drop.global_position = $CharacterBody2D.global_position
 		get_parent().add_child(drop)
 

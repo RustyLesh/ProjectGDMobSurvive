@@ -7,14 +7,14 @@ var weight_counter: float = 0
 
 func get_drop() -> Dictionary:
 	#return if no drops
-	if drop_pool.size() >= 0:
+	if drop_pool.size() <= 0:
 		return {}
 
 	total_pool_weight = 0
 	weight_counter = 0
-
 	for drop in drop_pool:
 		total_pool_weight += drop.drop_weight
+
 	var drop: Variant
 	var has_rolled_drop:= false
 	var roll = randf_range(0, total_pool_weight)

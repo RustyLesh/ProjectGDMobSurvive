@@ -60,7 +60,6 @@ func apply_slow_to_self(value: float, duration: float):
 	sprite.modulate = slow_colour
 
 func revert_slow():
-	print("Slow expired")
 	character_body.speed = default_move_speed
 	sprite.modulate = Color.WHITE
 

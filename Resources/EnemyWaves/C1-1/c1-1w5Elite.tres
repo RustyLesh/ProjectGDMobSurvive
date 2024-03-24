@@ -1,11 +1,24 @@
-[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=45 format=3 uid="uid://6e523i31xbkf"]
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=50 format=3 uid="uid://6e523i31xbkf"]
 
-[ext_resource type="Texture2D" uid="uid://gwyypv3a4o5n" path="res://Art/Enemies/FaceCube.png" id="1_c5n80"]
+[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_life.tres" id="1_najv1"]
 [ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="2_6xuwx"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_jtu7s"]
 [ext_resource type="Script" path="res://Scripits/Enemy/shell_grunt_resource.gd" id="3_ie6i5"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_m06dr"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="4_1mfqw"]
+[ext_resource type="Texture2D" uid="uid://bxcis5x17xg7j" path="res://Art/Enemies/SlimeEye.png" id="4_c2m8m"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="5_735oj"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="6_y86uq"]
+
+[sub_resource type="Resource" id="Resource_x1efy"]
+script = ExtResource("2_jtu7s")
+gear_resource = ExtResource("1_najv1")
+drop_weight = 1.0
+rarity = 1
+
+[sub_resource type="Resource" id="Resource_7cqva"]
+script = ExtResource("3_m06dr")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_x1efy")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ta14r"]
 
@@ -267,12 +280,13 @@ spawn_scene_path = SubResource("PackedScene_eu1y5")
 
 [sub_resource type="Resource" id="Resource_fdx3g"]
 script = ExtResource("5_735oj")
-enemy_icon = ExtResource("1_c5n80")
+enemy_icon = ExtResource("4_c2m8m")
 enemy_type = 0
 enemy_name = "empty_name"
 max_health = 10
 stage_xp_value = 0.0
 weapon_xp_value = 0.0
+drop_pool = SubResource("Resource_7cqva")
 enemy_shell_resource = SubResource("Resource_gdmyn")
 
 [resource]

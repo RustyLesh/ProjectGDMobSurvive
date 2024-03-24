@@ -27,6 +27,5 @@ func get_saved_data():
 
 func set_resource_data(data_dict):
 	var selected_data = data_dict["selected"]
-	print("tree int: ", selected_data.size())
 	for entry in selected_data.keys():
 		selected[int(entry)] = selected_data[entry]

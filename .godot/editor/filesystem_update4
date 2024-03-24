@@ -1,12 +1,11 @@
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Main Menu/combat_menu.gd
-res://Scripits/GUI/end_screen.gd
-res://Scripits/game_data.gd
-res://Scripits/player.gd
-res://player_setup.gd
-res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/gear_modifier.gd
+res://Scripits/Main Menu/gear_menu.gd
 res://Scripits/Main Menu/upgrade_manage_menu.gd
-res://Objects/GUI/in_level_ui.tscn
+res://Scripits/GUI/upgrade_menu.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Main Menu/upgrade_info_panel.gd
+res://Scripits/Upgrade/upgrade_resource.gd
+res://Objects/Main Menu/main_menu.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -18,16 +17,19 @@ res://Resources/Weapons/rifle.tres
 res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
 res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
 res://Resources/Weapons/test_weapon.tres
+res://Resources/Gear/ammy_lightning_pot.tres
 res://Scripits/GUI/ability_hud.gd
+res://Resources/Gear/ammy_slow.tres
+res://Resources/Gear/ammy_life.tres
+res://Resources/Gear/helm_health.tres
+res://Resources/Gear/ring_proj.tres
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/EnemyWaves/C1-1/c1-1w1.tres
 res://Resources/EnemyWaves/C1-1/c1-1w2.tres
-res://Resources/Gear/amulet2.tres
-res://Resources/Gear/amulet.tres
-res://Resources/Gear/gold_ring.tres
-res://Resources/Gear/potion_amulet.tres
 res://Resources/EnemyWaves/C1-1/c1-1w2a.tres
 res://Resources/EnemyWaves/C1-1/c1-1w3.tres
+res://Scripits/Shaders/outline.gdshader
+res://Objects/Enemy Spawning/Shaders/blue.tres
 res://Resources/EnemyWaves/C1-1/c1-1w3Elite.tres
 res://Resources/EnemyWaves/C1-1/c1-1w3a.tres
 res://Resources/EnemyWaves/C1-1/c1-1w4.tres
@@ -37,27 +39,39 @@ res://Resources/EnemyWaves/C1-1/c1-1w5.tres
 res://Resources/EnemyWaves/C1-1/c1-1w5a.tres
 res://Resources/Enemies/Bosses/totem.tres
 res://Resources/Enemy Spawn lists/Cmp1-1.tres
-res://Resources/Enemies/turret.tres
 res://Resources/Enemy Spawn lists/Cmp1-2.tres
 res://Resources/Enemy Spawn lists/Cmp1-3.tres
-res://Scripits/Shaders/outline.gdshader
-res://Resources/Gear/helm.tres
-res://Objects/Main Menu/main_menu.tscn
+res://Resources/Gear/helm_gold_2.tres
+res://Resources/Gear/ring_silver.tres
 res://Objects/combat_level.tscn
-res://Scripits/Main Menu/weapon_skill_tree_menu.gd
-res://Scripits/Main Menu/selected_weapon_info.gd
-res://Objects/Weapons/rifle.tscn
-res://Scripits/Main Menu/weapon_info_panel.gd
-res://Objects/Main Menu/weapon_info.tscn
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/combat_level.gd
-res://Scripits/GUI/menu_manager.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/enemy_shell_resource.gd
-res://Scripits/Combat/combat_enemy_spawns.gd
-res://Scripits/Main Menu/upgrade_info_panel.gd
-res://Objects/Main Menu/weapon_skill_tree_panel.gd
-res://Scripits/Weapons/weapon_resource.gd
-res://Scripits/GUI/stage_timer.gd
+res://Objects/GUI/in_level_ui.tscn
 res://Objects/hud.tscn
-res://Objects/Enemy Spawning/Shaders/blue.tres
+res://Objects/bullet.tscn
+res://player_setup.tscn
+res://Objects/player.tscn
+res://Scripits/gear.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/Drops/drop_pool.gd
+res://Scripits/Drops/drop_base_resource.gd
+res://Scripits/Drops/drop_gear_resource.gd
+res://Scripits/Drops/gear_drop.gd
+res://player_setup.gd
+res://test/main_menu_test.gd
+res://test/button_test.gd
+res://Scripits/Weapons/weapon_xp_tree.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Main Menu/weapon_skill_tree_menu.gd
+res://addons/Todo_Manager/Project.gd
+res://Objects/Main Menu/save_manager.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.gd
+res://Scripits/game_data.gd
+res://Scripits/player_stats.gd
+res://Scripits/Abilities/ability_resource.gd
+res://Scripits/Enemy/boss_totem_attack_ai.gd
+res://Scripits/Enemy/elite_shell.gd
+res://Scripits/Enemy/shell_turret.gd
+res://Scripits/Enemy/shell_grunt.gd
+res://Scripits/Weapons/weapon_resource.gd
+res://Objects/Main Menu/gear_filters.gd
+res://Scripits/Main Menu/gear_slot.gd
+res://Scripits/Main Menu/equiped_gear_menu.gd

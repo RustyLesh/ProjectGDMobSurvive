@@ -17,15 +17,16 @@ func init_health(maxHealth : int):
 	current_health = maxHealth
 
 func take_damage(damage):
-	if damage > 0:
+	if (damage > 0):
 		current_health -= damage
-		if current_health <= 0:
+		#Dead check
+		if current_health <= 0 && is_alive:
 			is_alive = false
 			died.emit()
+		#Signal emitting
 		current_health_changed.emit(current_health)
 		var current_percent = ((current_health * 100 /max_health * 100) )
 		current_health_percent_changed.emit(current_percent)
-		print("current hp: ", current_health, " max hp: ", max_health)
 
 func heal(value):
 	if value > 0:
@@ -41,7 +42,8 @@ func set_max_health(value : int):
 			heal(difference)
 		
 		max_health = value
-		if current_health > max_health: #Stops over heal
+		#Stops over heal
+		if current_health > max_health: 
 			current_health = max_health
 
 		max_health_changed.emit(max_health)

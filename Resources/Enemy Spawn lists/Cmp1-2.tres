@@ -1,17 +1,64 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://crkffkk3280b"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=19 format=3 uid="uid://crkffkk3280b"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_shl5e"]
-[ext_resource type="Resource" uid="uid://dv0n5vk7dkbsm" path="res://Resources/Enemies/turret.tres" id="2_t1r7d"]
+[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="2_rsqyc"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="3_wpee8"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="4_6x5c8"]
+[ext_resource type="Texture2D" uid="uid://c1dq3m6as5tre" path="res://Art/Enemies/black_eye.png" id="5_dw48y"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="6_b4bv3"]
+[ext_resource type="Material" uid="uid://cnse020hxoxfv" path="res://Objects/Enemy Spawning/Shaders/blue.tres" id="7_175ph"]
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_shell_resource.gd" id="8_hx2fq"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_nleuc"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="9_g17al"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="10_7jysc"]
 
-[sub_resource type="Resource" id="Resource_a2sda"]
+[sub_resource type="Resource" id="Resource_7hse4"]
+script = ExtResource("3_wpee8")
+gear_resource = ExtResource("2_rsqyc")
+drop_weight = 100.0
+rarity = 0
+
+[sub_resource type="Resource" id="Resource_gityi"]
+script = ExtResource("4_6x5c8")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_7hse4")])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3ow3"]
+
+[sub_resource type="Resource" id="Resource_dwis5"]
+script = ExtResource("6_b4bv3")
+
+[sub_resource type="Resource" id="Resource_ogwhu"]
+script = ExtResource("8_hx2fq")
+move_speed = 100
+contact_damage = 0
+sprite = ExtResource("5_dw48y")
+spawn_animation = ExtResource("9_g17al")
+collision_shape = SubResource("CircleShape2D_g3ow3")
+collision_pos_offset = Vector2(0, 0)
+follow_range = 0
+keep_following = false
+enemy_ai_movement = SubResource("Resource_dwis5")
+outline_material = ExtResource("7_175ph")
+
+[sub_resource type="Resource" id="Resource_fdx3g"]
+script = ExtResource("10_7jysc")
+enemy_icon = ExtResource("5_dw48y")
+enemy_type = 2
+enemy_name = "empty_name"
+max_health = 1
+stage_xp_value = 50.0
+weapon_xp_value = 50.0
+drop_pool = SubResource("Resource_gityi")
+enemy_shell_resource = SubResource("Resource_ogwhu")
+
+[sub_resource type="Resource" id="Resource_m4j0n"]
 script = ExtResource("8_nleuc")
 time_start = 0
-time_end = 100
-enemy_resource = ExtResource("2_t1r7d")
-enemy_amount = 5
-spawn_delay = 10
+time_end = 180
+enemy_resource = SubResource("Resource_fdx3g")
+enemy_amount = 10
+spawn_delay = 20
 
 [resource]
 script = ExtResource("1_shl5e")
-spawns = Array[ExtResource("8_nleuc")]([SubResource("Resource_a2sda")])
+spawns = Array[ExtResource("8_nleuc")]([SubResource("Resource_m4j0n")])

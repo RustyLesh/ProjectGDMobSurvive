@@ -51,5 +51,4 @@ func get_save_data():
 func set_resource_data(data_dict):
 	weapon_xp = data_dict["weapon_xp"]
 	unlocked = data_dict["unlocked"]
-	print(data_dict["weapon_tree"])
 	weapon_tree.set_resource_data(data_dict["weapon_tree"])

@@ -13,13 +13,13 @@
 [ext_resource type="Script" path="res://Scripits/On Hit Effects/on_hit_effects_helper.gd" id="13_d1jph"]
 [ext_resource type="PackedScene" uid="uid://bjurp71bsgnjv" path="res://test/effect_proc_line.tscn" id="14_f7sxx"]
 [ext_resource type="PackedScene" uid="uid://djkymukm287pn" path="res://test/test_scene.tscn" id="15_adnqk"]
+[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/ammy_slow.tres" id="15_wxc3p"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="16_erw8r"]
 [ext_resource type="Texture2D" uid="uid://4bkhdtkiugtp" path="res://Art/box_drop.png" id="16_lptf0"]
 [ext_resource type="Resource" uid="uid://dl85oiy7kilep" path="res://Resources/drop_colours.tres" id="16_lqmu6"]
-[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/amulet2.tres" id="17_ck1gn"]
-[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/amulet.tres" id="19_3oal4"]
-[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm.tres" id="20_wo4t3"]
-[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/gold_ring.tres" id="21_428a4"]
+[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_life.tres" id="19_3oal4"]
+[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="20_wo4t3"]
+[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="21_428a4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fl17l"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -139,7 +139,7 @@ radius = 45.0999
 
 [sub_resource type="Resource" id="Resource_8iphm"]
 script = ExtResource("16_erw8r")
-gear_resource = ExtResource("17_ck1gn")
+gear_resource = ExtResource("15_wxc3p")
 drop_weight = 50.0
 rarity = 0
 

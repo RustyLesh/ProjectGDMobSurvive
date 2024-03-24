@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://ddvmbq052ga8b"]
+
+[ext_resource type="Texture2D" uid="uid://y81menurnk1k" path="res://Art/Equipment/emeral ammy.png" id="1_u818h"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="2_hm6q1"]
+
+[resource]
+script = ExtResource("2_hm6q1")
+_item_name = ""
+_description = ""
+_icon = ExtResource("1_u818h")
+_gear_type = 0
+mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])

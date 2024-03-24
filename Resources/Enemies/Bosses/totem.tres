@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpawnDataResource" load_steps=13 format=3 uid="uid://bjlgalln7yloe"]
 
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="1_c8u0q"]
-[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/potion_amulet.tres" id="1_fwuao"]
+[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/ammy_lightning_pot.tres" id="1_fwuao"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_1wrpn"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="2_5rdcx"]
 [ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="3_xk2i6"]

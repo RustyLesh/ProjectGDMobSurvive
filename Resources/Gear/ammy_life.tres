@@ -1,15 +1,32 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=10 format=3 uid="uid://b0ts7ri14t386"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=13 format=3 uid="uid://b0ts7ri14t386"]
 
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="1_765vs"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_jkkmg"]
 [ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="1_pob48"]
 [ext_resource type="Texture2D" uid="uid://4bkhdtkiugtp" path="res://Art/box_drop.png" id="3_gjajq"]
+[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="4_nvi0j"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_rugsa"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_f51ev"]
 
+[sub_resource type="Resource" id="Resource_1ijor"]
+script = ExtResource("5_f51ev")
+_value = 2.0
+_mod_type = 1
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_wcuml"]
+script = ExtResource("4_rugsa")
+_name = "Max hp"
+_description = "health for days"
+_icon = ExtResource("4_nvi0j")
+upgrade = SubResource("Resource_1ijor")
+added_upgrades = Array[ExtResource("4_rugsa")]([])
+_max_uses = 1
+weight = 0
+
 [sub_resource type="Resource" id="Resource_c6vsv"]
 script = ExtResource("5_f51ev")
-_value = 10.0
+_value = 50.0
 _mod_type = 0
 _base_stat_type = 1
 
@@ -19,7 +36,7 @@ _name = "Daamge"
 _description = "doomage"
 _icon = ExtResource("3_gjajq")
 upgrade = SubResource("Resource_c6vsv")
-added_upgrades = Array[ExtResource("4_rugsa")]([])
+added_upgrades = Array[ExtResource("4_rugsa")]([SubResource("Resource_wcuml")])
 _max_uses = 1
 weight = 0
 
@@ -28,6 +45,7 @@ script = ExtResource("1_765vs")
 mod_type = 0
 upgrade_resource = SubResource("Resource_xxv5t")
 slot_source = 2
+forced_upgrade = false
 
 [resource]
 script = ExtResource("1_jkkmg")

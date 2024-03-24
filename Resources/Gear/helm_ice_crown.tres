@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://c65r4cfexckwn"]
+
+[ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="1_8ljcp"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="2_vi01t"]
+
+[resource]
+script = ExtResource("2_vi01t")
+_item_name = ""
+_description = ""
+_icon = ExtResource("1_8ljcp")
+_gear_type = 0
+mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])

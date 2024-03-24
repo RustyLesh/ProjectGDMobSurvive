@@ -1,4 +1,4 @@
-extends  Resource
+extends Resource
 class_name GearResource
 #Base for equippable items
 

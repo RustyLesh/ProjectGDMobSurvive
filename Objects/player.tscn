@@ -27,6 +27,7 @@ script = ExtResource("3_f1cye")
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." groups=["player"]]
 collision_mask = 14
+collision_priority = 10.0
 script = ExtResource("2_cktqb")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerBody"]

@@ -1,3 +1,4 @@
+GearResource
 EnemySpawns
 EnemyResource
 SlowOnHit

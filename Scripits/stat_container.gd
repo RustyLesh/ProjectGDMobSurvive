@@ -54,7 +54,7 @@ func remove_all_stats_based_on_source(gear_type: GearResource.GearType):
 		base_stat.remove_stat(gear_type)
 
 func remove_mod_from_base_stat(stat_type : BaseStat.BaseStatType, source: GearResource.GearType):
-	base_stats[stat_type].remosve_stat(source)
+	base_stats[stat_type].remove_stat(source)
 	
 func update_max_life(value: int):
 	health.set_max_health(value)

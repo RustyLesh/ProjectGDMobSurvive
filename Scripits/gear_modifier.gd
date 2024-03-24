@@ -14,6 +14,7 @@ func _init():
 @export var mod_type: GearModType
 @export var upgrade_resource: UpgradeResource
 @export var slot_source: GearResource.GearType
+@export var forced_upgrade: bool
 
 func init_gear_modifier(_mod_type: GearModType, _upgrade_resource: UpgradeResource, _slot_source: GearResource.GearType):
 	mod_type = _mod_type
@@ -30,13 +31,16 @@ func get_save_data() -> Dictionary:
 		"mod_type": mod_type,
 		"upgrade_resource": upgrade_resource.get_save_data(),
 		"slot_source": slot_source,
+		"forced_upgrade": forced_upgrade
 	}
 
 func set_resource_data(data_dict):
 	slot_source = data_dict["slot_source"]
 	mod_type = data_dict["mod_type"]
+	forced_upgrade = data_dict["forced_upgrade"]
 	upgrade_resource = UpgradeResource.new()
 	upgrade_resource.set_resource_data(data_dict["upgrade_resource"])
+
 func init_gear_mod(slot: GearResource.GearType):
 	slot_source = slot
 

@@ -11,6 +11,8 @@ const FILE_NAME = "user://main_menu_upgrade_pools.save"
 @onready var main_menu = $"../"
 @export var upgrade_pool: Array[UpgradeResource]
 @export var selected_upgrades: Array[UpgradeResource]
+@export var forced_upgrade_bg_colour: Color
+@export var forced_upgrade_fg_colour: Color
 
 var highlighted_in_upgrade_pool : int = -1
 var highlighted_in_selected_upgrades : int = -1
@@ -39,7 +41,6 @@ func remove_upgrade_by_slot_type(gear_type):
 			remove_pool.append(upgrade_resource)
 
 	for upgrade_resource in remove_pool:
-		print(upgrade_resource._name)
 		upgrade_pool.erase(upgrade_resource)
 		selected_upgrades.erase(upgrade_resource)
 	
@@ -53,6 +54,10 @@ func update_ui():
 	
 	for upgrade in selected_upgrades:
 		selected_upgrade_list_ui.add_item(upgrade._name, upgrade._icon)
+		if upgrade.forced_upgrade:
+			selected_upgrade_list_ui.set_item_custom_bg_color (selected_upgrade_list_ui.item_count - 1, forced_upgrade_bg_colour)
+			selected_upgrade_list_ui.set_item_custom_fg_color (selected_upgrade_list_ui.item_count - 1, forced_upgrade_fg_colour)
+		
 
 func select_upgrade():
 	if highlighted_in_upgrade_pool >= 0:
@@ -77,10 +82,14 @@ func on_upgrade_pool_item_selected(index):
 	add_button.disabled = false
 
 func on_selected_upgrades_item_selected(index):
+	print("Cliced on item list")
 	highlighted_in_selected_upgrades = index;
 	upgrade_pool_ui.deselect_all()
 	highlighted_in_upgrade_pool = -1
-	remove_button.disabled = false
+	if !selected_upgrades[index].forced_upgrade:
+		remove_button.disabled = false
+	else:
+		remove_button.disabled = true
 	add_button.disabled = true
 
 func remove_upgrades_by_source(slot_type: GearResource.GearType):

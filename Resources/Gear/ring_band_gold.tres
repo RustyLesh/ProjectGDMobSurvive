@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://dbuql1w23vmdy"]
+
+[ext_resource type="Texture2D" uid="uid://b2u6ipde26dgb" path="res://Art/Equipment/band ring gold.png" id="1_uc0pb"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="2_j8kpf"]
+
+[resource]
+script = ExtResource("2_j8kpf")
+_item_name = ""
+_description = ""
+_icon = ExtResource("1_uc0pb")
+_gear_type = 0
+mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
