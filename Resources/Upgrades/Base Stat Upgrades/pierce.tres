@@ -12,7 +12,7 @@ _base_stat_type = 6
 
 [resource]
 script = ExtResource("1_q50y6")
-_name = ""
+_name = "Pierce"
 _description = ""
 _icon = ExtResource("1_sisl1")
 upgrade = SubResource("Resource_ajvot")

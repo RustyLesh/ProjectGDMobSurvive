@@ -43,13 +43,13 @@ source_type = 0
 
 [sub_resource type="Resource" id="Resource_wn2w3"]
 script = ExtResource("14_4phq1")
-_value = 0.0
+_value = 1.0
 _mod_type = 0
 _base_stat_type = 7
 
 [sub_resource type="Resource" id="Resource_vd4w2"]
 script = ExtResource("13_300w3")
-_name = ""
+_name = "Proj count"
 _description = ""
 _icon = ExtResource("10_gnupj")
 upgrade = SubResource("Resource_wn2w3")

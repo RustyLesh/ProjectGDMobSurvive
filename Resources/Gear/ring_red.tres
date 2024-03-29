@@ -1,12 +1,60 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://bx7rhnd7qmeok"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://bx7rhnd7qmeok"]
 
 [ext_resource type="Texture2D" uid="uid://5mhcpl2frp1a" path="res://Art/Equipment/red_ring.png" id="1_kpvp0"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_5udec"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_mpb00"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_kyv1q"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_f13fl"]
+
+[sub_resource type="Resource" id="Resource_3bx80"]
+script = ExtResource("4_f13fl")
+_value = 5.0
+_mod_type = 1
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_uvcps"]
+script = ExtResource("3_kyv1q")
+_name = "flat damage"
+_description = ""
+upgrade = SubResource("Resource_3bx80")
+added_upgrades = Array[ExtResource("3_kyv1q")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_8gxs2"]
+script = ExtResource("2_mpb00")
+mod_type = 0
+upgrade_resource = SubResource("Resource_uvcps")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_o3jdy"]
+script = ExtResource("4_f13fl")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_h31a6"]
+script = ExtResource("3_kyv1q")
+_name = "More Damage"
+_description = "some good damage"
+_icon = ExtResource("1_kpvp0")
+upgrade = SubResource("Resource_o3jdy")
+added_upgrades = Array[ExtResource("3_kyv1q")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_fq80a"]
+script = ExtResource("2_mpb00")
+mod_type = 1
+upgrade_resource = SubResource("Resource_h31a6")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_5udec")
-_item_name = ""
-_description = ""
+_item_name = "Topaz ring"
+_description = "A lil damage"
 _icon = ExtResource("1_kpvp0")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 1
+mod_list = Array[ExtResource("2_mpb00")]([SubResource("Resource_8gxs2"), SubResource("Resource_fq80a")])

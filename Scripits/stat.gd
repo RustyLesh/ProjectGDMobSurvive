@@ -1,6 +1,6 @@
 extends Resource
 class_name Stat
-#Stores modifiers and calculates a signle value from the modifiers based on thier type.
+#Stores modifiers and calculates a single value from the modifiers based on thier type.
 signal on_value_changed(value)
 
 #whenever a mod is added or removed it is set as dirty. when getting value, if is_dirty is true, 

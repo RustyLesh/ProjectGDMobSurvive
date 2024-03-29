@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=13 format=3 uid="uid://b0ts7ri14t386"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://b0ts7ri14t386"]
 
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="1_765vs"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_jkkmg"]
 [ext_resource type="Texture2D" uid="uid://bjpjlmm0to6er" path="res://Art/Equipment/amulet2.png" id="1_pob48"]
-[ext_resource type="Texture2D" uid="uid://4bkhdtkiugtp" path="res://Art/box_drop.png" id="3_gjajq"]
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="4_nvi0j"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_rugsa"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_f51ev"]
@@ -26,15 +25,15 @@ weight = 0
 
 [sub_resource type="Resource" id="Resource_c6vsv"]
 script = ExtResource("5_f51ev")
-_value = 50.0
+_value = 2.0
 _mod_type = 0
-_base_stat_type = 1
+_base_stat_type = 5
 
 [sub_resource type="Resource" id="Resource_xxv5t"]
 script = ExtResource("4_rugsa")
-_name = "Daamge"
-_description = "doomage"
-_icon = ExtResource("3_gjajq")
+_name = "Bullet Lifetime"
+_description = ""
+_icon = ExtResource("1_pob48")
 upgrade = SubResource("Resource_c6vsv")
 added_upgrades = Array[ExtResource("4_rugsa")]([SubResource("Resource_wcuml")])
 _max_uses = 1
@@ -42,15 +41,37 @@ weight = 0
 
 [sub_resource type="Resource" id="Resource_qhqh0"]
 script = ExtResource("1_765vs")
-mod_type = 0
+mod_type = 1
 upgrade_resource = SubResource("Resource_xxv5t")
 slot_source = 2
 forced_upgrade = false
 
+[sub_resource type="Resource" id="Resource_tm5dk"]
+script = ExtResource("5_f51ev")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_w88wi"]
+script = ExtResource("4_rugsa")
+_name = ""
+_description = ""
+upgrade = SubResource("Resource_tm5dk")
+added_upgrades = Array[ExtResource("4_rugsa")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_5pher"]
+script = ExtResource("1_765vs")
+mod_type = 0
+upgrade_resource = SubResource("Resource_w88wi")
+slot_source = 0
+forced_upgrade = false
+
 [resource]
 script = ExtResource("1_jkkmg")
-_item_name = "Ruby Ammy"
-_description = "Red n gold"
+_item_name = "Ruby Ammulet"
+_description = "Red n gold."
 _icon = ExtResource("1_pob48")
 _gear_type = 2
-mod_list = Array[ExtResource("1_765vs")]([SubResource("Resource_qhqh0")])
+mod_list = Array[ExtResource("1_765vs")]([SubResource("Resource_qhqh0"), SubResource("Resource_5pher")])

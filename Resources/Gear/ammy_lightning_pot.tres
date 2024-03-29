@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://buoa3r1ctgur4"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://buoa3r1ctgur4"]
 
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_ppmww"]
 [ext_resource type="Texture2D" uid="uid://cl8kw84gumvjv" path="res://Art/Equipment/potion_amulet.png" id="1_xrj1f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_r4xdx"]
 [ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="4_lqaqi"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="5_x5c1n"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="6_pmiju"]
 
 [sub_resource type="Resource" id="Resource_r2hat"]
 script = ExtResource("4_lqaqi")
@@ -35,10 +36,32 @@ upgrade_resource = SubResource("Resource_m8mfb")
 slot_source = 0
 forced_upgrade = false
 
+[sub_resource type="Resource" id="Resource_5i8y8"]
+script = ExtResource("6_pmiju")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_5wynu"]
+script = ExtResource("3_r4xdx")
+_name = "atk spd"
+_description = ""
+upgrade = SubResource("Resource_5i8y8")
+added_upgrades = Array[ExtResource("3_r4xdx")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_h1tne"]
+script = ExtResource("2_mlawb")
+mod_type = 0
+upgrade_resource = SubResource("Resource_5wynu")
+slot_source = 0
+forced_upgrade = false
+
 [resource]
 script = ExtResource("1_ppmww")
-_item_name = "Pot ammy"
+_item_name = "Saphire Potion Trinket"
 _description = "Lightning n the thunder"
 _icon = ExtResource("1_xrj1f")
 _gear_type = 2
-mod_list = Array[ExtResource("2_mlawb")]([SubResource("Resource_411fk")])
+mod_list = Array[ExtResource("2_mlawb")]([SubResource("Resource_411fk"), SubResource("Resource_h1tne")])

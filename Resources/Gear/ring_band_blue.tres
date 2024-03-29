@@ -8,5 +8,5 @@ script = ExtResource("1_qc5n6")
 _item_name = ""
 _description = ""
 _icon = ExtResource("1_5stql")
-_gear_type = 0
+_gear_type = 1
 mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])

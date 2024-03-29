@@ -12,7 +12,7 @@ _base_stat_type = 5
 
 [resource]
 script = ExtResource("2_2yjqe")
-_name = ""
+_name = "Bullet Lifetime"
 _description = ""
 _icon = ExtResource("1_j6fwg")
 upgrade = SubResource("Resource_e11hf")

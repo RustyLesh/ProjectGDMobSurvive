@@ -1,12 +1,60 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://ddvmbq052ga8b"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://ddvmbq052ga8b"]
 
 [ext_resource type="Texture2D" uid="uid://y81menurnk1k" path="res://Art/Equipment/emeral ammy.png" id="1_u818h"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_a1kb3"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_hm6q1"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_sdlpb"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_ef50f"]
+
+[sub_resource type="Resource" id="Resource_okojy"]
+script = ExtResource("4_ef50f")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 3
+
+[sub_resource type="Resource" id="Resource_jrdhm"]
+script = ExtResource("3_sdlpb")
+_name = "mv spd"
+_description = ""
+upgrade = SubResource("Resource_okojy")
+added_upgrades = Array[ExtResource("3_sdlpb")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_h6ec8"]
+script = ExtResource("2_a1kb3")
+mod_type = 0
+upgrade_resource = SubResource("Resource_jrdhm")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_mkrvl"]
+script = ExtResource("4_ef50f")
+_value = 15.0
+_mod_type = 0
+_base_stat_type = 3
+
+[sub_resource type="Resource" id="Resource_48nrx"]
+script = ExtResource("3_sdlpb")
+_name = ""
+_description = ""
+_icon = ExtResource("1_u818h")
+upgrade = SubResource("Resource_mkrvl")
+added_upgrades = Array[ExtResource("3_sdlpb")]([])
+_max_uses = 3
+weight = 0
+
+[sub_resource type="Resource" id="Resource_fuemj"]
+script = ExtResource("2_a1kb3")
+mod_type = 1
+upgrade_resource = SubResource("Resource_48nrx")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_hm6q1")
-_item_name = ""
-_description = ""
+_item_name = "Emerald Ammulet"
+_description = "Power of the wind in a jewel"
 _icon = ExtResource("1_u818h")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 2
+mod_list = Array[ExtResource("2_a1kb3")]([SubResource("Resource_h6ec8"), SubResource("Resource_fuemj")])

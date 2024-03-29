@@ -1,12 +1,60 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://bx5yn8em881lu"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://bx5yn8em881lu"]
 
 [ext_resource type="Texture2D" uid="uid://do4m7ra7amti" path="res://Art/Equipment/purple_ring.png" id="1_5g8yh"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_54vlc"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_roorw"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_3814u"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_1fy4v"]
+
+[sub_resource type="Resource" id="Resource_3ax2u"]
+script = ExtResource("4_1fy4v")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_eskax"]
+script = ExtResource("3_3814u")
+_name = ""
+_description = ""
+upgrade = SubResource("Resource_3ax2u")
+added_upgrades = Array[ExtResource("3_3814u")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_6e1hs"]
+script = ExtResource("2_roorw")
+mod_type = 0
+upgrade_resource = SubResource("Resource_eskax")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_a5pd1"]
+script = ExtResource("4_1fy4v")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_4qus2"]
+script = ExtResource("3_3814u")
+_name = ""
+_description = ""
+_icon = ExtResource("1_5g8yh")
+upgrade = SubResource("Resource_a5pd1")
+added_upgrades = Array[ExtResource("3_3814u")]([])
+_max_uses = 3
+weight = 0
+
+[sub_resource type="Resource" id="Resource_quywj"]
+script = ExtResource("2_roorw")
+mod_type = 1
+upgrade_resource = SubResource("Resource_4qus2")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_54vlc")
-_item_name = ""
-_description = ""
+_item_name = "Amethyst Ring"
+_description = "Pierce enemies right through them"
 _icon = ExtResource("1_5g8yh")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 1
+mod_list = Array[ExtResource("2_roorw")]([SubResource("Resource_6e1hs"), SubResource("Resource_quywj")])

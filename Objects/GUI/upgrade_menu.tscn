@@ -86,7 +86,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ync8t")
 layout_mode = 0
 offset_top = 56.0
 offset_right = 640.0
-offset_bottom = 312.0
+offset_bottom = 120.0
+
+[node name="Description2" type="Label" parent="Description Panel"]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 640.0
+offset_bottom = 208.0
 
 [node name="Uses Counter" type="Label" parent="Description Panel"]
 layout_mode = 0

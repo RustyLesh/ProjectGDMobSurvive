@@ -1,12 +1,38 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://41r2pnr54srt"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://41r2pnr54srt"]
 
 [ext_resource type="Texture2D" uid="uid://d07yoo6p26ssd" path="res://Art/Equipment/purple ammy.png" id="1_2oi8o"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_1t73e"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_pgd6q"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_v53ur"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_ds4gw"]
+
+[sub_resource type="Resource" id="Resource_klhic"]
+script = ExtResource("4_ds4gw")
+_value = 5.0
+_mod_type = 0
+_base_stat_type = 3
+
+[sub_resource type="Resource" id="Resource_ttenp"]
+script = ExtResource("3_v53ur")
+_name = "Movement Speed"
+_description = ""
+_icon = ExtResource("1_2oi8o")
+upgrade = SubResource("Resource_klhic")
+added_upgrades = Array[ExtResource("3_v53ur")]([])
+_max_uses = 5
+weight = 0
+
+[sub_resource type="Resource" id="Resource_i5ij4"]
+script = ExtResource("2_pgd6q")
+mod_type = 1
+upgrade_resource = SubResource("Resource_ttenp")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_1t73e")
-_item_name = ""
-_description = ""
+_item_name = "Amethys Amulet"
+_description = "A tiny drop of hero essence is contained within the gem."
 _icon = ExtResource("1_2oi8o")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 2
+mod_list = Array[ExtResource("2_pgd6q")]([SubResource("Resource_i5ij4")])

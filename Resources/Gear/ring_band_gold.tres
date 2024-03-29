@@ -1,12 +1,82 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://dbuql1w23vmdy"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://dbuql1w23vmdy"]
 
 [ext_resource type="Texture2D" uid="uid://b2u6ipde26dgb" path="res://Art/Equipment/band ring gold.png" id="1_uc0pb"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_0ihbi"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_j8kpf"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_rii0m"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_x0lfo"]
+
+[sub_resource type="Resource" id="Resource_7k5bj"]
+script = ExtResource("4_x0lfo")
+_value = -50.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_t3tr3"]
+script = ExtResource("3_rii0m")
+_name = ""
+_description = ""
+upgrade = SubResource("Resource_7k5bj")
+added_upgrades = Array[ExtResource("3_rii0m")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_3ja0u"]
+script = ExtResource("2_0ihbi")
+mod_type = 0
+upgrade_resource = SubResource("Resource_t3tr3")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_5mfhb"]
+script = ExtResource("4_x0lfo")
+_value = 30.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_t4sl2"]
+script = ExtResource("3_rii0m")
+_name = ""
+_description = ""
+upgrade = SubResource("Resource_5mfhb")
+added_upgrades = Array[ExtResource("3_rii0m")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_c6v3o"]
+script = ExtResource("2_0ihbi")
+mod_type = 0
+upgrade_resource = SubResource("Resource_t4sl2")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_g4l2l"]
+script = ExtResource("4_x0lfo")
+_value = 50.0
+_mod_type = 1
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_rnyqu"]
+script = ExtResource("3_rii0m")
+_name = "Damage"
+_description = "A lotta damage"
+_icon = ExtResource("1_uc0pb")
+upgrade = SubResource("Resource_g4l2l")
+added_upgrades = Array[ExtResource("3_rii0m")]([])
+_max_uses = 2
+weight = 0
+
+[sub_resource type="Resource" id="Resource_fucx4"]
+script = ExtResource("2_0ihbi")
+mod_type = 1
+upgrade_resource = SubResource("Resource_rnyqu")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_j8kpf")
-_item_name = ""
+_item_name = "Bersekers ring"
 _description = ""
 _icon = ExtResource("1_uc0pb")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 1
+mod_list = Array[ExtResource("2_0ihbi")]([SubResource("Resource_3ja0u"), SubResource("Resource_c6v3o"), SubResource("Resource_fucx4")])

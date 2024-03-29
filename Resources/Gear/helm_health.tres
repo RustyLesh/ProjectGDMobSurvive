@@ -1,10 +1,32 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://ogu7hf2eyv01"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://ogu7hf2eyv01"]
 
 [ext_resource type="Texture2D" uid="uid://djus01x5bmgnl" path="res://Art/Equipment/crown1.png" id="1_0jjw5"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_8f72s"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_yi7fq"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_og7y8"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_vhnn8"]
+
+[sub_resource type="Resource" id="Resource_wfpk3"]
+script = ExtResource("5_vhnn8")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_iw3ih"]
+script = ExtResource("4_og7y8")
+_name = "flat life"
+_description = ""
+upgrade = SubResource("Resource_wfpk3")
+added_upgrades = Array[ExtResource("4_og7y8")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_ymf57"]
+script = ExtResource("2_yi7fq")
+mod_type = 0
+upgrade_resource = SubResource("Resource_iw3ih")
+slot_source = 0
+forced_upgrade = false
 
 [sub_resource type="Resource" id="Resource_fx8nk"]
 script = ExtResource("5_vhnn8")
@@ -32,7 +54,7 @@ forced_upgrade = true
 [resource]
 script = ExtResource("1_8f72s")
 _item_name = "Gold crown"
-_description = "Green n gold"
+_description = "Healthy crown"
 _icon = ExtResource("1_0jjw5")
 _gear_type = 0
-mod_list = Array[ExtResource("2_yi7fq")]([SubResource("Resource_hsk8m")])
+mod_list = Array[ExtResource("2_yi7fq")]([SubResource("Resource_ymf57"), SubResource("Resource_hsk8m")])

@@ -1,12 +1,43 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://pnby525xtxp6"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://pnby525xtxp6"]
 
 [ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="1_7wdc1"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_5vxnk"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_pvb7a"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_2v6px"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="4_mwqpn"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="5_s8vml"]
+
+[sub_resource type="Resource" id="Resource_qo3gi"]
+script = ExtResource("4_mwqpn")
+_duration = 0
+_slow_amount = 15.0
+_proc_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_rvcr8"]
+script = ExtResource("5_s8vml")
+_effect = SubResource("Resource_qo3gi")
+
+[sub_resource type="Resource" id="Resource_n48vx"]
+script = ExtResource("3_2v6px")
+_name = "Minor slow"
+_description = "Slow enemies on hit"
+_icon = ExtResource("1_7wdc1")
+upgrade = SubResource("Resource_rvcr8")
+added_upgrades = Array[ExtResource("3_2v6px")]([])
+_max_uses = 1
+weight = 0
+
+[sub_resource type="Resource" id="Resource_67lrt"]
+script = ExtResource("2_pvb7a")
+mod_type = 0
+upgrade_resource = SubResource("Resource_n48vx")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_5vxnk")
-_item_name = ""
-_description = ""
+_item_name = "Saphire crown"
+_description = "Minor slow"
 _icon = ExtResource("1_7wdc1")
 _gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+mod_list = Array[ExtResource("2_pvb7a")]([SubResource("Resource_67lrt")])

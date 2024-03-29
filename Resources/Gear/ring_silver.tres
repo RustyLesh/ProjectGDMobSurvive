@@ -4,31 +4,35 @@
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_7effo"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_pawyd"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_tlrmu"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="4_sfdh4"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_35ih6"]
 
-[sub_resource type="Resource" id="Resource_nvris"]
-script = ExtResource("4_sfdh4")
+[sub_resource type="Resource" id="Resource_a7enc"]
+script = ExtResource("4_35ih6")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
 
 [sub_resource type="Resource" id="Resource_74g3e"]
 script = ExtResource("3_tlrmu")
-_name = ""
-_description = ""
-upgrade = SubResource("Resource_nvris")
+_name = "+1 Proj"
+_description = "Bullets now 1 more"
+_icon = ExtResource("1_api52")
+upgrade = SubResource("Resource_a7enc")
 added_upgrades = Array[ExtResource("3_tlrmu")]([])
-_max_uses = 0
+_max_uses = 1
 weight = 0
 
 [sub_resource type="Resource" id="Resource_ire1a"]
 script = ExtResource("2_pawyd")
-mod_type = 0
+mod_type = 1
 upgrade_resource = SubResource("Resource_74g3e")
 slot_source = 0
 forced_upgrade = false
 
 [resource]
 script = ExtResource("2_7effo")
-_item_name = ""
-_description = ""
+_item_name = "Sapphire ring"
+_description = "+1 Proj upgrade"
 _icon = ExtResource("1_api52")
-_gear_type = 0
+_gear_type = 1
 mod_list = Array[ExtResource("2_pawyd")]([SubResource("Resource_ire1a")])

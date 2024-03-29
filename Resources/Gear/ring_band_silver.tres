@@ -1,12 +1,82 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://cfc5g1fipjoxv"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://cfc5g1fipjoxv"]
 
 [ext_resource type="Texture2D" uid="uid://c8um1cn5h0qtl" path="res://Art/Equipment/band ring silver.png" id="1_uyb2c"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_06e6x"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_fbvps"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_w7rvv"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_rdsik"]
+
+[sub_resource type="Resource" id="Resource_ju14x"]
+script = ExtResource("4_rdsik")
+_value = -10.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_yesny"]
+script = ExtResource("3_w7rvv")
+_name = "damage"
+_description = ""
+upgrade = SubResource("Resource_ju14x")
+added_upgrades = Array[ExtResource("3_w7rvv")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_bjqd6"]
+script = ExtResource("2_06e6x")
+mod_type = 0
+upgrade_resource = SubResource("Resource_yesny")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_44kpm"]
+script = ExtResource("4_rdsik")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_0fylo"]
+script = ExtResource("3_w7rvv")
+_name = "proj"
+_description = ""
+upgrade = SubResource("Resource_44kpm")
+added_upgrades = Array[ExtResource("3_w7rvv")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_w07iq"]
+script = ExtResource("2_06e6x")
+mod_type = 0
+upgrade_resource = SubResource("Resource_0fylo")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_hoc80"]
+script = ExtResource("4_rdsik")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_nhvwc"]
+script = ExtResource("3_w7rvv")
+_name = ""
+_description = ""
+_icon = ExtResource("1_uyb2c")
+upgrade = SubResource("Resource_hoc80")
+added_upgrades = Array[ExtResource("3_w7rvv")]([])
+_max_uses = 3
+weight = 0
+
+[sub_resource type="Resource" id="Resource_i88hb"]
+script = ExtResource("2_06e6x")
+mod_type = 1
+upgrade_resource = SubResource("Resource_nhvwc")
+slot_source = 0
+forced_upgrade = false
 
 [resource]
 script = ExtResource("2_fbvps")
-_item_name = ""
-_description = ""
+_item_name = "Saphire ring BIG"
+_description = "Lotsa proj"
 _icon = ExtResource("1_uyb2c")
-_gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+_gear_type = 1
+mod_list = Array[ExtResource("2_06e6x")]([SubResource("Resource_bjqd6"), SubResource("Resource_w07iq"), SubResource("Resource_i88hb")])
