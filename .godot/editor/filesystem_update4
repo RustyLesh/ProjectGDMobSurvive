@@ -1,13 +1,4 @@
-res://Scripits/Upgrade/upgrade_manager.gd
-res://Scripits/stat.gd
-res://Scripits/Upgrade/base_stat_upgrade.gd
-res://Scripits/stat_container.gd
-res://Scripits/bullet.gd
-res://Scripits/Weapons/rifle.gd
-res://Scripits/Weapons/weapon.gd
-res://Scripits/Weapons/weapon_manager.gd
-res://Scripits/Upgrade/upgrade.gd
-res://Objects/Main Menu/main_menu.tscn
+res://Objects/GUI/upgrade_menu.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -21,13 +12,12 @@ res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
 res://Resources/Weapons/test_weapon.tres
 res://Scripits/GUI/ability_hud.gd
 res://Resources/Gear/ammy_slow.tres
-res://Resources/Gear/ammy_life.tres
+res://Resources/Gear/ammy_ruby.tres
 res://Resources/Gear/helm_health.tres
 res://Resources/Gear/ring_proj.tres
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/EnemyWaves/C1-1/c1-1w1.tres
 res://Resources/EnemyWaves/C1-1/c1-1w2.tres
-res://Resources/Gear/ammy_lightning_pot.tres
 res://Resources/EnemyWaves/C1-1/c1-1w2a.tres
 res://Resources/EnemyWaves/C1-1/c1-1w3.tres
 res://Scripits/Shaders/outline.gdshader
@@ -39,32 +29,21 @@ res://Resources/EnemyWaves/C1-1/c1-1w4a.tres
 res://Resources/EnemyWaves/C1-1/c1-1w5Elite.tres
 res://Resources/EnemyWaves/C1-1/c1-1w5.tres
 res://Resources/EnemyWaves/C1-1/c1-1w5a.tres
+res://Resources/Gear/ammy_lightning_pot.tres
 res://Resources/Enemies/Bosses/totem.tres
-res://Resources/Enemy Spawn lists/Cmp1-1.tres
-res://Resources/Enemy Spawn lists/Cmp1-2.tres
-res://Resources/Enemy Spawn lists/Cmp1-3.tres
-res://Resources/Gear/ring_band_silver.tres
-res://Resources/Gear/ring_purple.tres
+res://Resources/Enemy Spawn lists/C1/Cmp1-2.tres
+res://Resources/Enemy Spawn lists/C1/Cmp1-3.tres
 res://Objects/combat_level.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://Objects/hud.tscn
+res://Objects/Main Menu/main_menu.tscn
+res://Objects/enemy_bullet.tscn
 res://Objects/bullet.tscn
-res://player_setup.tscn
 res://Objects/player.tscn
-res://Resources/Gear/ring_band_purple.tres
-res://Resources/Gear/ring_band_gold.tres
-res://Resources/Gear/ammy_potion_yellow.tres
-res://Resources/Gear/ring_silver.tres
-res://Resources/Gear/ring_red.tres
-res://Resources/Gear/helm_ice_crown.tres
-res://Resources/Gear/helm_gold_2.tres
-res://Resources/Gear/helm_fire_crown.tres
-res://Resources/Gear/ammy_blue.tres
-res://Resources/Gear/ammy_purple.tres
-res://Scripits/GUI/upgrade_menu.gd
-res://Scripits/Main Menu/selected_item_info.gd
-res://Scripits/Upgrade/upgrade_resource.gd
-res://Scripits/GUI/upgrade_description_panel.gd
-res://Objects/GUI/upgrade_menu.tscn
-res://Scripits/gear.gd
-res://Scripits/On Hit Effects/chain_lightning_on_hit.gd
+res://Scripits/entity.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/bullet.gd
+res://Scripits/Enemy/shell_turret.gd
+res://Scripits/Enemy/shell_turrent_resource.gd
+res://Scripits/Enemy/turret_ai.gd
+res://Objects/Enemy Spawning/enemy_turret.tscn
+res://Resources/Enemies/turret.tres
+res://enemy_spawn_animation.tscn

@@ -1,7 +1,7 @@
 extends EnemyShell
 class_name ShellTurret
 
-@onready var character_body = $CharacterBody2D as AITurret
+@onready var character_body: AITurret = $CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
 
@@ -9,12 +9,16 @@ class_name ShellTurret
 @onready var spawn_animation: AnimatedSprite2D
 var projectile_scene: Variant
 
+var bullet_resource: BulletResource
 var enemy_ai_movement: EnemyMovementAI
+
 var enemy_shell_resource 
 var enemy_resource
 var spawn_position
 var parent
 var spawn_animation_node
+var bullet_damage
+var delay_betweeen_shots: float
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	enemy_resource = _enemy_resource
@@ -48,6 +52,10 @@ func on_spawn_animation_end():
 	weapon_xp_value = enemy_resource.weapon_xp_value
 	drop_pool = enemy_resource.drop_pool
 	projectile_scene = enemy_shell_resource.bullet_resource.get_bullet_scene()
+	bullet_damage = enemy_shell_resource.bullet_damage
+	delay_betweeen_shots = enemy_shell_resource.delay_betweeen_shots
+	print("Delay in shell: ", delay_betweeen_shots)
+	character_body.delay_betweeen_shots = delay_betweeen_shots
 	health.init_health(enemy_resource.max_health)
 
 	default_move_speed = character_body.speed
@@ -70,3 +78,5 @@ func shoot(player_position):
 	bullet.lifetime = 2
 	bullet.look_at(player_position)
 	bullet.rotate(PI/2)
+	bullet.base_damage = bullet_damage
+

@@ -23,11 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="15_xs855"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/combat_menu.gd" id="16_0maer"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/difficulty_select_button.gd" id="16_ktv4v"]
-[ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Spawn lists/Cmp1-1.tres" id="17_7jatm"]
-[ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Spawn lists/Cmp1-2.tres" id="18_jjeg2"]
-[ext_resource type="Resource" uid="uid://ds1wnf34mhcbu" path="res://Resources/Enemy Spawn lists/Cmp1-3.tres" id="19_u0gwm"]
+[ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Spawn lists/C1/Cmp1-1.tres" id="19_p2smv"]
+[ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Spawn lists/C1/Cmp1-2.tres" id="20_kivyr"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
+[ext_resource type="Resource" uid="uid://ds1wnf34mhcbu" path="res://Resources/Enemy Spawn lists/C1/Cmp1-3.tres" id="21_ti4nn"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_manage_menu.gd" id="26_4foof"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
@@ -402,7 +402,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "1"
 script = ExtResource("16_ktv4v")
 difficulty = 1
-enemy_spawns = ExtResource("17_7jatm")
+enemy_spawns = ExtResource("19_p2smv")
 
 [node name="Diff2" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -421,7 +421,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "2"
 script = ExtResource("16_ktv4v")
 difficulty = 2
-enemy_spawns = ExtResource("18_jjeg2")
+enemy_spawns = ExtResource("20_kivyr")
 
 [node name="Diff3" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -440,7 +440,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "3"
 script = ExtResource("16_ktv4v")
 difficulty = 3
-enemy_spawns = ExtResource("19_u0gwm")
+enemy_spawns = ExtResource("21_ti4nn")
 
 [node name="Character Menu" type="Control" parent="."]
 visible = false

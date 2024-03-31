@@ -13,6 +13,8 @@ enum EntityType
 
 @export var entity_type: EntityType
 
+var is_dead: bool = false
+
 func take_damage(damage):
 	if health is Health:
 		#Damage logic here

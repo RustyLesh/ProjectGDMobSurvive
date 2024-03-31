@@ -10,7 +10,8 @@ class_name ShellTurretResource
 @export var follow_range: int
 @export var keep_following: bool
 @export var bullet_resource: BulletResource
-
+@export var bullet_damage: int
+@export var delay_betweeen_shots: float
 @export var enemy_ai_movement: EnemyMovementAI
 
 var spawn_scene_path = preload("res://enemy_spawn_animation.tscn")
@@ -23,4 +24,5 @@ func instantiate_enemy(enemy_resource: EnemyResource, spawn_position: Vector2, p
 #	var enemy_scene = load(enemy_shell_scene_path)
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.spawn_enemy(enemy_resource, spawn_position, parent)
+	print("Delay in shell resource: ", delay_betweeen_shots)
 	return enemy_instance

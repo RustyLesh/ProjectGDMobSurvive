@@ -21,17 +21,22 @@ func _physics_process(delta):
 		move_local_y(-speed * delta)
 
 func _on_body_entered(body):
-	if body.get_parent() is Entity:
-		body.get_parent().take_damage(base_damage)
-		#Applies hit effects if there are any
-		if on_hit_effects.size() > 0:
-			for hit_effect in on_hit_effects:
-				hit_effect.trigger_effect(body.get_parent())
-		#Destroy self if 0 pierces remain
-		if pierce_counter >= pierce:
-			call_deferred("kill_self")
-		else: 
-			pierce_counter += 1
+	var parent_body = body.get_parent()
+	if parent_body is Entity:
+		if !parent_body.is_dead:
+			parent_body.take_damage(base_damage)
+			#Applies hit effects if there are any
+			if on_hit_effects.size() > 0:
+				for hit_effect in on_hit_effects:
+					hit_effect.trigger_effect(body.get_parent())
+			#Destroy self if 0 pierces remain
+			if pierce_counter >= pierce:
+				print("out of pierce")
+				call_deferred("kill_self")
+			else: 
+				pierce_counter += 1
+			if body.get_parent() is Player:
+				print("hit player")
 
 #after life time of bullet runns out, runs the kill function
 func start_kill_timer():

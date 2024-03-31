@@ -22,6 +22,7 @@ var default_move_speed: float
 @onready var slow_timer = $SlowTimer as Timer
 
 func _on_health_died():
+	is_dead = true
 	call_deferred("roll_drop")
 	call_deferred("spawn_XP")
 	queue_free()
@@ -37,7 +38,6 @@ func spawn_XP():
 func roll_drop():
 	#return if drop pool doesnt exist
 	if drop_pool == null:
-		print("no drop pool")
 		return
 	var drop_gen = drop_pool.get_drop()
 

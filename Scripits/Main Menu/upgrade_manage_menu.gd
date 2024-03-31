@@ -82,7 +82,6 @@ func on_upgrade_pool_item_selected(index):
 	add_button.disabled = false
 
 func on_selected_upgrades_item_selected(index):
-	print("Cliced on item list")
 	highlighted_in_selected_upgrades = index;
 	upgrade_pool_ui.deselect_all()
 	highlighted_in_upgrade_pool = -1

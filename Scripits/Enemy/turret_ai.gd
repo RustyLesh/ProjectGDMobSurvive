@@ -10,7 +10,7 @@ class_name AITurret
 var follows_player:= false
 var is_player_in_range:= false
 var speed: float = 100.0
-var delay_betweeen_shots: float = 1.0
+var delay_betweeen_shots: float = 1.5
 
 func _ready():
 	await get_tree().create_timer(.001).timeout
@@ -40,6 +40,7 @@ func _on_timer_timeout():
 	make_path()
 
 func start_shooting():
+	print("delay_betweeen_shots: ", delay_betweeen_shots)
 	timer.start(delay_betweeen_shots)
 
 func shoot():

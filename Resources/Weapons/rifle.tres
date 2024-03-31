@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=38 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=36 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
@@ -20,24 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="16_e2m8j"]
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="17_eo57a"]
 
-[sub_resource type="Resource" id="Resource_ktjkc"]
-script = ExtResource("1_w5652")
-base_stat_type = 1
-value = 50.0
-stat_mod_type = 0
-source_type = 0
-
-[sub_resource type="Resource" id="Resource_v3d0g"]
-script = ExtResource("1_w5652")
-base_stat_type = 0
-value = 5.0
-stat_mod_type = 1
-source_type = 0
-
 [sub_resource type="Resource" id="Resource_ojq2v"]
 script = ExtResource("1_w5652")
 base_stat_type = 4
-value = 5.0
+value = 1.0
 stat_mod_type = 0
 source_type = 0
 
@@ -45,12 +31,12 @@ source_type = 0
 script = ExtResource("14_4phq1")
 _value = 1.0
 _mod_type = 0
-_base_stat_type = 7
+_base_stat_type = 4
 
 [sub_resource type="Resource" id="Resource_vd4w2"]
 script = ExtResource("13_300w3")
 _name = "Proj count"
-_description = ""
+_description = "more bullet"
 _icon = ExtResource("10_gnupj")
 upgrade = SubResource("Resource_wn2w3")
 added_upgrades = Array[ExtResource("13_300w3")]([])
@@ -172,4 +158,4 @@ level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
 base_stats = Array[Resource("res://Scripits/base_stat.gd")]([])
-base_stat_mods = Array[ExtResource("1_w5652")]([SubResource("Resource_ktjkc"), SubResource("Resource_v3d0g"), SubResource("Resource_ojq2v")])
+base_stat_mods = Array[ExtResource("1_w5652")]([SubResource("Resource_ojq2v")])

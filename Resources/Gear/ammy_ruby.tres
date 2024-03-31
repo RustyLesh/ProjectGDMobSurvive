@@ -71,7 +71,7 @@ forced_upgrade = false
 [resource]
 script = ExtResource("1_jkkmg")
 _item_name = "Ruby Ammulet"
-_description = "Red n gold. Bullet lifetime"
+_description = "Red n gold."
 _icon = ExtResource("1_pob48")
 _gear_type = 2
 mod_list = Array[ExtResource("1_765vs")]([SubResource("Resource_qhqh0"), SubResource("Resource_5pher")])

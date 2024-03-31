@@ -1,49 +1,77 @@
-[gd_scene load_steps=6 format=3 uid="uid://14pmcnlmox4s"]
+[gd_scene load_steps=12 format=3 uid="uid://14pmcnlmox4s"]
 
 [ext_resource type="Script" path="res://Scripits/bullet.gd" id="1_13mud"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="1_bj84t"]
 [ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="3_j0klu"]
 
+[sub_resource type="Curve" id="Curve_lmfq4"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00239235, -3.78946), 0.0, 0.0, 0, 0, Vector2(0.748804, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wcsyp"]
+curve = SubResource("Curve_lmfq4")
+
+[sub_resource type="Gradient" id="Gradient_86feu"]
+offsets = PackedFloat32Array(0.315245, 0.516796, 0.754522)
+colors = PackedColorArray(0.443137, 0.0352941, 0.172549, 1, 0.593134, 0.593134, 0.593134, 1, 0.753387, 0, 0.00939637, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vm8r4"]
+gradient = SubResource("Gradient_86feu")
+
+[sub_resource type="Curve" id="Curve_qi7yh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.511962, 0.747368), 0.0, 0.0, 0, 0, Vector2(0.72488, 0.421053), -2.73514, -2.73514, 0, 0, Vector2(0.956938, 0.368421), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_mvcyf"]
+curve = SubResource("Curve_qi7yh")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti5rs"]
-lifetime_randomness = 1.0
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 1.0
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
-spread = 90.0
+spread = 40.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 7.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_curve = SubResource("CurveTexture_wcsyp")
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.3
 scale_max = 0.7
-color = Color(0.8, 0.8, 0.8, 0.498039)
+scale_curve = SubResource("CurveTexture_mvcyf")
+color_ramp = SubResource("GradientTexture1D_vm8r4")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs4dr"]
 radius = 5.0
 
 [node name="EnemyBullet" type="Area2D"]
 texture_filter = 1
-collision_layer = 2
+collision_layer = 128
+collision_mask = 5
 priority = 1
 script = ExtResource("1_13mud")
 speed = 50
 lifetime = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bj84t")
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 25
 process_material = SubResource("ParticleProcessMaterial_ti5rs")
 texture = ExtResource("1_bj84t")
-lifetime = 4.0
+lifetime = 10.0
 speed_scale = 2.5
 trail_lifetime = 0.02
 script = ExtResource("3_j0klu")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bj84t")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_xs4dr")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="destroy" from="." to="GPUParticles2D" method="_on_bullet_destroy"]
 [connection signal="kill" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_kill"]

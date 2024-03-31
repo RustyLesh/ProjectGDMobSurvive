@@ -97,7 +97,6 @@ func spawn(spawn_data: SpawnDataResource):
 					spawn_data.spawn_delay_counter = 0
 					var counter = 0
 					while counter < spawn_data.enemy_amount:
-						print("spawn")
 						var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
 						counter += 1
 			
