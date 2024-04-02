@@ -9,6 +9,6 @@ func _ready():
 	player_body = $"../PlayerBody"
 	
 	if health is Health:
-		health.init_health(max_life)
+		health.init_health(get_stat(BaseStat.BaseStatType.MAX_LIFE).value)
 		
 	init_stat_signals()

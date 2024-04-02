@@ -40,7 +40,7 @@ func _on_timer_timeout():
 	make_path()
 
 func start_shooting():
-	print("delay_betweeen_shots: ", delay_betweeen_shots)
+	shoot()
 	timer.start(delay_betweeen_shots)
 
 func shoot():

@@ -20,10 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://db26s7nacmyn6" path="res://Art/Equipment/crown2.png" id="16_e2m8j"]
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="17_eo57a"]
 
-[sub_resource type="Resource" id="Resource_ojq2v"]
+[sub_resource type="Resource" id="Resource_cq5wk"]
 script = ExtResource("1_w5652")
-base_stat_type = 4
-value = 1.0
+base_stat_type = 0
+value = 100.0
 stat_mod_type = 0
 source_type = 0
 
@@ -157,5 +157,4 @@ weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
-base_stats = Array[Resource("res://Scripits/base_stat.gd")]([])
-base_stat_mods = Array[ExtResource("1_w5652")]([SubResource("Resource_ojq2v")])
+base_stat_mods = Array[ExtResource("1_w5652")]([SubResource("Resource_cq5wk")])

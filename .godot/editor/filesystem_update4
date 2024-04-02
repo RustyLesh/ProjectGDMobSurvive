@@ -1,4 +1,8 @@
-res://Objects/GUI/upgrade_menu.tscn
+res://Scripits/Weapons/rifle.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Weapons/weapon_resource.gd
+res://Scripits/base_stat_mod.gd
+res://Objects/Weapons/rifle.tscn
 res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -33,17 +37,20 @@ res://Resources/Gear/ammy_lightning_pot.tres
 res://Resources/Enemies/Bosses/totem.tres
 res://Resources/Enemy Spawn lists/C1/Cmp1-2.tres
 res://Resources/Enemy Spawn lists/C1/Cmp1-3.tres
+res://Objects/GUI/upgrade_menu.tscn
 res://Objects/combat_level.tscn
 res://Objects/Main Menu/main_menu.tscn
 res://Objects/enemy_bullet.tscn
 res://Objects/bullet.tscn
 res://Objects/player.tscn
-res://Scripits/entity.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/bullet.gd
-res://Scripits/Enemy/shell_turret.gd
-res://Scripits/Enemy/shell_turrent_resource.gd
-res://Scripits/Enemy/turret_ai.gd
 res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Resources/Enemies/turret.tres
-res://enemy_spawn_animation.tscn
+res://Scripits/base_stat.gd
+res://Scripits/player.gd
+res://player_setup.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/stat_container.gd
+res://Scripits/combat_stat_container.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/main_menu_stat_container.gd
+res://Scripits/player_stats.gd
+res://Scripits/health.gd

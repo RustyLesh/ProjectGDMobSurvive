@@ -25,9 +25,6 @@ func _ready():
 			weapon_inst = weapon.weapon.instantiate()
 			weapon_manager.add_child(weapon_inst)
 			weapon_inst.init_weapon(combat_stat_container.base_stats)
-		
-		for mod in weapon.base_stat_mods:
-			mod.apply_mod_in_combat(combat_stat_container)
 	
 func _on_health_died():
 	on_player_death.emit()

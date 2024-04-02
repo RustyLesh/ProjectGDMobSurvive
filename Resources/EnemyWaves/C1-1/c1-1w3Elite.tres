@@ -55,5 +55,5 @@ script = ExtResource("6_wyol1")
 time_start = 120
 time_end = 180
 enemy_resource = SubResource("Resource_fdx3g")
-enemy_amount = 5
-spawn_delay = 5
+enemy_amount = 1
+spawn_delay = 100
