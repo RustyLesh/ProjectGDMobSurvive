@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7y78wcnmvbd3"]
+[gd_scene load_steps=12 format=3 uid="uid://7y78wcnmvbd3"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu.gd" id="1_57tvr"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_description_panel.gd" id="2_os725"]
@@ -29,6 +29,9 @@ bg_color = Color(0.168627, 0.168627, 0, 1)
 bg_color = Color(0.741176, 0.227451, 0.227451, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srllu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lysi"]
+bg_color = Color(0, 0.172549, 0.494118, 1)
 
 [node name="Uprade Menu" type="Control"]
 texture_filter = 1
@@ -109,6 +112,7 @@ offset_bottom = 584.0
 theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
 theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
 theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_gnsb3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_55jmf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
@@ -124,11 +128,29 @@ offset_bottom = 680.0
 theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
 theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
 theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ugdl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_55jmf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ck5go")
 text = "Reroll"
+
+[node name="Reroll2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = 728.0
+offset_right = 640.0
+offset_bottom = 792.0
+theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
+theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ugdl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_55jmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ck5go")
+text = "Add Reroll"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
@@ -140,6 +162,19 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_srllu")
 text = "QUIT"
 
+[node name="Reroll Counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 616.0
+offset_right = 136.0
+offset_bottom = 680.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lysi")
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="Reroll2" to="." method="on_add_reroll_points_pressed"]
 [connection signal="pressed" from="Quit" to="." method="return_to_main_menu"]

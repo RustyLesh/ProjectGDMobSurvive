@@ -12,7 +12,6 @@ func _ready():
 
 		selected_weapon = PlayerSetup.weapon
 		var selected_weapon_tree = selected_weapon.weapon_tree
-		print("size: ", selected_weapon_tree.tree_dict.size())
 		for selected_panel in selected_weapon_tree.selected.keys():
 			var selected_node = selected_weapon_tree.selected[selected_panel]
 			var selected_panel_array = selected_weapon_tree.tree_dict[selected_panel]

@@ -10,6 +10,11 @@ var upgrade_option_ui : Array[UpgradeOption]
 @onready var upgrade_options_container = $"Upgrade Options Panel/Upgrade Options"
 @onready var description_panel : UpgradeDescriptionPanel = $"Description Panel"
 @onready var confirm_button: Button = $Confirm
+@onready var reroll_button: Button = $Reroll
+@onready var reroll_counter: Label = $"Reroll Counter"
+
+@onready var add_rerolls_button: Button = $Reroll2
+
 var selected_option: int = 0
 var selected_resource: UpgradeResource
 
@@ -19,6 +24,9 @@ func _ready():
 	upgrade_option_resources = upgrade_manager.upgrade_pool
 	update_upgrade_options()
 	upgrade_manager.on_reroll.connect(update_upgrade_options)
+	upgrade_manager.on_gained_rerolls.connect(update_rerolls)
+
+	update_rerolls()
 	
 func _on_confirm_pressed():
 	upgrade_manager.select_upgrade(selected_option)
@@ -60,7 +68,20 @@ func highlight_upgrade(option_no: int):
 		confirm_button.disabled = false
 
 func _on_reroll_pressed():
+	upgrade_manager.reroll_points -= 1
 	upgrade_manager.roll_upgrade_options()
+	update_rerolls()
+
+func update_rerolls():
+	if upgrade_manager.reroll_points > 0:
+		reroll_button.disabled = false
+	else:
+		reroll_button.disabled = true
+	
+	reroll_counter.text = str(upgrade_manager.reroll_points)
 
 func return_to_main_menu():
 	GameData.go_to_main_menu()
+
+func on_add_reroll_points_pressed():
+	upgrade_manager.add_reroll_points(1)

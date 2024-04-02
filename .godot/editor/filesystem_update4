@@ -54,3 +54,12 @@ res://Scripits/Main Menu/weapon_select_menu.gd
 res://Scripits/main_menu_stat_container.gd
 res://Scripits/player_stats.gd
 res://Scripits/health.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/GUI/upgrade_menu.gd
+res://Scripits/Main Menu/gear_menu.gd
+res://Scripits/Main Menu/weapon_skill_tree_menu.gd
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/elite_shell.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/Enemy/boss.gd

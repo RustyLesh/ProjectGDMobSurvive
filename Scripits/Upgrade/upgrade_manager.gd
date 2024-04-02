@@ -15,12 +15,15 @@ var current_upgrade_points : int = 0:
 		
 var spent_points: int = 0
 var current_level: int = 0
+
 @export var bonus_points: int
+@export var reroll_points = 0
 
 @export var number_of_choices: int
 
 signal current_upgrade_points_changed(points: int)
 signal on_reroll()
+signal on_gained_rerolls()
 
 var max_posible_choices: int = 5 #Hard cap on possible alowed choices. main limit is ui space
 		
@@ -95,3 +98,7 @@ func reset_upgrade_uses(): #Reset resource uses to 0
 
 func on_player_death(): 
 	reset_upgrade_uses()
+
+func add_reroll_points(value: int):
+	reroll_points += value
+	on_gained_rerolls.emit()

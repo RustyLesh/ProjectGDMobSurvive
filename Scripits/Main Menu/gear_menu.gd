@@ -72,7 +72,6 @@ func equip_gear(gear: GearResource):
 			if mod.mod_type == GearModifier.GearModType.APPLY_NOW:
 				mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container, gear._gear_type)
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
-				print("Append")
 				mod.upgrade_resource.forced_upgrade = mod.forced_upgrade
 				upgrade_menu.selected_upgrades.append(mod.upgrade_resource)
 				

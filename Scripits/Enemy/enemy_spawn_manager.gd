@@ -9,6 +9,7 @@ class_name EnemySpawnManager
 @onready var tilemap = $"../Tile_Map"
 @onready var enemy_container = $"Enemy Container"
 @onready var ui_scene = $"../UI" as MenuManager
+@onready var upgrade_manager = $"../Upgrade Manager"
 
 #Keeps track of time for spawning enemies
 @onready var timer: Timer = $Timer
@@ -44,8 +45,6 @@ func _ready():
 		
 		botRight.x -= wallSpawnBuffer
 		botRight.y -= wallSpawnBuffer
-
-		print("Center: ", center)
 
 		if disable_spawns == true:
 			pause_timer()
@@ -90,6 +89,7 @@ func spawn(spawn_data: SpawnDataResource):
 				enemy_spawn.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
 				pause_timer()
 			else:
+
 				#Check if spawn delay is passed, if not add time to delay counter
 				if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
 					spawn_data.spawn_delay_counter += 1
@@ -98,6 +98,9 @@ func spawn(spawn_data: SpawnDataResource):
 					var counter = 0
 					while counter < spawn_data.enemy_amount:
 						var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
+						#If elite connect elite on death
+						if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.ELITE:
+							enemy_spawn.on_elite_dead.connect(on_elite_killed)
 						counter += 1
 			
 func get_random_position_off_screen():
@@ -141,3 +144,6 @@ func spawn_boss(enemy_resource: EnemyResource):
 func on_stage_win():
 	stage_win.emit()
 
+func on_elite_killed():
+	print("elite_died")
+	upgrade_manager.add_reroll_points(1)

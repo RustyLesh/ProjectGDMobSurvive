@@ -8,12 +8,15 @@ class_name EliteShell
 @onready var sprite: Sprite2D = character_body.get_node("Sprite2D")
 @onready var spawn_animation: AnimatedSprite2D
 
+signal on_elite_dead()
+
 var enemy_ai_movement: EnemyMovementAI
 var enemy_shell_resource 
 var enemy_resource
 var spawn_position
 var parent
 var spawn_animation_node
+
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
@@ -58,3 +61,7 @@ func apply_slow_to_self(value: float, duration: float):
 func revert_slow():
 	character_body.speed = default_move_speed
 	sprite.modulate = Color.WHITE
+
+func _on_health_died():
+	super()
+	on_elite_dead.emit()

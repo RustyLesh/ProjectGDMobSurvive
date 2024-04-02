@@ -192,6 +192,7 @@ number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
 enemy_spawns = SubResource("Resource_vfxl8")
+time = 119
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 
