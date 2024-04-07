@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("1_shl5e")
+stage_number = 2
 spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_fcla7")])

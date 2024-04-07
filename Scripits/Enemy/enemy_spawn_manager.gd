@@ -76,6 +76,8 @@ func _on_timer_timeout():
 		spawn(i)
 	if time >= game_win_time:
 		on_stage_win()
+		if	enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
+			PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 
 func spawn(spawn_data: SpawnDataResource):
 	if spawn_data is SpawnDataResource:
@@ -142,6 +144,8 @@ func spawn_boss(enemy_resource: EnemyResource):
 	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
 
 func on_stage_win():
+	if enemy_spawns.stage_number < PlayerStats.highest_stage_completed:
+		PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 	stage_win.emit()
 
 func on_elite_killed():

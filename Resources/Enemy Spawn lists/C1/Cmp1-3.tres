@@ -278,12 +278,13 @@ enemy_shell_resource = SubResource("Resource_gdmyn")
 
 [sub_resource type="Resource" id="Resource_a7bvs"]
 script = ExtResource("7_x22mr")
-time_start = 180
-time_end = 240
+time_start = 0
+time_end = 1
 enemy_resource = SubResource("Resource_fdx3g")
-enemy_amount = 5
-spawn_delay = 5
+enemy_amount = 0
+spawn_delay = 1
 
 [resource]
 script = ExtResource("1_n03bq")
+stage_number = 3
 spawns = Array[ExtResource("7_x22mr")]([SubResource("Resource_a7bvs")])

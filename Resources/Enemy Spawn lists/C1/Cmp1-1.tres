@@ -12,8 +12,9 @@
 [ext_resource type="Resource" uid="uid://6e523i31xbkf" path="res://Resources/EnemyWaves/C1-1/c1-1w5Elite.tres" id="10_fcxoa"]
 [ext_resource type="Resource" uid="uid://boausghahat5q" path="res://Resources/EnemyWaves/C1-1/c1-1w5.tres" id="11_g80fb"]
 [ext_resource type="Resource" uid="uid://d2kdsqvf2awdm" path="res://Resources/EnemyWaves/C1-1/c1-1w5a.tres" id="12_1sr56"]
-[ext_resource type="Resource" uid="uid://bjlgalln7yloe" path="res://Resources/Enemies/Bosses/totem.tres" id="13_t34rv"]
+[ext_resource type="Resource" uid="uid://c05ascnrvk6g4" path="res://Resources/EnemyWaves/C1-1/c1-1w6Boss.tres" id="13_0i371"]
 
 [resource]
 script = ExtResource("1_kr6ig")
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_hnx1r"), ExtResource("3_v0qge"), ExtResource("4_210rn"), ExtResource("5_siaqg"), ExtResource("4_mkqrq"), ExtResource("7_as6cq"), ExtResource("8_mw0kx"), ExtResource("9_540pw"), ExtResource("10_fcxoa"), ExtResource("11_g80fb"), ExtResource("12_1sr56"), ExtResource("13_t34rv")])
+stage_number = 1
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_hnx1r"), ExtResource("3_v0qge"), ExtResource("4_210rn"), ExtResource("4_mkqrq"), ExtResource("7_as6cq"), ExtResource("5_siaqg"), ExtResource("8_mw0kx"), ExtResource("9_540pw"), ExtResource("11_g80fb"), ExtResource("12_1sr56"), ExtResource("10_fcxoa"), ExtResource("13_0i371")])

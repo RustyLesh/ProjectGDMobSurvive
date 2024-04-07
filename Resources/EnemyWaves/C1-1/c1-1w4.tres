@@ -270,8 +270,8 @@ script = ExtResource("5_uanwk")
 enemy_icon = ExtResource("1_5hdkq")
 enemy_type = 0
 enemy_name = "empty_name"
-max_health = 10
-stage_xp_value = 0.0
+max_health = 20
+stage_xp_value = 5.0
 weapon_xp_value = 0.0
 enemy_shell_resource = SubResource("Resource_gdmyn")
 

@@ -1,6 +1,7 @@
-Label
-HBoxContainer
 Button
+Label
+Panel
+HBoxContainer
 GridContainer
 Control
 ItemList
@@ -12,7 +13,6 @@ TextureProgressBar
 WorldEnvironment
 GPUParticles2D
 Node
-Panel
 VBoxContainer
 TextureRect
 RichTextLabel

@@ -132,6 +132,7 @@ sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 
 [sub_resource type="Resource" id="Resource_vfxl8"]
 script = ExtResource("7_clgui")
+stage_number = 0
 spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uewyt"]
@@ -192,7 +193,6 @@ number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
 enemy_spawns = SubResource("Resource_vfxl8")
-time = 119
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 

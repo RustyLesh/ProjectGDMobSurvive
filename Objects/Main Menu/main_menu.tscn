@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=73 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="15_xs855"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/combat_menu.gd" id="16_0maer"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/difficulty_select_button.gd" id="16_ktv4v"]
+[ext_resource type="Script" path="res://Scripits/Main Menu/weapon_tree_description.gd" id="17_flrow"]
 [ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Spawn lists/C1/Cmp1-1.tres" id="19_p2smv"]
 [ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Spawn lists/C1/Cmp1-2.tres" id="20_kivyr"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
@@ -50,6 +51,14 @@ bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 bg_color = Color(0.247059, 0.247059, 0.247059, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ugk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5urf"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kyyi"]
+bg_color = Color(0.0941176, 0.27451, 0.0784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sbmh"]
 
 [sub_resource type="SystemFont" id="SystemFont_caiw3"]
 
@@ -255,7 +264,6 @@ script = ExtResource("2_0m2n6")
 new_game_start_weapon = ExtResource("12_lhhj1")
 
 [node name="Selected Weapon" type="Panel" parent="Weapon Select Menu"]
-visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_top = 152.0
@@ -342,7 +350,54 @@ offset_bottom = -8.0
 icon = ExtResource("15_xs855")
 expand_icon = true
 
+[node name="Tree Info" type="Panel" parent="Weapon Select Menu/Weapon Skill Tree"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 520.0
+offset_right = 688.0
+offset_bottom = 816.0
+script = ExtResource("17_flrow")
+
+[node name="Title" type="Label" parent="Weapon Select Menu/Weapon Skill Tree/Tree Info"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 672.0
+offset_bottom = 56.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5urf")
+
+[node name="Description" type="Label" parent="Weapon Select Menu/Weapon Skill Tree/Tree Info"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 672.0
+offset_bottom = 112.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5urf")
+
+[node name="Stats" type="Label" parent="Weapon Select Menu/Weapon Skill Tree/Tree Info"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 672.0
+offset_bottom = 288.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5urf")
+
+[node name="Apply" type="Button" parent="Weapon Select Menu/Weapon Skill Tree"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 744.0
+offset_right = 672.0
+offset_bottom = 800.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.364706, 0.364706, 0.364706, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_2kyyi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2sbmh")
+disabled = true
+text = "Apply"
+
 [node name="Combat Prep Menu" type="Control" parent="."]
+visible = false
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -443,7 +498,6 @@ difficulty = 3
 enemy_spawns = ExtResource("21_ti4nn")
 
 [node name="Character Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -463,14 +517,14 @@ offset_bottom = 400.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_rlhyl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0big1")
 
-[node name="Upgrades Scroll Panel" type="VScrollBar" parent="Character Menu"]
+[node name="Accomplishments Scroll" type="VScrollBar" parent="Character Menu"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 576.0
 offset_right = 696.0
 offset_bottom = 1144.0
 
-[node name="Upgrades" type="RichTextLabel" parent="Character Menu/Upgrades Scroll Panel"]
+[node name="List" type="RichTextLabel" parent="Character Menu/Accomplishments Scroll"]
 layout_mode = 0
 offset_right = 672.0
 offset_bottom = 568.0
@@ -478,6 +532,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_uh4tj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rxlbl")
 
 [node name="Equiped Gear Menu" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 16.0
 offset_top = 8.0
@@ -818,6 +873,7 @@ text = "OK!"
 script = ExtResource("29_e8edt")
 
 [connection signal="pressed" from="Weapon Select Menu/Weapon Skill Tree/Button" to="Weapon Select Menu/Weapon Skill Tree" method="close_tree"]
+[connection signal="pressed" from="Weapon Select Menu/Weapon Skill Tree/Apply" to="Weapon Select Menu/Weapon Skill Tree" method="apply_selected_tree_node"]
 [connection signal="pressed" from="Combat Prep Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="on_equiped_gear_selected" from="Equiped Gear Menu" to="Gear Menu" method="_on_equiped_gear_menu_on_equiped_gear_selected"]
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Helmet" to="Equiped Gear Menu/GearUIContainer/Helmet" method="_on_pressed"]
