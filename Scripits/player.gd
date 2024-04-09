@@ -20,13 +20,14 @@ signal on_player_death()
 func _ready():
 	await get_tree().create_timer(.5).timeout
 	if PlayerSetup.weapon != null:
-		weapon = PlayerSetup.weapon
+		weapon = PlayerSetup.weapon.duplicate()
 		if weapon_manager is WeaponManager:
 			weapon_inst = weapon.weapon.instantiate()
 			weapon_manager.add_child(weapon_inst)
 			weapon_inst.init_weapon(combat_stat_container.base_stats)
 	
 func _on_health_died():
+	print("Player death emitted")
 	on_player_death.emit()
 	
 func xp_pickup(value : float):

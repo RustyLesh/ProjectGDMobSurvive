@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxvbvcxhmhna5"]
 
 [ext_resource type="Script" path="res://Scripits/Drops/gear_drop.gd" id="1_umrqs"]
-[ext_resource type="Texture2D" uid="uid://cwlaqkdfkhd5g" path="res://Art/box_drop_sprite.png" id="2_b6rb5"]
+[ext_resource type="Texture2D" uid="uid://4bkhdtkiugtp" path="res://Art/box_drop.png" id="2_j3msd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5hfw"]
 radius = 56.0
@@ -11,7 +11,7 @@ collision_layer = 8
 script = ExtResource("1_umrqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_b6rb5")
+texture = ExtResource("2_j3msd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g5hfw")

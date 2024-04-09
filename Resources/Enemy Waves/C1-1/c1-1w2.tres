@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=14 format=3 uid="uid://dim7snw0h6nn5"]
+
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="1_prj2y"]
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="2_5xrb6"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="3_ppbws"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="4_px643"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="5_1h2ml"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="6_kfurv"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="7_qjieo"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_fj5ls"]
+
+[sub_resource type="Resource" id="Resource_4iit7"]
+script = ExtResource("3_ppbws")
+bullet_scene = ExtResource("2_5xrb6")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8d7mx"]
+
+[sub_resource type="Resource" id="Resource_jnscf"]
+script = ExtResource("4_px643")
+
+[sub_resource type="Resource" id="Resource_u4m2t"]
+script = ExtResource("5_1h2ml")
+move_speed = 80
+contact_damage = 10
+sprite = ExtResource("1_prj2y")
+spawn_animation = ExtResource("6_kfurv")
+collision_shape = SubResource("CircleShape2D_8d7mx")
+collision_pos_offset = Vector2(0, 0)
+follow_range = 150
+keep_following = false
+bullet_resource = SubResource("Resource_4iit7")
+bullet_damage = 5
+delay_betweeen_shots = 5.0
+enemy_ai_movement = SubResource("Resource_jnscf")
+
+[sub_resource type="Resource" id="Resource_wbgqn"]
+script = ExtResource("7_qjieo")
+enemy_icon = ExtResource("1_prj2y")
+enemy_type = 0
+enemy_name = "Turret"
+max_health = 10
+stage_xp_value = 2.0
+weapon_xp_value = 0.0
+enemy_shell_resource = SubResource("Resource_u4m2t")
+
+[resource]
+script = ExtResource("8_fj5ls")
+time_start = 60
+time_end = 120
+enemy_resource = SubResource("Resource_wbgqn")
+enemy_amount = 1
+spawn_delay = 5

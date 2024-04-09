@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=17 format=3 uid="uid://6e523i31xbkf"]
+
+[ext_resource type="Resource" uid="uid://41r2pnr54srt" path="res://Resources/Gear/ammy_purple.tres" id="1_b650a"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_p2024"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_2e637"]
+[ext_resource type="Texture2D" uid="uid://bxcis5x17xg7j" path="res://Art/Enemies/SlimeEye.png" id="4_x8kbl"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="5_j50ns"]
+[ext_resource type="Material" uid="uid://cnse020hxoxfv" path="res://Objects/Enemy Spawning/Shaders/blue.tres" id="6_y5y26"]
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_shell_resource.gd" id="7_kr781"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="8_2sqrs"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="8_ajl17"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_7lgqc"]
+
+[sub_resource type="Resource" id="Resource_y60dj"]
+script = ExtResource("2_p2024")
+gear_resource = ExtResource("1_b650a")
+drop_weight = 1.0
+rarity = 1
+
+[sub_resource type="Resource" id="Resource_7cqva"]
+script = ExtResource("3_2e637")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_y60dj")])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fma8l"]
+
+[sub_resource type="Resource" id="Resource_wtld5"]
+script = ExtResource("5_j50ns")
+
+[sub_resource type="Resource" id="Resource_h7yjg"]
+script = ExtResource("7_kr781")
+move_speed = 100
+contact_damage = 0
+sprite = ExtResource("4_x8kbl")
+spawn_animation = ExtResource("8_2sqrs")
+collision_shape = SubResource("CircleShape2D_fma8l")
+collision_pos_offset = Vector2(0, 0)
+follow_range = 0
+keep_following = false
+enemy_ai_movement = SubResource("Resource_wtld5")
+outline_material = ExtResource("6_y5y26")
+
+[sub_resource type="Resource" id="Resource_fdx3g"]
+script = ExtResource("8_ajl17")
+enemy_icon = ExtResource("4_x8kbl")
+enemy_type = 2
+enemy_name = "empty_name"
+max_health = 200
+stage_xp_value = 0.0
+weapon_xp_value = 0.0
+drop_pool = SubResource("Resource_7cqva")
+enemy_shell_resource = SubResource("Resource_h7yjg")
+
+[resource]
+script = ExtResource("9_7lgqc")
+time_start = 240
+time_end = 300
+enemy_resource = SubResource("Resource_fdx3g")
+enemy_amount = 2
+spawn_delay = 100

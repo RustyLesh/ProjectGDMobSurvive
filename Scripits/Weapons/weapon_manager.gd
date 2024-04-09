@@ -22,7 +22,7 @@ func _ready():
 	
 	extra_proj_count = stat_container.get_stat(BaseStat.BaseStatType.PROJ_COUNT).value
 	pierce = stat_container.get_stat(BaseStat.BaseStatType.PIERCE).value
-
+	print("Proj cnt: ", extra_proj_count)
 #convert fire rate into shots per second
 func set_fire_rate(value : float):
 	fire_rate = value

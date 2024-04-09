@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://kcwdexkjbfcf"]
 
-[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/ammy_lightning_pot.tres" id="1_tjbyn"]
+[ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="1_wen7b"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_852mf"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_38xh6"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="4_ohy8n"]
@@ -8,15 +8,15 @@
 [ext_resource type="Script" path="res://Scripits/Enemy/shell_boss_resource.gd" id="6_viu28"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="7_ijgs5"]
 
-[sub_resource type="Resource" id="Resource_tfw4q"]
+[sub_resource type="Resource" id="Resource_mfjl3"]
 script = ExtResource("2_852mf")
-gear_resource = ExtResource("1_tjbyn")
+gear_resource = ExtResource("1_wen7b")
 drop_weight = 1.0
-rarity = 3
+rarity = 2
 
 [sub_resource type="Resource" id="Resource_syjpa"]
 script = ExtResource("3_38xh6")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_tfw4q")])
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3")])
 
 [sub_resource type="Resource" id="Resource_t086v"]
 script = ExtResource("6_viu28")

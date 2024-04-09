@@ -9,9 +9,6 @@ func XP_Init(xp_value: float):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		if body.get_parent() is Player:
-			body.get_parent().xp_pickup(value)
+		body.get_parent().xp_pickup(value)
+		await get_tree().create_timer(0.25).timeout
 		queue_free()
-
-func pick_up():
-	pass

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=14 format=3 uid="uid://crkffkk3280b"]
+
+[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_shl5e"]
+[ext_resource type="Resource" uid="uid://2jfmespc2hy5" path="res://Resources/Enemy Waves/C1-2/c1-1w1.tres" id="2_mr7uy"]
+[ext_resource type="Resource" uid="uid://c17l3w5db8g03" path="res://Resources/Enemy Waves/C1-2/c1-1w2.tres" id="3_2k3kt"]
+[ext_resource type="Resource" uid="uid://ba5rgxeqosagy" path="res://Resources/Enemy Waves/C1-2/c1-1w2a.tres" id="4_blouu"]
+[ext_resource type="Resource" uid="uid://bclk37w0b667v" path="res://Resources/Enemy Waves/C1-2/c1-1w3.tres" id="5_yf342"]
+[ext_resource type="Resource" uid="uid://fqlqjmkdbei7" path="res://Resources/Enemy Waves/C1-2/c1-1w3a.tres" id="6_ry7mr"]
+[ext_resource type="Resource" uid="uid://cqr5vyxcilc3w" path="res://Resources/Enemy Waves/C1-2/c1-1w3Elite.tres" id="7_dh7pp"]
+[ext_resource type="Resource" uid="uid://dr452w0j1exro" path="res://Resources/Enemy Waves/C1-2/c1-1w4.tres" id="8_80i08"]
+[ext_resource type="Resource" uid="uid://ueaxt3lq77ms" path="res://Resources/Enemy Waves/C1-2/c1-1w4a.tres" id="9_i86ok"]
+[ext_resource type="Resource" uid="uid://chtkw0vtqdwrw" path="res://Resources/Enemy Waves/C1-2/c1-1w5.tres" id="10_wyllv"]
+[ext_resource type="Resource" uid="uid://ctt3qi3kbqg80" path="res://Resources/Enemy Waves/C1-2/c1-1w5a.tres" id="11_2x7bv"]
+[ext_resource type="Resource" uid="uid://b32ljhefjo27b" path="res://Resources/Enemy Waves/C1-2/c1-1w5Elite.tres" id="12_ip5t4"]
+[ext_resource type="Resource" uid="uid://dn17pfxbmo620" path="res://Resources/Enemy Waves/C1-2/c1-1w6Boss.tres" id="13_jglk5"]
+
+[resource]
+script = ExtResource("1_shl5e")
+stage_number = 2
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_mr7uy"), ExtResource("3_2k3kt"), ExtResource("4_blouu"), ExtResource("5_yf342"), ExtResource("6_ry7mr"), ExtResource("7_dh7pp"), ExtResource("8_80i08"), ExtResource("9_i86ok"), ExtResource("10_wyllv"), ExtResource("11_2x7bv"), ExtResource("12_ip5t4"), ExtResource("13_jglk5")])

@@ -31,12 +31,9 @@ func _on_body_entered(body):
 					hit_effect.trigger_effect(body.get_parent())
 			#Destroy self if 0 pierces remain
 			if pierce_counter >= pierce:
-				print("out of pierce")
 				call_deferred("kill_self")
 			else: 
 				pierce_counter += 1
-			if body.get_parent() is Player:
-				print("hit player")
 
 #after life time of bullet runns out, runs the kill function
 func start_kill_timer():

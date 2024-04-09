@@ -7,7 +7,8 @@ class_name GearMenu
 @onready var equiped_gear_menu: EquipedGearMenu = $"../Equiped Gear Menu"
 @onready var stat_container: MainMenuStatContainer = $"../Stat Container"
 @onready var selected_item_options: HBoxContainer = $"Selected Item Options"
-
+@onready var no_results_warning: Label = $"No Results Warning"
+@onready var no_gear_warning: Label = $"No Gear Warning"
 var inv_item_button: Resource = preload("res://Objects/Main Menu/inventory_item.tscn")
 
 var gear_list_filtered: Array[GearResource]
@@ -26,21 +27,38 @@ func _ready():
 			item_list.add_item(gear_list[i]._item_name, gear_list[i]._icon)
 	
 	await get_tree().create_timer(.3).timeout
-	print("equiping")
 	for gear in PlayerSetup.equiped_gear:
-		print("equiping part 2")
 		equip_gear(gear)
+
+	no_results_warning.visible = false
+	no_gear_warning.visible = false
 	
 func refresh_item_list():
 	item_list.clear()
+
+	#If player has no items, show warning and return
+	if gear_list.size() == 0:
+		no_gear_warning.visible = true
+		return
+	else:
+		no_gear_warning.visible = false
+
 	if filter_applied:
-		for i in gear_list_filtered.size()-1:
+		for i in gear_list_filtered.size():
 			if item_list is ItemList:
 				item_list.add_item(gear_list_filtered[i]._item_name, gear_list_filtered[i]._icon)
+
 	else:
-		for i in gear_list.size()-1:
+		for i in gear_list.size():
 			if item_list is ItemList:
 				item_list.add_item(gear_list[i]._item_name, gear_list[i]._icon)
+
+	#if item list is empty, show no results warning
+	if item_list.item_count == 0:
+		no_results_warning.visible = true
+	else:
+		no_results_warning.visible = false
+
 
 func update_ui():
 	gear_list = PlayerSetup.inventory
@@ -92,6 +110,7 @@ func add_item(gear: GearResource):
 func remove_selected_item():
 	gear_list.erase(gear_list[selected_item])
 	item_list.remove_item(selected_item)
+	update_ui()
 
 func filter_by_type(gear_type: GearResource.GearType):
 	gear_list_filtered.clear()

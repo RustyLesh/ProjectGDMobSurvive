@@ -8,4 +8,5 @@ func _on_body_entered(body):
 		print("Gear picked up: ", gear_resource._item_name)
 		gear_resource.init_gear_drop()
 		PlayerSetup.gear_drops.append(gear_resource)
+		await get_tree().create_timer(.5).timeout
 		queue_free()

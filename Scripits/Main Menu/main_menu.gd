@@ -93,6 +93,7 @@ func change_menu(change_to: MenuType):
 					
 		MenuType.COMBAT:
 			combat_menu.visible = true
+			combat_menu.update_ui()
 			
 		MenuType.GEAR:
 			gear_menu.visible = true

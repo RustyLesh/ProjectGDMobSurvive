@@ -1,45 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=21 format=3 uid="uid://dg66dot1gmgx5"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://dg66dot1gmgx5"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="1_lyoxk"]
-[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/ammy_slow.tres" id="1_mok7p"]
-[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_d7xoc"]
-[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_life.tres" id="3_k7n6b"]
-[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="3_mvoln"]
-[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/ammy_lightning_pot.tres" id="4_b85or"]
-[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="5_my4da"]
 [ext_resource type="Texture2D" uid="uid://ctoccfbavy0iw" path="res://Art/Enemies/blue_wisp.png" id="7_1281r"]
 [ext_resource type="Script" path="res://Scripits/Enemy/shell_grunt_resource.gd" id="7_sum2g"]
 [ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="8_gn205"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="9_hlgdm"]
 [ext_resource type="PackedScene" uid="uid://5ehknm0xq8i5" path="res://enemy_spawn_animation.tscn" id="11_g12ne"]
-
-[sub_resource type="Resource" id="Resource_fqmrr"]
-script = ExtResource("2_d7xoc")
-gear_resource = ExtResource("1_mok7p")
-drop_weight = 45.0
-rarity = 0
-
-[sub_resource type="Resource" id="Resource_gwe5t"]
-script = ExtResource("2_d7xoc")
-gear_resource = ExtResource("3_k7n6b")
-drop_weight = 35.0
-rarity = 1
-
-[sub_resource type="Resource" id="Resource_eurl3"]
-script = ExtResource("2_d7xoc")
-gear_resource = ExtResource("3_mvoln")
-drop_weight = 25.0
-rarity = 2
-
-[sub_resource type="Resource" id="Resource_3v3ov"]
-script = ExtResource("2_d7xoc")
-gear_resource = ExtResource("4_b85or")
-drop_weight = 15.0
-rarity = 3
-
-[sub_resource type="Resource" id="Resource_3r56q"]
-script = ExtResource("5_my4da")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_fqmrr"), SubResource("Resource_gwe5t"), SubResource("Resource_eurl3"), SubResource("Resource_3v3ov")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxeik"]
 
@@ -65,5 +31,4 @@ enemy_name = "Wispy"
 max_health = 1
 stage_xp_value = 5.0
 weapon_xp_value = 1.0
-drop_pool = SubResource("Resource_3r56q")
 enemy_shell_resource = SubResource("Resource_o8tl4")

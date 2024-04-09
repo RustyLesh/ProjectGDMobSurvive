@@ -51,16 +51,12 @@ func _ready():
 		
 		enemy_spawns = PlayerSetup.enemy_spawns
 		spawns = enemy_spawns.spawns
-
-
 	
 	game_win_time = spawns[spawns.size() - 1].time_end + 5
-	print("Game time win: ", game_win_time)
 
 #Pause spawn timer
 func pause_timer():
 	timer.paused = true
-	print("paused timer")
 	on_spawn_timer_pause.emit()
 
 #Resume spawn timer
@@ -72,6 +68,7 @@ func play_timer():
 func _on_timer_timeout():
 	time += 1
 	ui_scene.stage_timer.update_timer(time)
+	ui_scene.seconds_timer.update_timer(time)
 	for i in spawns:
 		spawn(i)
 	if time >= game_win_time:
@@ -149,5 +146,4 @@ func on_stage_win():
 	stage_win.emit()
 
 func on_elite_killed():
-	print("elite_died")
 	upgrade_manager.add_reroll_points(1)

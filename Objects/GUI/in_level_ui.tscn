@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=36 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripits/GUI/hud_xp.gd" id="4_fh5v3"]
 [ext_resource type="Script" path="res://Scripits/GUI/stage_timer.gd" id="4_it7su"]
 [ext_resource type="Script" path="res://Scripits/GUI/health_label.gd" id="5_fu2ar"]
+[ext_resource type="Script" path="res://Objects/GUI/seconds_timer.gd" id="5_uqkxn"]
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_points_counter.gd" id="7_5e6md"]
@@ -19,6 +20,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_mpb71"]
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_pny5a"]
+font_size = 40
 
 [sub_resource type="Gradient" id="Gradient_1n4kt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -146,6 +150,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_it7su")
 
+[node name="Seconds Timer" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 96.0
+offset_top = 24.0
+offset_right = 240.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "000"
+label_settings = SubResource("LabelSettings_pny5a")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_uqkxn")
+
 [node name="XP Bar" type="TextureProgressBar" parent="HUD"]
 layout_mode = 2
 offset_top = 97.0
@@ -246,7 +266,6 @@ text = "Pts: "
 script = ExtResource("7_5e6md")
 
 [node name="End Screen" type="Control" parent="."]
-visible = false
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0

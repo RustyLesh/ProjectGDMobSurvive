@@ -22,7 +22,6 @@ var xp_constant: float = 0.5
 var max_level = 5
 
 func _init():
-	print("init")
 	for upgrade in upgrades:
 		upgrade.source_type = GearResource.GearType.WEAPON
 

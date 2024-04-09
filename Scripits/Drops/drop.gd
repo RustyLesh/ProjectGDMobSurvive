@@ -11,6 +11,3 @@ func _on_area_exited(area):
 	if area.is_in_group("Player"):
 		print("player exit")
 	
-func pick_up():
-	pass
-

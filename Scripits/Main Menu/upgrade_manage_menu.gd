@@ -22,8 +22,8 @@ func _ready():
 	add_button.disabled = true
 	remove_button.disabled = true
 	main_menu.on_start_combat.connect(on_combat_start)
-	upgrade_pool = PlayerSetup.upgrade_pool.duplicate()
-	selected_upgrades = PlayerSetup.selected_upgrades.duplicate()
+	upgrade_pool = PlayerSetup.upgrade_pool
+	selected_upgrades = PlayerSetup.selected_upgrades
 	update_ui()
 
 func on_combat_start():
@@ -57,7 +57,6 @@ func update_ui():
 		if upgrade.forced_upgrade:
 			selected_upgrade_list_ui.set_item_custom_bg_color (selected_upgrade_list_ui.item_count - 1, forced_upgrade_bg_colour)
 			selected_upgrade_list_ui.set_item_custom_fg_color (selected_upgrade_list_ui.item_count - 1, forced_upgrade_fg_colour)
-		
 
 func select_upgrade():
 	if highlighted_in_upgrade_pool >= 0:

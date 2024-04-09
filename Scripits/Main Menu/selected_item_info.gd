@@ -18,3 +18,7 @@ func on_item_select(gear: GearResource):
 			else: if mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:\
 				mod_list.append_text(str("[UPGRADE] " + mod.upgrade_resource.upgrade.get_upgrade_string(), " Max uses: " ,mod.upgrade_resource._max_uses, "\n"))
 
+func clear_info():
+	name_label.text = ""
+	description_label.text = ""
+	mod_list.clear()

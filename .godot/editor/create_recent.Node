@@ -1,6 +1,9 @@
-Button
 Label
+CheckButton
 Panel
+Button
+VBoxContainer
+Node
 HBoxContainer
 GridContainer
 Control
@@ -12,8 +15,6 @@ CenterContainer
 TextureProgressBar
 WorldEnvironment
 GPUParticles2D
-Node
-VBoxContainer
 TextureRect
 RichTextLabel
 Sprite2D
@@ -29,4 +30,3 @@ MarginContainer
 PanelContainer
 Container
 AnimatedSprite2D
-AnimationPlayer

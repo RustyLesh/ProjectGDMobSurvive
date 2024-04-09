@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=3 format=3 uid="uid://crkffkk3280b"]
-
-[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_shl5e"]
-[ext_resource type="Resource" uid="uid://vc55wiq3sch1" path="res://Resources/EnemyWaves/C1-1/c1-1w3Elite.tres" id="2_fcla7"]
-
-[resource]
-script = ExtResource("1_shl5e")
-stage_number = 2
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_fcla7")])

@@ -7,6 +7,10 @@ class_name MenuManager
 @onready var boss_hp_bar_poss = $"HUD/Boss HP Bar Pos" 
 @onready var spawn_manager = get_parent().get_node("EnemySpawner")
 @onready var stage_timer = $"HUD/Timer"
+@onready var seconds_timer = $"HUD/Seconds Timer"
+@onready var touch_joysticks = $"TouchSticks/Test/Sticks"
+
+var is_player_dead: bool = false
 
 var hp_bar_instance
 
@@ -15,6 +19,10 @@ func _ready():
 	upgrade_menu.visible = false
 	end_screen.visible = false
 	spawn_manager.stage_win.connect(end_screen.on_stage_win)
+
+	await get_tree().create_timer(0.01).timeout
+	touch_joysticks.visible = ConfigManager.show_touch_joy_stick
+	
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):
 		toggle_upgrade_menu()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=82 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -24,11 +24,12 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/combat_menu.gd" id="16_0maer"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/difficulty_select_button.gd" id="16_ktv4v"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_tree_description.gd" id="17_flrow"]
-[ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Spawn lists/C1/Cmp1-1.tres" id="19_p2smv"]
-[ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Spawn lists/C1/Cmp1-2.tres" id="20_kivyr"]
+[ext_resource type="Resource" uid="uid://bbtpsb7ustpwe" path="res://Resources/Enemy Stages/C1/Cmp1-1.tres" id="20_r44hu"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
+[ext_resource type="Resource" uid="uid://crkffkk3280b" path="res://Resources/Enemy Stages/C1/Cmp1-2.tres" id="21_72j1a"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
-[ext_resource type="Resource" uid="uid://ds1wnf34mhcbu" path="res://Resources/Enemy Spawn lists/C1/Cmp1-3.tres" id="21_ti4nn"]
+[ext_resource type="Resource" uid="uid://ds1wnf34mhcbu" path="res://Resources/Enemy Stages/C1/Cmp1-3.tres" id="22_63fnx"]
+[ext_resource type="Resource" uid="uid://b3r4qs35etuh7" path="res://Resources/Enemy Stages/C1/testing.tres" id="23_gte4s"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_manage_menu.gd" id="26_4foof"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/options_menu.gd" id="26_6ety7"]
@@ -79,6 +80,16 @@ border_width_right = 7
 border_width_bottom = 7
 border_color = Color(1, 0.0117647, 0.0313726, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68q2k"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bpoh"]
+font_size = 40
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlhyl"]
 bg_color = Color(0.470588, 0.6, 0.843137, 1)
 
@@ -107,10 +118,27 @@ bg_color = Color(0.0823529, 0.113725, 0.184314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eugqw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5nva"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xocqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5a0d5"]
 font_size = 146
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxmnu"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_andqa"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6s72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t81vn"]
+bg_color = Color(0.054902, 0.054902, 0.054902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_14mav"]
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4a1t"]
 
@@ -131,7 +159,7 @@ anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1280.0
 script = ExtResource("1_74mk5")
-starting_menu = 5
+starting_menu = 4
 
 [node name="Stat Container" type="Node" parent="."]
 script = ExtResource("15_eji0x")
@@ -222,6 +250,7 @@ script = ExtResource("3_6n16w")
 menu_option_type = 2
 
 [node name="Abilites" type="Button" parent="Mode Menu/Menu Options/MarginContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 theme_override_constants/outline_size = 5
@@ -259,6 +288,7 @@ script = ExtResource("3_6n16w")
 menu_option_type = 3
 
 [node name="Weapon Select Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 script = ExtResource("2_0m2n6")
 new_game_start_weapon = ExtResource("12_lhhj1")
@@ -397,7 +427,6 @@ disabled = true
 text = "Apply"
 
 [node name="Combat Prep Menu" type="Control" parent="."]
-visible = false
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -438,7 +467,7 @@ offset_right = 252.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 35
 
 [node name="Diff1" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -457,7 +486,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "1"
 script = ExtResource("16_ktv4v")
 difficulty = 1
-enemy_spawns = ExtResource("19_p2smv")
+enemy_spawns = ExtResource("20_r44hu")
 
 [node name="Diff2" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -476,7 +505,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "2"
 script = ExtResource("16_ktv4v")
 difficulty = 2
-enemy_spawns = ExtResource("20_kivyr")
+enemy_spawns = ExtResource("21_72j1a")
 
 [node name="Diff3" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -495,9 +524,43 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "3"
 script = ExtResource("16_ktv4v")
 difficulty = 3
-enemy_spawns = ExtResource("21_ti4nn")
+enemy_spawns = ExtResource("22_63fnx")
+
+[node name="Test" type="Button" parent="Combat Prep Menu/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.152941, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.505882, 0, 0, 1)
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = SubResource("SystemFont_caiw3")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8sh40")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s8gb1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ae2n4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
+text = "test
+"
+script = ExtResource("16_ktv4v")
+enemy_spawns = ExtResource("23_gte4s")
+
+[node name="Not Enough Upgrades Warning" type="Label" parent="Combat Prep Menu"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 968.0
+offset_right = 640.0
+offset_bottom = 1136.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_68q2k")
+text = "You need at least 6 upgrades selected to start"
+label_settings = SubResource("LabelSettings_0bpoh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Character Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -679,6 +742,32 @@ item_3/icon = ExtResource("23_tud67")
 item_4/text = ""
 item_4/icon = ExtResource("23_tud67")
 
+[node name="No Results Warning" type="Label" parent="Gear Menu"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 464.0
+offset_right = 696.0
+offset_bottom = 1136.0
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5nva")
+text = "No Results for current filters set
+Try changing or clearing filters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No Gear Warning" type="Label" parent="Gear Menu"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 392.0
+offset_right = 712.0
+offset_bottom = 1144.0
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5nva")
+text = "Your inventory is empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Ability Menu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -742,11 +831,58 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -120.0
+offset_left = 16.0
+offset_top = -136.0
+offset_right = -8.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "QUIT"
+text = "QUIT GAME"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -436.0
+offset_right = 336.0
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Show Touch Sticks" type="Label" parent="Options Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bxmnu")
+text = "Show Touch Sticks"
+
+[node name="Show Touch Sticks Button" type="CheckButton" parent="Options Menu/VBoxContainer/Show Touch Sticks"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_andqa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s6s72")
+button_pressed = true
+
+[node name="Label" type="Label" parent="Options Menu"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 704.0
+offset_bottom = 104.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_t81vn")
+text = "Options"
+label_settings = SubResource("LabelSettings_14mav")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Upgrade Menu" type="Control" parent="."]
 visible = false
@@ -881,9 +1017,11 @@ script = ExtResource("29_e8edt")
 [connection signal="pressed" from="Equiped Gear Menu/GearUIContainer/Amulet" to="Equiped Gear Menu/GearUIContainer/Amulet" method="_on_pressed"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Equip" to="Gear Menu" method="on_equip_button_pressed"]
 [connection signal="pressed" from="Gear Menu/Selected Item Options/Craft" to="Gear Menu" method="_on_craft_pressed"]
+[connection signal="pressed" from="Gear Menu/Selected Item Options/Delete" to="Gear Menu" method="remove_selected_item"]
 [connection signal="pressed" from="Gear Menu/Gear Filters/gear_type_filter" to="Gear Menu/Gear Filters" method="_on_gear_type_filter_pressed"]
 [connection signal="item_selected" from="Gear Menu/ScrollContainer/Item List" to="Gear Menu" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Options Menu/Button" to="." method="on_quit_button_pressed"]
+[connection signal="toggled" from="Options Menu/VBoxContainer/Show Touch Sticks/Show Touch Sticks Button" to="Options Menu" method="_on_button_toggled"]
 [connection signal="item_selected" from="Upgrade Menu/Upgrade Pool Container/Upgrade Pool List" to="Upgrade Menu" method="on_upgrade_pool_item_selected"]
 [connection signal="item_selected" from="Upgrade Menu/Selected Upgrade Container/Selected Upgrade List" to="Upgrade Menu" method="on_selected_upgrades_item_selected"]
 [connection signal="pressed" from="Upgrade Menu/Add Button" to="Upgrade Menu" method="select_upgrade"]

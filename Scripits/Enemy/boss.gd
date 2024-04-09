@@ -19,10 +19,8 @@ signal on_current_hp_changed(current_hp)
 
 func ready():
 	entity_type = EntityType.BOSS
-	print("Boss Init")
 
 func _on_health_died():
-	print("Boss death emited")
 	on_boss_death.emit()
 	super()
 
@@ -38,4 +36,3 @@ func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _pare
 
 func current_hp_changed(current_hp):
 	on_current_hp_changed.emit(current_hp)
-	print("boss hp :", current_hp)

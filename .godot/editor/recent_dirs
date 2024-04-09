@@ -1,12 +1,10 @@
+res://
+res://Scripits
 res://Resources/Enemies/Bosses
 res://Resources/Gear
 res://Scripits/GUI
 res://Scripits/Main Menu
 res://Resources/Enemies
-res://Resources/EnemyWaves/C1-1
-res://Resources/EnemyWaves
-res://Resources/Enemy Spawn lists
-res://
 res://Objects/Enemy Spawning/Shaders
 res://Objects/Main Menu
 res://Objects/GUI
@@ -14,7 +12,6 @@ res://Resources/Upgrades/On Hit Upgrades
 res://Resources/Upgrades/Base Stat Upgrades
 res://test
 res://Objects
-res://Scripits
 res://Resources
 res://Scripits/On Hit Effects
 C:/Users/flame/AppData/Local/Programs/Microsoft VS Code

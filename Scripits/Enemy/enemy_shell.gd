@@ -39,6 +39,8 @@ func roll_drop():
 	#return if drop pool doesnt exist
 	if drop_pool == null:
 		return
+		
+	print("Drops size:", drop_pool.drop_pool.size())
 	var drop_gen = drop_pool.get_drop()
 
 	if drop_gen.size() <= 0: #return if drop is empty

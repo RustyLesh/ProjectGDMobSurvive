@@ -29,6 +29,7 @@ func _ready():
 	for slot in slots:
 		slot.on_gear_selected.connect(on_gear_selected)
 		slot.on_gear_slot_clicked.connect(on_gear_slot_selected)
+		slot.on_empty_slot_selected.connect(on_empty_gear_slot_selected)
 	
 	if !PlayerSetup.equiped_gear.is_empty():
 		for gear in PlayerSetup.equiped_gear:
@@ -40,7 +41,6 @@ func on_start_combat():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		print("Copying")
 		save_data()
 
 func save_data():
@@ -66,7 +66,10 @@ func equip_gear(gear: GearResource) -> GearResource:
 func on_gear_selected(gear: GearResource):
 	item_info_panel.on_item_select(gear)
 	on_equiped_gear_selected.emit()
-	
+
+func on_empty_gear_slot_selected():
+	item_info_panel.clear_info()
+
 func on_gear_slot_selected(gear_type: GearResource.GearType):
 	gear_menu.filter_by_type(gear_type)
 	if main_menu.current_menu != MainMenu.MenuType.GEAR:
@@ -87,7 +90,7 @@ func get_gear_in_slot(gear_type : GearResource.GearType) -> GearResource:
 	return return_gear
 
 func get_all_gear() -> Array[GearResource]:
-	var equipped_gear: Array[GearResource]
+	var equipped_gear: Array[GearResource] 
 
 	if helmet_slot.equiped_gear != null:
 		equipped_gear.append(helmet_slot.equiped_gear)

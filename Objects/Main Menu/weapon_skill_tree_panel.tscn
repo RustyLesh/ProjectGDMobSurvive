@@ -19,16 +19,21 @@ theme_override_constants/separation = 50
 alignment = 1
 
 [node name="Skill Tree Skill button0" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Skill Tree Skill button1" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Skill Tree Skill button2" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Skill Tree Skill button3" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Skill Tree Skill button4" parent="HBoxContainer" instance=ExtResource("2_pcwel")]
+texture_filter = 1
 layout_mode = 2

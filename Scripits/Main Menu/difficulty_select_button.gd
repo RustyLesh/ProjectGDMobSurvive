@@ -1,4 +1,6 @@
 extends Button
+class_name StageSelectButton
+
 @export var difficulty: int
 @export var enemy_spawns: EnemySpawns
 @onready var combat_menu = $"../../"

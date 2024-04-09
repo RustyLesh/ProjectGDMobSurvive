@@ -45,11 +45,10 @@ func on_weapon_select(weapon: WeaponResource):
 				tree_panels[index].update_panel(tree_dict[index], -1)
 
 	selected_weapon = weapon
-	print("wep level: ", selected_weapon.level, "tree panel size: ", tree_panels.size())
 
 	for panel_index in tree_panels.size():
 		tree_panels[panel_index].init_panel(tree_node_selected)
-		if (selected_weapon.level - 1) < panel_index:
+		if (PlayerStats.highest_stage_completed - 1) < panel_index:
 			tree_panels[panel_index].disable_all_options()
 			
 

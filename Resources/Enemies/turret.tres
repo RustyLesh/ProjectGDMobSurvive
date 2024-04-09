@@ -19,8 +19,8 @@ script = ExtResource("4_kford")
 
 [sub_resource type="Resource" id="Resource_u4m2t"]
 script = ExtResource("4_usjnf")
-move_speed = 70
-contact_damage = 10
+move_speed = 80
+contact_damage = 20
 sprite = ExtResource("1_8i5o3")
 spawn_animation = ExtResource("5_mpls6")
 collision_shape = SubResource("CircleShape2D_8d7mx")
@@ -28,8 +28,8 @@ collision_pos_offset = Vector2(0, 0)
 follow_range = 100
 keep_following = false
 bullet_resource = SubResource("Resource_4iit7")
-bullet_damage = 5
-delay_betweeen_shots = 0.0
+bullet_damage = 15
+delay_betweeen_shots = 5.0
 enemy_ai_movement = SubResource("Resource_7qx8p")
 
 [resource]

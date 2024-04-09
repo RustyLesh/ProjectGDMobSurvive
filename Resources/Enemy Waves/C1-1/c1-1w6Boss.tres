@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=15 format=3 uid="uid://c05ascnrvk6g4"]
+
+[ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="1_cpfsp"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_gx4e7"]
+[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="3_v5iyi"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="4_awqc0"]
+[ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="5_n7d17"]
+[ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="6_obnja"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_boss_resource.gd" id="7_pp0pi"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="8_5wv7y"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_wei85"]
+
+[sub_resource type="Resource" id="Resource_mfjl3"]
+script = ExtResource("2_gx4e7")
+gear_resource = ExtResource("1_cpfsp")
+drop_weight = 1.0
+rarity = 2
+
+[sub_resource type="Resource" id="Resource_7h5ka"]
+script = ExtResource("2_gx4e7")
+gear_resource = ExtResource("3_v5iyi")
+drop_weight = 0.0
+rarity = 3
+
+[sub_resource type="Resource" id="Resource_syjpa"]
+script = ExtResource("4_awqc0")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3"), SubResource("Resource_7h5ka")])
+
+[sub_resource type="Resource" id="Resource_t086v"]
+script = ExtResource("7_pp0pi")
+hp_bar_texture_resource = ExtResource("6_obnja")
+difficulty = 0
+
+[sub_resource type="Resource" id="Resource_yx5qk"]
+script = ExtResource("8_5wv7y")
+enemy_icon = ExtResource("5_n7d17")
+enemy_type = 1
+enemy_name = "empty_name"
+max_health = 500
+stage_xp_value = 0.0
+weapon_xp_value = 0.0
+drop_pool = SubResource("Resource_syjpa")
+enemy_shell_resource = SubResource("Resource_t086v")
+
+[resource]
+script = ExtResource("9_wei85")
+time_start = 300
+time_end = 310
+enemy_resource = SubResource("Resource_yx5qk")
+enemy_amount = 2
+spawn_delay = 100
