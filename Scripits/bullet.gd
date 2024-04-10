@@ -5,6 +5,7 @@ signal destroy()
 #Projectile movement 
 
 @export var speed = 20
+##Duration in seconds
 @export var lifetime := 1
 @export var base_damage := 1
 @export var pierce: int #Max number of enemies can pierce

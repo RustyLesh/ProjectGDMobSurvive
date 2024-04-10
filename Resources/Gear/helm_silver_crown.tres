@@ -1,12 +1,60 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=3 format=3 uid="uid://dgtcva4lw0ddv"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://dgtcva4lw0ddv"]
 
 [ext_resource type="Texture2D" uid="uid://b83vjckyoayf6" path="res://Art/Equipment/silvercrown.png" id="1_p4rtv"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_3twnp"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_qw35x"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_0jogw"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_4yct4"]
+
+[sub_resource type="Resource" id="Resource_ixvyf"]
+script = ExtResource("4_4yct4")
+_value = 200.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_01w3q"]
+script = ExtResource("3_0jogw")
+_name = "hp"
+_description = ""
+upgrade = SubResource("Resource_ixvyf")
+added_upgrades = Array[ExtResource("3_0jogw")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_y0qvw"]
+script = ExtResource("2_qw35x")
+mod_type = 0
+upgrade_resource = SubResource("Resource_01w3q")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_b2sml"]
+script = ExtResource("4_4yct4")
+_value = 100.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_rydq4"]
+script = ExtResource("3_0jogw")
+_name = "Big life"
+_description = "gives a lot of life"
+_icon = ExtResource("1_p4rtv")
+upgrade = SubResource("Resource_b2sml")
+added_upgrades = Array[ExtResource("3_0jogw")]([])
+_max_uses = 1
+weight = 1
+
+[sub_resource type="Resource" id="Resource_huh7m"]
+script = ExtResource("2_qw35x")
+mod_type = 1
+upgrade_resource = SubResource("Resource_rydq4")
+slot_source = 0
+forced_upgrade = true
 
 [resource]
 script = ExtResource("2_3twnp")
-_item_name = ""
-_description = ""
+_item_name = "Silver crown"
+_description = "Using silvBy harnessing silvers antimicrobial properties, this crown provides the user a great defense."
 _icon = ExtResource("1_p4rtv")
 _gear_type = 0
-mod_list = Array[Resource("res://Scripits/gear_modifier.gd")]([])
+mod_list = Array[ExtResource("2_qw35x")]([SubResource("Resource_y0qvw"), SubResource("Resource_huh7m")])

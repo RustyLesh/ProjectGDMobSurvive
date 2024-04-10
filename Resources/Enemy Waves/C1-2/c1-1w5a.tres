@@ -1,0 +1,229 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=42 format=3 uid="uid://b25p0jl85s788"]
+
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="1_hwsuy"]
+[ext_resource type="Script" path="res://Scripits/bullet.gd" id="2_jw7u0"]
+[ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="3_8h7wu"]
+[ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="4_vbu0k"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="5_iv66a"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="6_5rf6c"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="7_a1dhs"]
+[ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="8_vgc25"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="9_0tcje"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="10_jqpd6"]
+
+[sub_resource type="Curve" id="Curve_lmfq4"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00239235, -3.78946), 0.0, 0.0, 0, 0, Vector2(0.748804, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wcsyp"]
+curve = SubResource("Curve_lmfq4")
+
+[sub_resource type="Gradient" id="Gradient_86feu"]
+offsets = PackedFloat32Array(0.315245, 0.516796, 0.754522)
+colors = PackedColorArray(0.443137, 0.0352941, 0.172549, 1, 0.593134, 0.593134, 0.593134, 1, 0.753387, 0, 0.00939637, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vm8r4"]
+gradient = SubResource("Gradient_86feu")
+
+[sub_resource type="Curve" id="Curve_qi7yh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.511962, 0.747368), 0.0, 0.0, 0, 0, Vector2(0.72488, 0.421053), -2.73514, -2.73514, 0, 0, Vector2(0.956938, 0.368421), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_mvcyf"]
+curve = SubResource("Curve_qi7yh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti5rs"]
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 40.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_curve = SubResource("CurveTexture_wcsyp")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.3
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_mvcyf")
+color_ramp = SubResource("GradientTexture1D_vm8r4")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs4dr"]
+radius = 5.0
+
+[sub_resource type="PackedScene" id="PackedScene_yipnv"]
+_bundled = {
+"conn_count": 3,
+"conns": PackedInt32Array(1073741828, 1073741827, 25, 24, 2, 0, 0, 1073741830, 1073741829, 27, 26, 2, 0, 0, 1073741832, 1073741831, 29, 28, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("EnemyBullet", "Area2D", "texture_filter", "collision_layer", "collision_mask", "priority", "script", "speed", "lifetime", "GPUParticles2D", "GPUParticles2D", "amount", "process_material", "texture", "lifetime", "speed_scale", "trail_lifetime", "script", "Sprite2D", "Sprite2D", "texture", "CollisionShape2D", "CollisionShape2D", "shape", "_on_body_entered", "body_entered", "_on_bullet_destroy", "destroy", "_on_gpu_particles_2d_kill", "kill"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("GPUParticles2D"), NodePath("."), NodePath("."), NodePath("GPUParticles2D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0, 1073741824, 0, 10, 9, -1, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 0, 1073741825, 0, 19, 18, -1, 1, 20, 14, 0, 1073741826, 0, 22, 21, -1, 1, 23, 15, 0),
+"variants": [1, 128, 5, 1, ExtResource("2_jw7u0"), 50, 5, 25, SubResource("ParticleProcessMaterial_ti5rs"), ExtResource("3_8h7wu"), 10.0, 2.5, 0.02, ExtResource("4_vbu0k"), ExtResource("3_8h7wu"), SubResource("CircleShape2D_xs4dr")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_wf6vs"]
+script = ExtResource("5_iv66a")
+bullet_scene = SubResource("PackedScene_yipnv")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok3iv"]
+
+[sub_resource type="Resource" id="Resource_djwf3"]
+script = ExtResource("6_5rf6c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0a7u"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqasl"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko0yb"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcuk"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whrso"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onp1y"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht2ks"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbyrd"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7bwq"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ppk"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0gjs"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybqx"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm0ew"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xoyr"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m47m6"]
+atlas = ExtResource("8_vgc25")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22ciw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0a7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqasl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko0yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whrso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onp1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht2ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbyrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7bwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ppk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0gjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kybqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm0ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xoyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m47m6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3no4"]
+load_path = "res://.godot/imported/DiamondTurret.png-f30e55883873fa42befdcd7956ab9c1a.ctex"
+
+[sub_resource type="Resource" id="Resource_5au2p"]
+script = ExtResource("7_a1dhs")
+move_speed = 80
+contact_damage = 15
+sprite = SubResource("CompressedTexture2D_o3no4")
+spawn_animation = SubResource("SpriteFrames_22ciw")
+collision_shape = SubResource("CircleShape2D_ok3iv")
+collision_pos_offset = Vector2(0, 0)
+follow_range = 170
+keep_following = false
+bullet_resource = SubResource("Resource_wf6vs")
+bullet_damage = 20
+bullet_speed = 80
+bullet_lifetime = 2
+delay_betweeen_shots = 3.0
+enemy_ai_movement = SubResource("Resource_djwf3")
+
+[sub_resource type="Resource" id="Resource_fe1ns"]
+script = ExtResource("9_0tcje")
+enemy_icon = ExtResource("1_hwsuy")
+enemy_type = 0
+enemy_name = "Turret"
+max_health = 50
+stage_xp_value = 4.0
+weapon_xp_value = 1.0
+enemy_shell_resource = SubResource("Resource_5au2p")
+
+[resource]
+script = ExtResource("10_jqpd6")
+time_start = 240
+time_end = 300
+enemy_resource = SubResource("Resource_fe1ns")
+enemy_amount = 6
+spawn_delay = 5

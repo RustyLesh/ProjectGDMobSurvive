@@ -54,7 +54,7 @@ _base_stat_type = 5
 
 [sub_resource type="Resource" id="Resource_w88wi"]
 script = ExtResource("4_rugsa")
-_name = ""
+_name = "Bullet duration"
 _description = ""
 upgrade = SubResource("Resource_tm5dk")
 added_upgrades = Array[ExtResource("4_rugsa")]([])

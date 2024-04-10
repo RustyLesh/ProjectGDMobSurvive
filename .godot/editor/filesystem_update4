@@ -100,3 +100,14 @@ res://Scripits/Enemy/shell_turrent_resource.gd
 res://player_setup.gd
 res://Scripits/Enemy/boss_totem_attack_ai.gd
 res://Scripits/Enemy/elite_shell.gd
+res://Resources/Gear/ammy_blue.tres
+res://Scripits/bullet_resource.gd
+res://Objects/enemy_bullet.tscn
+res://Resources/Enemy Waves/C1-2/c1-1w5b.tres
+res://Resources/Gear/ring_silver.tres
+res://Resources/Gear/ring_purple.tres
+res://Resources/Gear/ammy_lightning_pot.tres
+res://Resources/Gear/helm_silver_crown.tres
+res://Resources/Gear/ring_band_gold.tres
+res://Resources/Gear/ring_band_purple.tres
+res://Resources/Gear/ring_band_silver.tres

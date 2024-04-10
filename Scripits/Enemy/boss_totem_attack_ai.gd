@@ -44,9 +44,7 @@ func shoot_at_player(shots_per_burst: int, delay: float, proj_per_shot, angle_be
 	print("boss shooting at player")
 	for burst_index in shots_per_burst:
 		for proj_index in proj_per_shot:
-			var bullet = bullet_scene.instantiate()
-			add_child(bullet)
-			bullet.global_position = global_position
+			var bullet = create_bullet()
 			bullet.lifetime = 5
 			bullet.look_at(player.global_position)
 			bullet.rotate(PI/2)
@@ -59,21 +57,24 @@ func bullet_nova(no_of_shots, alternates_angle: bool):
 	var angles = 360 / no_of_shots
 	print("boss shooting nova")
 	for i in no_of_shots:
-		var bullet = bullet_scene.instantiate()
-		add_child(bullet)
-		bullet.global_position = global_position
+		var bullet = create_bullet()
 		bullet.lifetime = 10
+		bullet.speed = 50 * boss_diff
 		if alternates_angle:
 			if (alternate_counter % 2 == 1):
 				bullet.rotate(deg_to_rad((angles * i) + (angles / 2)))
-				print("If hit: ", alternate_counter)
 			else:
 				bullet.rotate(deg_to_rad(angles * i))
-				print("Else hit: ", alternate_counter)
 		else:
 			bullet.rotate(deg_to_rad(angles * i))
 
 	alternate_counter += 1
+
+func create_bullet() -> Variant:
+	var bullet = bullet_scene.instantiate()
+	add_child(bullet)
+	bullet.global_position = global_position
+	return bullet
 
 func on_phase_1_finish():
 	alternate_counter = 0
@@ -86,7 +87,7 @@ func on_phase_1_attack():
 	bullet_nova(4 * boss_diff, true)
 
 func on_phase_2_attack():
-	shoot_at_player(1 * boss_diff, 0.5, 3, 45)
+	shoot_at_player(1 * boss_diff, 0.5 / boss_diff, 3, 45)
 
 func switch_phase(next_phase : Phase):
 	match current_phase:	

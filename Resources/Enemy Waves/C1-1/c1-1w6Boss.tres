@@ -13,13 +13,13 @@
 [sub_resource type="Resource" id="Resource_mfjl3"]
 script = ExtResource("2_gx4e7")
 gear_resource = ExtResource("1_qxg4c")
-drop_weight = 1.0
+drop_weight = 1.2
 rarity = 2
 
 [sub_resource type="Resource" id="Resource_7h5ka"]
 script = ExtResource("2_gx4e7")
 gear_resource = ExtResource("3_v5iyi")
-drop_weight = 0.0
+drop_weight = 1.0
 rarity = 3
 
 [sub_resource type="Resource" id="Resource_syjpa"]
@@ -36,7 +36,7 @@ script = ExtResource("8_5wv7y")
 enemy_icon = ExtResource("5_n7d17")
 enemy_type = 1
 enemy_name = "empty_name"
-max_health = 500
+max_health = 800
 stage_xp_value = 0.0
 weapon_xp_value = 0.0
 drop_pool = SubResource("Resource_syjpa")

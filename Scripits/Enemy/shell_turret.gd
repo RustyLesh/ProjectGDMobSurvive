@@ -18,6 +18,8 @@ var spawn_position
 var parent
 var spawn_animation_node
 var bullet_damage
+var bullet_speed
+var bullet_lifetime
 var delay_betweeen_shots: float
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
@@ -52,7 +54,10 @@ func on_spawn_animation_end():
 	weapon_xp_value = enemy_resource.weapon_xp_value
 	drop_pool = enemy_resource.drop_pool
 	projectile_scene = enemy_shell_resource.bullet_resource.get_bullet_scene()
+
+	#Bullet setup
 	bullet_damage = enemy_shell_resource.bullet_damage
+	bullet_speed = enemy_shell_resource.bullet_speed
 	delay_betweeen_shots = enemy_shell_resource.delay_betweeen_shots
 	character_body.delay_betweeen_shots = delay_betweeen_shots
 	health.init_health(enemy_resource.max_health)
@@ -78,4 +83,5 @@ func shoot(player_position):
 	bullet.look_at(player_position)
 	bullet.rotate(PI/2)
 	bullet.base_damage = bullet_damage
+	bullet.speed = bullet_speed
 

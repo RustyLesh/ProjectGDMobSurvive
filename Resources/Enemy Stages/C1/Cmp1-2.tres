@@ -1,8 +1,21 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=2 format=3 uid="uid://crkffkk3280b"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=15 format=3 uid="uid://crkffkk3280b"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_shl5e"]
+[ext_resource type="Resource" uid="uid://dbp85244q5nrp" path="res://Resources/Enemy Waves/C1-2/c1-1w1.tres" id="2_mr7uy"]
+[ext_resource type="Resource" uid="uid://dbbctietk7tyn" path="res://Resources/Enemy Waves/C1-2/c1-1w2.tres" id="3_2k3kt"]
+[ext_resource type="Resource" uid="uid://cc0cccpun1lrs" path="res://Resources/Enemy Waves/C1-2/c1-1w2a.tres" id="4_blouu"]
+[ext_resource type="Resource" uid="uid://bts2s8882gdo5" path="res://Resources/Enemy Waves/C1-2/c1-1w3.tres" id="5_yf342"]
+[ext_resource type="Resource" uid="uid://bi0yfyxrq4uv" path="res://Resources/Enemy Waves/C1-2/c1-1w3a.tres" id="6_ry7mr"]
+[ext_resource type="Resource" uid="uid://cpl4o4ldr0l4j" path="res://Resources/Enemy Waves/C1-2/c1-1w3Elite.tres" id="7_dh7pp"]
+[ext_resource type="Resource" uid="uid://dfeo5snsps257" path="res://Resources/Enemy Waves/C1-2/c1-1w4.tres" id="8_80i08"]
+[ext_resource type="Resource" uid="uid://clnr8kliqcmhi" path="res://Resources/Enemy Waves/C1-2/c1-1w4a.tres" id="9_i86ok"]
+[ext_resource type="Resource" uid="uid://2fuo7su6qy0h" path="res://Resources/Enemy Waves/C1-2/c1-1w5.tres" id="10_wyllv"]
+[ext_resource type="Resource" uid="uid://b25p0jl85s788" path="res://Resources/Enemy Waves/C1-2/c1-1w5a.tres" id="11_2x7bv"]
+[ext_resource type="Resource" uid="uid://c206e6wct1niw" path="res://Resources/Enemy Waves/C1-2/c1-1w5Elite.tres" id="12_ip5t4"]
+[ext_resource type="Resource" uid="uid://cqjsyt7otab8o" path="res://Resources/Enemy Waves/C1-2/c1-1w5b.tres" id="12_tt1b8"]
+[ext_resource type="Resource" uid="uid://dxy5l0085xqb4" path="res://Resources/Enemy Waves/C1-2/c1-1w6Boss.tres" id="13_jglk5"]
 
 [resource]
 script = ExtResource("1_shl5e")
 stage_number = 2
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_mr7uy"), ExtResource("3_2k3kt"), ExtResource("4_blouu"), ExtResource("5_yf342"), ExtResource("6_ry7mr"), ExtResource("7_dh7pp"), ExtResource("8_80i08"), ExtResource("9_i86ok"), ExtResource("10_wyllv"), ExtResource("11_2x7bv"), ExtResource("12_tt1b8"), ExtResource("12_ip5t4"), ExtResource("13_jglk5")])

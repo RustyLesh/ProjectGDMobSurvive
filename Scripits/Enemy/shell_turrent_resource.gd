@@ -1,16 +1,19 @@
 extends EnemyShellResource
 class_name ShellTurretResource
 
-@export var move_speed : int = 100
+@export var move_speed: int = 100
 @export var contact_damage: int
-@export var sprite : CompressedTexture2D
-@export var spawn_animation : SpriteFrames 
+@export var sprite: CompressedTexture2D
+@export var spawn_animation: SpriteFrames 
 @export var collision_shape: Shape2D
 @export var collision_pos_offset: Vector2
 @export var follow_range: int
 @export var keep_following: bool
 @export var bullet_resource: BulletResource
 @export var bullet_damage: int
+@export var bullet_speed: int = 50
+##Duration in seconds
+@export var bullet_lifetime: int = 1
 @export var delay_betweeen_shots: float
 @export var enemy_ai_movement: EnemyMovementAI
 
