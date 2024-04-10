@@ -76,30 +76,24 @@ func bullet_nova(no_of_shots, alternates_angle: bool):
 	alternate_counter += 1
 
 func on_phase_1_finish():
-	print("phase 1 finish")
 	alternate_counter = 0
 	switch_phase(Phase.PHASE_2)
 
 func on_phase_2_finish():
-	print("phase 1 finish")
 	switch_phase(Phase.PHASE_1)
 
 func on_phase_1_attack():
-	print("phase1 shoot")
 	bullet_nova(4 * boss_diff, true)
 
 func on_phase_2_attack():
-	print("phase2 shoot")
 	shoot_at_player(1 * boss_diff, 0.5, 3, 45)
 
 func switch_phase(next_phase : Phase):
-	print("switching from: ")
 	match current_phase:	
 		Phase.PHASE_0:
-			print("phase0")
+			pass
 
 		Phase.PHASE_1:
-			print("phase1")
 			timer_phase_1.stop()
 			attack_timer.timeout.disconnect(on_phase_1_attack)
 			attack_timer.stop()
@@ -111,16 +105,14 @@ func switch_phase(next_phase : Phase):
 			attack_timer.stop()	
 		
 	current_phase = next_phase
-	print("switching to: ")
+
 	match next_phase:	
 		Phase.PHASE_1:
-			print("phase1")
 			timer_phase_1.start(phase_1_length)
 			attack_timer.timeout.connect(on_phase_1_attack)
 			attack_timer.start(base_shoot_delay)
 
 		Phase.PHASE_2:
-			print("phase2")
 			timer_phase_2.start(phase_2_length)		
 			attack_timer.timeout.connect(on_phase_2_attack)
 			attack_timer.start(base_shoot_delay)			

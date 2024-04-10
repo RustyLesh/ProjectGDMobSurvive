@@ -15,7 +15,7 @@ script = ExtResource("2_j6jps")
 
 [sub_resource type="Resource" id="Resource_o8tl4"]
 script = ExtResource("3_1opt7")
-move_speed = 50
+move_speed = 60
 contact_damage = 10
 sprite = ExtResource("1_2v77s")
 spawn_animation = ExtResource("4_2o44b")
@@ -28,8 +28,8 @@ spawn_scene_path = ExtResource("5_s124y")
 script = ExtResource("6_spnmy")
 enemy_icon = ExtResource("1_2v77s")
 enemy_type = 0
-enemy_name = "Wispy"
-max_health = 1
+enemy_name = "Cube"
+max_health = 15
 stage_xp_value = 1.0
 weapon_xp_value = 1.0
 enemy_shell_resource = SubResource("Resource_o8tl4")

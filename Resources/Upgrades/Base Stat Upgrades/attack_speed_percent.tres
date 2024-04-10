@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_a1ge1"]
 script = ExtResource("3_61i2n")
-_value = 10.0
+_value = 20.0
 _mod_type = 1
 _base_stat_type = 2
 

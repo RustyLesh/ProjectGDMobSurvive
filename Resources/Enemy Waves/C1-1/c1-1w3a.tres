@@ -48,5 +48,5 @@ script = ExtResource("6_cm6me")
 time_start = 120
 time_end = 180
 enemy_resource = SubResource("Resource_nab3e")
-enemy_amount = 5
+enemy_amount = 4
 spawn_delay = 10

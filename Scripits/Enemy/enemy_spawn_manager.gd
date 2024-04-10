@@ -82,9 +82,13 @@ func spawn(spawn_data: SpawnDataResource):
 		if time >= spawn_data.time_start && time <= spawn_data.time_end: 
 			#If spawning boss
 			if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.BOSS:
+				#if the boss has already spawned, skip
+				if spawn_data.has_spawned:
+					return
 				spawn_boss(spawn_data.enemy_resource)
 				var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, center, enemy_container)
 				enemy_spawn.on_boss_death.connect(ui_scene.on_boss_death)
+				enemy_spawn.on_boss_death.connect(on_boss_death)
 				enemy_spawn.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
 				pause_timer()
 			else:
@@ -139,6 +143,9 @@ func get_random_position() -> Vector2:
 
 func spawn_boss(enemy_resource: EnemyResource):
 	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
+
+func on_boss_death():
+	play_timer()
 
 func on_stage_win():
 	if enemy_spawns.stage_number < PlayerStats.highest_stage_completed:

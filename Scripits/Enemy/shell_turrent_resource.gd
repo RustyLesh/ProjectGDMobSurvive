@@ -24,5 +24,4 @@ func instantiate_enemy(enemy_resource: EnemyResource, spawn_position: Vector2, p
 #	var enemy_scene = load(enemy_shell_scene_path)
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.spawn_enemy(enemy_resource, spawn_position, parent)
-	print("Delay in shell resource: ", delay_betweeen_shots)
 	return enemy_instance

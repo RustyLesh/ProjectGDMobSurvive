@@ -54,7 +54,6 @@ func on_spawn_animation_end():
 	projectile_scene = enemy_shell_resource.bullet_resource.get_bullet_scene()
 	bullet_damage = enemy_shell_resource.bullet_damage
 	delay_betweeen_shots = enemy_shell_resource.delay_betweeen_shots
-	print("Delay in shell: ", delay_betweeen_shots)
 	character_body.delay_betweeen_shots = delay_betweeen_shots
 	health.init_health(enemy_resource.max_health)
 

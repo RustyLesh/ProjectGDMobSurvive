@@ -48,5 +48,5 @@ script = ExtResource("8_fj5ls")
 time_start = 60
 time_end = 120
 enemy_resource = SubResource("Resource_wbgqn")
-enemy_amount = 1
+enemy_amount = 2
 spawn_delay = 5

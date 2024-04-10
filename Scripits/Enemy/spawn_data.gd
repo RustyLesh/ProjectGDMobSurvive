@@ -9,10 +9,13 @@ class_name SpawnDataResource
 @export var enemy_amount: int
 @export var spawn_delay: int
 
+var has_spawned = false
+
 #Default high value to spawn immediatly on time start
 var spawn_delay_counter := 9999
 
 func get_enemy_instance(_enemy_resource: EnemyResource, spawn_position: Vector2, parent) -> Variant:
+	has_spawned = true
 	return enemy_resource.get_enemy_instance(_enemy_resource, spawn_position, parent)
 
 func get_enemy_shell_resource() -> EnemyShellResource:

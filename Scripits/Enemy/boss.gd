@@ -22,12 +22,14 @@ func ready():
 
 func _on_health_died():
 	on_boss_death.emit()
+	print("boss dead")
 	super()
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position
+	drop_pool = enemy_resource.drop_pool
 	parent = _parent
 	parent.add_child(self)
 	set_spawn_position(spawn_position)

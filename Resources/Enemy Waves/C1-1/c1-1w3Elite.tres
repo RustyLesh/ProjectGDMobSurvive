@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://bx7rhnd7qmeok" path="res://Resources/Gear/ring_red.tres" id="1_1ufcx"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_223d4"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_48s32"]
-[ext_resource type="Texture2D" uid="uid://c1dq3m6as5tre" path="res://Art/Enemies/black_eye.png" id="4_uelpf"]
+[ext_resource type="Texture2D" uid="uid://ctoccfbavy0iw" path="res://Art/Enemies/blue_wisp.png" id="4_sf1e6"]
 [ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="5_386q4"]
 [ext_resource type="Material" uid="uid://cnse020hxoxfv" path="res://Objects/Enemy Spawning/Shaders/blue.tres" id="6_20hty"]
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_shell_resource.gd" id="7_ovfv0"]
@@ -28,9 +28,9 @@ script = ExtResource("5_386q4")
 
 [sub_resource type="Resource" id="Resource_ogwhu"]
 script = ExtResource("7_ovfv0")
-move_speed = 100
-contact_damage = 0
-sprite = ExtResource("4_uelpf")
+move_speed = 80
+contact_damage = 15
+sprite = ExtResource("4_sf1e6")
 spawn_animation = ExtResource("8_bkehx")
 collision_shape = SubResource("CircleShape2D_g3ow3")
 collision_pos_offset = Vector2(0, 0)
@@ -41,10 +41,10 @@ outline_material = ExtResource("6_20hty")
 
 [sub_resource type="Resource" id="Resource_fdx3g"]
 script = ExtResource("9_qah1j")
-enemy_icon = ExtResource("4_uelpf")
+enemy_icon = ExtResource("4_sf1e6")
 enemy_type = 2
 enemy_name = "empty_name"
-max_health = 100
+max_health = 300
 stage_xp_value = 50.0
 weapon_xp_value = 50.0
 drop_pool = SubResource("Resource_gityi")

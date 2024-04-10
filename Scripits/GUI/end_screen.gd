@@ -21,7 +21,7 @@ func return_to_main_menu():
 	GameData.go_to_main_menu()
 
 func update_infobox():
-	info_label.text = str("Weapon XP: ", PlayerStats.weapon_xp)
-	info_label.text += str("Number of items gained: ", PlayerStats.gear_drops.size())
+	info_label.text = str("Weapon XP: ", PlayerStats.weapon_xp, "\n")
+	info_label.text += str("Number of items gained: ", PlayerSetup.gear_drops.size())
 	get_tree().paused = true
 	visible = true	

@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="6_sot50"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i0v"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kysfn"]
+radius = 8.06226
 
 [node name="Player" type="Node"]
 script = ExtResource("1_5g5kj")
@@ -35,10 +35,15 @@ texture_filter = 1
 texture = ExtResource("6_sot50")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" groups=["player"]]
-shape = SubResource("RectangleShape2D_o4i0v")
+shape = SubResource("CircleShape2D_kysfn")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 zoom = Vector2(2, 2)
-position_smoothing_speed = 1.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.1
+drag_right_margin = 0.0
+drag_bottom_margin = 0.1
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

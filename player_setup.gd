@@ -94,4 +94,3 @@ func load_data():
 		weapon_data.set_resource_data(wep_data_dict)
 
 	selected_weapon_index = data["selected_weapon_index"]
-	print("player setup selected index: ", selected_weapon_index)

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=50 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=51 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
+[ext_resource type="Script" path="res://Scripits/base_stat_mod.gd" id="1_g8wkr"]
 [ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
 [ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
 [ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres" id="4_kxeyq"]
@@ -9,8 +10,8 @@
 [ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres" id="6_4ufd7"]
 [ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres" id="7_ogqs4"]
 [ext_resource type="Resource" uid="uid://cdn30i7s7ws3e" path="res://Resources/Upgrades/Base Stat Upgrades/pierce.tres" id="8_cfu0p"]
+[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres" id="9_23ks5"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_xp_tree.gd" id="10_0diw7"]
-[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="10_gnupj"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="11_8ylah"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="13_300w3"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="14_4phq1"]
@@ -20,21 +21,19 @@
 [ext_resource type="Texture2D" uid="uid://chp3yeikscd3q" path="res://Art/Upgrade Icons/Life.png" id="18_xd3ad"]
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="19_wycb0"]
 
-[sub_resource type="Resource" id="Resource_wn2w3"]
-script = ExtResource("14_4phq1")
-_value = 1.0
-_mod_type = 0
-_base_stat_type = 4
+[sub_resource type="Resource" id="Resource_d7siu"]
+script = ExtResource("1_g8wkr")
+base_stat_type = 0
+value = 1000.0
+stat_mod_type = 0
+source_type = 0
 
-[sub_resource type="Resource" id="Resource_vd4w2"]
-script = ExtResource("13_300w3")
-_name = "Proj count"
-_description = "more bullet"
-_icon = ExtResource("10_gnupj")
-upgrade = SubResource("Resource_wn2w3")
-added_upgrades = Array[ExtResource("13_300w3")]([])
-_max_uses = 2
-weight = 0
+[sub_resource type="Resource" id="Resource_2d336"]
+script = ExtResource("1_g8wkr")
+base_stat_type = 1
+value = 1000.0
+stat_mod_type = 0
+source_type = 0
 
 [sub_resource type="Resource" id="Resource_2xsvo"]
 script = ExtResource("14_4phq1")
@@ -260,9 +259,9 @@ icon = ExtResource("1_3ter6")
 weapon_name = "Rifle"
 description = "Pew"
 weapon = ExtResource("2_3nes6")
-upgrades = Array[ExtResource("13_300w3")]([ExtResource("3_1oe0l"), ExtResource("4_kxeyq"), ExtResource("5_u5lyu"), ExtResource("6_4ufd7"), ExtResource("7_ogqs4"), ExtResource("8_cfu0p"), SubResource("Resource_vd4w2")])
+upgrades = Array[ExtResource("13_300w3")]([ExtResource("3_1oe0l"), ExtResource("4_kxeyq"), ExtResource("5_u5lyu"), ExtResource("6_4ufd7"), ExtResource("7_ogqs4"), ExtResource("8_cfu0p"), ExtResource("9_23ks5")])
 weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
-base_stat_mods = Array[Resource("res://Scripits/base_stat_mod.gd")]([])
+base_stat_mods = Array[ExtResource("1_g8wkr")]([SubResource("Resource_d7siu"), SubResource("Resource_2d336")])
