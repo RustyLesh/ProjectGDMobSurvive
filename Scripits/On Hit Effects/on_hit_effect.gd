@@ -1,7 +1,7 @@
 extends Resource
 class_name OnHitEffect
 
-#out of 1
+##0 to 1
 @export var _proc_chance: float
 var base_res_path: String
 

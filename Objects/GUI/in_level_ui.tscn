@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=35 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
@@ -7,10 +7,10 @@
 [ext_resource type="Script" path="res://Scripits/GUI/stage_timer.gd" id="4_it7su"]
 [ext_resource type="Script" path="res://Scripits/GUI/health_label.gd" id="5_fu2ar"]
 [ext_resource type="Script" path="res://Objects/GUI/seconds_timer.gd" id="5_uqkxn"]
-[ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="6_c5d6r"]
 [ext_resource type="PackedScene" uid="uid://7y78wcnmvbd3" path="res://Objects/GUI/upgrade_menu.tscn" id="6_ex6gh"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_points_counter.gd" id="7_5e6md"]
 [ext_resource type="Script" path="res://Scripits/GUI/ability_hud.gd" id="7_ovuu8"]
+[ext_resource type="Texture2D" uid="uid://clt5ki8xow54h" path="res://Art/GUI/Icons/fire.png" id="8_keuw0"]
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="8_pj8fp"]
 [ext_resource type="Script" path="res://Scripits/Abilities/ability_resource.gd" id="9_qo8gk"]
 [ext_resource type="Script" path="res://Scripits/GUI/end_screen.gd" id="9_ygsdw"]
@@ -48,9 +48,6 @@ shadow_color = Color(0, 0, 0, 0.698039)
 [sub_resource type="LabelSettings" id="LabelSettings_e6rqp"]
 font_size = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph4yx"]
-bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
-
 [sub_resource type="Resource" id="Resource_q4byp"]
 script = ExtResource("9_qo8gk")
 ability_name = "abilty 1"
@@ -84,6 +81,11 @@ bg_color = Color(0.258824, 0.258824, 0.258824, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_g0dvu")
+
+[node name="Seperator" type="Line2D" parent="."]
+points = PackedVector2Array(360, 1280, 360, 768)
+width = 2.0
+default_color = Color(1, 1, 1, 0.490196)
 
 [node name="TouchSticks" type="Control" parent="."]
 visible = false
@@ -219,20 +221,14 @@ label_settings = SubResource("LabelSettings_e6rqp")
 uppercase = true
 script = ExtResource("5_fu2ar")
 
-[node name="Button" type="Button" parent="HUD"]
-layout_mode = 0
-offset_left = 624.0
-offset_top = 8.0
-offset_right = 712.0
-offset_bottom = 88.0
-theme_override_colors/icon_normal_color = Color(1, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ph4yx")
-icon = ExtResource("6_c5d6r")
-icon_alignment = 1
-expand_icon = true
+[node name="Button" type="TouchScreenButton" parent="HUD"]
+position = Vector2(592, 1152)
+texture_normal = ExtResource("8_keuw0")
+texture_pressed = ExtResource("8_keuw0")
+visibility_mode = 1
 
 [node name="Abilty HUD" type="Control" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -254,8 +250,8 @@ offset_bottom = 88.0
 theme_override_constants/separation = 11
 
 [node name="Uprade Menu" parent="." instance=ExtResource("6_ex6gh")]
-visible = false
 offset_top = 112.0
+offset_bottom = -64.0
 
 [node name="Upgrade Points Counter" type="Label" parent="."]
 offset_left = 8.0
@@ -266,6 +262,7 @@ text = "Pts: "
 script = ExtResource("7_5e6md")
 
 [node name="End Screen" type="Control" parent="."]
+visible = false
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
@@ -311,11 +308,6 @@ offset_right = 544.0
 offset_bottom = 1104.0
 theme_override_font_sizes/font_size = 30
 text = "Return to menu"
-
-[node name="Seperator" type="Line2D" parent="."]
-points = PackedVector2Array(360, 1280, 360, 768)
-width = 2.0
-default_color = Color(1, 1, 1, 0.490196)
 
 [connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="End Screen/Return to Main Menu" to="End Screen" method="return_to_main_menu"]

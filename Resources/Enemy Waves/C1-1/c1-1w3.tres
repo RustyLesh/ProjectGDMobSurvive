@@ -257,7 +257,7 @@ load_path = "res://.godot/imported/FaceCube.png-d96f0be4cb5a4cd84d27a346432e0fe9
 [sub_resource type="Resource" id="Resource_gdmyn"]
 script = ExtResource("3_hgfmc")
 move_speed = 70
-contact_damage = 10
+contact_damage = 5
 sprite = SubResource("CompressedTexture2D_uqcvs")
 spawn_animation = SubResource("SpriteFrames_xyxer")
 collision_shape = SubResource("CircleShape2D_ta14r")

@@ -9,9 +9,9 @@
 
 [sub_resource type="Resource" id="Resource_cuud7"]
 script = ExtResource("5_jyv1u")
-_duration = 15
-_slow_amount = 40.0
-_proc_chance = 100.0
+_duration = 2
+_slow_amount = 30.0
+_proc_chance = 0.5
 
 [sub_resource type="Resource" id="Resource_o8gnt"]
 script = ExtResource("6_jsir1")
@@ -20,7 +20,7 @@ _effect = SubResource("Resource_cuud7")
 [sub_resource type="Resource" id="Resource_ui2dq"]
 script = ExtResource("4_kv2co")
 _name = "Slow on hit"
-_description = "to fast? no"
+_description = "Too fast? no"
 _icon = ExtResource("1_vb8fe")
 upgrade = SubResource("Resource_o8gnt")
 added_upgrades = Array[ExtResource("4_kv2co")]([])

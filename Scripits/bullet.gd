@@ -29,7 +29,10 @@ func _on_body_entered(body):
 			#Applies hit effects if there are any
 			if on_hit_effects.size() > 0:
 				for hit_effect in on_hit_effects:
-					hit_effect.trigger_effect(body.get_parent())
+					var roll = randf()
+					print("Chance: ", hit_effect._proc_chance, " Roll: ", roll)
+					if roll <= hit_effect._proc_chance:
+						hit_effect.trigger_effect(body.get_parent())
 			#Destroy self if 0 pierces remain
 			if pierce_counter >= pierce:
 				call_deferred("kill_self")

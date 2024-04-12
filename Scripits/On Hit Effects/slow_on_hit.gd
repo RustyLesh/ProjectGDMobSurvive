@@ -1,7 +1,8 @@
 extends OnHitEffect
 class_name SlowOnHit
 
-@export var _duration: int #Seconds
+##Seconds
+@export var _duration: int 
 @export var _slow_amount: float
 
 func _init():

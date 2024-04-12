@@ -1,23 +1,17 @@
-res://Scripits/Main Menu/difficulty_select_button.gd
-res://Scripits/Main Menu/options_menu.gd
-res://Scripits/combat_stat_container.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/stat_container.gd
-res://Scripits/Main Menu/equiped_gear_menu.gd
-res://Scripits/Main Menu/combat_menu.gd
+res://Scripits/player_controller.gd
+res://Scripits/player.gd
+res://Scripits/in_level_xp_manager.gd
 res://Objects/combat_level.tscn
-res://Resources/Weapons/pistol.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
 res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
+res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
-res://Resources/Upgrades/On Hit Upgrades/slow_on_hit_upgrade.tres
-res://Resources/Upgrades/On Hit Upgrades/chain_lightning_on_hit_upgrade.tres
-res://Resources/Weapons/test_weapon.tres
 res://Scripits/GUI/ability_hud.gd
+res://Scripits/Weapons/pistol.gd
 res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Enemy Waves/C1-1/c1-1w1.tres
@@ -32,26 +26,31 @@ res://Resources/Enemy Waves/C1-1/c1-1w3a.tres
 res://Resources/Enemy Waves/C1-1/c1-1w4.tres
 res://Resources/Enemy Waves/C1-1/c1-1w4a.tres
 res://Resources/Gear/ammy_purple.tres
+res://Resources/Gear/helm_health.tres
 res://Resources/Enemy Waves/C1-1/c1-1w5Elite.tres
 res://Resources/Enemy Waves/C1-1/c1-1w5.tres
 res://Resources/Enemy Waves/C1-1/c1-1w5a.tres
-res://Resources/Gear/helm_ice_crown.tres
-res://Resources/Gear/ring_proj.tres
-res://Resources/Enemy Waves/C1-1/c1-1w6Boss.tres
+res://Resources/Gear/helm_gold_2.tres
+res://Resources/Gear/ammy_life.tres
 res://Resources/Enemy Stages/C1/Cmp1-1.tres
 res://Resources/Enemy Waves/C1-2/c1-1w1.tres
 res://Resources/Enemy Waves/C1-2/c1-1w2.tres
 res://Resources/Enemy Waves/C1-2/c1-1w2a.tres
 res://Resources/Enemy Waves/C1-2/c1-1w3.tres
 res://Resources/Enemy Waves/C1-2/c1-1w3a.tres
-res://Resources/Gear/ammy_ruby.tres
+res://Resources/Gear/ammy_blue.tres
+res://Objects/Enemy Spawning/Shaders/yellow.tres
 res://Resources/Enemy Waves/C1-2/c1-1w3Elite.tres
 res://Resources/Enemy Waves/C1-2/c1-1w4.tres
 res://Resources/Enemy Waves/C1-2/c1-1w4a.tres
 res://Resources/Enemy Waves/C1-2/c1-1w5.tres
 res://Resources/Enemy Waves/C1-2/c1-1w5a.tres
-res://Objects/Enemy Spawning/Shaders/green.tres
+res://Resources/Gear/ring_purple.tres
+res://Resources/Gear/ammy_slow.tres
 res://Resources/Enemy Waves/C1-2/c1-1w5Elite.tres
+res://Resources/Enemy Waves/C1-2/c1-1w5b.tres
+res://Resources/Gear/helm_ice_crown.tres
+res://Resources/Gear/ring_band_purple.tres
 res://Resources/Enemy Waves/C1-2/c1-1w6Boss.tres
 res://Resources/Enemy Stages/C1/Cmp1-2.tres
 res://Resources/Enemy Waves/C1-3/c1-1w1.tres
@@ -59,55 +58,30 @@ res://Resources/Enemy Waves/C1-3/c1-1w2.tres
 res://Resources/Enemy Waves/C1-3/c1-1w2a.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3a.tres
+res://Resources/Enemy Waves/C1-3/c1-1w3b.tres
+res://Resources/Gear/aamy_astramentis.tres
+res://Objects/Enemy Spawning/Shaders/red.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3Elite.tres
 res://Resources/Enemy Waves/C1-3/c1-1w4.tres
 res://Resources/Enemy Waves/C1-3/c1-1w4a.tres
 res://Resources/Enemy Waves/C1-3/c1-1w5.tres
 res://Resources/Enemy Waves/C1-3/c1-1w5a.tres
+res://Resources/Enemy Waves/C1-3/c1-1w5b.tres
+res://Resources/Enemy Waves/C1-3/c1-1w5c.tres
+res://Resources/Gear/ammy_lightning_pot.tres
+res://Resources/Gear/ring_band_gold.tres
+res://Resources/Gear/ring_proj.tres
 res://Resources/Enemy Waves/C1-3/c1-1w5Elite.tres
+res://Resources/Gear/ring_band_silver.tres
 res://Resources/Enemy Waves/C1-3/c1-1w6Boss.tres
 res://Resources/Enemy Stages/C1/Cmp1-3.tres
-res://Objects/Enemy Spawning/Shaders/red.tres
-res://Objects/Enemy Spawning/Shaders/yellow.tres
-res://Objects/Main Menu/main_menu.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://config_manager.tscn
-res://Objects/save_manager.tscn
-res://player_stats.tscn
-res://Scripits/GUI/end_screen.gd
-res://Resources/Gear/helm_health.tres
-res://Resources/Gear/helm_gold_2.tres
-res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
-res://player_setup.tscn
-res://Scripits/Enemy/boss.gd
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Drops/drop_pool.gd
 res://Resources/Enemy Stages/C1/testing.tres
-res://Scripits/bullet.gd
-res://Objects/bullet.tscn
-res://Objects/player.tscn
-res://Scripits/combat_level.gd
-res://Scripits/Weapons/weapon_manager.gd
-res://Scripits/Weapons/rifle.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/Enemy/shell_boss_resource.gd
-res://Scripits/Enemy/enemy_shell_resource.gd
-res://Scripits/GUI/menu_manager.gd
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
-res://Scripits/Enemy/shell_turret.gd
-res://Scripits/Enemy/shell_turrent_resource.gd
-res://player_setup.gd
-res://Scripits/Enemy/boss_totem_attack_ai.gd
-res://Scripits/Enemy/elite_shell.gd
-res://Resources/Gear/ammy_blue.tres
-res://Scripits/bullet_resource.gd
+res://Objects/Main Menu/main_menu.tscn
 res://Objects/enemy_bullet.tscn
-res://Resources/Enemy Waves/C1-2/c1-1w5b.tres
-res://Resources/Gear/ring_silver.tres
-res://Resources/Gear/ring_purple.tres
-res://Resources/Gear/ammy_lightning_pot.tres
+res://Objects/GUI/in_level_ui.tscn
+res://Objects/GUI/upgrade_menu.tscn
+res://Resources/Gear/ammy_potion_yellow.tres
+res://Resources/Gear/helm_fire_crown.tres
 res://Resources/Gear/helm_silver_crown.tres
-res://Resources/Gear/ring_band_gold.tres
-res://Resources/Gear/ring_band_purple.tres
-res://Resources/Gear/ring_band_silver.tres
+res://Resources/Gear/ring_silver.tres
+res://Resources/Gear/ammy_mini_stats.tres

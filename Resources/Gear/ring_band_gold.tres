@@ -76,7 +76,7 @@ forced_upgrade = false
 [resource]
 script = ExtResource("2_j8kpf")
 _item_name = "Bersekers ring"
-_description = ""
+_description = "Thats alotta damage"
 _icon = ExtResource("1_uc0pb")
 _gear_type = 1
 mod_list = Array[ExtResource("2_0ihbi")]([SubResource("Resource_3ja0u"), SubResource("Resource_c6v3o"), SubResource("Resource_fucx4")])

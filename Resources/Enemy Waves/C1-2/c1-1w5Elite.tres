@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://bx5yn8em881lu" path="res://Resources/Gear/ring_purple.tres" id="1_jq1qu"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_myo06"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_7np6n"]
-[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_ruby.tres" id="3_phdm7"]
+[ext_resource type="Resource" uid="uid://dujk6sj2cfjjg" path="res://Resources/Gear/ammy_slow.tres" id="3_ydshe"]
 [ext_resource type="Texture2D" uid="uid://bxcis5x17xg7j" path="res://Art/Enemies/SlimeEye.png" id="4_0gyhl"]
 [ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="5_ame4q"]
 [ext_resource type="Material" uid="uid://do01nkmgteyf2" path="res://Objects/Enemy Spawning/Shaders/yellow.tres" id="6_7l8xu"]
@@ -20,7 +20,7 @@ rarity = 1
 
 [sub_resource type="Resource" id="Resource_4di28"]
 script = ExtResource("2_myo06")
-gear_resource = ExtResource("3_phdm7")
+gear_resource = ExtResource("3_ydshe")
 drop_weight = 1.0
 rarity = 2
 

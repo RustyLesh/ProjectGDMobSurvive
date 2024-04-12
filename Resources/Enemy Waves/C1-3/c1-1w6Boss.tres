@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=13 format=3 uid="uid://blorj8utx8as7"]
+
+[ext_resource type="Resource" uid="uid://cfc5g1fipjoxv" path="res://Resources/Gear/ring_band_silver.tres" id="1_gfg3p"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_oswp7"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="4_o0h0t"]
+[ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="5_u43oy"]
+[ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="6_27ehp"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_boss_resource.gd" id="7_4opmc"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="8_r36l3"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="9_q76qc"]
+
+[sub_resource type="Resource" id="Resource_xfjrj"]
+script = ExtResource("2_oswp7")
+gear_resource = ExtResource("1_gfg3p")
+drop_weight = 1.0
+rarity = 3
+
+[sub_resource type="Resource" id="Resource_syjpa"]
+script = ExtResource("4_o0h0t")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_xfjrj")])
+
+[sub_resource type="Resource" id="Resource_t086v"]
+script = ExtResource("7_4opmc")
+hp_bar_texture_resource = ExtResource("6_27ehp")
+difficulty = 2
+
+[sub_resource type="Resource" id="Resource_yx5qk"]
+script = ExtResource("8_r36l3")
+enemy_icon = ExtResource("5_u43oy")
+enemy_type = 1
+enemy_name = "empty_name"
+max_health = 2000
+stage_xp_value = 0.0
+weapon_xp_value = 0.0
+drop_pool = SubResource("Resource_syjpa")
+enemy_shell_resource = SubResource("Resource_t086v")
+
+[resource]
+script = ExtResource("9_q76qc")
+time_start = 300
+time_end = 310
+enemy_resource = SubResource("Resource_yx5qk")
+enemy_amount = 2
+spawn_delay = 100

@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://d2kdsqvf2awdm" path="res://Resources/Enemy Waves/C1-1/c1-1w5a.tres" id="12_1sr56"]
 [ext_resource type="Resource" uid="uid://pnby525xtxp6" path="res://Resources/Gear/helm_gold_2.tres" id="13_77nd7"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="14_tiit8"]
-[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="15_f07qd"]
+[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_life.tres" id="15_sctyj"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="16_84hmw"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="17_edviv"]
 [ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="18_x8smj"]
@@ -30,7 +30,7 @@ rarity = 2
 
 [sub_resource type="Resource" id="Resource_7h5ka"]
 script = ExtResource("14_tiit8")
-gear_resource = ExtResource("15_f07qd")
+gear_resource = ExtResource("15_sctyj")
 drop_weight = 1.0
 rarity = 3
 

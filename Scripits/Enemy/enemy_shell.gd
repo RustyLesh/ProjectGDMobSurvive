@@ -30,7 +30,6 @@ func _on_health_died():
 
 func spawn_XP():
 	if xp_drop is PackedScene:
-		print("dead")
 		var xpDrop = xp_drop.instantiate()
 		xpDrop.XP_Init(stage_xp_value)
 		xpDrop.global_position = $CharacterBody2D.global_position
@@ -39,7 +38,6 @@ func spawn_XP():
 func roll_drop():
 	#return if drop pool doesnt exist
 	if drop_pool == null:
-		print("Drop pool empty")
 		return
 		
 	print("Drops size:", drop_pool.drop_pool.size())

@@ -16,7 +16,7 @@ script = ExtResource("2_x7jku")
 [sub_resource type="Resource" id="Resource_o8tl4"]
 script = ExtResource("3_4iop6")
 move_speed = 60
-contact_damage = 10
+contact_damage = 5
 sprite = ExtResource("1_tsf16")
 spawn_animation = ExtResource("4_3dubm")
 collision_shape = SubResource("CircleShape2D_pxeik")

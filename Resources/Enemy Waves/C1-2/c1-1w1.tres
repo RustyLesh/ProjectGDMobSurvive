@@ -30,7 +30,7 @@ enemy_icon = ExtResource("1_rre0q")
 enemy_type = 0
 enemy_name = "grunty"
 max_health = 21
-stage_xp_value = 1.0
+stage_xp_value = 2.0
 weapon_xp_value = 1.0
 enemy_shell_resource = SubResource("Resource_o8tl4")
 

@@ -9,9 +9,9 @@
 
 [sub_resource type="Resource" id="Resource_qo3gi"]
 script = ExtResource("4_mwqpn")
-_duration = 0
-_slow_amount = 15.0
-_proc_chance = 100.0
+_duration = 1
+_slow_amount = 30.0
+_proc_chance = 0.5
 
 [sub_resource type="Resource" id="Resource_rvcr8"]
 script = ExtResource("5_s8vml")

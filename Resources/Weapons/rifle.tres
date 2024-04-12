@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=51 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=48 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
-[ext_resource type="Script" path="res://Scripits/base_stat_mod.gd" id="1_g8wkr"]
 [ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
 [ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
 [ext_resource type="Resource" uid="uid://bekpf8uww5mio" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres" id="4_kxeyq"]
@@ -21,31 +20,17 @@
 [ext_resource type="Texture2D" uid="uid://chp3yeikscd3q" path="res://Art/Upgrade Icons/Life.png" id="18_xd3ad"]
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="19_wycb0"]
 
-[sub_resource type="Resource" id="Resource_6weok"]
-script = ExtResource("1_g8wkr")
-base_stat_type = 0
-value = 10000.0
-stat_mod_type = 0
-source_type = 0
-
-[sub_resource type="Resource" id="Resource_pe2ef"]
-script = ExtResource("1_g8wkr")
-base_stat_type = 1
-value = 1000.0
-stat_mod_type = 0
-source_type = 0
-
 [sub_resource type="Resource" id="Resource_2xsvo"]
 script = ExtResource("14_4phq1")
 _value = 1.0
 _mod_type = 0
-_base_stat_type = 4
+_base_stat_type = 6
 
 [sub_resource type="Resource" id="Resource_lgxfq"]
 script = ExtResource("13_300w3")
-_name = "Extra proj"
+_name = "Extra pierce"
 _description = "ok"
-_icon = ExtResource("15_cu7qd")
+_icon = ExtResource("19_wycb0")
 upgrade = SubResource("Resource_2xsvo")
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
@@ -60,7 +45,7 @@ forced_upgrade = false
 
 [sub_resource type="Resource" id="Resource_v6ueb"]
 script = ExtResource("14_4phq1")
-_value = 10.0
+_value = 5.0
 _mod_type = 0
 _base_stat_type = 1
 
@@ -85,11 +70,11 @@ forced_upgrade = false
 script = ExtResource("14_4phq1")
 _value = 1.0
 _mod_type = 0
-_base_stat_type = 6
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_lk4mr"]
 script = ExtResource("13_300w3")
-_name = "Penetration"
+_name = "Attack Speed"
 _description = ""
 _icon = ExtResource("17_ep5ba")
 upgrade = SubResource("Resource_du0s3")
@@ -129,7 +114,7 @@ forced_upgrade = false
 
 [sub_resource type="Resource" id="Resource_yvw8o"]
 script = ExtResource("14_4phq1")
-_value = 15.0
+_value = 10.0
 _mod_type = 0
 _base_stat_type = 3
 
@@ -264,4 +249,4 @@ weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
-base_stat_mods = Array[ExtResource("1_g8wkr")]([SubResource("Resource_6weok"), SubResource("Resource_pe2ef")])
+base_stat_mods = Array[Resource("res://Scripits/base_stat_mod.gd")]([])

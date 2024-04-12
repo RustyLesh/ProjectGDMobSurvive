@@ -1,8 +1,23 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=2 format=3 uid="uid://ds1wnf34mhcbu"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=17 format=3 uid="uid://ds1wnf34mhcbu"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_n03bq"]
+[ext_resource type="Resource" uid="uid://cx7sug6560t54" path="res://Resources/Enemy Waves/C1-3/c1-1w1.tres" id="2_53rma"]
+[ext_resource type="Resource" uid="uid://bm6ttsv4wlqm1" path="res://Resources/Enemy Waves/C1-3/c1-1w2.tres" id="3_2mfbb"]
+[ext_resource type="Resource" uid="uid://hv1p6fsnnif3" path="res://Resources/Enemy Waves/C1-3/c1-1w2a.tres" id="4_8qjo2"]
+[ext_resource type="Resource" uid="uid://d0o8yfeexnofe" path="res://Resources/Enemy Waves/C1-3/c1-1w3.tres" id="5_38dik"]
+[ext_resource type="Resource" uid="uid://d3fttnd88w1co" path="res://Resources/Enemy Waves/C1-3/c1-1w3a.tres" id="6_qi1gn"]
+[ext_resource type="Resource" uid="uid://p5d8qwqihrtu" path="res://Resources/Enemy Waves/C1-3/c1-1w3b.tres" id="7_tm51o"]
+[ext_resource type="Resource" uid="uid://g36ra2s4fb7a" path="res://Resources/Enemy Waves/C1-3/c1-1w3Elite.tres" id="8_bfxj1"]
+[ext_resource type="Resource" uid="uid://5emevxn3jjns" path="res://Resources/Enemy Waves/C1-3/c1-1w4.tres" id="9_4knti"]
+[ext_resource type="Resource" uid="uid://baryebc77vjkf" path="res://Resources/Enemy Waves/C1-3/c1-1w4a.tres" id="10_5b1ym"]
+[ext_resource type="Resource" uid="uid://26dn5quemrqu" path="res://Resources/Enemy Waves/C1-3/c1-1w5.tres" id="11_6ejyq"]
+[ext_resource type="Resource" uid="uid://vxj27v33kdkg" path="res://Resources/Enemy Waves/C1-3/c1-1w5a.tres" id="12_cj7s7"]
+[ext_resource type="Resource" uid="uid://b5ndayk75r5c2" path="res://Resources/Enemy Waves/C1-3/c1-1w5b.tres" id="13_b8uao"]
+[ext_resource type="Resource" uid="uid://btrqpe236oncn" path="res://Resources/Enemy Waves/C1-3/c1-1w5c.tres" id="14_n3jhy"]
+[ext_resource type="Resource" uid="uid://twagtmrpgvma" path="res://Resources/Enemy Waves/C1-3/c1-1w5Elite.tres" id="15_vyp7g"]
+[ext_resource type="Resource" uid="uid://blorj8utx8as7" path="res://Resources/Enemy Waves/C1-3/c1-1w6Boss.tres" id="16_ptyy1"]
 
 [resource]
 script = ExtResource("1_n03bq")
 stage_number = 3
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_53rma"), ExtResource("3_2mfbb"), ExtResource("4_8qjo2"), ExtResource("5_38dik"), ExtResource("6_qi1gn"), ExtResource("7_tm51o"), ExtResource("8_bfxj1"), ExtResource("9_4knti"), ExtResource("10_5b1ym"), ExtResource("11_6ejyq"), ExtResource("12_cj7s7"), ExtResource("13_b8uao"), ExtResource("14_n3jhy"), ExtResource("15_vyp7g"), ExtResource("16_ptyy1")])
