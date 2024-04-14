@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ce8nyunhu5s8m"]
+[gd_scene load_steps=22 format=3 uid="uid://dp0xwrr3vluis"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]

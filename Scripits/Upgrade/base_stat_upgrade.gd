@@ -25,7 +25,6 @@ func apply_upgrade_main_menu(player_stat_container: StatContainer, gear_type: Ge
 	statmod.source = gear_type
 	
 	if player_stat_container is StatContainer:
-		print("Type: ",statmod.stat_mod_type, " Value: ", statmod.value)
 		player_stat_container.add_mod_to_base_stat(statmod, _base_stat_type)
 	
 func remove_upgrade(stat_container: MainMenuStatContainer, gear_type: GearResource.GearType):

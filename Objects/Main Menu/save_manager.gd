@@ -30,7 +30,6 @@ func save_game():
 
 		var save_game_file = FileAccess.open(save_data["file_name"], FileAccess.WRITE)
 		var json_string = JSON.stringify(save_data["data"])
-		
 		# Store the save dictionary as a new line in the save file.
 		save_game_file.store_line(json_string)
 
@@ -67,5 +66,3 @@ func load_file(file_name):
 
 		# Get the data from the JSON object
 		return json.get_data()
-			
-

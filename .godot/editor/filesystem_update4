@@ -1,6 +1,5 @@
-res://Scripits/player_controller.gd
-res://Scripits/player.gd
-res://Scripits/in_level_xp_manager.gd
+res://Scripits/main_menu_stat_container.gd
+res://Scripits/stat_container.gd
 res://Objects/combat_level.tscn
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -19,6 +18,7 @@ res://Resources/Enemy Waves/C1-1/c1-1w2.tres
 res://Resources/Enemy Waves/C1-1/c1-1w2a.tres
 res://Resources/Enemy Waves/C1-1/c1-1w3.tres
 res://Resources/Gear/ring_red.tres
+res://Resources/Gear/ammy_mini_stats.tres
 res://Scripits/Shaders/outline.gdshader
 res://Objects/Enemy Spawning/Shaders/blue.tres
 res://Resources/Enemy Waves/C1-1/c1-1w3Elite.tres
@@ -59,7 +59,7 @@ res://Resources/Enemy Waves/C1-3/c1-1w2a.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3a.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3b.tres
-res://Resources/Gear/aamy_astramentis.tres
+res://Resources/Gear/ammy_astramentis.tres
 res://Objects/Enemy Spawning/Shaders/red.tres
 res://Resources/Enemy Waves/C1-3/c1-1w3Elite.tres
 res://Resources/Enemy Waves/C1-3/c1-1w4.tres
@@ -80,8 +80,6 @@ res://Objects/Main Menu/main_menu.tscn
 res://Objects/enemy_bullet.tscn
 res://Objects/GUI/in_level_ui.tscn
 res://Objects/GUI/upgrade_menu.tscn
-res://Resources/Gear/ammy_potion_yellow.tres
-res://Resources/Gear/helm_fire_crown.tres
-res://Resources/Gear/helm_silver_crown.tres
-res://Resources/Gear/ring_silver.tres
-res://Resources/Gear/ammy_mini_stats.tres
+res://player_setup.gd
+res://Scripits/Main Menu/equiped_gear_menu.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
