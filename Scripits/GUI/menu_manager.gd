@@ -33,6 +33,8 @@ func _on_button_pressed():
 func toggle_upgrade_menu():
 	upgrade_menu.visible = !upgrade_menu.visible
 	get_tree().paused = upgrade_menu.visible
+	if upgrade_menu.visible:
+		upgrade_menu.on_upgrade_menu_opened()
 
 func on_boss_spawn(hp_bar_resource: Resource):
 	hp_bar_instance = hp_bar_resource.instantiate()

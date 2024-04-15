@@ -18,24 +18,60 @@ var weapon_manager : WeaponManager
 func get_stat(base_stat_type : BaseStat.BaseStatType) -> BaseStat:
 	return base_stats[base_stat_type]
 
-func init_stats():
+func main_menu_init():
+	weapon_manager = WeaponManager.new()
+	health = Health.new()
+	player_body = PlayerController.new()
+
+	if PlayerSetup.base_stats.is_empty():
+		PlayerSetup.base_stats = base_stats	
+		for base_stat in BaseStat.BaseStatType.keys():
+			var stat:= BaseStat.new()
+			stat.base_type = BaseStat.BaseStatType[base_stat]
+			base_stats.append(stat)
+		init_base_stats()
+	else:
+		base_stats = PlayerSetup.base_stats
+
+func combat_init():
+	for stat in PlayerSetup.base_stats:
+		base_stats.append(stat.duplicate(true))
+
+	weapon_manager = $"../Weapon Manager"
+	health = $"../Health"
+	player_body = $"../PlayerBody"
+	
+	if health is Health:
+		health.init_health(get_stat(BaseStat.BaseStatType.MAX_LIFE).value)
+	
+	init_stat_signals()	
+
+func init_base_stats():
+	var base_mods: Array[StatMod]
 	#Create modifiers for base stats
 	var life_mod := StatMod.new()
 	life_mod.value = max_life
 	life_mod.stat_mod_type = StatMod.StatModType.FLAT
-	
+	base_mods.append(life_mod)
+
 	var damage_mod := StatMod.new()
 	damage_mod.value = damage
 	damage_mod.stat_mod_type = StatMod.StatModType.FLAT	
-	
+	base_mods.append(damage_mod)
+
 	var fire_rate_mod := StatMod.new()
 	fire_rate_mod.value = fire_rate
 	fire_rate_mod.stat_mod_type = StatMod.StatModType.FLAT	
-	
+	base_mods.append(fire_rate_mod)
+
 	var movement_speed_mod := StatMod.new()
 	movement_speed_mod.value = movement_speed
 	movement_speed_mod.stat_mod_type = StatMod.StatModType.FLAT	
-	
+	base_mods.append(movement_speed_mod)
+
+	for statmod in base_mods:
+		statmod.source = GearResource.GearType.BASE
+		
 	#Init health
 	if health is Health:
 		health.init_health(max_life)
@@ -45,6 +81,7 @@ func init_stats():
 	base_stats[BaseStat.BaseStatType.DAMAGE].apply_stat(damage_mod)
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].apply_stat(fire_rate_mod)
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].apply_stat(movement_speed_mod)
+
 
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
 	base_stats[stat_type].apply_stat(stat_mod)

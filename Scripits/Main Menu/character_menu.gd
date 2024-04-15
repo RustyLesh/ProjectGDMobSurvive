@@ -4,7 +4,7 @@ class_name CharacterMenu
 
 @onready var stat_panel: RichTextLabel = $"Stats Scroll Panel/Stats"
 @onready var accomplishments: RichTextLabel = $"Accomplishments Scroll/List"
-@onready var stat_container: MainMenuStatContainer = $"../Stat Container"
+@onready var stat_container: StatContainer = $"../Stat Container"
 
 func update_ui():
 	#Cleartext  panels

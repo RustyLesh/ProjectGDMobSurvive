@@ -12,7 +12,7 @@ var bullet_scene = preload("res://Objects/bullet.tscn")
 
 @onready var bullet_container = $"Bullet Container"
 @onready var player_body = $"../PlayerBody"
-@onready var stat_container: CombatStatContainer = $"../Combat Stat Container"
+@onready var stat_container: StatContainer = $"../Combat Stat Container"
 
 var delay
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2ipya06c0n65"]
 
-[ext_resource type="Script" path="res://Scripits/combat_stat_container.gd" id="1_fxj02"]
+[ext_resource type="Script" path="res://Scripits/stat_container.gd" id="1_sg4ig"]
 
 [node name="Stat Container" type="Node"]
-script = ExtResource("1_fxj02")
+script = ExtResource("1_sg4ig")

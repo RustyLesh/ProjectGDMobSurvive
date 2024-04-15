@@ -25,9 +25,11 @@ func _ready():
 	update_upgrade_options()
 	upgrade_manager.on_reroll.connect(update_upgrade_options)
 	upgrade_manager.on_gained_rerolls.connect(update_rerolls)
-
 	update_rerolls()
-	
+
+func on_upgrade_menu_opened():
+	upgrade_options_container.get_child(0).grab_focus()
+
 func _on_confirm_pressed():
 	upgrade_manager.select_upgrade(selected_option)
 	update_upgrade_options()

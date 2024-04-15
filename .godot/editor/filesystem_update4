@@ -1,5 +1,9 @@
-res://Scripits/main_menu_stat_container.gd
+res://Scripits/Main Menu/equiped_gear_menu.gd
+res://Scripits/Main Menu/gear_menu.gd
+res://Scripits/Upgrade/upgrade.gd
+res://player_setup.gd
 res://Scripits/stat_container.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
 res://Objects/combat_level.tscn
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -77,9 +81,22 @@ res://Resources/Enemy Waves/C1-3/c1-1w6Boss.tres
 res://Resources/Enemy Stages/C1/Cmp1-3.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Objects/Main Menu/main_menu.tscn
-res://Objects/enemy_bullet.tscn
+res://Objects/dev_tools.tscn
+res://Objects/player.tscn
+res://Scripits/Main Menu/selected_item_options.gd
+res://Scripits/Main Menu/selected_item_info.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/player.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/in_level_xp_manager.gd
+res://Scripits/GUI/menu_manager.gd
+res://input_manager.gd
+res://Scripits/input_manager.gd
+res://Scripits/player_controller.gd
 res://Objects/GUI/in_level_ui.tscn
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Main Menu/main_menu.gd
+res://Scripits/GUI/upgrade_menu.gd
 res://Objects/GUI/upgrade_menu.tscn
-res://player_setup.gd
-res://Scripits/Main Menu/equiped_gear_menu.gd
-res://Scripits/Upgrade/base_stat_upgrade.gd
+res://Objects/GUI/upgrade_option.tscn
+res://test/main_menu_test.gd

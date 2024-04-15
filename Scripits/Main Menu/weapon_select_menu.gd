@@ -8,7 +8,7 @@ class_name WeaponSelectMenu
 @onready var weapon_skill_tree: WeaponSkillTreeMenu = $"Weapon Skill Tree"
 
 @onready var upgrade_manage_menu: UpgradeManageMenu = $"../Upgrade Menu"
-@onready var stat_container: MainMenuStatContainer = $"../Stat Container"
+@onready var stat_container: StatContainer = $"../Stat Container"
 
 @export var new_game_start_weapon: WeaponResource # = preload("res://Resources/Weapons/rifle.tres")
 

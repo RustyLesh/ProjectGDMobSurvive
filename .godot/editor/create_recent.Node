@@ -1,13 +1,13 @@
+Node
+Button
+GridContainer
+Control
 TouchScreenButton
 Label
 CheckButton
 Panel
-Button
 VBoxContainer
-Node
 HBoxContainer
-GridContainer
-Control
 ItemList
 TabContainer
 Timer
@@ -30,4 +30,3 @@ TextEdit
 MarginContainer
 PanelContainer
 Container
-AnimatedSprite2D

@@ -1,11 +1,12 @@
+res://Objects
 C:/Users/flame/Documents/Godot Projects/Builds
+res://Scripits/Main Menu
+res://Scripits
 C:/Users/flame/Documents
 res://Resources/Gear
 res://
-res://Scripits
 res://Resources/Enemies/Bosses
 res://Scripits/GUI
-res://Scripits/Main Menu
 res://Resources/Enemies
 res://Objects/Enemy Spawning/Shaders
 res://Objects/Main Menu
@@ -13,7 +14,6 @@ res://Objects/GUI
 res://Resources/Upgrades/On Hit Upgrades
 res://Resources/Upgrades/Base Stat Upgrades
 res://test
-res://Objects
 res://Resources
 res://Scripits/On Hit Effects
 C:/Users/flame/AppData/Local/Programs/Microsoft VS Code

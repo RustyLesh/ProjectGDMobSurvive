@@ -23,12 +23,12 @@ func get_string():
 	return_str += str(BaseStat.BaseStatType.keys()[base_stat_type])
 	return return_str
 
-func apply_mod_main_menu(stat_container: MainMenuStatContainer):
+func apply_mod_main_menu(stat_container: StatContainer):
 	stat_container.add_mod_to_base_stat(get_stat_mod(), base_stat_type)
 
 func apply_mod_in_combat(combat_stat_container: StatContainer):
 	if combat_stat_container is StatContainer:
 		combat_stat_container.add_mod_to_base_stat(get_stat_mod(), base_stat_type)
 
-func remove_mod(stat_container: MainMenuStatContainer, gear_type: GearResource.GearType):
+func remove_mod(stat_container: StatContainer, gear_type: GearResource.GearType):
 	stat_container.remove_mod_from_base_stat(base_stat_type, gear_type)

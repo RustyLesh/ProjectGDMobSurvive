@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ubvymx40tud"]
+
+[ext_resource type="Script" path="res://Scripits/input_manager.gd" id="1_uavau"]
+
+[node name="Input Manager" type="Node"]
+script = ExtResource("1_uavau")

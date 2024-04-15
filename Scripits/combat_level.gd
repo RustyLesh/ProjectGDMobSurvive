@@ -11,3 +11,5 @@ func _ready():
 		player_body_node.global_position = $Tile_Map.global_position
 		await get_tree().create_timer(.5).timeout
 		camera_node.position_smoothing_enabled = true
+	
+	

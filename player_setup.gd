@@ -8,6 +8,7 @@ extends Node
 @export var upgrade_pool: Array[UpgradeResource]
 @export var selected_upgrades: Array[UpgradeResource]
 @export var base_stats: Array[BaseStat]
+@export var stat_container: StatContainer
 
 @export var gear_drops: Array[GearResource]
 @export var inventory: Array[GearResource]
@@ -15,6 +16,9 @@ extends Node
 
 @export var enemy_spawns: EnemySpawns
 @export var difficulty: int
+
+#Launch checks
+var has_equipped_gear: bool = false
 
 const FILE_NAME = "user://player_setup.save"
 

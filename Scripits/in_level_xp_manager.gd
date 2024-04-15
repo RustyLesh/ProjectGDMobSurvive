@@ -12,7 +12,7 @@ signal on_level(level : int)
 @export var current_level : int
 
 ##Higher = more xp needed to level
-@export var xp_constant: float = 0.25 
+@export var xp_constant: float = 0.2
 
 #for checking if level changed
 var level_buffer

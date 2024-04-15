@@ -10,6 +10,7 @@ enum GearType
 	WEAPON,
 	UPGRADE,
 	SKILL_TREE,
+	BASE,
 }
 
 @export var _item_name: String

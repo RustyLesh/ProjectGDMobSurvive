@@ -28,8 +28,9 @@ var current_menu: MenuType
 @onready var combat_menu = $"Combat Prep Menu"
 @onready var options_menu = $"Options Menu"
 @onready var upgrade_menu = $"Upgrade Menu"
-
+@onready var stat_container = $"Stat Container"
 @onready var weapon_warning_dialogue: Control = $"Weapon Warning Dialogue"
+@onready var mode_menu_options_container = $"Mode Menu/Menu Options/MarginContainer/HBoxContainer"
 
 func _ready():
 	weapon_select_menu.visible = false
@@ -44,6 +45,13 @@ func _ready():
 	weapon_warning_dialogue.visible = false
 	change_menu(starting_menu)
 	get_tree().paused = false
+
+	stat_container.main_menu_init()
+	
+	mode_menu_options_container.get_child(0).grab_focus()
+
+	InputManager.on_controller_input.connect(on_controller_input)
+	InputManager.on_key_board_and_mouse_input.connect(on_keybaord_and_mouse_input)
 
 func on_quit_button_pressed():
 	GameData.quit_game()
@@ -116,3 +124,13 @@ func change_menu(change_to: MenuType):
 			upgrade_menu.visible = true
 			upgrade_menu.update_ui()
 
+func on_controller_input():
+	#if !InputManager.controller_was_used_last:
+	if get_viewport().gui_get_focus_owner() == null:
+		print("grabbed")
+		mode_menu_options_container.get_child(0).grab_focus()
+
+func on_keybaord_and_mouse_input():
+	if InputManager.controller_was_used_last:
+		print("release")
+		get_viewport().gui_release_focus()

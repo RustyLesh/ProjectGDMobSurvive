@@ -49,7 +49,7 @@ func save_data():
 
 func equip_gear(gear: GearResource) -> GearResource:
 	var return_gear
-	match gear._gear_type:
+	match gear._gear_type: 
 		GearResource.GearType.HELMET:
 			return_gear = helmet_slot.equiped_gear
 			helmet_slot.equip_gear(gear)

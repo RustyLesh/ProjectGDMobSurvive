@@ -5,7 +5,7 @@ class_name GearMenu
 @onready var item_list: ItemList = $"ScrollContainer/Item List"
 @onready var selected_info_box: SelectedItemInfo = $"Item Info"
 @onready var equiped_gear_menu: EquipedGearMenu = $"../Equiped Gear Menu"
-@onready var stat_container: MainMenuStatContainer = $"../Stat Container"
+@onready var stat_container: StatContainer = $"../Stat Container"
 @onready var selected_item_options: HBoxContainer = $"Selected Item Options"
 @onready var no_results_warning: Label = $"No Results Warning"
 @onready var no_gear_warning: Label = $"No Gear Warning"
@@ -19,6 +19,9 @@ var filter_applied: bool
 @export var is_equiped_item_selected: bool
 
 func _ready():
+	InputManager.on_controller_input.connect(on_controller_input)
+	InputManager.on_key_board_and_mouse_input.connect(on_key_board_and_mouse_input)
+
 	gear_list = PlayerSetup.inventory
 	for i in gear_list.size()-1:
 		var inv_item_button_scene = load(str(inv_item_button.resource_path))
@@ -26,9 +29,13 @@ func _ready():
 		if item_list is ItemList:
 			item_list.add_item(gear_list[i]._item_name, gear_list[i]._icon)
 	
+
 	await get_tree().create_timer(.3).timeout
-	for gear in PlayerSetup.equiped_gear:
-		equip_gear(gear)
+
+	if !PlayerSetup.has_equipped_gear:
+		for gear in PlayerSetup.equiped_gear:
+			equip_gear(gear)
+			PlayerSetup.has_equipped_gear = true
 
 	no_results_warning.visible = false
 	no_gear_warning.visible = false
@@ -59,10 +66,13 @@ func refresh_item_list():
 	else:
 		no_results_warning.visible = false
 
-
 func update_ui():
 	gear_list = PlayerSetup.inventory
 	refresh_item_list()
+	if selected_item < 0:
+		selected_item_options.disable_all_buttons()
+	else:
+		selected_item_options.enable_all_buttons()
 
 func on_equip_button_pressed():
 	equip_gear(gear_list[selected_item])
@@ -110,6 +120,7 @@ func add_item(gear: GearResource):
 func remove_selected_item():
 	gear_list.erase(gear_list[selected_item])
 	item_list.remove_item(selected_item)
+	selected_item = -1
 	update_ui()
 
 func filter_by_type(gear_type: GearResource.GearType):
@@ -146,3 +157,9 @@ func _on_craft_pressed():
 		#Open craft menu using selected item index from item list
 	#else
 		#open craft menu with the item in selected slot.
+
+func on_key_board_and_mouse_input():
+	item_list.focus_mode = Control.FOCUS_NONE
+
+func on_controller_input():
+	item_list.focus_mode = Control.FOCUS_ALL

@@ -4,7 +4,7 @@ class_name Player
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var weapon_manager: WeaponManager = $"Weapon Manager"
-@onready var combat_stat_container = $"Combat Stat Container"
+@onready var combat_stat_container: StatContainer = $"Combat Stat Container"
 @onready var sprite: Sprite2D = $PlayerBody/Sprite2D
 @onready var player_body: PlayerController = $PlayerBody
 
@@ -18,7 +18,9 @@ var is_invulnerable: bool = false
 signal on_player_death()
 
 func _ready():
+	combat_stat_container.combat_init()
 	await get_tree().create_timer(.5).timeout
+
 	if PlayerSetup.weapon != null:
 		weapon = PlayerSetup.weapon.duplicate()
 		if weapon_manager is WeaponManager:

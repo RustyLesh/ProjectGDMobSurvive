@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbghl4lxets7b"]
+
+[ext_resource type="Script" path="res://Scripits/dev_tools.gd" id="1_4k6xp"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4k6xp")
+cheat_menu_visible = true

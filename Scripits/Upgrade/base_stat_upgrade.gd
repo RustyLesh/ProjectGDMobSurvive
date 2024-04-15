@@ -4,7 +4,7 @@ class_name BaseStatUpgrade
 
 @export var _value: float
 @export var _mod_type: StatMod.StatModType
-@export var _base_stat_type: BaseStat.BaseStatType 
+@export var _base_stat_type: BaseStat.BaseStatType
 
 func _init():
 	base_res_path = "res://Resources/Upgrades/Base Stat Upgrades/base_stat_upgrade.tres"
@@ -27,7 +27,7 @@ func apply_upgrade_main_menu(player_stat_container: StatContainer, gear_type: Ge
 	if player_stat_container is StatContainer:
 		player_stat_container.add_mod_to_base_stat(statmod, _base_stat_type)
 	
-func remove_upgrade(stat_container: MainMenuStatContainer, gear_type: GearResource.GearType):
+func remove_upgrade(stat_container: StatContainer, gear_type: GearResource.GearType):
 	if stat_container is StatContainer:
 		stat_container.remove_mod_from_base_stat(_base_stat_type, gear_type)
 
