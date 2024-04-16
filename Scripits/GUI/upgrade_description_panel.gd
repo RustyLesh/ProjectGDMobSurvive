@@ -18,3 +18,4 @@ func clear_info():
 	title.text = ""
 	description.text = ""
 	uses_counter.text = ""
+	description_Auto_gen.text = ""

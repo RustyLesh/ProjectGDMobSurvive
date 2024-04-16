@@ -1,4 +1,5 @@
 Node
+CanvasLayer
 Button
 GridContainer
 Control
@@ -29,4 +30,3 @@ EnemyMovement
 TextEdit
 MarginContainer
 PanelContainer
-Container

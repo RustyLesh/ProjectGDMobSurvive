@@ -81,6 +81,8 @@ func update_rerolls():
 		reroll_button.disabled = true
 	
 	reroll_counter.text = str(upgrade_manager.reroll_points)
+	
+	update_upgrade_options()
 
 func return_to_main_menu():
 	GameData.go_to_main_menu()

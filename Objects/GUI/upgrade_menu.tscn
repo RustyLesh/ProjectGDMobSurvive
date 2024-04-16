@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu.gd" id="1_57tvr"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_description_panel.gd" id="2_os725"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_201ry"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obtom"]
+bg_color = Color(0, 0, 0.0235294, 0.658824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ync8t"]
 bg_color = Color(0, 0, 0, 1)
@@ -44,13 +45,12 @@ grow_vertical = 2
 script = ExtResource("1_57tvr")
 
 [node name="Background" type="Panel" parent="."]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.001
 anchor_bottom = 1.0
-offset_right = 0.279968
-theme_override_styles/panel = SubResource("StyleBoxFlat_201ry")
+offset_right = -0.720032
+theme_override_styles/panel = SubResource("StyleBoxFlat_obtom")
 
 [node name="Upgrade Options Panel" type="Panel" parent="."]
 layout_mode = 2

@@ -1,3 +1,5 @@
+res://Scripits/Combat
+res://Scripits/GUI
 res://Objects
 C:/Users/flame/Documents/Godot Projects/Builds
 res://Scripits/Main Menu
@@ -6,7 +8,6 @@ C:/Users/flame/Documents
 res://Resources/Gear
 res://
 res://Resources/Enemies/Bosses
-res://Scripits/GUI
 res://Resources/Enemies
 res://Objects/Enemy Spawning/Shaders
 res://Objects/Main Menu
