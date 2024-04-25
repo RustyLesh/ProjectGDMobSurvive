@@ -295,9 +295,9 @@ script = ExtResource("7_5e6md")
 
 [node name="End Screen" type="CanvasLayer" parent="."]
 layer = 50
-visible = false
 
 [node name="End Screen" type="Control" parent="End Screen"]
+visible = false
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0

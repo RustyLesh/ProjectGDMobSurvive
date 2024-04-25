@@ -104,3 +104,6 @@ res://Scripits/Weapons/weapon_resource.gd
 res://Scripits/base_stat_mod.gd
 res://Scripits/GUI/upgrade_menu.gd
 res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/combat_level.gd
+res://Scripits/GUI/menu_manager.gd
+res://Objects/GUI/in_level_ui.tscn
