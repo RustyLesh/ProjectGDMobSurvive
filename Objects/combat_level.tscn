@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://chqhcssxbiatm"]
+[gd_scene load_steps=19 format=3 uid="uid://chqhcssxbiatm"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -9,9 +9,6 @@
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="7_clgui"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
-[ext_resource type="Script" path="res://Scripits/explosion_area_check.gd" id="12_l8wgq"]
-[ext_resource type="Script" path="res://Scripits/On Hit Effects/on_hit_effects_helper.gd" id="13_d1jph"]
-[ext_resource type="PackedScene" uid="uid://bjurp71bsgnjv" path="res://test/effect_proc_line.tscn" id="14_f7sxx"]
 [ext_resource type="PackedScene" uid="uid://djkymukm287pn" path="res://test/test_scene.tscn" id="15_adnqk"]
 [ext_resource type="Script" path="res://Scripits/Combat/debug_input.gd" id="15_k7mlb"]
 [ext_resource type="Resource" uid="uid://dl85oiy7kilep" path="res://Resources/drop_colours.tres" id="16_lqmu6"]
@@ -130,9 +127,6 @@ script = ExtResource("7_clgui")
 stage_number = 0
 spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uewyt"]
-radius = 45.0999
-
 [node name="Combat_Level" type="Node2D" groups=["Level"]]
 texture_filter = 1
 script = ExtResource("1_2hpuq")
@@ -179,6 +173,7 @@ number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
 enemy_spawns = SubResource("Resource_vfxl8")
+time = 119
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 
@@ -187,19 +182,6 @@ script = ExtResource("6_y7ueo")
 
 [node name="TestCodeNode" type="Node" parent="."]
 script = ExtResource("7_wh76m")
-
-[node name="ExplosionAreaCheck" type="Area2D" parent="." groups=["Explosion Area Check"]]
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("12_l8wgq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionAreaCheck"]
-shape = SubResource("CircleShape2D_uewyt")
-debug_color = Color(0.533333, 0.568627, 0, 0.419608)
-
-[node name="On Hit Effects Helper" type="Node" parent="." groups=["On Hit Effects Helper"]]
-script = ExtResource("13_d1jph")
-chain_line_effect_node = ExtResource("14_f7sxx")
 
 [node name="Drop Test" parent="." instance=ExtResource("15_adnqk")]
 drop_colours = ExtResource("16_lqmu6")

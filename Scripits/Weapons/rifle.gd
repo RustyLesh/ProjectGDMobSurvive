@@ -3,7 +3,7 @@ extends Weapon
 @export var shot_angle_variation = 15
 
 func init_weapon(base_stats: Array[BaseStat]):
-	base_stat_mods = base_stats.duplicate()
+	super(base_stats)
 	
 	while true:
 		for i in 1 + weapon_manager.extra_proj_count:

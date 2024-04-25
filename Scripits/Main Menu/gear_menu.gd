@@ -124,11 +124,13 @@ func remove_selected_item():
 	update_ui()
 
 func filter_by_type(gear_type: GearResource.GearType):
-	# gear_list_filtered.clear()
-	# for gear in gear_list:
-	# 	if gear._gear_type == gear_type:
-	# 		gear_list_filtered.append(gear)
-	# filter_applied = true
+	selected_item = -1
+	
+	gear_list_filtered.clear()
+	for gear in gear_list:
+		if gear._gear_type == gear_type:
+			gear_list_filtered.append(gear)
+	filter_applied = true
 	
 	refresh_item_list()
 

@@ -1,5 +1,4 @@
-extends EnemyShellResource
-class_name EliteResource
+class_name EliteResource extends EnemyShellResource
 
 @export var move_speed : int = 100
 @export var contact_damage: int
@@ -19,7 +18,6 @@ func _init():
 	enemy_scene = load(enemy_shell_scene_path)
 
 func instantiate_enemy(enemy_resource: EnemyResource, spawn_position: Vector2, parent) -> Variant:
-#	var enemy_scene = load(enemy_shell_scene_path)
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.spawn_enemy(enemy_resource, spawn_position, parent)
 	return enemy_instance

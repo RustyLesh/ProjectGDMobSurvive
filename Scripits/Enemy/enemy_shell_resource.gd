@@ -1,5 +1,5 @@
-extends Resource
-class_name EnemyShellResource
+class_name EnemyShellResource extends Resource
+## Base resource for enemy scenes
 
 var enemy_shell_scene_path: String
 var enemy_scene

@@ -1,5 +1,5 @@
-extends Node2D
-class_name BossTotemAttackAI
+class_name BossTotemAttackAI extends Node2D
+## Attack patern ai for totem boss
 
 enum Phase
 {
@@ -13,6 +13,7 @@ enum Phase
 @onready var timer_phase_1 = $"Phase1" as Timer
 @onready var timer_phase_2 = $"Phase2" as Timer
 
+#Phase Durations
 @export var phase_1_length: int = 10
 @export var phase_2_length: int = 10
 

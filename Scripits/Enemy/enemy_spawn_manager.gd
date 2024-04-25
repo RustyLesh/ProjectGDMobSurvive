@@ -1,7 +1,5 @@
-extends Node2D
-class_name EnemySpawnManager
-
-#Manages enemy spawning from spawn data resources
+class_name EnemySpawnManager extends Node2D
+## Manages enemy spawning from spawn data resources
 
 @export var enemy_spawns: EnemySpawns
 

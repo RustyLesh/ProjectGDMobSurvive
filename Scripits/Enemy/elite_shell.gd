@@ -1,11 +1,8 @@
-extends EnemyShell
-class_name EliteShell
+class_name EliteShell extends EnemyShell
 
-@onready var character_body = $CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
 
-@onready var sprite: Sprite2D = character_body.get_node("Sprite2D")
 @onready var spawn_animation: AnimatedSprite2D
 
 signal on_elite_dead()
@@ -18,6 +15,8 @@ var parent
 var spawn_animation_node
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
+	character_body = $CharacterBody2D
+	sprite = character_body.get_node("Sprite2D")
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position

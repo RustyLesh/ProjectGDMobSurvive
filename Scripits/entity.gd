@@ -12,6 +12,9 @@ enum EntityType
 @onready var health = $Health
 
 @export var entity_type: EntityType
+@onready var character_body 
+@onready var sprite: Sprite2D
+var damage_flash_color: Color = Color("af2222")
 
 var is_dead: bool = false
 

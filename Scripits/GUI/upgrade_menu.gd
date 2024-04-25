@@ -6,15 +6,11 @@ var upgrade_option_resources : Array[UpgradeResource]
 var upgrade_option_ui : Array[UpgradeOption]
 @onready var upgrade_option_button: Resource = preload("res://Objects/GUI/upgrade_option.tscn")
 @onready var upgrade_manager: UpgradeManager = get_parent().get_parent().get_node("Upgrade Manager")
+@onready var xp_manger: XPManager = $"../../XP Manager"
 
 @onready var upgrade_options_container = $"Upgrade Options Panel/Upgrade Options"
-@onready var description_panel : UpgradeDescriptionPanel = $"Description Panel"
-@onready var confirm_button: Button = $Confirm
 @onready var reroll_button: Button = $Reroll
-@onready var reroll_counter: Label = $"Reroll Counter"
-
-@onready var add_rerolls_button: Button = $Reroll2
-
+@onready var reroll_counter: Label = $"Reroll/Reroll Counter"
 var selected_option: int = 0
 var selected_resource: UpgradeResource
 
@@ -25,6 +21,8 @@ func _ready():
 	update_upgrade_options()
 	upgrade_manager.on_reroll.connect(update_upgrade_options)
 	upgrade_manager.on_gained_rerolls.connect(update_rerolls)
+
+	xp_manger.on_level.connect(on_upgrade_points_changed)
 	update_rerolls()
 
 func on_upgrade_menu_opened():
@@ -37,8 +35,6 @@ func _on_confirm_pressed():
 
 func update_upgrade_options():
 	selected_option = 0
-	confirm_button.disabled = true
-	description_panel.clear_info()
 	
 	if upgrade_option_resources.size() == 0: #If no upgrades, remove all buttons
 		for upgrade in upgrade_option_ui:
@@ -50,7 +46,7 @@ func update_upgrade_options():
 		var upgrade_button_instance = upgrade_button_scene.instantiate()
 		upgrade_option_ui.append(upgrade_button_instance)
 		upgrade_options_container.add_child(upgrade_button_instance)
-		upgrade_button_instance.on_option_selected.connect(highlight_upgrade)
+		upgrade_button_instance.on_option_selected.connect(select_upgrade)
 		
 	while upgrade_option_ui.size() > upgrade_option_resources.size(): #if there are to many buttons, delete them
 		var upgradeOption = upgrade_option_ui.pop_back()
@@ -60,14 +56,14 @@ func update_upgrade_options():
 	for upgrade_option in upgrade_option_ui: #init buttons, refresh their ui
 		if upgrade_option is UpgradeOption:
 			upgrade_option.init_button(upgrade_option_ui.find(upgrade_option) + 1, upgrade_manager.get_upgrade(upgrade_option_ui.find(upgrade_option) + 1))
+			if upgrade_manager.current_upgrade_points <= 0:
+				upgrade_option.disable_button()
+			else:
+				upgrade_option.enable_button()
 
-func highlight_upgrade(option_no: int):
-	selected_resource = upgrade_manager.get_upgrade(option_no)
-	description_panel.update_ui(selected_resource)
-	selected_option = option_no
-	
-	if upgrade_manager.current_upgrade_points > 0:
-		confirm_button.disabled = false
+func select_upgrade(option_no: int):
+	print("upgrade menu selected: ", option_no)
+	upgrade_manager.select_upgrade(option_no)
 
 func _on_reroll_pressed():
 	upgrade_manager.reroll_points -= 1
@@ -89,3 +85,13 @@ func return_to_main_menu():
 
 func on_add_reroll_points_pressed():
 	upgrade_manager.add_reroll_points(1)
+
+func on_upgrade_points_changed(points: int):
+	print("points changed: ", points)
+	for upgrade_option in upgrade_option_ui: #init buttons, refresh their ui
+		if upgrade_option is UpgradeOption:
+			if points <= 0:
+				upgrade_option.disable_button()
+			else:
+				upgrade_option.enable_button()
+

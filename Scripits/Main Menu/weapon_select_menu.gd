@@ -43,8 +43,8 @@ func _ready():
 			
 	if PlayerSetup.selected_weapon_index >= 0: #if weapon is already selected, show info
 		selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
-		PlayerSetup.weapon = weapons[PlayerSetup.selected_weapon_index]
-		apply_weapon_mods(PlayerSetup.weapon)
+		PlayerSetup.weapon_resource = weapons[PlayerSetup.selected_weapon_index]
+		apply_weapon_mods(PlayerSetup.weapon_resource)
 	else:
 		await get_tree().create_timer(1).timeout
 		new_game_setup()
@@ -78,7 +78,7 @@ func on_weapon_select(weapon, index):
 	selected_weapon_infobox.on_weapon_select(weapon, index)
 
 func equip_weapon(weapon_resource):
-	PlayerSetup.weapon = weapon_resource
+	PlayerSetup.weapon_resource = weapon_resource
 	upgrade_manage_menu.remove_upgrade_by_slot_type(GearResource.GearType.WEAPON)
 	for upgrade in weapon_resource.upgrades:
 		upgrade.source_type = GearResource.GearType.WEAPON

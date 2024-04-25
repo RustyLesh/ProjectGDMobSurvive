@@ -1,6 +1,5 @@
-extends CharacterBody2D
-class_name EnemyMovement
-#Moves the enemies body based on the movement resource attached to the given enemy node.
+class_name EnemyMovement extends CharacterBody2D
+## Moves the enemies body based on the movement resource attached to the given enemy node.
 
 var speed: float = 100.0
 
@@ -28,4 +27,3 @@ func make_path():
 	
 func _on_timer_timeout():
 	make_path()
-

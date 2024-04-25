@@ -5,10 +5,12 @@ const FILE_NAME = "user://main_menu_upgrade_pools.save"
 
 @onready var upgrade_pool_ui = $"Upgrade Pool Container/Upgrade Pool List"
 @onready var selected_upgrade_list_ui = $"Selected Upgrade Container/Selected Upgrade List"
+@onready var upgrade_count_warning: Panel = $"Upgrade Count Warning"
 
 @onready var add_button = $"Add Button"
 @onready var remove_button = $"Remove Button"
 @onready var main_menu = $"../"
+
 @export var upgrade_pool: Array[UpgradeResource]
 @export var selected_upgrades: Array[UpgradeResource]
 @export var forced_upgrade_bg_colour: Color
@@ -21,6 +23,8 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	add_button.disabled = true
 	remove_button.disabled = true
+	upgrade_count_warning.visible = false
+
 	main_menu.on_start_combat.connect(on_combat_start)
 	upgrade_pool = PlayerSetup.upgrade_pool
 	selected_upgrades = PlayerSetup.selected_upgrades
@@ -31,7 +35,8 @@ func on_combat_start():
 	PlayerSetup.upgrade_pool = upgrade_pool.duplicate()
 
 func remove_upgrade_by_slot_type(gear_type):
-	var remove_pool: Array[UpgradeResource]
+	var remove_pool: Array[UpgradeResource] = []
+
 	for upgrade_resource in upgrade_pool:
 		if upgrade_resource.source_type == gear_type:
 			remove_pool.append(upgrade_resource)
@@ -113,3 +118,14 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		PlayerSetup.selected_upgrades = selected_upgrades.duplicate()
 		PlayerSetup.upgrade_pool = upgrade_pool.duplicate()
+
+func on_leaving_upgrade_menu() -> bool:
+	if selected_upgrades.size() < 6:
+		upgrade_count_warning.visible = true
+		var player_choice: bool = await upgrade_count_warning.on_user_choice
+		upgrade_count_warning.visible = false
+		if !player_choice:
+			return false
+
+	upgrade_count_warning.visible = false	
+	return true

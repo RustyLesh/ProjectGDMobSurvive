@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://63r643f2g1xu"]
+[gd_scene load_steps=3 format=3 uid="uid://63r643f2g1xu"]
 
 [ext_resource type="Script" path="res://Scripits/Weapons/rifle.gd" id="1_lvux2"]
+[ext_resource type="Resource" uid="uid://dgexk0p5vtpns" path="res://Resources/Player Bullets/bullet.tres" id="2_kgmhd"]
 
 [node name="rifle" type="Node"]
 script = ExtResource("1_lvux2")
 shot_angle_variation = 5
 fire_rate = 3.0
+bullet_resource = ExtResource("2_kgmhd")

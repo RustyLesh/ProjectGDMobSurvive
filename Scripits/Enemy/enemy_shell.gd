@@ -1,8 +1,5 @@
-extends Entity
-class_name EnemyShell
-#Base logic for assembling an enemy from given enemy resource
-
-#@export var enemy_resource = EnemyResource.new()
+class_name EnemyShell extends Entity
+## Base logic for assembling an enemy from given enemy resource
 
 @onready var player_node: CharacterBody2D = get_tree().get_first_node_in_group(("Player")).player_body
 @onready var body: CharacterBody2D = get_node("CharacterBody2D")
@@ -19,6 +16,7 @@ var slow_dutation: int
 var min_move_speed: int = 10
 var default_move_speed: float
 
+var flash_length: float = 0.3
 @onready var slow_timer = $SlowTimer as Timer
 
 func _on_health_died():
@@ -35,6 +33,7 @@ func spawn_XP():
 		xpDrop.global_position = $CharacterBody2D.global_position
 		get_parent().add_child(xpDrop)
 
+## Chooses random drop from drop pool
 func roll_drop():
 	#return if drop pool doesnt exist
 	if drop_pool == null:
@@ -53,6 +52,13 @@ func roll_drop():
 
 func set_spawn_position(position: Vector2):
 	body.global_position = position
+
+func take_damage(damage):
+	if health is Health:
+		health.take_damage(damage)
+		sprite.modulate = damage_flash_color
+		await get_tree().create_timer(flash_length).timeout
+		sprite.modulate = Color.WHITE		
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	pass

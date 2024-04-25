@@ -1,5 +1,5 @@
-extends Resource
-class_name DropResource
+class_name DropResource extends Resource
+## Base resource for items to be dropped from a [DropPool]
 
 enum DropType{
     GEAR,

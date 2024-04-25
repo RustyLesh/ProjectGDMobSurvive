@@ -24,6 +24,7 @@ func get_string():
 	return return_str
 
 func apply_mod_main_menu(stat_container: StatContainer):
+	print("base stat applied")
 	stat_container.add_mod_to_base_stat(get_stat_mod(), base_stat_type)
 
 func apply_mod_in_combat(combat_stat_container: StatContainer):

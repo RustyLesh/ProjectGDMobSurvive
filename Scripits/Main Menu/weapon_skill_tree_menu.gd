@@ -14,9 +14,8 @@ var selected_tree_mod
 
 func _ready():
 	await get_tree().create_timer(.5).timeout
-	if PlayerSetup.weapon != null:	
-
-		selected_weapon = PlayerSetup.weapon
+	if PlayerSetup.weapon_resource != null:	
+		selected_weapon = PlayerSetup.weapon_resource
 		var selected_weapon_tree = selected_weapon.weapon_tree
 		for selected_panel in selected_weapon_tree.selected.keys():
 			var selected_node = selected_weapon_tree.selected[selected_panel]
@@ -56,6 +55,7 @@ func close_tree():
 	visible = false
 
 func tree_node_selected(tree_mod: GearModifier, panel_index: int, selected_index: int):
+	print("Tree node selected - panel: ", panel_index, " selected: ", selected_index)
 	var upgrade_resource = tree_mod.upgrade_resource
 	info_panel.update_ui(upgrade_resource)
 	selected_panel_index = panel_index
@@ -63,8 +63,10 @@ func tree_node_selected(tree_mod: GearModifier, panel_index: int, selected_index
 	selected_tree_mod = tree_mod
 	tree_panels[selected_panel_index].deselect_other_nodes(selected_node_index)
 	apply_node_button.disabled = false
+
 func apply_selected_tree_node():
-	selected_weapon.weapon_tree.selected[selected_panel_index] = selected_panel_index
+	print("TApply selected - panel: ", selected_panel_index, " selected: ", selected_node_index)
+	selected_weapon.weapon_tree.selected[selected_panel_index] = selected_node_index
 	if selected_tree_mod == null:
 		return
 
@@ -79,12 +81,15 @@ func apply_selected_tree_node():
 	#Apply mods from selected skill
 	selected_tree_mod.set_source_type(GearResource.GearType.SKILL_TREE)
 	if selected_tree_mod.mod_type == GearModifier.GearModType.APPLY_NOW:
+		print("Applying: ", selected_tree_mod.upgrade_resource._name)
 		selected_tree_mod.upgrade_resource.upgrade.apply_upgrade_main_menu(stat_container, GearResource.GearType.SKILL_TREE)
 	else: if selected_tree_mod.mod_type == GearModifier.GearModType.ADD_TO_COMBAT_POOL:
+		print("adding mod to combat pool")
 		upgrade_menu.upgrade_pool.append(selected_tree_mod.upgrade_resource)
 
 func apply_loaded_skill_tree(tree_mod: GearModifier, panel_index: int, selected_index: int):
 	selected_weapon.weapon_tree.selected[panel_index] = selected_index
+	print("panel: ", panel_index, " selected: ", selected_index)
 	if tree_mod == null:
 		return
 

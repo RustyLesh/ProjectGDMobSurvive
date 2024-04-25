@@ -1,7 +1,7 @@
 extends Node
 #Stores player data for going between main menu and combat levels
 @export var selected_weapon_index: int = -1
-@export var weapon: WeaponResource
+@export var weapon_resource: WeaponResource
 
 @export var weapon_storage: Array[WeaponResource]
 
@@ -16,6 +16,8 @@ extends Node
 
 @export var enemy_spawns: EnemySpawns
 @export var difficulty: int
+
+@export var weapon_bullet_resource: BulletResource
 
 #Launch checks
 var has_equipped_gear: bool = false

@@ -1,6 +1,6 @@
 extends Node
 class_name UpgradeManager
-#Tracks upgrade pool, and upgrade points. Lets player spend points on upgrades.
+## For in stage. Tracks upgrade pool, and upgrade points. Lets player spend points on upgrades.
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
 @onready var player: Node = get_tree().get_first_node_in_group(("Player"))
@@ -35,7 +35,9 @@ func _ready():
 		xp_manager.on_level.connect(level_changed)
 		
 	upgrade_pool = PlayerSetup.selected_upgrades.duplicate()
+	reset_upgrade_uses()
 	roll_upgrade_options()
+	print_upgrade_pool_names()
 	
 func level_changed(level: int):
 	current_level = level
@@ -47,6 +49,7 @@ func get_upgrade(choice: int) -> UpgradeResource:
 	return null
 
 func select_upgrade(choice: int):
+	print("upgrade manager selected: ", choice)
 	if current_upgrade_points > 0:
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]
 		if selected_upgrade.current_uses >=  selected_upgrade._max_uses - 1:
@@ -77,13 +80,22 @@ func roll_upgrade_options():
 	upgrade_pool.shuffle()
 	on_reroll.emit()
 	
-func print_upgrade_names(): #Prints to console the names of upgrades from upgrade options array
+func print_upgrade_option_names(): #Prints to console the names of upgrades from upgrade options array
 	if upgrade_pool.size() >= number_of_choices:
 		for i in range(upgrade_pool.size()-1, upgrade_pool.size()-(number_of_choices + 1), -1):
-			print(upgrade_pool[i].name)
+			print(upgrade_pool[i]._name)
 	else:
 		for upgrade in upgrade_pool:
 			print(upgrade._name)
+
+func print_upgrade_pool_names(): #Prints to console the names of upgrades from upgrade options array
+	print("manager pool")
+	for upgrade in upgrade_pool:
+		print(upgrade._name)
+	
+	print("player setup pool")
+	for upgrade in PlayerSetup.selected_upgrades:
+		print(upgrade._name)
 
 func reset_upgrade_uses(): #Reset resource uses to 0
 	if removed_upgrades.size() > 0:

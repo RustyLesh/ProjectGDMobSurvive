@@ -1,7 +1,9 @@
-res://test/main_menu_test.gd
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/input_manager.gd
-res://Objects/GUI/in_level_ui.tscn
+res://Scripits/rocket.gd
+res://Scripits/player.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Main Menu/weapon_select_menu.gd
+res://Scripits/bullet.gd
+res://Objects/BulletHelper.tscn
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
@@ -11,8 +13,6 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
-res://Scripits/Weapons/pistol.gd
-res://Scripits/spawner_check.gd
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Enemy Waves/C1-1/c1-1w1.tres
 res://Resources/Enemy Waves/C1-1/c1-1w2.tres
@@ -77,27 +77,30 @@ res://Resources/Gear/ring_band_silver.tres
 res://Resources/Enemy Waves/C1-3/c1-1w6Boss.tres
 res://Resources/Enemy Stages/C1/Cmp1-3.tres
 res://Resources/Enemy Stages/C1/testing.tres
+res://Resources/Gear/ring_silver.tres
 res://Objects/combat_level.tscn
-res://Objects/Main Menu/main_menu.tscn
-res://Objects/dev_tools.tscn
+res://Objects/bullet.tscn
+res://Objects/Weapons/rifle.tscn
+res://Objects/rocket.tscn
 res://Objects/player.tscn
-res://Objects/GUI/upgrade_menu.tscn
-res://Objects/GUI/upgrade_option.tscn
-res://Scripits/GUI/upgrade_menu.gd
-res://Scripits/GUI/menu_manager.gd
-res://Scripits/in_level_xp_manager.gd
-res://Scripits/Main Menu/gear_menu.gd
-res://Scripits/GUI/end_of_combat_gear_menu.gd
+res://Objects/Main Menu/main_menu.tscn
+res://Resources/Player Bullets/rocket.tres
 res://player_setup.gd
-res://Scripits/GUI/end_screen.gd
-res://Scripits/Main Menu/gear_slot.gd
-res://Scripits/Combat/debug_input.gd
-res://Scripits/Main Menu/main_menu.gd
-res://Scripits/player.gd
-res://Scripits/GUI/hud_xp.gd
-res://Scripits/Upgrade/upgrade_manager.gd
+res://Resources/Player Bullets/bullet.tres
+res://player_setup.tscn
+res://Scripits/Upgrade/bullet_change_upgrade.gd
 res://Scripits/Upgrade/upgrade.gd
-res://Scripits/Drops/drop_experience.gd
-res://Scripits/GUI/upgrade_description_panel.gd
-res://Scripits/Main Menu/selected_item_options.gd
-res://Objects/GUI/upgrade_manager.tscn
+res://Scripits/Upgrade/on_hit_effect_upgrade.gd
+res://Scripits/game_data.gd
+res://Scripits/player_stats.gd
+res://player_stats.tscn
+res://Scripits/Main Menu/main_menu.gd
+res://Scripits/Main Menu/upgrade_manage_menu.gd
+res://Scripits/Weapons/weapon_xp_tree.gd
+res://Scripits/Main Menu/weapon_skill_tree_menu.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.gd
+res://Objects/Main Menu/weapon_skill_tree_panel.tscn
+res://Scripits/Weapons/weapon_resource.gd
+res://Scripits/base_stat_mod.gd
+res://Scripits/GUI/upgrade_menu.gd
+res://Scripits/Upgrade/upgrade_manager.gd

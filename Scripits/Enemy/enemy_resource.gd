@@ -1,6 +1,5 @@
-extends Resource
-class_name EnemyResource
-#Enemy resource, used in spawn data.
+class_name EnemyResource extends Resource
+## Enemy resource, used in spawn data.
 
 enum EnemyType
 {
@@ -20,6 +19,7 @@ enum EnemyType
 
 @export var enemy_shell_resource: EnemyShellResource
 
+## Runs the given shells instantiate function and returns the created scene
 func get_enemy_instance(enemy_resource: EnemyResource, spawn_position: Vector2, parent) -> Variant:
 	enemy_resource.weapon_xp_value = stage_xp_value
 	return enemy_shell_resource.instantiate_enemy(enemy_resource,spawn_position,parent)

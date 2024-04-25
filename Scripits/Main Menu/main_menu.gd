@@ -58,7 +58,7 @@ func on_quit_button_pressed():
 	
 #Combat start
 func _on_button_pressed():
-	if PlayerSetup.weapon == null: #Check if weapon equiped
+	if PlayerSetup.weapon_resource == null: #Check if weapon equiped
 		weapon_warning_dialogue.visible = true
 	else:
 		on_start_combat.emit()
@@ -89,7 +89,11 @@ func change_menu(change_to: MenuType):
 			options_menu.visible = false
 
 		MenuType.UPGRADES:
-			upgrade_menu.visible = false		
+			var palyer_input = await upgrade_menu.on_leaving_upgrade_menu()
+			if palyer_input: 
+				upgrade_menu.visible = false
+			else:
+				return
 
 			
 	current_menu = change_to

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BulletResource" load_steps=3 format=3 uid="uid://dgexk0p5vtpns"]
+
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="1_p31xw"]
+[ext_resource type="PackedScene" uid="uid://cui7dhok4j3tb" path="res://Objects/bullet.tscn" id="1_tpcbs"]
+
+[resource]
+script = ExtResource("1_p31xw")
+bullet_scene = ExtResource("1_tpcbs")

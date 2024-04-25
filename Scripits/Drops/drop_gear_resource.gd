@@ -1,5 +1,5 @@
-extends DropResource
-class_name DropGearResource
+class_name DropGearResource extends DropResource
+## Spawns a gear pickup instance. To be used with a [DropPool]
 
 @export var gear_resource: GearResource
 var drop_colours: DropColours

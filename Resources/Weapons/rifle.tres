@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=48 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=54 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
@@ -16,7 +16,10 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="14_4phq1"]
 [ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="15_cu7qd"]
 [ext_resource type="Texture2D" uid="uid://cfwq2mxyxa4td" path="res://Art/Upgrade Icons/Sword.png" id="16_ntka3"]
+[ext_resource type="Texture2D" uid="uid://c5ly12w88ilji" path="res://Art/XPDrop.png" id="17_0disk"]
 [ext_resource type="Texture2D" uid="uid://deg5wj2d0bvwo" path="res://Art/Upgrade Icons/Up Arrow.png" id="17_ep5ba"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/bullet_change_upgrade.gd" id="17_gmbi7"]
+[ext_resource type="Resource" uid="uid://48hqo61ouopn" path="res://Resources/Player Bullets/rocket.tres" id="18_m81ln"]
 [ext_resource type="Texture2D" uid="uid://chp3yeikscd3q" path="res://Art/Upgrade Icons/Life.png" id="18_xd3ad"]
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="19_wycb0"]
 
@@ -89,6 +92,27 @@ upgrade_resource = SubResource("Resource_lk4mr")
 slot_source = 0
 forced_upgrade = false
 
+[sub_resource type="Resource" id="Resource_fyyl4"]
+script = ExtResource("17_gmbi7")
+bullet_resource = ExtResource("18_m81ln")
+
+[sub_resource type="Resource" id="Resource_nkh3y"]
+script = ExtResource("13_300w3")
+_name = "Rocket"
+_description = "bullets explode after they die"
+_icon = ExtResource("17_0disk")
+upgrade = SubResource("Resource_fyyl4")
+added_upgrades = Array[ExtResource("13_300w3")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_ugiob"]
+script = ExtResource("11_8ylah")
+mod_type = 0
+upgrade_resource = SubResource("Resource_nkh3y")
+slot_source = 0
+forced_upgrade = true
+
 [sub_resource type="Resource" id="Resource_ecavs"]
 script = ExtResource("14_4phq1")
 _value = 50.0
@@ -160,7 +184,7 @@ forced_upgrade = false
 
 [sub_resource type="Resource" id="Resource_4l1ct"]
 script = ExtResource("14_4phq1")
-_value = 0.0
+_value = 1.0
 _mod_type = 0
 _base_stat_type = 4
 
@@ -230,7 +254,7 @@ forced_upgrade = true
 [sub_resource type="Resource" id="Resource_jc18q"]
 script = ExtResource("10_0diw7")
 weapon_level = 0
-level_1 = Array[ExtResource("11_8ylah")]([SubResource("Resource_43x0h"), SubResource("Resource_jhdpx"), SubResource("Resource_65qye")])
+level_1 = Array[ExtResource("11_8ylah")]([SubResource("Resource_43x0h"), SubResource("Resource_jhdpx"), SubResource("Resource_65qye"), SubResource("Resource_ugiob")])
 level_2 = Array[ExtResource("11_8ylah")]([SubResource("Resource_fhvsf"), SubResource("Resource_3p3pe"), SubResource("Resource_7b66x")])
 level_3 = Array[ExtResource("11_8ylah")]([SubResource("Resource_4yp5h"), SubResource("Resource_k05m1"), SubResource("Resource_tmddk")])
 level_4 = Array[ExtResource("11_8ylah")]([])

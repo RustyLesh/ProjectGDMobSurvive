@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BulletResource" load_steps=3 format=3 uid="uid://48hqo61ouopn"]
+
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="1_4l3ju"]
+[ext_resource type="PackedScene" uid="uid://c0pshu21fs2t7" path="res://Objects/rocket.tscn" id="1_jap84"]
+
+[resource]
+script = ExtResource("1_4l3ju")
+bullet_scene = ExtResource("1_jap84")

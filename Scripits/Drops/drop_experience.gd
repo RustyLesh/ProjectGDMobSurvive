@@ -1,6 +1,5 @@
-extends Drop
-class_name XP_Drop
-#Gives player xp when they enter the attached collider
+class_name XP_Drop extends Drop
+## Gives player xp when they enter the attached collider
 
 var value: float
 

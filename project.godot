@@ -24,6 +24,7 @@ GameData="*res://game_data.tscn"
 SaveManager="*res://Objects/save_manager.tscn"
 ConfigManager="*res://config_manager.tscn"
 InputManager="*res://Objects/input_manager.tscn"
+BulletHelper="*res://Objects/BulletHelper.tscn"
 
 [display]
 

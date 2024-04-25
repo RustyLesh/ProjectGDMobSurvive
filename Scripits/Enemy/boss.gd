@@ -1,11 +1,7 @@
-extends EnemyShell
-class_name ShellBoss
-#Base for boss classes
+class_name ShellBoss extends EnemyShell
+## Base for boss classes
 
-@onready var character_body = $CharacterBody2D
 @onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
-
-@onready var sprite: Sprite2D = character_body.get_node("Sprite2D")
 
 var enemy_ai_movement: EnemyMovementAI
 var enemy_shell_resource 
@@ -26,6 +22,8 @@ func _on_health_died():
 	super()
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
+	character_body = $CharacterBody2D
+	sprite = character_body.get_node("Sprite2D")
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position

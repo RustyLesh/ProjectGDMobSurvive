@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=43 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
+[ext_resource type="Script" path="res://Scripits/GUI/sicks.gd" id="2_k4bfr"]
 [ext_resource type="PackedScene" uid="uid://c8b7sxc0e6j7w" path="res://Objects/hud.tscn" id="3_xrel2"]
 [ext_resource type="Script" path="res://Scripits/GUI/hud_xp.gd" id="4_fh5v3"]
 [ext_resource type="Script" path="res://Scripits/GUI/stage_timer.gd" id="4_it7su"]
@@ -96,11 +97,6 @@ bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 script = ExtResource("1_g0dvu")
 dimmed_upgrade_toggle_button_colour = Color(0.0745098, 0.0745098, 0.0745098, 0.733333)
 
-[node name="Seperator" type="Line2D" parent="."]
-points = PackedVector2Array(360, 1280, 360, 768)
-width = 2.0
-default_color = Color(1, 1, 1, 0.490196)
-
 [node name="TouchSticks" type="Control" parent="."]
 z_as_relative = false
 layout_mode = 3
@@ -113,6 +109,7 @@ offset_bottom = 1280.0
 
 [node name="Sticks" type="CanvasLayer" parent="TouchSticks/Test"]
 layer = 0
+script = ExtResource("2_k4bfr")
 
 [node name="Virtual joystick left" parent="TouchSticks/Test/Sticks" instance=ExtResource("2_7xvjj")]
 offset_top = -512.0
@@ -140,6 +137,11 @@ action_left = "aim_left"
 action_right = "aim_right"
 action_up = "aim_up"
 action_down = "aim_down"
+
+[node name="Seperator" type="Line2D" parent="TouchSticks/Test/Sticks"]
+points = PackedVector2Array(360, 1280, 360, 768)
+width = 2.0
+default_color = Color(1, 1, 1, 0.490196)
 
 [node name="HUD" parent="." instance=ExtResource("3_xrel2")]
 texture_filter = 1
@@ -269,7 +271,15 @@ visibility_mode = 1
 visible = false
 offset_top = 112.0
 
-[node name="Quit" parent="Uprade Menu" index="6"]
+[node name="Upgrade Options Panel" parent="Uprade Menu" index="1"]
+offset_top = 40.0
+offset_bottom = 920.0
+
+[node name="Reroll" parent="Uprade Menu" index="2"]
+offset_top = 936.0
+offset_bottom = 1000.0
+
+[node name="Quit" parent="Uprade Menu" index="3"]
 offset_left = 552.0
 offset_top = -112.0
 offset_bottom = -56.0
@@ -285,9 +295,9 @@ script = ExtResource("7_5e6md")
 
 [node name="End Screen" type="CanvasLayer" parent="."]
 layer = 50
+visible = false
 
 [node name="End Screen" type="Control" parent="End Screen"]
-visible = false
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
@@ -381,11 +391,13 @@ theme_override_constants/separation = 65
 script = ExtResource("20_7jkjo")
 
 [node name="Equip" type="Button" parent="End Screen/End Screen/Gear Menu/Selected Item Options"]
+visible = false
 custom_minimum_size = Vector2(170.29, 0)
 layout_mode = 2
 text = "Equip"
 
 [node name="Craft" type="Button" parent="End Screen/End Screen/Gear Menu/Selected Item Options"]
+visible = false
 custom_minimum_size = Vector2(170.29, 0)
 layout_mode = 2
 text = "Craft"

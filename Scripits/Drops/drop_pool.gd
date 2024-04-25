@@ -1,10 +1,12 @@
-extends Resource
-class_name DropPool
+class_name DropPool extends Resource
+## Stores [DropResource]. used to roll a drop from the drop pool by adding all the weights.
+
 @export var drop_pool: Array[DropResource]
 
 var total_pool_weight: float = 0
 var weight_counter: float = 0
 
+## Roll a drop from the drop pool
 func get_drop() -> Dictionary:
 	#return if no drops
 	if drop_pool.size() <= 0:

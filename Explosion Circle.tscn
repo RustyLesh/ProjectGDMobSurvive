@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn6w06b5tnn7c"]
+
+[ext_resource type="Texture2D" uid="uid://b7b1mvv58ehlh" path="res://Art/explosion_circle.png" id="1_jaack"]
+[ext_resource type="Script" path="res://Scripits/explosion_circle_sprite.gd" id="2_udhjh"]
+
+[node name="ExplosionCircle" type="Sprite2D"]
+modulate = Color(1, 0.129412, 0.133333, 1)
+texture_filter = 1
+position = Vector2(-5.48363e-06, -3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("1_jaack")
+script = ExtResource("2_udhjh")

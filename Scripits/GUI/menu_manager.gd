@@ -8,9 +8,12 @@ class_name MenuManager
 @onready var spawn_manager = get_parent().get_node("EnemySpawner")
 @onready var stage_timer = $"HUD/Timer"
 @onready var seconds_timer = $"HUD/Seconds Timer"
-@onready var touch_joysticks = $"TouchSticks/Test/Sticks"
 @onready var upgrade_manager = $"../Upgrade Manager"
 @onready var upgrade_menu_toggle: TouchScreenButton = $"HUD/CanvasLayer/Upgrade Menu Button"
+
+#GUI Options
+@onready var touch_joysticks = $"TouchSticks/Test/Sticks"
+@onready var touch_divider = $"TouchSticks/Test/Sticks/Seperator"
 
 @export var dimmed_upgrade_toggle_button_colour: Color
 
@@ -25,9 +28,14 @@ func _ready():
 	spawn_manager.stage_win.connect(end_screen.on_stage_win)
 
 	await get_tree().create_timer(0.01).timeout
-	touch_joysticks.visible = ConfigManager.show_touch_joy_stick
 	upgrade_manager.current_upgrade_points_changed.connect(update_upgrade_menu_toggle_button)
 	upgrade_menu_toggle.set_modulate(dimmed_upgrade_toggle_button_colour)
+
+	#Gui options 
+	touch_joysticks.visible = ConfigManager.show_touch_joy_stick
+	touch_divider.visible = ConfigManager.show_touch_divider
+	touch_joysticks.set_opacity(ConfigManager.trouch_controls_opacity / 100)
+	
 
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):
@@ -54,7 +62,6 @@ func on_boss_current_health_changed(value):
 	hp_bar_instance.value = value / 100
 
 func update_upgrade_menu_toggle_button(current_upgrade_points):
-	print("points changed: ", current_upgrade_points)
 	if current_upgrade_points <= 0:
 		upgrade_menu_toggle.set_modulate(dimmed_upgrade_toggle_button_colour)
 	else:

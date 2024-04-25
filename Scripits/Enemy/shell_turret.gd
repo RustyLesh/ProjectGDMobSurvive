@@ -1,11 +1,9 @@
 extends EnemyShell
 class_name ShellTurret
 
-@onready var character_body: AITurret = $CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
 
-@onready var sprite: Sprite2D = character_body.get_node("Sprite2D")
 @onready var spawn_animation: AnimatedSprite2D
 var projectile_scene: Variant
 
@@ -23,6 +21,8 @@ var bullet_lifetime
 var delay_betweeen_shots: float
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
+	character_body = $CharacterBody2D
+	sprite = character_body.get_node("Sprite2D")
 	enemy_resource = _enemy_resource
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position
@@ -77,7 +77,7 @@ func revert_slow():
 
 func shoot(player_position):
 	var bullet = projectile_scene.instantiate()
-	add_child(bullet)
+	get_parent().add_child(bullet)
 	bullet.global_position = character_body.global_position
 	bullet.lifetime = 2
 	bullet.look_at(player_position)

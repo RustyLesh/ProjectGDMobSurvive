@@ -1,4 +1,6 @@
 extends Node
+## Autoload 
+## Manages inputs for debugging
 
 @onready var player: Player = %Player
 @onready var upgrade_manager: UpgradeManager = %"Upgrade Manager"

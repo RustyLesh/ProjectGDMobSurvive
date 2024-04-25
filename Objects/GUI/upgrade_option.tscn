@@ -1,25 +1,138 @@
-[gd_scene load_steps=3 format=3 uid="uid://thxjct4poi0m"]
+[gd_scene load_steps=10 format=3 uid="uid://thxjct4poi0m"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_option.gd" id="1_d8ypy"]
+[ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="2_5kd7r"]
+[ext_resource type="Script" path="res://Scripits/GUI/upgrade_description_panel.gd" id="3_q4asw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3sqf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.368627, 0.447059, 0.552941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yjvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwann"]
+line_spacing = 4.0
+font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkknk"]
+content_margin_left = 7.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.368627, 0.447059, 0.552941, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_twx0o"]
+font_size = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c74qu"]
-bg_color = Color(0, 0, 0.270588, 1)
+bg_color = Color(1, 1, 1, 0)
 
 [node name="Upgrade Option" type="Control"]
+custom_minimum_size = Vector2(300, 250)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.006
+anchor_right = 0.833
+anchor_bottom = 0.25
+offset_top = 0.32
+offset_right = 0.239929
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 1
 script = ExtResource("1_d8ypy")
 
-[node name="Button" type="Button" parent="."]
+[node name="Info Panel" type="Panel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l3sqf")
+script = ExtResource("3_q4asw")
+
+[node name="Icon" type="TextureRect" parent="Info Panel"]
+texture_filter = 1
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 103.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 176.0
+texture = ExtResource("2_5kd7r")
+stretch_mode = 3
+
+[node name="Description" type="Label" parent="Info Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 40.0
+offset_right = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3yjvh")
+
+[node name="Stats" type="Label" parent="Info Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Strength
+Dex 
+Speed
+Power
+Harder
+Better
+Faster
+Stronger"
+label_settings = SubResource("LabelSettings_cwann")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Uses Counter" type="Label" parent="Info Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 80.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "99/99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="Info Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -240.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkknk")
+text = "Upgrade Title"
+label_settings = SubResource("LabelSettings_twx0o")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_c74qu")
+alignment = 2
 icon_alignment = 1
 expand_icon = true
 

@@ -1,5 +1,5 @@
-extends Drop
-class_name GearDrop
+class_name GearDrop extends Drop
+## Gives player gear resource on collision
 
 var gear_resource: GearResource
 

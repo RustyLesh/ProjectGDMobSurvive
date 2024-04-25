@@ -1,3 +1,5 @@
+BulletResource
+BulletChangeUpgrade
 GearResource
 EnemySpawns
 EnemyResource

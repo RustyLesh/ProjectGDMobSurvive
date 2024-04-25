@@ -11,7 +11,7 @@ const FILE_NAME = "user://player_stats.save"
 
 func end_of_stage():
 	player_xp += weapon_xp
-	PlayerSetup.weapon.weapon_xp += weapon_xp
+	PlayerSetup.weapon_resource.weapon_xp += weapon_xp
 	weapon_xp = 0
 
 func save():

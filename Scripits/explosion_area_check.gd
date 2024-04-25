@@ -1,6 +1,5 @@
-extends Area2D
-class_name ExplosionAreaCheck
-
+class_name ExplosionAreaCheck extends Area2D
+## Checks what enemies are in the area
 @onready var collision_shape = $CollisionShape2D.shape as CircleShape2D
 
 

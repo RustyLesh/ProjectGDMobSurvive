@@ -1,11 +1,9 @@
 extends EnemyShell
 class_name ShellGrunt
 
-@onready var character_body = $CharacterBody2D as EnemyMovement 
 @onready var collision_shape: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
 
-@onready var sprite: Sprite2D = character_body.get_node("Sprite2D")
 @onready var spawn_animation: AnimatedSprite2D
 
 
@@ -30,6 +28,8 @@ func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _pare
 	spawn_animation_node.animation_finished.connect(on_spawn_animation_end)
 
 func on_spawn_animation_end():
+	character_body = $CharacterBody2D as EnemyMovement 
+	sprite = character_body.get_node("Sprite2D")
 	spawn_animation_node.queue_free()
 
 	parent.add_child(self)

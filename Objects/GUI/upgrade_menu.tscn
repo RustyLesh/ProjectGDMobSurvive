@@ -1,21 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://7y78wcnmvbd3"]
+[gd_scene load_steps=9 format=3 uid="uid://7y78wcnmvbd3"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu.gd" id="1_57tvr"]
-[ext_resource type="Script" path="res://Scripits/GUI/upgrade_description_panel.gd" id="2_os725"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obtom"]
 bg_color = Color(0, 0, 0.0235294, 0.658824)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ync8t"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.368627, 0.447059, 0.552941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnsb3"]
-bg_color = Color(0.293961, 0.49832, 0.163543, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ugdl"]
+bg_color = Color(0.741176, 0.227451, 0.227451, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55jmf"]
 bg_color = Color(0.713726, 0.713726, 0, 1)
@@ -26,13 +17,10 @@ bg_color = Color(1, 1, 0.615686, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck5go"]
 bg_color = Color(0.168627, 0.168627, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ugdl"]
-bg_color = Color(0.741176, 0.227451, 0.227451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srllu"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lysi"]
 bg_color = Color(0, 0.172549, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srllu"]
 
 [node name="Uprade Menu" type="Control"]
 texture_filter = 1
@@ -55,76 +43,26 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_obtom")
 [node name="Upgrade Options Panel" type="Panel" parent="."]
 layout_mode = 2
 offset_left = 40.0
-offset_top = 48.0
+offset_top = 128.0
 offset_right = 680.0
-offset_bottom = 168.0
+offset_bottom = 1096.0
 
-[node name="Upgrade Options" type="HBoxContainer" parent="Upgrade Options Panel"]
+[node name="Upgrade Options" type="VBoxContainer" parent="Upgrade Options Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -320.0
-offset_right = 320.0
-offset_bottom = 120.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_constants/separation = 200
+grow_vertical = 2
+theme_override_constants/separation = 40
 alignment = 1
-
-[node name="Description Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 176.0
-offset_right = 680.0
-offset_bottom = 488.0
-script = ExtResource("2_os725")
-
-[node name="Title" type="Label" parent="Description Panel"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 48.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ync8t")
-
-[node name="Description" type="Label" parent="Description Panel"]
-layout_mode = 0
-offset_top = 56.0
-offset_right = 640.0
-offset_bottom = 120.0
-
-[node name="Description2" type="Label" parent="Description Panel"]
-layout_mode = 0
-offset_top = 144.0
-offset_right = 640.0
-offset_bottom = 208.0
-
-[node name="Uses Counter" type="Label" parent="Description Panel"]
-layout_mode = 0
-offset_left = 520.0
-offset_right = 640.0
-offset_bottom = 48.0
-
-[node name="Confirm" type="Button" parent="."]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 520.0
-offset_right = 640.0
-offset_bottom = 584.0
-theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
-theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
-theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_gnsb3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_55jmf")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ck5go")
-text = "Confirm"
 
 [node name="Reroll" type="Button" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 616.0
+offset_top = 1112.0
 offset_right = 640.0
-offset_bottom = 680.0
+offset_bottom = 1176.0
 theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
 theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
 theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
@@ -135,22 +73,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ck5go")
 text = "Reroll"
 
-[node name="Reroll2" type="Button" parent="."]
-visible = false
+[node name="Reroll Counter" type="Label" parent="Reroll"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 728.0
-offset_right = 640.0
-offset_bottom = 792.0
-theme_override_colors/font_color = Color(0, 0, 0.992157, 1)
-theme_override_colors/font_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
-theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_6ugdl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_55jmf")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j81gt")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ck5go")
-text = "Add Reroll"
+offset_right = 72.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lysi")
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
@@ -161,19 +92,5 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_srllu")
 text = "QUIT"
 
-[node name="Reroll Counter" type="Label" parent="."]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 616.0
-offset_right = 136.0
-offset_bottom = 680.0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_4lysi")
-text = "00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
-[connection signal="pressed" from="Reroll2" to="." method="on_add_reroll_points_pressed"]
 [connection signal="pressed" from="Quit" to="." method="return_to_main_menu"]
