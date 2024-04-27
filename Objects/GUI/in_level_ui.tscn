@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dufpfjbbnms4o"]
+[gd_scene load_steps=45 format=3 uid="uid://dufpfjbbnms4o"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/menu_manager.gd" id="1_g0dvu"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="2_7xvjj"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cl8kw84gumvjv" path="res://Art/Equipment/potion_amulet.png" id="10_1umne"]
 [ext_resource type="Texture2D" uid="uid://drjhrt5330mp6" path="res://Art/Equipment/silver_ring.png" id="11_g00cx"]
 [ext_resource type="Texture2D" uid="uid://djus01x5bmgnl" path="res://Art/Equipment/crown1.png" id="12_p4beq"]
+[ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu_button.gd" id="16_qjcyp"]
+[ext_resource type="Texture2D" uid="uid://bj6qsceygh7sv" path="res://Art/GUI/Icons/fire_muted.png" id="17_j2ngq"]
 [ext_resource type="Script" path="res://Scripits/GUI/end_of_combat_gear_menu.gd" id="18_gl4db"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_info.gd" id="19_u2y5s"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="20_7jkjo"]
@@ -95,7 +97,6 @@ bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_g0dvu")
-dimmed_upgrade_toggle_button_colour = Color(0.0745098, 0.0745098, 0.0745098, 0.733333)
 
 [node name="TouchSticks" type="Control" parent="."]
 z_as_relative = false
@@ -261,11 +262,13 @@ theme_override_constants/separation = 11
 [node name="CanvasLayer" type="CanvasLayer" parent="HUD"]
 
 [node name="Upgrade Menu Button" type="TouchScreenButton" parent="HUD/CanvasLayer"]
-modulate = Color(0.396078, 0.439216, 0.470588, 0.494118)
 position = Vector2(592, 1152)
 texture_normal = ExtResource("8_keuw0")
 texture_pressed = ExtResource("8_keuw0")
 visibility_mode = 1
+script = ExtResource("16_qjcyp")
+default_icon = ExtResource("8_keuw0")
+dim_icon = ExtResource("17_j2ngq")
 
 [node name="Uprade Menu" parent="." instance=ExtResource("6_ex6gh")]
 visible = false

@@ -19,6 +19,9 @@ extends Node
 
 @export var weapon_bullet_resource: BulletResource
 
+signal on_saving(save_str: String)
+signal on_loading(load_str: String)
+
 #Launch checks
 var has_equipped_gear: bool = false
 
@@ -60,6 +63,7 @@ func save():
 		"select_upgrades": selected_upgrades_data,
 		"equiped_gear": equiped_gear_data,
 	}
+	on_saving.emit(JSON.stringify(save_dict))
 
 	return {
 		"file_name": FILE_NAME,
@@ -67,6 +71,15 @@ func save():
 	}
 
 func load_data():
+	if upgrade_pool.size() > 0:
+		upgrade_pool.clear()
+
+	if selected_upgrades.size() > 0:
+		selected_upgrades.clear()
+
+	if inventory.size() > 0:
+		inventory.clear()
+
 	var data = SaveManager.load_file(FILE_NAME)
 	var inv_data = data["inventory"]
 	var upgrade_pool_data = data["upgrade_pool"]
@@ -100,3 +113,5 @@ func load_data():
 		weapon_data.set_resource_data(wep_data_dict)
 
 	selected_weapon_index = data["selected_weapon_index"]
+
+	on_loading.emit(JSON.stringify(data))

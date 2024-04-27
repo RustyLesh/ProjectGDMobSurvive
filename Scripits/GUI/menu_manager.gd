@@ -9,13 +9,11 @@ class_name MenuManager
 @onready var stage_timer = $"HUD/Timer"
 @onready var seconds_timer = $"HUD/Seconds Timer"
 @onready var upgrade_manager = $"../Upgrade Manager"
-@onready var upgrade_menu_toggle: TouchScreenButton = $"HUD/CanvasLayer/Upgrade Menu Button"
+@onready var upgrade_menu_toggle: UpgradeMenuButton = $"HUD/CanvasLayer/Upgrade Menu Button"
 
 #GUI Options
 @onready var touch_joysticks = $"TouchSticks/Test/Sticks"
 @onready var touch_divider = $"TouchSticks/Test/Sticks/Seperator"
-
-@export var dimmed_upgrade_toggle_button_colour: Color
 
 var is_player_dead: bool = false
 
@@ -29,7 +27,7 @@ func _ready():
 
 	await get_tree().create_timer(0.01).timeout
 	upgrade_manager.current_upgrade_points_changed.connect(update_upgrade_menu_toggle_button)
-	upgrade_menu_toggle.set_modulate(dimmed_upgrade_toggle_button_colour)
+	upgrade_menu_toggle.toggle_icon(false)
 
 	#Gui options 
 	touch_joysticks.visible = ConfigManager.show_touch_joy_stick
@@ -63,6 +61,6 @@ func on_boss_current_health_changed(value):
 
 func update_upgrade_menu_toggle_button(current_upgrade_points):
 	if current_upgrade_points <= 0:
-		upgrade_menu_toggle.set_modulate(dimmed_upgrade_toggle_button_colour)
+		upgrade_menu_toggle.toggle_icon(false)
 	else:
-		upgrade_menu_toggle.set_modulate(Color.WHITE)
+		upgrade_menu_toggle.toggle_icon(true)

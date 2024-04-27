@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://chqhcssxbiatm"]
+[gd_scene load_steps=20 format=3 uid="uid://chqhcssxbiatm"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
 [ext_resource type="PackedScene" uid="uid://dq0utpd576hbh" path="res://Objects/player.tscn" id="2_8wjfs"]
 [ext_resource type="PackedScene" uid="uid://dufpfjbbnms4o" path="res://Objects/GUI/in_level_ui.tscn" id="2_h6upt"]
+[ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu_button.gd" id="3_8jkyb"]
 [ext_resource type="PackedScene" uid="uid://b1f76x14o0557" path="res://Objects/enemy_spawn_manager.tscn" id="4_6oxpp"]
 [ext_resource type="PackedScene" uid="uid://bbilxeadesj14" path="res://Objects/GUI/upgrade_manager.tscn" id="4_x36hy"]
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
@@ -140,6 +141,9 @@ offset_bottom = 0.0
 [node name="Virtual joystick right" parent="UI/TouchSticks/Test/Sticks" index="1"]
 offset_top = -544.0
 
+[node name="Upgrade Menu Button" parent="UI/HUD/CanvasLayer" index="0"]
+script = ExtResource("3_8jkyb")
+
 [node name="No Gear Warning" parent="UI/End Screen/End Screen/Gear Menu" index="3"]
 visible = true
 offset_top = 0.0
@@ -178,6 +182,7 @@ enemy_spawns = SubResource("Resource_vfxl8")
 
 [node name="XP Manager" type="Node" parent="."]
 script = ExtResource("6_y7ueo")
+xp_constant = 0.15
 
 [node name="TestCodeNode" type="Node" parent="."]
 script = ExtResource("7_wh76m")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://thxjct4poi0m"]
+[gd_scene load_steps=11 format=3 uid="uid://thxjct4poi0m"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_option.gd" id="1_d8ypy"]
 [ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="2_5kd7r"]
@@ -13,6 +13,8 @@ border_width_bottom = 3
 border_color = Color(0.368627, 0.447059, 0.552941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yjvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vkfq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwann"]
 line_spacing = 4.0
@@ -78,6 +80,8 @@ offset_right = -240.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3yjvh")
+label_settings = SubResource("LabelSettings_8vkfq")
+autowrap_mode = 3
 
 [node name="Stats" type="Label" parent="Info Panel"]
 layout_mode = 1

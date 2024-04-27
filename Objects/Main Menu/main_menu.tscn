@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=87 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -40,11 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="31_te1yv"]
 [ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="32_2vy7k"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/cheat_menu.gd" id="33_ns07y"]
-[ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="34_gimag"]
-[ext_resource type="Resource" uid="uid://dhtjhnyghnkf7" path="res://Resources/Gear/ring_silver.tres" id="35_6booc"]
-[ext_resource type="Resource" uid="uid://dbuql1w23vmdy" path="res://Resources/Gear/ring_band_gold.tres" id="36_i4i6g"]
-[ext_resource type="Resource" uid="uid://ddvmbq052ga8b" path="res://Resources/Gear/ammy_blue.tres" id="37_v5o3g"]
-[ext_resource type="Resource" uid="uid://b0ts7ri14t386" path="res://Resources/Gear/ammy_life.tres" id="38_mxxsd"]
+[ext_resource type="Resource" uid="uid://djrh1ql01whw0" path="res://Resources/Gear/save_test_gear1.tres" id="34_7mq5c"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/return_continue_panel.gd" id="45_5exvu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
@@ -166,6 +162,9 @@ bg_color = Color(0.227451, 0, 0, 0.537255)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwkgx"]
 bg_color = Color(0, 0.243137, 0, 0.537255)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3f22m"]
+font_size = 33
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on363"]
 bg_color = Color(0, 0, 0, 0.835294)
@@ -936,7 +935,24 @@ offset_top = 896.0
 offset_right = 704.0
 offset_bottom = 1016.0
 script = ExtResource("33_ns07y")
-gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("34_gimag"), ExtResource("35_6booc"), ExtResource("36_i4i6g"), ExtResource("37_v5o3g"), ExtResource("38_mxxsd")])
+gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("34_7mq5c")])
+
+[node name="Save Data" type="TextEdit" parent="Options Menu/Cheat Menu"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -264.0
+offset_right = 640.0
+offset_bottom = -16.0
+placeholder_text = "Save Data"
+
+[node name="Load Data" type="TextEdit" parent="Options Menu/Cheat Menu"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -520.0
+offset_right = 640.0
+offset_bottom = -272.0
+placeholder_text = "Load
+"
 
 [node name="GridContainer" type="GridContainer" parent="Options Menu/Cheat Menu"]
 layout_mode = 1
@@ -945,6 +961,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 30
 columns = 4
 
 [node name="Give Gear" type="Button" parent="Options Menu/Cheat Menu/GridContainer"]
@@ -953,8 +970,17 @@ theme_override_font_sizes/font_size = 39
 text = "Give Gear
 "
 
+[node name="Save" type="Button" parent="Options Menu/Cheat Menu/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Save"
+
+[node name="Load" type="Button" parent="Options Menu/Cheat Menu/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
 [node name="Upgrade Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1160.0
@@ -964,6 +990,7 @@ forced_upgrade_fg_colour = Color(1, 1, 1, 1)
 
 [node name="Upgrade Pool Container" type="ScrollContainer" parent="Upgrade Menu"]
 layout_mode = 1
+offset_top = 64.0
 offset_right = 504.0
 offset_bottom = 1024.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_l4a1t")
@@ -999,6 +1026,7 @@ item_5/icon = ExtResource("32_2vy7k")
 [node name="Selected Upgrade Container" type="ScrollContainer" parent="Upgrade Menu"]
 layout_mode = 0
 offset_left = 504.0
+offset_top = 64.0
 offset_right = 720.0
 offset_bottom = 1024.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ajl1")
@@ -1087,6 +1115,21 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_mwkgx")
 text = "Continue"
 
+[node name="Selected Label" type="Label" parent="Upgrade Menu"]
+layout_mode = 0
+offset_left = 504.0
+offset_right = 720.0
+offset_bottom = 64.0
+text = "Equipped"
+label_settings = SubResource("LabelSettings_3f22m")
+
+[node name="Upgrade Pool" type="Label" parent="Upgrade Menu"]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 64.0
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_3f22m")
+
 [node name="Weapon Warning Dialogue" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -1136,6 +1179,8 @@ text = "OK!"
 [connection signal="toggled" from="Options Menu/VBoxContainer/Show Touch Divider/Show Touch Divider Button" to="Options Menu" method="_on_show_touch_divider_button_toggled"]
 [connection signal="value_changed" from="Options Menu/VBoxContainer/Touch Control Opacity/HSlider" to="Options Menu" method="_on_touch_controll_opacity_drag_ended"]
 [connection signal="pressed" from="Options Menu/Cheat Menu/GridContainer/Give Gear" to="Options Menu/Cheat Menu" method="_on_give_gear_pressed"]
+[connection signal="pressed" from="Options Menu/Cheat Menu/GridContainer/Save" to="Options Menu/Cheat Menu" method="_on_save_pressed"]
+[connection signal="pressed" from="Options Menu/Cheat Menu/GridContainer/Load" to="Options Menu/Cheat Menu" method="_on_load_pressed"]
 [connection signal="item_selected" from="Upgrade Menu/Upgrade Pool Container/Upgrade Pool List" to="Upgrade Menu" method="on_upgrade_pool_item_selected"]
 [connection signal="item_selected" from="Upgrade Menu/Selected Upgrade Container/Selected Upgrade List" to="Upgrade Menu" method="on_selected_upgrades_item_selected"]
 [connection signal="pressed" from="Upgrade Menu/Add Button" to="Upgrade Menu" method="select_upgrade"]

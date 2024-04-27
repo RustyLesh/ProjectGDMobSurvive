@@ -1,6 +1,6 @@
+GearResource
 BulletResource
 BulletChangeUpgrade
-GearResource
 EnemySpawns
 EnemyResource
 SlowOnHit

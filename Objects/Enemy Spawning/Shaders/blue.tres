@@ -4,5 +4,5 @@
 
 [resource]
 shader = ExtResource("1_n3fqs")
-shader_parameter/line_color = Color(0, 0.909804, 1, 1)
-shader_parameter/line_thickness = 1.0
+shader_parameter/line_color = Color(0, 0.733333, 0.807843, 1)
+shader_parameter/line_thickness = 2.975
