@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq0utpd576hbh"]
+[gd_scene load_steps=9 format=3 uid="uid://dq0utpd576hbh"]
 
 [ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
 [ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
@@ -6,11 +6,13 @@
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_manager.gd" id="3_f1cye"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="6_sot50"]
+[ext_resource type="Script" path="res://Objects/Enemy Spawning/Lazor.gd" id="7_dai16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kysfn"]
 radius = 8.06226
 
 [node name="Player" type="Node"]
+process_mode = 1
 script = ExtResource("1_5g5kj")
 i_frame_duration = 0.25
 entity_type = 2
@@ -45,5 +47,16 @@ drag_left_margin = 0.0
 drag_top_margin = 0.1
 drag_right_margin = 0.0
 drag_bottom_margin = 0.1
+
+[node name="RayCast2D" type="RayCast2D" parent="PlayerBody"]
+target_position = Vector2(0, -256)
+collision_mask = 6
+script = ExtResource("7_dai16")
+
+[node name="Line2D" type="Line2D" parent="PlayerBody/RayCast2D"]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.827869, 1)
+points = PackedVector2Array(0, 0, 1.43995e-07, -168)
+default_color = Color(0, 1, 1, 1)
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

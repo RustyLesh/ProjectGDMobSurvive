@@ -23,5 +23,3 @@ enum EnemyType
 func get_enemy_instance(enemy_resource: EnemyResource, spawn_position: Vector2, parent) -> Variant:
 	enemy_resource.weapon_xp_value = stage_xp_value
 	return enemy_shell_resource.instantiate_enemy(enemy_resource,spawn_position,parent)
-
-

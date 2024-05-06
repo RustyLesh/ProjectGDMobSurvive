@@ -216,7 +216,7 @@ enemy_icon = ExtResource("1_fmhw1")
 enemy_type = 0
 enemy_name = "Turret"
 max_health = 40
-stage_xp_value = 6.0
+stage_xp_value = 15.0
 weapon_xp_value = 1.0
 enemy_shell_resource = SubResource("Resource_5au2p")
 

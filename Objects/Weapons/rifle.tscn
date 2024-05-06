@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dgexk0p5vtpns" path="res://Resources/Player Bullets/bullet.tres" id="2_kgmhd"]
 
 [node name="rifle" type="Node"]
+process_mode = 1
 script = ExtResource("1_lvux2")
 shot_angle_variation = 5
 fire_rate = 3.0

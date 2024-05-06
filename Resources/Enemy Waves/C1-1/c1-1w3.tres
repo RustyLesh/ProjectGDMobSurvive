@@ -271,7 +271,7 @@ enemy_icon = ExtResource("1_px0n2")
 enemy_type = 0
 enemy_name = "empty_name"
 max_health = 20
-stage_xp_value = 3.0
+stage_xp_value = 6.0
 weapon_xp_value = 0.0
 enemy_shell_resource = SubResource("Resource_gdmyn")
 

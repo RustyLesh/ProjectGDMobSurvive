@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_menu.gd" id="1_57tvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obtom"]
-bg_color = Color(0, 0, 0.0235294, 0.658824)
+bg_color = Color(0, 0, 0.0392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ugdl"]
 bg_color = Color(0.741176, 0.227451, 0.227451, 1)

@@ -116,6 +116,7 @@ script = ExtResource("2_k4bfr")
 offset_top = -512.0
 offset_right = 360.0
 offset_bottom = 8.0
+mouse_force_pass_scroll_events = false
 joystick_mode = 1
 visibility_mode = 1
 action_left = "move_left"
@@ -130,7 +131,7 @@ anchor_right = 1.0
 offset_left = -360.0
 offset_top = -512.0
 offset_right = -8.0
-offset_bottom = -104.0
+offset_bottom = 0.0
 grow_horizontal = 0
 joystick_mode = 1
 visibility_mode = 1
@@ -271,8 +272,10 @@ default_icon = ExtResource("8_keuw0")
 dim_icon = ExtResource("17_j2ngq")
 
 [node name="Uprade Menu" parent="." instance=ExtResource("6_ex6gh")]
-visible = false
 offset_top = 112.0
+
+[node name="Background" parent="Uprade Menu" index="0"]
+visible = false
 
 [node name="Upgrade Options Panel" parent="Uprade Menu" index="1"]
 offset_top = 40.0

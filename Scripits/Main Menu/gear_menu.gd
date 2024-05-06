@@ -118,8 +118,11 @@ func add_item(gear: GearResource):
 	item_list.add_item(gear._item_name, gear._icon)
 
 func remove_selected_item():
-	gear_list.erase(gear_list[selected_item])
-	item_list.remove_item(selected_item)
+	if filter_applied:
+		pass
+	else:
+		gear_list.erase(gear_list[selected_item])
+		item_list.remove_item(selected_item)
 	selected_item = -1
 	update_ui()
 
@@ -129,7 +132,8 @@ func filter_by_type(gear_type: GearResource.GearType):
 	gear_list_filtered.clear()
 	for gear in gear_list:
 		if gear._gear_type == gear_type:
-			gear_list_filtered.append(gear)
+			#gear_list_filtered.append(gear)
+			gear.visible
 	filter_applied = true
 	
 	refresh_item_list()

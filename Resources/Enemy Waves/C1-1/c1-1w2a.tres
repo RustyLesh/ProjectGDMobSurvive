@@ -30,7 +30,7 @@ enemy_icon = ExtResource("1_tsf16")
 enemy_type = 0
 enemy_name = "Wispy"
 max_health = 20
-stage_xp_value = 2.0
+stage_xp_value = 3.0
 weapon_xp_value = 1.0
 enemy_shell_resource = SubResource("Resource_o8tl4")
 

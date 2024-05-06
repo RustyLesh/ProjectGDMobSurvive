@@ -11,7 +11,7 @@ signal on_level(level : int)
 @export var xp_multiplier : float
 @export var current_level : int
 
-##Higher = more xp needed to level
+##Higher = less xp needed to level
 @export var xp_constant: float = 0.2
 
 #for checking if level changed
@@ -19,6 +19,7 @@ var level_buffer
 
 func xp_gained(value : float):
 	#add to current xp
+	print("XP gained: ", value)
 	current_total_xp += value
 	level_buffer = current_level
 	current_level = xp_constant * sqrt(current_total_xp)

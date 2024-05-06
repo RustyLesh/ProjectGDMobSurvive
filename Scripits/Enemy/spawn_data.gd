@@ -1,5 +1,5 @@
 extends Resource
-#Used in enemy spawn manager to spawn enemies
+## Used in enemy spawn manager to spawn enemies
 
 class_name SpawnDataResource
 

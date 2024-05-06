@@ -20,7 +20,7 @@ var topLeft : Vector2
 var botRight : Vector2 
 var center: Vector2 
 
-@export var wallSpawnBuffer = 0.0
+@export var wallSpawnBuffer = 5.0
 @export var time = 0
 
 @export var disable_spawns: bool
@@ -102,6 +102,7 @@ func spawn(spawn_data: SpawnDataResource):
 						#If elite connect elite on death
 						if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.ELITE:
 							enemy_spawn.on_elite_dead.connect(on_elite_killed)
+						await Engine.get_main_loop().process_frame #Wait one frame
 						counter += 1
 			
 func get_random_position_off_screen():

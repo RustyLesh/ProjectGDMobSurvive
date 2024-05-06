@@ -41,7 +41,7 @@ func _on_body_entered(body):
 
 #after life time of bullet runns out, runs the kill function
 func start_kill_timer():
-	await get_tree().create_timer(lifetime).timeout
+	await get_tree().create_timer(lifetime, false).timeout
 	call_deferred("kill_self")
 
 #disables collision and sprite of bullet then calls destroy for particle emiter.

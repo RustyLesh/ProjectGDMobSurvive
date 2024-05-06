@@ -7,7 +7,7 @@ var controller_was_used_last: bool = false
 
 func _input(event):
 	
-	if event.is_action_pressed("select"):
+	if event.is_action_pressed("ui_accept"):
 		print("select pressed")
 		var selected_control = get_viewport().gui_get_focus_owner()
 		if selected_control is Button:

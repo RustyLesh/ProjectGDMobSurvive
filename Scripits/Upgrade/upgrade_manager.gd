@@ -37,7 +37,6 @@ func _ready():
 	upgrade_pool = PlayerSetup.selected_upgrades.duplicate()
 	reset_upgrade_uses()
 	roll_upgrade_options()
-	print_upgrade_pool_names()
 	
 func level_changed(level: int):
 	current_level = level

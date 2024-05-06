@@ -17,4 +17,4 @@ func init_weapon(base_stats: Array[BaseStat]):
 			bullet_instance.global_position = weapon_manager.player_body.global_position
 			var shot_angle = deg_to_rad( randi_range(-shot_angle_variation/2 ,shot_angle_variation / 2))
 			bullet_instance.rotate(weapon_manager.player_body.rotation + shot_angle)
-		await get_tree().create_timer(weapon_manager.delay).timeout
+		await get_tree().create_timer(weapon_manager.delay, false).timeout

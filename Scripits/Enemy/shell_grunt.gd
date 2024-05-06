@@ -6,7 +6,6 @@ class_name ShellGrunt
 
 @onready var spawn_animation: AnimatedSprite2D
 
-
 var enemy_ai_movement: EnemyMovementAI
 var enemy_shell_resource 
 var enemy_resource
@@ -19,7 +18,6 @@ func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _pare
 	enemy_shell_resource = _enemy_resource.enemy_shell_resource
 	spawn_position = _spawn_position
 	parent = _parent
-
 
 	spawn_animation_node = enemy_shell_resource.spawn_scene_path.instantiate()
 	parent.add_child(spawn_animation_node)

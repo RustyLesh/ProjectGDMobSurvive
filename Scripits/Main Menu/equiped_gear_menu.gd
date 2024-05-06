@@ -71,7 +71,7 @@ func on_empty_gear_slot_selected():
 	item_info_panel.clear_info()
 
 func on_gear_slot_selected(gear_type: GearResource.GearType):
-	gear_menu.filter_by_type(gear_type)
+	##gear_menu.filter_by_type(gear_type) #Filtering removed untill item list menu remake complete
 	if main_menu.current_menu != MainMenu.MenuType.GEAR:
 		main_menu.change_menu(MainMenu.MenuType.GEAR)
 

@@ -50,6 +50,7 @@ radius = 2.0
 height = 10.0
 
 [node name="Bullet" type="Area2D"]
+process_mode = 1
 z_index = 100
 texture_filter = 1
 collision_layer = 32

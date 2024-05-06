@@ -443,7 +443,6 @@ disabled = true
 text = "Apply"
 
 [node name="Combat Prep Menu" type="Control" parent="."]
-visible = false
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -544,7 +543,6 @@ difficulty = 3
 enemy_spawns = ExtResource("22_63fnx")
 
 [node name="Test" type="Button" parent="Combat Prep Menu/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.152941, 0, 0, 1)
@@ -981,6 +979,7 @@ theme_override_font_sizes/font_size = 50
 text = "Load"
 
 [node name="Upgrade Menu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1160.0
