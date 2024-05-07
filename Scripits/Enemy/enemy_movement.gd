@@ -3,8 +3,8 @@ class_name EnemyMovement extends CharacterBody2D
 
 var speed: float = 100.0
 
-@onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("PlayerBody")
-@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D 
+@onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("Body")
+@onready var nav_agent := $NavAgent as NavigationAgent2D 
 @onready var enemy_shell := $".." as EnemyShell
 @onready var path_timer: Timer = $"Movement Timer"
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cevoevausr57b"]
+[gd_scene load_steps=5 format=3 uid="uid://cevoevausr57b"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_grunt.gd" id="1_tfxly"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_shell.gd" id="1_tfxly"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="2_uhoiy"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="3_rgcat"]
+[ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="4_dtd1b"]
 
 [node name="Grunt" type="Node"]
 script = ExtResource("1_tfxly")
@@ -13,22 +14,27 @@ script = ExtResource("3_rgcat")
 [node name="SlowTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 37
 script = ExtResource("2_uhoiy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
 debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
 texture_filter = 1
+texture = ExtResource("4_dtd1b")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
 
-[node name="Movement Timer" type="Timer" parent="CharacterBody2D"]
+[node name="Movement Timer" type="Timer" parent="Body"]
 wait_time = 0.1
 autostart = true
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
-[connection signal="timeout" from="CharacterBody2D/Movement Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Body/Movement Timer" to="Body" method="_on_timer_timeout"]

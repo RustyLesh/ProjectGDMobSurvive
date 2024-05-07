@@ -11,7 +11,6 @@ var bullet_resource: BulletResource
 var enemy_ai_movement: EnemyMovementAI
 
 var enemy_shell_resource 
-var enemy_resource
 var spawn_position
 var parent
 var spawn_animation_node
@@ -39,7 +38,6 @@ func on_spawn_animation_end():
 	spawn_animation_node.queue_free()
 
 	parent.add_child(self)
-	set_spawn_position(spawn_position)
 
 	#Resource setup
 	sprite.texture = enemy_shell_resource.sprite

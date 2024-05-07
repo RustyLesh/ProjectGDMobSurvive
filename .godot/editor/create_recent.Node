@@ -1,3 +1,4 @@
+AnimationPlayer
 Node2D
 Line2D
 RayCast2D
@@ -29,4 +30,3 @@ RichTextLabel
 ScrollContainer
 VScrollBar
 CollisionShape2D
-Area2D

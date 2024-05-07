@@ -1,8 +1,9 @@
-res://Scripits/Enemy/turret_ai.gd
-res://Scripits/Enemy/turret_lazor_ai.gd
 res://Scripits/Enemy/enemy_shell.gd
-res://Objects/Enemy Spawning/Lazor.gd
-res://Objects/player.tscn
+res://Scripits/Enemy/grunt_shell.gd
+res://Scripits/Enemy/grunt_resource.gd
+res://Scripits/player.gd
+res://Objects/combat_level.tscn
+res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
@@ -12,76 +13,34 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
-res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Enemy Waves/C1-1/c1-1w1.tres
-res://Resources/Enemy Waves/C1-1/c1-1w2.tres
-res://Resources/Enemy Waves/C1-1/c1-1w2a.tres
-res://Resources/Enemy Waves/C1-1/c1-1w3.tres
-res://Resources/Gear/ring_red.tres
-res://Resources/Gear/ammy_mini_stats.tres
-res://Scripits/Shaders/outline.gdshader
-res://Objects/Enemy Spawning/Shaders/blue.tres
-res://Resources/Enemy Waves/C1-1/c1-1w3Elite.tres
-res://Resources/Enemy Waves/C1-1/c1-1w3a.tres
-res://Resources/Enemy Waves/C1-1/c1-1w4.tres
-res://Resources/Enemy Waves/C1-1/c1-1w4a.tres
-res://Resources/Gear/ammy_purple.tres
-res://Resources/Gear/helm_health.tres
-res://Resources/Enemy Waves/C1-1/c1-1w5Elite.tres
-res://Resources/Enemy Waves/C1-1/c1-1w5.tres
-res://Resources/Enemy Waves/C1-1/c1-1w5a.tres
-res://Resources/Gear/helm_gold_2.tres
-res://Resources/Gear/ammy_life.tres
-res://Resources/Enemy Stages/C1/Cmp1-1.tres
-res://Resources/Enemy Waves/C1-2/c1-1w1.tres
-res://Resources/Enemy Waves/C1-2/c1-1w2.tres
-res://Resources/Enemy Waves/C1-2/c1-1w2a.tres
-res://Resources/Enemy Waves/C1-2/c1-1w3.tres
-res://Resources/Enemy Waves/C1-2/c1-1w3a.tres
-res://Resources/Gear/ammy_blue.tres
-res://Objects/Enemy Spawning/Shaders/yellow.tres
-res://Resources/Enemy Waves/C1-2/c1-1w3Elite.tres
-res://Resources/Enemy Waves/C1-2/c1-1w4.tres
-res://Resources/Enemy Waves/C1-2/c1-1w4a.tres
-res://Resources/Enemy Waves/C1-2/c1-1w5.tres
-res://Resources/Enemy Waves/C1-2/c1-1w5a.tres
-res://Resources/Gear/ring_purple.tres
-res://Resources/Gear/ammy_slow.tres
-res://Resources/Enemy Waves/C1-2/c1-1w5Elite.tres
-res://Resources/Enemy Waves/C1-2/c1-1w5b.tres
-res://Resources/Gear/helm_ice_crown.tres
-res://Resources/Gear/ring_band_purple.tres
-res://Resources/Enemy Waves/C1-2/c1-1w6Boss.tres
-res://Resources/Enemy Stages/C1/Cmp1-2.tres
-res://Resources/Enemy Waves/C1-3/c1-1w1.tres
-res://Resources/Enemy Waves/C1-3/c1-1w2.tres
-res://Resources/Enemy Waves/C1-3/c1-1w2a.tres
-res://Resources/Enemy Waves/C1-3/c1-1w3.tres
-res://Resources/Enemy Waves/C1-3/c1-1w3a.tres
-res://Resources/Enemy Waves/C1-3/c1-1w3b.tres
-res://Resources/Gear/ammy_astramentis.tres
-res://Objects/Enemy Spawning/Shaders/red.tres
-res://Resources/Enemy Waves/C1-3/c1-1w3Elite.tres
-res://Resources/Enemy Waves/C1-3/c1-1w4.tres
-res://Resources/Enemy Waves/C1-3/c1-1w4a.tres
-res://Resources/Enemy Waves/C1-3/c1-1w5.tres
-res://Resources/Enemy Waves/C1-3/c1-1w5a.tres
-res://Resources/Enemy Waves/C1-3/c1-1w5b.tres
-res://Resources/Enemy Waves/C1-3/c1-1w5c.tres
-res://Resources/Gear/ammy_lightning_pot.tres
-res://Resources/Gear/ring_band_gold.tres
-res://Resources/Gear/ring_proj.tres
-res://Resources/Enemy Waves/C1-3/c1-1w5Elite.tres
-res://Resources/Gear/ring_band_silver.tres
-res://Resources/Enemy Waves/C1-3/c1-1w6Boss.tres
-res://Resources/Enemy Stages/C1/Cmp1-3.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
-res://Objects/combat_level.tscn
-res://Objects/Main Menu/main_menu.tscn
+res://Scripits/Shaders/outline.gdshader
 res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
-res://Scripits/Upgrade/upgrade_manager.gd
-res://Scripits/dev_tools.gd
-res://Scripits/Combat/debug_input.gd
-res://Scripits/input_manager.gd
+res://Objects/player.tscn
+res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn
+res://Objects/Main Menu/main_menu.tscn
+res://enemy_spawn_animation.tscn
+res://Objects/Enemy Spawning/enemy_grunt.tscn
+res://Objects/save_manager.tscn
+res://Objects/Enemy Spawning/enemy_grunt_test.tscn
+res://Scripits/Enemy/shell_turret.gd
+res://Objects/Enemy Spawning/enemy_turret.tscn
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/entity.gd
+res://Scripits/Enemy/enemy_movement.gd
+res://addons/RustyPlugins/spawn_manger_plugin.gd
+res://Scripits/Enemy/turret_lazor_ai.gd
+res://Scripits/Enemy/turret_lazor_resource.gd
+res://Scripits/Enemy/turret_lazor_shell.gd
+res://Scripits/Enemy/turret_ai.gd
+res://Scripits/Lazor.gd
 res://Scripits/Enemy/shell_turrent_resource.gd
+res://Scripits/combat_level.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/stat_container.gd
+res://Resources/Enemies/grunt.tres
+res://Resources/Enemies/lazor_turret.tres
+res://Scripits/Enemy/boss_totem_attack_ai.gd

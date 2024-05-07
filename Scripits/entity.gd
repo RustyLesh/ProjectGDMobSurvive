@@ -9,7 +9,7 @@ enum EntityType
 	PLAYER,
 }
 
-@onready var health = $Health
+@onready var health
 
 @export var entity_type: EntityType
 @onready var character_body 
@@ -22,3 +22,8 @@ func take_damage(damage):
 	if health is Health:
 		#Damage logic here
 		health.take_damage(damage)
+
+func init_entity():
+	health = $Health
+	sprite = %Sprite
+	character_body = %Body

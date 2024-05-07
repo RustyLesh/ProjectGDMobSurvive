@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://chqhcssxbiatm"]
+[gd_scene load_steps=24 format=3 uid="uid://chqhcssxbiatm"]
 
 [ext_resource type="Script" path="res://Scripits/combat_level.gd" id="1_2hpuq"]
 [ext_resource type="Texture2D" uid="uid://ccjnqp1qsnht4" path="res://Art/MiniGolf.png" id="1_wxcu4"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://Scripits/in_level_xp_manager.gd" id="6_y7ueo"]
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="7_clgui"]
 [ext_resource type="Script" path="res://Scripits/input_test.gd" id="7_wh76m"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="8_0uso0"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="8_85tve"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="9_3blh4"]
 [ext_resource type="PackedScene" uid="uid://djkymukm287pn" path="res://test/test_scene.tscn" id="15_adnqk"]
 [ext_resource type="Script" path="res://Scripits/Combat/debug_input.gd" id="15_k7mlb"]
 [ext_resource type="Resource" uid="uid://dl85oiy7kilep" path="res://Resources/drop_colours.tres" id="16_lqmu6"]
@@ -122,10 +125,26 @@ physics_layer_0/collision_mask = 47
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_0cn1g")
 
+[sub_resource type="Resource" id="Resource_jku3p"]
+script = ExtResource("8_0uso0")
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 10
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("9_3blh4")
+
+[sub_resource type="Resource" id="Resource_ijfse"]
+script = ExtResource("8_85tve")
+time_start = 0
+has_duration = false
+duration = 0
+wave_delay = 0
+enemy_resource = SubResource("Resource_jku3p")
+
 [sub_resource type="Resource" id="Resource_vfxl8"]
 script = ExtResource("7_clgui")
 stage_number = 0
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([])
+spawns = Array[ExtResource("8_85tve")]([SubResource("Resource_ijfse")])
 
 [node name="Combat_Level" type="Node2D" groups=["Level"]]
 texture_filter = 1
@@ -173,6 +192,8 @@ number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
 enemy_spawns = SubResource("Resource_vfxl8")
+wallSpawnBuffer = 10.0
+delay_for_stage_end = 999
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 

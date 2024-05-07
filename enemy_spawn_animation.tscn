@@ -118,5 +118,6 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6s8ko")
+autoplay = "default"
 frame = 14
 frame_progress = 1.0

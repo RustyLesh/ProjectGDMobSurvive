@@ -1,22 +1,52 @@
-extends Resource
-## Used in enemy spawn manager to spawn enemies
+@tool
+class_name SpawnDataResource extends Resource
+## Used in [EnemySpawnManager] to spawn enemies
+## Data for spawning enemies. Calls the enemyresource to get an instance of the enemy scene. [EnemyShell]
 
-class_name SpawnDataResource
+enum SpawnType{
+
+}
+
+enum SpawnPattern{
+	SINGLE_CENTER,
+	CLUSTER_RANDOM,
+	RANDOM,
+}
 
 @export var time_start: int
-@export var time_end: int
+@export var has_duration: bool
+@export var duration: int
+@export var wave_delay: int
 @export var enemy_resource: EnemyResource
-@export var enemy_amount: int
-@export var spawn_delay: int
 
+var spawn_animation_node: AnimatedSprite2D
+
+var time_end: get = get_time_end
 var has_spawned = false
 
 #Default high value to spawn immediatly on time start
+## Keeps track of time between spawns
 var spawn_delay_counter := 9999
 
-func get_enemy_instance(_enemy_resource: EnemyResource, spawn_position: Vector2, parent) -> Variant:
-	has_spawned = true
-	return enemy_resource.get_enemy_instance(_enemy_resource, spawn_position, parent)
+func _init():
+	#Get sprite frames from enemy resource and instantiate the spawn_animation_node node
+	enemy_resource = EnemyResource.new()
+	spawn_animation_node = AnimatedSprite2D.new()
+	spawn_animation_node.sprite_frames = enemy_resource.spawn_sprite_frames
 
-func get_enemy_shell_resource() -> EnemyShellResource:
-	return enemy_resource.enemy_shell_resource
+func spawn_enemy(spawn_position: Vector2, parent):
+	#Spawn animation init
+	has_spawned = true
+	parent.add_child(spawn_animation_node)
+	spawn_animation_node.position = spawn_position
+	spawn_animation_node.play()
+	await spawn_animation_node.animation_finished
+	spawn_animation_node.queue_free()
+
+	#spawn Enemy
+	var enemy_instance = enemy_resource.create_enemy_instance()
+	enemy_instance.character_body.position = spawn_position
+	parent.add_child(enemy_instance)
+
+func get_time_end() -> int:
+	return time_start + duration

@@ -1,3 +1,6 @@
+res://Resources/Enemies
+res://Resources/Enemy Stages/C1
+res://Scripits/Main Menu
 C:/Users/flame/Documents/Godot Projects/Builds
 res://Scripits/GUI
 res://Resources/Gear
@@ -5,12 +8,10 @@ res://Resources/Player Bullets
 res://Resources
 res://
 res://Objects
-res://Scripits/Main Menu
 res://Scripits/Combat
 res://Scripits
 C:/Users/flame/Documents
 res://Resources/Enemies/Bosses
-res://Resources/Enemies
 res://Objects/Enemy Spawning/Shaders
 res://Objects/Main Menu
 res://Objects/GUI
@@ -19,4 +20,3 @@ res://Resources/Upgrades/Base Stat Upgrades
 res://test
 res://Scripits/On Hit Effects
 C:/Users/flame/AppData/Local/Programs/Microsoft VS Code
-res://Scripits/Enemy

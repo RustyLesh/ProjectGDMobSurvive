@@ -280,7 +280,7 @@ enemy_shell_resource = SubResource("Resource_w3kqo")
 [resource]
 script = ExtResource("5_0xsso")
 time_start = 240
-time_end = 300
+has_duration = false
+duration = 0
+wave_delay = 0
 enemy_resource = SubResource("Resource_2pxev")
-enemy_amount = 8
-spawn_delay = 5

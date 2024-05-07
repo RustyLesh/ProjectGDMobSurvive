@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ShellGruntResource" load_steps=8 format=3 uid="uid://bnfit75b1m5bn"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="1_ak5go"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_resource.gd" id="1_ax6u4"]
+[ext_resource type="Texture2D" uid="uid://gwyypv3a4o5n" path="res://Art/Enemies/FaceCube.png" id="2_61dem"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="2_t3vmm"]
+[ext_resource type="PackedScene" uid="uid://cevoevausr57b" path="res://Objects/Enemy Spawning/enemy_grunt.tscn" id="3_6i0jx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq2aj"]
+
+[sub_resource type="Resource" id="Resource_0q0jg"]
+script = ExtResource("1_ak5go")
+
+[resource]
+script = ExtResource("1_ax6u4")
+move_speed = 100
+contact_damage = 0
+sprite = ExtResource("2_61dem")
+collision_shape = SubResource("CircleShape2D_aq2aj")
+collision_pos_offset = Vector2(0, 0)
+enemy_ai_movement = SubResource("Resource_0q0jg")
+enemy_icon = ExtResource("2_61dem")
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 10
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("2_t3vmm")
+enemy_scene = ExtResource("3_6i0jx")

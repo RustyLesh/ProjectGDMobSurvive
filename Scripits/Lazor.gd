@@ -7,9 +7,9 @@ var is_casting = false : set = set_is_casting
 func _ready():
 	set_physics_process(false)
 	line.points[1] = Vector2.ZERO
+	line.width = 0
 
-func toggle_attack(player_pos: Vector2):
-	look_at(player_pos)
+func toggle_attack():
 	self.is_casting = !is_casting
 
 func _physics_process(delta):
@@ -20,9 +20,9 @@ func _physics_process(delta):
 		cast_point = to_local(get_collision_point())
 
 	line.points[1] = cast_point
-	print("target: ", cast_point)
 
 func set_is_casting(cast: bool):
+	print("set is casting: ", cast)
 	is_casting = cast
 
 	if is_casting:
@@ -38,5 +38,6 @@ func appear():
 	tween.tween_property(line, "width", 10, 0.2)
 
 func disappear():
+	print("disappear")
 	var tween = get_tree().create_tween()
-	tween.tween_property(line, "width", 0, 0.2)
+	tween.tween_property(line, "width", 0, 0.4)

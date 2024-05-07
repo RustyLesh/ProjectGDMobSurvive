@@ -2,13 +2,14 @@ class_name EnemyShell extends Entity
 ## Base logic for assembling an enemy from given enemy resource
 
 @onready var player_node: CharacterBody2D = get_tree().get_first_node_in_group(("Player")).player_body
-@onready var body: CharacterBody2D = get_node("CharacterBody2D")
 
 var xp_drop: PackedScene = preload("res://Objects/xp_drop.tscn")
 @export var stage_xp_value : float
 @export var weapon_xp_value : float
 @export var slow_colour := Color.BLUE
 @export var contact_damage: float
+
+var enemy_resource
 
 var drop_pool: DropPool
 var slow_amount: float
@@ -17,7 +18,13 @@ var min_move_speed: int = 10
 var default_move_speed: float
 
 var flash_length: float = 0.3
-@onready var slow_timer = $SlowTimer as Timer
+
+@onready var slow_timer
+
+func init_enemy(_enemy_resource: EnemyResource):
+	init_entity()
+	enemy_resource = _enemy_resource
+	slow_timer = $SlowTimer as Timer
 
 func _on_health_died():
 	is_dead = true
@@ -30,7 +37,7 @@ func spawn_XP():
 	if xp_drop is PackedScene:
 		var xpDrop = xp_drop.instantiate()
 		xpDrop.XP_Init(stage_xp_value)
-		xpDrop.global_position = $CharacterBody2D.global_position
+		xpDrop.global_position = character_body.global_position
 		get_parent().add_child(xpDrop)
 
 ## Chooses random drop from drop pool
@@ -49,9 +56,6 @@ func roll_drop():
 		var drop = drop_gen["drop"] #May be able to streamline by not creating a new variable and using directly
 		drop.global_position = $CharacterBody2D.global_position
 		get_parent().add_child(drop)
-
-func set_spawn_position(position: Vector2):
-	body.global_position = position
 
 func take_damage(damage):
 	if health is Health:

@@ -37,7 +37,7 @@ enemy_shell_resource = SubResource("Resource_o8tl4")
 [resource]
 script = ExtResource("7_mem15")
 time_start = 60
-time_end = 120
+has_duration = false
+duration = 0
+wave_delay = 0
 enemy_resource = SubResource("Resource_0kp6q")
-enemy_amount = 4
-spawn_delay = 3

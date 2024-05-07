@@ -11,7 +11,7 @@ var bullet_scene = preload("res://Objects/bullet.tscn")
 @export var bullet_lifetime: float = 1.0
 
 @onready var bullet_container = $"Bullet Container"
-@onready var player_body = $"../PlayerBody"
+@onready var player_body = %Body
 @onready var stat_container: StatContainer = $"../Combat Stat Container"
 
 var delay

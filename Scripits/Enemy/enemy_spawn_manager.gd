@@ -1,9 +1,9 @@
 class_name EnemySpawnManager extends Node2D
-## Manages enemy spawning from spawn data resources
+## Manages enemy spawning from [SpawnDataResource]
 
 @export var enemy_spawns: EnemySpawns
 
-@onready var player = get_tree().get_first_node_in_group("Player").get_node("PlayerBody")
+@onready var player = get_tree().get_first_node_in_group("Player").get_node("Body")
 @onready var tilemap = $"../Tile_Map"
 @onready var enemy_container = $"Enemy Container"
 @onready var ui_scene = $"../UI" as MenuManager
@@ -22,7 +22,7 @@ var center: Vector2
 
 @export var wallSpawnBuffer = 5.0
 @export var time = 0
-
+@export var delay_for_stage_end: int
 @export var disable_spawns: bool
 
 signal stage_win()
@@ -50,7 +50,7 @@ func _ready():
 		enemy_spawns = PlayerSetup.enemy_spawns
 		spawns = enemy_spawns.spawns
 	
-	game_win_time = spawns[spawns.size() - 1].time_end + 5
+	game_win_time = spawns[spawns.size() - 1].time_end + delay_for_stage_end
 
 #Pause spawn timer
 func pause_timer():
@@ -74,36 +74,11 @@ func _on_timer_timeout():
 		if	enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
 			PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 
+## To be called by timer every second
 func spawn(spawn_data: SpawnDataResource):
-	if spawn_data is SpawnDataResource:
-		#When timer reaches start spawn time
-		if time >= spawn_data.time_start && time <= spawn_data.time_end: 
-			#If spawning boss
-			if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.BOSS:
-				#if the boss has already spawned, skip
-				if spawn_data.has_spawned:
-					return
-				spawn_boss(spawn_data.enemy_resource)
-				var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, center, enemy_container)
-				enemy_spawn.on_boss_death.connect(ui_scene.on_boss_death)
-				enemy_spawn.on_boss_death.connect(on_boss_death)
-				enemy_spawn.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
-				pause_timer()
-			else:
-
-				#Check if spawn delay is passed, if not add time to delay counter
-				if spawn_data.spawn_delay_counter < spawn_data.spawn_delay:
-					spawn_data.spawn_delay_counter += 1
-				else:
-					spawn_data.spawn_delay_counter = 0
-					var counter = 0
-					while counter < spawn_data.enemy_amount:
-						var enemy_spawn = spawn_data.get_enemy_instance(spawn_data.enemy_resource, get_random_position(), enemy_container)
-						#If elite connect elite on death
-						if spawn_data.enemy_resource.enemy_type == spawn_data.enemy_resource.EnemyType.ELITE:
-							enemy_spawn.on_elite_dead.connect(on_elite_killed)
-						await Engine.get_main_loop().process_frame #Wait one frame
-						counter += 1
+	if time >= spawn_data.time_start && !spawn_data.has_spawned:
+		spawn_data.spawn_enemy(player.position, enemy_container)
+	time += 1
 			
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)

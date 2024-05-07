@@ -39,7 +39,7 @@ func combat_init():
 
 	weapon_manager = $"../Weapon Manager"
 	health = $"../Health"
-	player_body = $"../PlayerBody"
+	player_body = $"../Body"
 	
 	if health is Health:
 		health.init_health(get_stat(BaseStat.BaseStatType.MAX_LIFE).value)

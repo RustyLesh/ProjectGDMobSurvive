@@ -53,7 +53,7 @@ enemy_shell_resource = SubResource("Resource_ogwhu")
 [resource]
 script = ExtResource("10_bssvf")
 time_start = 120
-time_end = 180
+has_duration = false
+duration = 0
+wave_delay = 0
 enemy_resource = SubResource("Resource_fdx3g")
-enemy_amount = 1
-spawn_delay = 100

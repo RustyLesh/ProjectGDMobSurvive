@@ -1,3 +1,5 @@
+ShellGruntResource
+TurretLazorResource
 GearResource
 BulletResource
 BulletChangeUpgrade

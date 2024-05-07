@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_manager.gd" id="3_f1cye"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="6_sot50"]
-[ext_resource type="Script" path="res://Objects/Enemy Spawning/Lazor.gd" id="7_dai16"]
+[ext_resource type="Script" path="res://Scripits/Lazor.gd" id="7_4mab5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kysfn"]
 radius = 8.06226
@@ -18,6 +18,7 @@ i_frame_duration = 0.25
 entity_type = 2
 
 [node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_yio5s")
 
 [node name="Combat Stat Container" parent="." instance=ExtResource("2_i0kg7")]
@@ -27,19 +28,21 @@ script = ExtResource("3_f1cye")
 
 [node name="Bullet Container" type="Node" parent="Weapon Manager"]
 
-[node name="PlayerBody" type="CharacterBody2D" parent="." groups=["player"]]
+[node name="Body" type="CharacterBody2D" parent="." groups=["player"]]
+unique_name_in_owner = true
 collision_mask = 142
 collision_priority = 10.0
 script = ExtResource("2_cktqb")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerBody"]
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("6_sot50")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" groups=["player"]]
 shape = SubResource("CircleShape2D_kysfn")
 
-[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+[node name="Camera2D" type="Camera2D" parent="Body"]
 zoom = Vector2(2, 2)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -48,12 +51,12 @@ drag_top_margin = 0.1
 drag_right_margin = 0.0
 drag_bottom_margin = 0.1
 
-[node name="RayCast2D" type="RayCast2D" parent="PlayerBody"]
+[node name="RayCast2D" type="RayCast2D" parent="Body"]
 target_position = Vector2(0, -256)
 collision_mask = 6
-script = ExtResource("7_dai16")
+script = ExtResource("7_4mab5")
 
-[node name="Line2D" type="Line2D" parent="PlayerBody/RayCast2D"]
+[node name="Line2D" type="Line2D" parent="Body/RayCast2D"]
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.827869, 1)
 points = PackedVector2Array(0, 0, 1.43995e-07, -168)
