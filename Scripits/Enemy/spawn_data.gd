@@ -4,7 +4,8 @@ class_name SpawnDataResource extends Resource
 ## Data for spawning enemies. Calls the enemyresource to get an instance of the enemy scene. [EnemyShell]
 
 enum SpawnType{
-
+	REPEAT,
+	ONE_SHOT
 }
 
 enum SpawnPattern{
@@ -18,7 +19,7 @@ enum SpawnPattern{
 @export var duration: int
 @export var wave_delay: int
 @export var enemy_resource: EnemyResource
-
+@export var spawn_type: SpawnType
 var spawn_animation_node: AnimatedSprite2D
 
 var time_end: get = get_time_end
@@ -31,7 +32,7 @@ var spawn_delay_counter := 9999
 func _init():
 	#Get sprite frames from enemy resource and instantiate the spawn_animation_node node
 	enemy_resource = EnemyResource.new()
-	spawn_animation_node = AnimatedSprite2D.new()
+	spawn_animation_node = AnimatedSprite2D.new() #TODO: Instantiate a premade AnimatedSprite2D node.
 	spawn_animation_node.sprite_frames = enemy_resource.spawn_sprite_frames
 
 func spawn_enemy(spawn_position: Vector2, parent):

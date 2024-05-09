@@ -1,7 +1,3 @@
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Enemy/grunt_shell.gd
-res://Scripits/Enemy/grunt_resource.gd
-res://Scripits/player.gd
 res://Objects/combat_level.tscn
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -13,10 +9,10 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
+res://Resources/Enemies/lazor_turret.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
 res://Scripits/Shaders/outline.gdshader
-res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
 res://Objects/player.tscn
 res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn
 res://Objects/Main Menu/main_menu.tscn
@@ -24,23 +20,20 @@ res://enemy_spawn_animation.tscn
 res://Objects/Enemy Spawning/enemy_grunt.tscn
 res://Objects/save_manager.tscn
 res://Objects/Enemy Spawning/enemy_grunt_test.tscn
-res://Scripits/Enemy/shell_turret.gd
 res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/entity.gd
-res://Scripits/Enemy/enemy_movement.gd
-res://addons/RustyPlugins/spawn_manger_plugin.gd
+res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
+res://Scripits/Enemy/lazor_animation_player.gd
+res://Scripits/Enemy/shape_cast_lazor.gd
 res://Scripits/Enemy/turret_lazor_ai.gd
 res://Scripits/Enemy/turret_lazor_resource.gd
-res://Scripits/Enemy/turret_lazor_shell.gd
-res://Scripits/Enemy/turret_ai.gd
-res://Scripits/Lazor.gd
-res://Scripits/Enemy/shell_turrent_resource.gd
-res://Scripits/combat_level.gd
-res://Scripits/Weapons/weapon_manager.gd
-res://Scripits/stat_container.gd
-res://Resources/Enemies/grunt.tres
-res://Resources/Enemies/lazor_turret.tres
-res://Scripits/Enemy/boss_totem_attack_ai.gd
+res://Scripits/Enemy/burning_shard_resource.gd
+res://Scripits/Enemy/burning_shard_shell.gd
+res://Scripits/Enemy/burning_shard_ai.gd
+res://Scripits/Enemy/grunt_enemy_ai.gd
+res://Scripits/Enemy/grunt_resource.gd
+res://Scripits/Enemy/grunt_shell.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/Enemy/enemy_movement.gd
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Objects/Enemy Spawning/burning_shard.tscn

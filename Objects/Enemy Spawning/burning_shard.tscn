@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq1gsbqcujadv"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_shell.gd" id="1_e34sg"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_smh0p"]
+[ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_ai.gd" id="3_x7636"]
+[ext_resource type="Texture2D" uid="uid://cbig1ugnuto6u" path="res://Art/Enemies/ember_shard.png" id="4_gqelr"]
+
+[node name="BurningShard" type="Node"]
+script = ExtResource("1_e34sg")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_smh0p")
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("3_x7636")
+
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("4_gqelr")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]

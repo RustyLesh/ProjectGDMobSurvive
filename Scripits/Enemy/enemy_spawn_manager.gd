@@ -62,7 +62,7 @@ func play_timer():
 	timer.paused = false
 	on_spawn_timer_play.emit()
 
-#Adds time to spawn timer
+#Adds time to spawn timer, called by a timer every 1 second
 func _on_timer_timeout():
 	time += 1
 	ui_scene.stage_timer.update_timer(time)
@@ -74,11 +74,18 @@ func _on_timer_timeout():
 		if	enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
 			PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 
-## To be called by timer every second
 func spawn(spawn_data: SpawnDataResource):
-	if time >= spawn_data.time_start && !spawn_data.has_spawned:
+	if spawn_data.spawn_type == SpawnDataResource.SpawnType.ONE_SHOT && spawn_data.has_spawned:
+		return
+
+	if spawn_data.spawn_type == SpawnDataResource.SpawnType.ONE_SHOT:
 		spawn_data.spawn_enemy(player.position, enemy_container)
-	time += 1
+
+	if time >= spawn_data.time_start && time <= spawn_data.time_end: # Wave start and end time check
+		if spawn_data.spawn_delay_counter >= spawn_data.wave_delay: # Wave delay check
+			spawn_data.spawn_enemy(player.position, enemy_container)
+			spawn_data.wave_delay = 0
+		spawn_data.wave_delay += 1
 			
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)

@@ -1,16 +1,32 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://b3r4qs35etuh7"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=9 format=3 uid="uid://b3r4qs35etuh7"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_oh0kx"]
-[ext_resource type="Resource" uid="uid://6lqvdysy6yso" path="res://Resources/Enemies/lazor_turret.tres" id="2_a1562"]
+[ext_resource type="Texture2D" uid="uid://cbig1ugnuto6u" path="res://Art/Enemies/ember_shard.png" id="2_6fe4n"]
+[ext_resource type="PackedScene" uid="uid://bq1gsbqcujadv" path="res://Objects/Enemy Spawning/burning_shard.tscn" id="3_wfxpt"]
+[ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_resource.gd" id="4_hpuap"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_jigct"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="7_4d3um"]
+
+[sub_resource type="Resource" id="Resource_impm8"]
+script = ExtResource("4_hpuap")
+move_speed = 100
+contact_damage = 0
+enemy_icon = ExtResource("2_6fe4n")
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 1000
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("5_jigct")
+enemy_scene = ExtResource("3_wfxpt")
 
 [sub_resource type="Resource" id="Resource_ohdcv"]
 script = ExtResource("7_4d3um")
 time_start = 0
 has_duration = false
-duration = 0
-wave_delay = 0
-enemy_resource = ExtResource("2_a1562")
+duration = 100
+wave_delay = 1
+enemy_resource = SubResource("Resource_impm8")
+spawn_type = null
 
 [resource]
 script = ExtResource("1_oh0kx")
