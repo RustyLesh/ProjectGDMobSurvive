@@ -26,7 +26,7 @@ has_duration = false
 duration = 100
 wave_delay = 1
 enemy_resource = SubResource("Resource_impm8")
-spawn_type = null
+spawn_type = 0
 
 [resource]
 script = ExtResource("1_oh0kx")

@@ -29,24 +29,20 @@ var has_spawned = false
 ## Keeps track of time between spawns
 var spawn_delay_counter := 9999
 
-func _init():
-	#Get sprite frames from enemy resource and instantiate the spawn_animation_node node
-	enemy_resource = EnemyResource.new()
-	spawn_animation_node = AnimatedSprite2D.new() #TODO: Instantiate a premade AnimatedSprite2D node.
-	spawn_animation_node.sprite_frames = enemy_resource.spawn_sprite_frames
-
 func spawn_enemy(spawn_position: Vector2, parent):
 	#Spawn animation init
 	has_spawned = true
-	parent.add_child(spawn_animation_node)
-	spawn_animation_node.position = spawn_position
-	spawn_animation_node.play()
-	await spawn_animation_node.animation_finished
-	spawn_animation_node.queue_free()
+	# spawn_animation_node = AnimatedSprite2D.new() #TODO: Instantiate a premade AnimatedSprite2D node.
+	# spawn_animation_node.sprite_frames = enemy_resource.spawn_sprite_frames
+	# parent.add_child(spawn_animation_node)
+	# spawn_animation_node.position = spawn_position
+	# spawn_animation_node.play()
+	# await spawn_animation_node.animation_finished
+	# spawn_animation_node.queue_free()
 
 	#spawn Enemy
 	var enemy_instance = enemy_resource.create_enemy_instance()
-	enemy_instance.character_body.position = spawn_position
+	enemy_instance.position = spawn_position
 	parent.add_child(enemy_instance)
 
 func get_time_end() -> int:

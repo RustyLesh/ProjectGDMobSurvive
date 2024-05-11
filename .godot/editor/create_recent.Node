@@ -1,7 +1,8 @@
-Line2D
-AnimationPlayer
-ShapeCast2D
 Node2D
+AnimationPlayer
+AnimatedSprite2D
+Line2D
+ShapeCast2D
 RayCast2D
 Label
 TextEdit
@@ -29,4 +30,3 @@ WorldEnvironment
 GPUParticles2D
 RichTextLabel
 ScrollContainer
-VScrollBar

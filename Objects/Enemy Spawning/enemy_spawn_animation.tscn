@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gfy5ro5buysv"]
+
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="1_odpif"]
+
+[node name="enemy_spawn_animation" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_odpif")

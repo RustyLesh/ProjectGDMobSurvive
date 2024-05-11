@@ -121,14 +121,14 @@ script = ExtResource("4_uoo86")
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.827869, 1)
 points = PackedVector2Array(0, 0, 1.43995e-07, -168)
-default_color = Color(0, 1, 1, 1)
+width = 0.0
+default_color = Color(0, 0.568627, 1, 1)
 
 [node name="Line2D2" type="Line2D" parent="Body/Lazor"]
 visible = false
 scale = Vector2(3.0555, 1)
 points = PackedVector2Array(0, 0, 1.43995e-07, -168)
 width = 2.61823
-default_color = Color(1, 1, 1, 1)
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="Body/Timer" to="Body" method="_on_timer_timeout"]
