@@ -1,5 +1,7 @@
-ShellGruntResource
+ShellTurretResource
 TurretLazorResource
+BuringShardResource
+ShellGruntResource
 GearResource
 BulletResource
 BulletChangeUpgrade

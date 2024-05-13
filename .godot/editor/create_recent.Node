@@ -1,3 +1,4 @@
+Timer
 Node2D
 AnimationPlayer
 AnimatedSprite2D
@@ -23,7 +24,6 @@ CheckButton
 HBoxContainer
 ItemList
 TabContainer
-Timer
 CenterContainer
 TextureProgressBar
 WorldEnvironment

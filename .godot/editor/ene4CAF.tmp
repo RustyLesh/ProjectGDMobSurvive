@@ -1,0 +1,5 @@
+[folding]
+
+node_unfolds=[NodePath("Body"), PackedStringArray("Collision"), NodePath("Body/Lazor"), PackedStringArray("Collide With", "shape"), NodePath("Body/Lazor/Line2D"), PackedStringArray("width_curve")]
+resource_unfolds=["res://Objects/Enemy Spawning/enemy_turret_lazor.tscn::RectangleShape2D_8depo", PackedStringArray()]
+nodes_folded=[]

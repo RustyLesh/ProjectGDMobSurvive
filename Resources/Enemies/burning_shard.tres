@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BuringShardResource" load_steps=5 format=3 uid="uid://cxam2i4ttnfq6"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_resource.gd" id="1_2atpl"]
+[ext_resource type="Texture2D" uid="uid://bu4gytatdr6w1" path="res://Art/Enemies/ember_shard_small.png" id="1_nl7xq"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="2_bt3yf"]
+[ext_resource type="PackedScene" uid="uid://bq1gsbqcujadv" path="res://Objects/Enemy Spawning/burning_shard.tscn" id="2_mlwsc"]
+
+[resource]
+script = ExtResource("1_2atpl")
+move_speed = 100
+contact_damage = 0
+enemy_icon = ExtResource("1_nl7xq")
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 1000
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("2_bt3yf")
+enemy_scene = ExtResource("2_mlwsc")

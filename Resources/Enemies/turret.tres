@@ -1,43 +1,31 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=12 format=3 uid="uid://dv0n5vk7dkbsm"]
+[gd_resource type="Resource" script_class="ShellTurretResource" load_steps=8 format=3 uid="uid://cknq6n4v2iwt6"]
 
 [ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="1_8i5o3"]
+[ext_resource type="PackedScene" uid="uid://i1h1yymb246d" path="res://Objects/Enemy Spawning/enemy_turret.tscn" id="2_bej6h"]
 [ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="2_o0b5v"]
 [ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="3_lciaj"]
-[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="4_kford"]
 [ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="4_usjnf"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_mpls6"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="6_subp8"]
 
-[sub_resource type="Resource" id="Resource_4iit7"]
+[sub_resource type="Resource" id="Resource_thchf"]
 script = ExtResource("3_lciaj")
 bullet_scene = ExtResource("2_o0b5v")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8d7mx"]
-
-[sub_resource type="Resource" id="Resource_7qx8p"]
-script = ExtResource("4_kford")
-
-[sub_resource type="Resource" id="Resource_u4m2t"]
-script = ExtResource("4_usjnf")
-move_speed = 80
-contact_damage = 20
-sprite = ExtResource("1_8i5o3")
-spawn_animation = ExtResource("5_mpls6")
-collision_shape = SubResource("CircleShape2D_8d7mx")
-collision_pos_offset = Vector2(0, 0)
-follow_range = 100
-keep_following = false
-bullet_resource = SubResource("Resource_4iit7")
-bullet_damage = 15
-delay_betweeen_shots = 5.0
-enemy_ai_movement = SubResource("Resource_7qx8p")
-
 [resource]
-script = ExtResource("6_subp8")
+script = ExtResource("4_usjnf")
+move_speed = 30
+contact_damage = 0
+follow_range = 150
+keep_following = false
+bullet_resource = SubResource("Resource_thchf")
+bullet_damage = 0
+bullet_speed = 50
+bullet_lifetime = 1
+delay_betweeen_shots = 0.0
 enemy_icon = ExtResource("1_8i5o3")
 enemy_type = 0
-enemy_name = "Turret"
-max_health = 10
-stage_xp_value = 1.0
-weapon_xp_value = 1.0
-enemy_shell_resource = SubResource("Resource_u4m2t")
+enemy_name = "empty_name"
+max_health = 1000
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("5_mpls6")
+enemy_scene = ExtResource("2_bej6h")

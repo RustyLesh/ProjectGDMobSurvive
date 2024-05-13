@@ -32,13 +32,6 @@ var spawn_delay_counter := 9999
 func spawn_enemy(spawn_position: Vector2, parent):
 	#Spawn animation init
 	has_spawned = true
-	# spawn_animation_node = AnimatedSprite2D.new() #TODO: Instantiate a premade AnimatedSprite2D node.
-	# spawn_animation_node.sprite_frames = enemy_resource.spawn_sprite_frames
-	# parent.add_child(spawn_animation_node)
-	# spawn_animation_node.position = spawn_position
-	# spawn_animation_node.play()
-	# await spawn_animation_node.animation_finished
-	# spawn_animation_node.queue_free()
 
 	#spawn Enemy
 	var enemy_instance = enemy_resource.create_enemy_instance()

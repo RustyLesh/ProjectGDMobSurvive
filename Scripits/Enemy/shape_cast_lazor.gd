@@ -3,7 +3,7 @@ class_name ShapeCastLazor extends ShapeCast2D
 @onready var line: Line2D = $Line2D
 
 var damage: int
-var is_damaging: bool = false
+@export var is_damaging: bool = false
 
 func _ready():
 	#set_physics_process(false)
@@ -12,17 +12,22 @@ func _ready():
 
 func init(resource: TurretLazorResource):
 	damage = resource.lazor_damage
+	is_damaging = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var cast_point = target_position
 	force_shapecast_update()
 
 	if is_colliding():
-		var first_hit = get_collision_point(0)
 		cast_point = to_local(get_collision_point(0))
 		var collision = get_collider(0).get_parent()
-		if collision is Player:
+		if collision is Player && is_damaging:
 			collision.take_damage(damage)
 
 	line.points[1] = cast_point
+
+func toggle_damaging(value: bool):
+	is_damaging = value
+
+
 

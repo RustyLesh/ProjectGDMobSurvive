@@ -10,7 +10,7 @@ var speed: float = 100.0
 @export var attack_pause_time: int = 1
 
 func _physics_process(_delta: float):
-	if nav_agent.distance_to_target() > 10:
+	if nav_agent.distance_to_target() > 2:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed
 		move_and_slide()

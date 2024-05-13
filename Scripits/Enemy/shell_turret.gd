@@ -1,68 +1,52 @@
 extends EnemyShell
 class_name ShellTurret
 
-@onready var collision_shape: CollisionShape2D = $CharacterBody2D/CollisionShape2D
-@onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
+@onready var navigation_agent: NavigationAgent2D
 
 @onready var spawn_animation: AnimatedSprite2D
-var projectile_scene: Variant
+@export var projectile_scene: PackedScene
 
 var bullet_resource: BulletResource
-var enemy_ai_movement: EnemyMovementAI
 
-var enemy_shell_resource 
-var spawn_position
-var parent
-var spawn_animation_node
 var bullet_damage
 var bullet_speed
 var bullet_lifetime
 var delay_betweeen_shots: float
 
-func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
-	character_body = $CharacterBody2D
-	sprite = character_body.get_node("Sprite2D")
-	enemy_resource = _enemy_resource
-	enemy_shell_resource = _enemy_resource.enemy_shell_resource
-	spawn_position = _spawn_position
-	parent = _parent
-	
-	
-	spawn_animation_node = enemy_shell_resource.spawn_scene_path.instantiate()
-	parent.add_child(spawn_animation_node)
-	spawn_animation_node.play()
-	spawn_animation_node.global_position = spawn_position
-	spawn_animation_node.animation_finished.connect(on_spawn_animation_end)
 
-func on_spawn_animation_end():
-	spawn_animation_node.queue_free()
-
-	parent.add_child(self)
+func init_enemy(_enemy_resource: EnemyResource):
+	super(_enemy_resource)
+	navigation_agent = %NavAgent
+	spawn_animation = %SpawnAnimation
+	%ColliderShape.disabled = true
+	character_body.visible = false
+	spawn_animation.visible = true
 
 	#Resource setup
-	sprite.texture = enemy_shell_resource.sprite
-	collision_shape.shape = enemy_shell_resource.collision_shape
-	collision_shape.position = enemy_shell_resource.collision_pos_offset
-	enemy_ai_movement = enemy_shell_resource.enemy_ai_movement
-	navigation_agent.max_speed = enemy_shell_resource.move_speed
-	contact_damage = enemy_shell_resource.contact_damage
-	character_body.speed = enemy_shell_resource.move_speed
-	character_body.follow_range = enemy_shell_resource.follow_range
-	stage_xp_value = enemy_resource.stage_xp_value
-	weapon_xp_value = enemy_resource.weapon_xp_value
-	drop_pool = enemy_resource.drop_pool
-	projectile_scene = enemy_shell_resource.bullet_resource.get_bullet_scene()
+	#spawn_animation.sprite_frames = enemy_resource.spawn_sprite_frames
+	navigation_agent.max_speed = enemy_resource.move_speed
+	contact_damage = enemy_resource.contact_damage
+	character_body.speed = enemy_resource.move_speed
+	character_body.follow_range = enemy_resource.follow_range
 
-	#Bullet setup
-	bullet_damage = enemy_shell_resource.bullet_damage
-	bullet_speed = enemy_shell_resource.bullet_speed
-	delay_betweeen_shots = enemy_shell_resource.delay_betweeen_shots
-	character_body.delay_betweeen_shots = delay_betweeen_shots
+	stage_xp_value = enemy_resource.stage_xp_value
+	drop_pool = enemy_resource.drop_pool
 	health.init_health(enemy_resource.max_health)
 
 	default_move_speed = character_body.speed
 
 	slow_timer.timeout.connect(revert_slow)
+
+	#Bullet setup
+	bullet_damage = enemy_resource.bullet_damage
+	bullet_speed = enemy_resource.bullet_speed
+	delay_betweeen_shots = enemy_resource.delay_betweeen_shots
+	character_body.delay_betweeen_shots = delay_betweeen_shots
+
+	#Spawn
+	spawn_animation.play()
+	await spawn_animation.animation_finished
+	_enable_enemy()
 
 func apply_slow_to_self(value: float, duration: float):
 	character_body.speed = clamp( navigation_agent.max_speed - value, min_move_speed, 999999)
@@ -83,3 +67,8 @@ func shoot(player_position):
 	bullet.base_damage = bullet_damage
 	bullet.speed = bullet_speed
 
+func _enable_enemy():
+	spawn_animation.visible = false
+	character_body.visible = true
+	%ColliderShape.disabled = false
+	character_body.start()

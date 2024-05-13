@@ -7,8 +7,8 @@ func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)
 	navigation_agent = %NavAgent
 	spawn_animation = %SpawnAnimation
-	character_body.visible = false
 	%ColliderShape.disabled = true
+	character_body.visible = false
 	spawn_animation.visible = true
 	
 	#Resource setup	

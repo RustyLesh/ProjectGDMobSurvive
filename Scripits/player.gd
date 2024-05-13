@@ -8,7 +8,7 @@ class_name Player
 @onready var player_body: PlayerController = $Body
 
 @export var i_frame_colour:= Color.RED
-@export var i_frame_duration : float  = 0.2#seconds
+@export var i_frame_duration : float  = 0.5#seconds
 @export var weapon_resource: WeaponResource
 
 var weapon_inst: Weapon

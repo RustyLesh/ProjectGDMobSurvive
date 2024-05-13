@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dm0j8b2r0q5t2"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turret.gd" id="1_5w0xj"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_krxkw"]
+[ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_4adq4"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_0if46"]
+[ext_resource type="Script" path="res://Scripits/Enemy/turret_ai.gd" id="5_oe6k4"]
+[ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="6_rxmn0"]
+
+[node name="Grunt" type="Node2D"]
+script = ExtResource("1_5w0xj")
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_krxkw")
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpawnAnimation" parent="." instance=ExtResource("3_4adq4")]
+unique_name_in_owner = true
+visible = false
+sprite_frames = ExtResource("4_0if46")
+
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("5_oe6k4")
+
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("6_rxmn0")
+
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="Movement Timer" type="Timer" parent="Body"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Body/Movement Timer" to="Body" method="_on_timer_timeout"]

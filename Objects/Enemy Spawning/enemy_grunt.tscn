@@ -1,33 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://cevoevausr57b"]
+[gd_scene load_steps=7 format=3 uid="uid://dlioo0j2lcyya"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/grunt_shell.gd" id="1_tfxly"]
-[ext_resource type="Script" path="res://Scripits/Enemy/enemy_movement.gd" id="2_uhoiy"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turret.gd" id="1_3g3rw"]
+[ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_4my4l"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="3_rgcat"]
 [ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="4_dtd1b"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_rvimg"]
+[ext_resource type="Script" path="res://Scripits/Enemy/turret_ai.gd" id="5_gwmwh"]
 
-[node name="Grunt" type="Node"]
-script = ExtResource("1_tfxly")
+[node name="Grunt" type="Node2D"]
+script = ExtResource("1_3g3rw")
 
 [node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_rgcat")
 
 [node name="SlowTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SpawnAnimation" parent="." instance=ExtResource("3_4my4l")]
+unique_name_in_owner = true
+visible = false
+sprite_frames = ExtResource("4_rvimg")
+
 [node name="Body" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 37
-script = ExtResource("2_uhoiy")
-
-[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
-unique_name_in_owner = true
-debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+script = ExtResource("5_gwmwh")
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("4_dtd1b")
+
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
 
 [node name="NavAgent" type="NavigationAgent2D" parent="Body"]
 unique_name_in_owner = true
@@ -36,5 +44,4 @@ unique_name_in_owner = true
 wait_time = 0.1
 autostart = true
 
-[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="Body/Movement Timer" to="Body" method="_on_timer_timeout"]

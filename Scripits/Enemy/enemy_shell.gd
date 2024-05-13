@@ -27,6 +27,7 @@ func init_enemy(_enemy_resource: EnemyResource):
 	slow_timer = $SlowTimer as Timer
 
 func _on_health_died():
+	print("Dead")
 	is_dead = true
 	call_deferred("roll_drop")
 	call_deferred("spawn_XP")
@@ -60,9 +61,9 @@ func roll_drop():
 func take_damage(damage):
 	if health is Health:
 		health.take_damage(damage)
-		sprite.modulate = damage_flash_color
+		sprite.modulate = damage_flash_color	
 		await get_tree().create_timer(flash_length).timeout
-		sprite.modulate = Color.WHITE		
+		sprite.modulate = Color.WHITE
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	pass

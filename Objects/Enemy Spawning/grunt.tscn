@@ -1,23 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://i1h1yymb246d"]
+[gd_scene load_steps=7 format=3 uid="uid://d3nq10pjxpq1r"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_turret.gd" id="1_2yyni"]
-[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="2_cf30o"]
-[ext_resource type="Script" path="res://Scripits/health.gd" id="2_gswv7"]
-[ext_resource type="Script" path="res://Scripits/Enemy/turret_ai.gd" id="3_0iu4d"]
-[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="5_5mip2"]
-[ext_resource type="Texture2D" uid="uid://bu4gytatdr6w1" path="res://Art/Enemies/ember_shard_small.png" id="5_r0dfe"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_shell.gd" id="1_ame7a"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_n6ky5"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_sc8cm"]
+[ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="4_rm6ff"]
+[ext_resource type="Texture2D" uid="uid://bu4gytatdr6w1" path="res://Art/Enemies/ember_shard_small.png" id="5_27b8v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ek03a"]
 radius = 8.0
 height = 32.0
 
-[node name="Turret" type="Node2D"]
-script = ExtResource("1_2yyni")
-projectile_scene = ExtResource("2_cf30o")
+[node name="Grunt" type="Node2D"]
+script = ExtResource("1_ame7a")
 
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_gswv7")
+script = ExtResource("2_n6ky5")
 
 [node name="SlowTimer" type="Timer" parent="."]
 one_shot = true
@@ -25,18 +23,18 @@ one_shot = true
 [node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-sprite_frames = ExtResource("5_5mip2")
+sprite_frames = ExtResource("3_sc8cm")
 
 [node name="Body" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 33
-script = ExtResource("3_0iu4d")
+script = ExtResource("4_rm6ff")
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true
 texture_filter = 1
-texture = ExtResource("5_r0dfe")
+texture = ExtResource("5_27b8v")
 
 [node name="ColliderShape" type="CollisionShape2D" parent="Body"]
 unique_name_in_owner = true
@@ -49,9 +47,5 @@ unique_name_in_owner = true
 [node name="MovementTimer" type="Timer" parent="Body"]
 wait_time = 0.1
 
-[node name="ShootTimer" type="Timer" parent="Body"]
-wait_time = 0.5
-
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="Body/MovementTimer" to="Body" method="make_path"]
-[connection signal="timeout" from="Body/ShootTimer" to="Body" method="shoot"]
