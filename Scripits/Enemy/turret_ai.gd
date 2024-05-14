@@ -1,5 +1,4 @@
-extends CharacterBody2D
-class_name AITurret
+class_name AITurret extends CharacterBody2D
 
 @onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("Body")
 @onready var nav_agent := %NavAgent as NavigationAgent2D 
@@ -14,6 +13,8 @@ var speed: float = 100.0
 var delay_betweeen_shots: float = 1.5
 var distance_from_player
 var enabled := false
+
+
 
 func _physics_process(_delta: float):
 	if !enabled:

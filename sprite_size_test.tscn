@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://puivxlg3jsc8"]
+
+[ext_resource type="Texture2D" uid="uid://btckng5rax583" path="res://Art/quarter_circle.png" id="1_igokn"]
+[ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="2_kk0ob"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(273, 252)
+texture = ExtResource("1_igokn")
+
+[node name="Knight" type="Sprite2D" parent="."]
+position = Vector2(335, 314)
+texture = ExtResource("2_kk0ob")

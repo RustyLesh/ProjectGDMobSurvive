@@ -1,9 +1,10 @@
-res://Scripits/Enemy/turret_lazor_shell.gd
-res://Scripits/Enemy/turret_lazor_resource.gd
 res://Scripits/Enemy/turret_ai.gd
 res://Scripits/Enemy/shell_turret.gd
-res://Scripits/Enemy/shell_turrent_resource.gd
-res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
+res://Scripits/explosion_area_check.gd
+res://Scripits/explosion_circle_sprite.gd
+res://Scripits/On Hit Effects/on_hit_effects_helper.gd
+res://Scripits/bullet_helper.gd
+res://Objects/Enemy Spawning/enemy_knight.tscn
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -14,23 +15,28 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
+res://Resources/Enemies/turret.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
 res://Scripits/Shaders/outline.gdshader
 res://Objects/Main Menu/main_menu.tscn
+res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
 res://Objects/Enemy Spawning/burning_shard.tscn
-res://Objects/Enemy Spawning/enemy_grunt.tscn
-res://Objects/Enemy Spawning/enemy_turret.tscn
 res://Objects/combat_level.tscn
 res://Objects/Enemy Spawning/grunt.tscn
-res://Scripits/Enemy/turret_lazor_ai.gd
-res://Resources/Enemies/turret.tres
-res://Scripits/Enemy/grunt_resource.gd
-res://Scripits/Enemy/grunt_shell.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/entity.gd
-res://Scripits/health.gd
-res://Scripits/Lazor.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/Enemy/grunt_enemy_ai.gd
+res://Objects/Enemy Spawning/enemy_grunt.tscn
+res://Objects/Enemy Spawning/enemy_turret.tscn
 res://Objects/Enemy Spawning/enemy_soldier.tscn
+res://Explosion Circle.tscn
+res://sprite_size_test.tscn
+res://Scripits/health.gd
+res://Scripits/Enemy/knight_shell.gd
+res://Scripits/Enemy/knight_ai.gd
+res://Scripits/Enemy/turret_lazor_resource.gd
+res://Scripits/Enemy/shell_turrent_resource.gd
+res://Scripits/Enemy/knight_resource.gd
+res://Resources/Enemies/knight.tres
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/Enemy/turret_lazor_ai.gd

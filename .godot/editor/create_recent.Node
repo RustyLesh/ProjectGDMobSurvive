@@ -1,6 +1,9 @@
 Timer
-Node2D
+CollisionPolygon2D
+Area2D
 AnimationPlayer
+Sprite2D
+Node2D
 AnimatedSprite2D
 Line2D
 ShapeCast2D
@@ -9,7 +12,6 @@ Label
 TextEdit
 Button
 Polygon2D
-Sprite2D
 CanvasModulate
 HSlider
 Panel
@@ -28,5 +30,3 @@ CenterContainer
 TextureProgressBar
 WorldEnvironment
 GPUParticles2D
-RichTextLabel
-ScrollContainer

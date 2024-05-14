@@ -1,3 +1,4 @@
+KnightResource
 ShellTurretResource
 TurretLazorResource
 BuringShardResource

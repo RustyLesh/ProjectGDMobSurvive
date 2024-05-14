@@ -1,25 +1,25 @@
-class_name ShellTurret extends EnemyShell
+class_name KnightShell extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
 
 @onready var spawn_animation: AnimatedSprite2D
 @export var projectile_scene: PackedScene
+@export var animation_player: AnimationPlayer
 
-var bullet_resource: BulletResource
-
-var bullet_damage
-var bullet_speed
-var bullet_lifetime
-var delay_betweeen_shots: float
+var attack_damage
+var delay_betweeen_attacks: float
 
 
 func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)
+	animation_player = %AnimationPlayer
+
 	navigation_agent = %NavAgent
 	spawn_animation = %SpawnAnimation
 	%ColliderShape.disabled = true
 	character_body.visible = false
 	spawn_animation.visible = true
+	#animation_player.play("RESET")
 
 	#Resource setup
 	#spawn_animation.sprite_frames = enemy_resource.spawn_sprite_frames
@@ -36,11 +36,7 @@ func init_enemy(_enemy_resource: EnemyResource):
 
 	slow_timer.timeout.connect(revert_slow)
 
-	#Bullet setup
-	bullet_damage = enemy_resource.bullet_damage
-	bullet_speed = enemy_resource.bullet_speed
-	delay_betweeen_shots = enemy_resource.delay_betweeen_shots
-	character_body.delay_betweeen_shots = delay_betweeen_shots
+	#Attack setup
 
 	#Spawn
 	spawn_animation.play()
@@ -63,8 +59,6 @@ func shoot(player_position):
 	bullet.lifetime = 2
 	bullet.look_at(player_position)
 	bullet.rotate(PI/2)
-	bullet.base_damage = bullet_damage
-	bullet.speed = bullet_speed
 
 func _enable_enemy():
 	spawn_animation.visible = false

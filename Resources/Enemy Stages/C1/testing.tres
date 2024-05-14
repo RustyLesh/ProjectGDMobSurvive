@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://b3r4qs35etuh7"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_oh0kx"]
-[ext_resource type="Resource" uid="uid://cknq6n4v2iwt6" path="res://Resources/Enemies/turret.tres" id="2_im2qi"]
+[ext_resource type="Resource" uid="uid://u6d80dk1gitd" path="res://Resources/Enemies/knight.tres" id="2_n58fe"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="7_4d3um"]
 
 [sub_resource type="Resource" id="Resource_ubh3n"]
@@ -10,7 +10,7 @@ time_start = 0
 has_duration = true
 duration = 1
 wave_delay = 1
-enemy_resource = ExtResource("2_im2qi")
+enemy_resource = ExtResource("2_n58fe")
 spawn_type = 0
 
 [resource]
