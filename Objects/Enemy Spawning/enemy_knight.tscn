@@ -8,105 +8,12 @@
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="6_ggdfi"]
 [ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="7_t5lph"]
 
-[sub_resource type="Animation" id="Animation_daxsb"]
-resource_name = "attack"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/CleaveAreaBG:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0.411765)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/CleaveArea:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.1, 2.3, 2.5),
-"transitions": PackedFloat32Array(1, 8.87654, 0.307787, 0.101532),
-"update": 0,
-"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body/CleaveArea:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Body/CleaveAreaBG:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Body/AttackArea:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2.3, 2.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Body/CleaveArea:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Body")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"look_at_player"
-}, {
-"args": [],
-"method": &"start_attack_timer"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_ee6ca"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body/CleaveAreaBG:self_modulate")
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Body/CleaveArea:self_modulate")
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -130,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Body/CleaveAreaBG:visible")
+tracks/2/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -142,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Body/CleaveArea:visible")
+tracks/3/path = NodePath("Body/AttackNodes/CleaveArea:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -154,26 +61,136 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Body/AttackArea:monitoring")
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Body/CleaveArea:scale")
+tracks/5/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_daxsb"]
+resource_name = "attack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05)]
+"values": [Color(1, 0, 0, 0.411765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 8.87654, 0.307787, 0.101532),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/AttackNodes/CleaveArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"look_at_player"
+}, {
+"args": [],
+"method": &"start_attack_timer"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("Body")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"attack_toggle"
+}, {
+"args": [false],
+"method": &"attack_toggle"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qdhv"]
@@ -217,7 +234,10 @@ collision_layer = 2
 collision_mask = 37
 script = ExtResource("6_ggdfi")
 
-[node name="CleaveArea" type="Sprite2D" parent="Body"]
+[node name="AttackNodes" type="Node2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="CleaveArea" type="Sprite2D" parent="Body/AttackNodes"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 0, 0, 1)
@@ -227,7 +247,7 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("5_pnu4j")
 offset = Vector2(-64, -64)
 
-[node name="CleaveAreaBG" type="Sprite2D" parent="Body"]
+[node name="CleaveAreaBG" type="Sprite2D" parent="Body/AttackNodes"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 0, 0, 0.411765)
@@ -236,6 +256,15 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_pnu4j")
 offset = Vector2(-64, -64)
+
+[node name="AttackArea" type="Area2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+collision_layer = 128
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body/AttackNodes/AttackArea"]
+polygon = PackedVector2Array(192, 0, 185, -53, 162, -104, 128, -143, 89, -170, 45, -188, 0, -192, 0, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true
@@ -255,13 +284,6 @@ unique_name_in_owner = true
 wait_time = 0.1
 autostart = true
 
-[node name="AttackArea" type="Area2D" parent="Body"]
-unique_name_in_owner = true
-monitoring = false
-monitorable = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body/AttackArea"]
-polygon = PackedVector2Array(192, 0, 185, -53, 162, -104, 128, -143, 89, -170, 45, -188, 0, -192, 0, 0)
-
 [connection signal="timeout" from="AttackTimer" to="Body" method="attack"]
+[connection signal="body_entered" from="Body/AttackNodes/AttackArea" to="Body" method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Body/MovementTimer" to="Body" method="_on_timer_timeout"]

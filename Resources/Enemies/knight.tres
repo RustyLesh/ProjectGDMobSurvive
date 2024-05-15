@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_8fxth")
 move_speed = 100
-contact_damage = 0
+contact_damage = 1
 follow_range = 100
 keep_following = false
 attack_damaage = 1

@@ -1,9 +1,9 @@
+Node2D
 Timer
 CollisionPolygon2D
 Area2D
 AnimationPlayer
 Sprite2D
-Node2D
 AnimatedSprite2D
 Line2D
 ShapeCast2D

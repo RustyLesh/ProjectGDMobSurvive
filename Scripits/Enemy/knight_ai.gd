@@ -5,9 +5,9 @@ class_name KnightAi extends CharacterBody2D
 @onready var enemy_shell := $".." as EnemyShell
 @onready var timer = $MovementTimer
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var clear_area_bg: Sprite2D = %CleaveAreaBG
-@onready var clear_area: Sprite2D = %CleaveArea
 @onready var attack_timer: Timer = %AttackTimer
+@onready var attack_area_check: Area2D = %AttackArea
+@onready var attack_nodes: Node2D = % AttackNodes
 @export var follow_range: int
 
 var follows_player:= false
@@ -19,8 +19,7 @@ var distance_from_player
 var is_player_in_range:= false
 var is_attacking:= false
 var state: AI_State = AI_State.MOVING
-var look_value = 1.4
-
+const LOOK_VALUE = 4
 
 enum AI_State{
 	MOVING,
@@ -96,11 +95,17 @@ func change_state(new_state: AI_State):
 			pass
 
 func look_at_player():
-		clear_area_bg.look_at(player.position)
-		clear_area_bg.rotate(PI/look_value)
-
-		clear_area.look_at(player.position)
-		clear_area.rotate(PI/look_value)	
+		attack_nodes.look_at(player.position)
+		attack_nodes.rotate(PI/LOOK_VALUE)
 
 func start_attack_timer():
 	attack_timer.start(delay_betweeen_shots)
+
+func _on_attack_area_body_entered(body:Node2D):
+	print("hit attack")
+	var collided = body.get_parent()
+	if collided is Player:
+		collided.take_damage(enemy_shell.deal_damage())
+
+func attack_toggle(value: bool):
+	attack_area_check.monitoring = value
