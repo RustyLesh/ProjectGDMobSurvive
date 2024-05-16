@@ -105,10 +105,10 @@ tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.1, 2.3, 2.5),
-"transitions": PackedFloat32Array(1, 8.87654, 0.307787, 0.101532),
-"update": 0,
-"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+"times": PackedFloat32Array(0, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 8.87654, 0.307787, 8.87654),
+"update": 1,
+"values": [Color(0.733333, 0, 0, 0.811765), Color(0.733333, 0, 0, 0.811765), Color(1, 0.172549, 0.184314, 1), Color(0.733333, 0, 0, 0.811765)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -251,9 +251,8 @@ offset = Vector2(-64, -64)
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 0, 0, 0.411765)
-position = Vector2(0, 1.00001)
 rotation = 1.5708
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.49309, 1.5)
 texture = ExtResource("5_pnu4j")
 offset = Vector2(-64, -64)
 
@@ -264,6 +263,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body/AttackNodes/AttackArea"]
+visible = false
 polygon = PackedVector2Array(192, 0, 185, -53, 162, -104, 128, -143, 89, -170, 45, -188, 0, -192, 0, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Body"]

@@ -1,0 +1,308 @@
+[gd_scene load_steps=18 format=3 uid="uid://cai1wkndfr6b1"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/box_slime_shell.gd" id="1_71acd"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_wgh8w"]
+[ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_cx0dc"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_yc87g"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="5_tg2tr"]
+[ext_resource type="Texture2D" uid="uid://pmhv0r65iju4" path="res://Art/explosion_circle_filled.png" id="6_bpcm5"]
+[ext_resource type="Texture2D" uid="uid://b7b1mvv58ehlh" path="res://Art/explosion_circle.png" id="7_5x31q"]
+[ext_resource type="Texture2D" uid="uid://dbj4qpdn6186k" path="res://Art/Enemies/box_slime-Sheet.png" id="8_ewh1v"]
+
+[sub_resource type="Animation" id="Animation_ee6ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(0.47451, 0, 0, 0.764706)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Sprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_daxsb"]
+resource_name = "attack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(0.47451, 0, 0, 0.764706), Color(0.47451, 0, 0, 0.764706), Color(0.686275, 0, 0, 1), Color(0.47451, 0, 0, 0.764706)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Sprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qdhv"]
+_data = {
+"RESET": SubResource("Animation_ee6ca"),
+"attack": SubResource("Animation_daxsb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q5rlg"]
+radius = 128.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff308"]
+atlas = ExtResource("8_ewh1v")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58t2o"]
+atlas = ExtResource("8_ewh1v")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8k2h"]
+atlas = ExtResource("8_ewh1v")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ls1dv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff308")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58t2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8k2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6abea"]
+radius = 27.0
+
+[node name="Box Slime" type="Node2D"]
+script = ExtResource("1_71acd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8qdhv")
+}
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_wgh8w")
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="SpawnAnimation" parent="." instance=ExtResource("3_cx0dc")]
+unique_name_in_owner = true
+visible = false
+top_level = false
+sprite_frames = ExtResource("4_yc87g")
+
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("5_tg2tr")
+
+[node name="AttackNodes" type="Node2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="CleaveArea" type="Sprite2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0.47451, 0, 0, 0.764706)
+position = Vector2(0, -2.38419e-06)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_bpcm5")
+
+[node name="CleaveAreaBG" type="Sprite2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 0, 0, 0.411765)
+scale = Vector2(2, 2)
+texture = ExtResource("7_5x31q")
+
+[node name="AttackArea" type="Area2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+collision_layer = 128
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/AttackNodes/AttackArea"]
+visible = false
+shape = SubResource("CircleShape2D_q5rlg")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Body"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ls1dv")
+
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_6abea")
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="MovementTimer" type="Timer" parent="Body"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="AttackTimer" to="Body" method="attack"]
+[connection signal="body_entered" from="Body/AttackNodes/AttackArea" to="Body" method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="Body/MovementTimer" to="Body" method="_on_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="KnightResource" load_steps=4 format=3 uid="uid://fri3d7swbojf"]
+
+[ext_resource type="PackedScene" uid="uid://cai1wkndfr6b1" path="res://Objects/Enemy Spawning/box_slime.tscn" id="1_bmyhw"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_lcfxc"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_b2lt6"]
+
+[resource]
+script = ExtResource("2_lcfxc")
+move_speed = 100
+contact_damage = 1
+follow_range = 100
+keep_following = false
+attack_damaage = 1
+delay_betweeen_shots = 1.0
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 10
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("3_b2lt6")
+enemy_scene = ExtResource("1_bmyhw")

@@ -1,18 +1,20 @@
-class_name KnightShell extends EnemyShell
+class_name BoxSlimeShell extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
 
 @onready var spawn_animation: AnimatedSprite2D
 @export var projectile_scene: PackedScene
 @export var animation_player: AnimationPlayer
-
 var attack_damage
 var delay_betweeen_attacks: float
 
 
 func init_enemy(_enemy_resource: EnemyResource):
-	super(_enemy_resource)
+	health = $Health
+	character_body = %Body
 	animation_player = %AnimationPlayer
+	enemy_resource = _enemy_resource
+	slow_timer = $SlowTimer as Timer
 
 	navigation_agent = %NavAgent
 	spawn_animation = %SpawnAnimation
@@ -46,11 +48,11 @@ func init_enemy(_enemy_resource: EnemyResource):
 func apply_slow_to_self(value: float, duration: float):
 	character_body.speed = clamp( navigation_agent.max_speed - value, min_move_speed, 999999)
 	slow_timer.start(duration)
-	sprite.modulate = slow_colour
+	#sprite.modulate = slow_colour
 
 func revert_slow():
 	character_body.speed = default_move_speed
-	sprite.modulate = Color.WHITE
+	#sprite.modulate = Color.WHITE
 
 func shoot(player_position):
 	var bullet = projectile_scene.instantiate()
@@ -65,3 +67,10 @@ func _enable_enemy():
 	character_body.visible = true
 	%ColliderShape.disabled = false
 	character_body.start()
+
+func take_damage(damage):
+	if health is Health:
+		health.take_damage(damage)
+		# sprite.modulate = damage_flash_color	
+		# await get_tree().create_timer(flash_length).timeout
+		# sprite.modulate = Color.WHITE

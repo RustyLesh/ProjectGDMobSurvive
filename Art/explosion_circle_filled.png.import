@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c45onsyti4vc8"
-path="res://.godot/imported/FaceCube.png-bc8fa8f12fcd7ee7272c354e300029ed.ctex"
+uid="uid://pmhv0r65iju4"
+path="res://.godot/imported/explosion_circle_filled.png-4eec7b259617d40f87ca172a1ce2a1a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/FaceCube.png"
-dest_files=["res://.godot/imported/FaceCube.png-bc8fa8f12fcd7ee7272c354e300029ed.ctex"]
+source_file="res://Art/explosion_circle_filled.png"
+dest_files=["res://.godot/imported/explosion_circle_filled.png-4eec7b259617d40f87ca172a1ce2a1a9.ctex"]
 
 [params]
 

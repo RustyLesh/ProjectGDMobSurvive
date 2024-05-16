@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr2bv5rkt3x2l"
-path="res://.godot/imported/DiamondTurret.png-026a557366dab070aa66c13507f61275.ctex"
+uid="uid://dbj4qpdn6186k"
+path="res://.godot/imported/box_slime-Sheet.png-598fa4ba217438419b84758871855fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/DiamondTurret.png"
-dest_files=["res://.godot/imported/DiamondTurret.png-026a557366dab070aa66c13507f61275.ctex"]
+source_file="res://Art/Enemies/box_slime-Sheet.png"
+dest_files=["res://.godot/imported/box_slime-Sheet.png-598fa4ba217438419b84758871855fe7.ctex"]
 
 [params]
 
