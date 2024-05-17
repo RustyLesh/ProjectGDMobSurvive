@@ -27,3 +27,6 @@ func init_entity():
 	health = $Health
 	sprite = %Sprite
 	character_body = %Body
+
+func get_sprite():
+	return %Sprite

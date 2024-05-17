@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://cai1wkndfr6b1"]
+[gd_scene load_steps=20 format=3 uid="uid://cai1wkndfr6b1"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/box_slime_shell.gd" id="1_71acd"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="2_wgh8w"]
 [ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_cx0dc"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_yc87g"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="5_tg2tr"]
-[ext_resource type="Texture2D" uid="uid://pmhv0r65iju4" path="res://Art/explosion_circle_filled.png" id="6_bpcm5"]
-[ext_resource type="Texture2D" uid="uid://b7b1mvv58ehlh" path="res://Art/explosion_circle.png" id="7_5x31q"]
+[ext_resource type="Texture2D" uid="uid://dbvrhmfa6rs8" path="res://Art/explosion_circle_large_filled.png" id="6_6cjb4"]
+[ext_resource type="Texture2D" uid="uid://cptc4m6olimxv" path="res://Art/explosion_circle_large.png" id="7_sycgb"]
 [ext_resource type="Texture2D" uid="uid://dbj4qpdn6186k" path="res://Art/Enemies/box_slime-Sheet.png" id="8_ewh1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yid23"]
 
 [sub_resource type="Animation" id="Animation_ee6ca"]
 length = 0.001
@@ -18,10 +20,10 @@ tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -106,10 +108,10 @@ tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2, 2)]
+"values": [Vector2(1, 1), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -121,7 +123,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(2, 2)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -193,6 +195,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5rlg"]
 radius = 128.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nn58"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff308"]
 atlas = ExtResource("8_ewh1v")
 region = Rect2(0, 0, 64, 64)
@@ -226,6 +230,7 @@ animations = [{
 radius = 27.0
 
 [node name="Box Slime" type="Node2D"]
+material = SubResource("ShaderMaterial_yid23")
 script = ExtResource("1_71acd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -266,14 +271,13 @@ visible = false
 self_modulate = Color(0.47451, 0, 0, 0.764706)
 position = Vector2(0, -2.38419e-06)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("6_bpcm5")
+texture = ExtResource("6_6cjb4")
 
 [node name="CleaveAreaBG" type="Sprite2D" parent="Body/AttackNodes"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 0, 0, 0.411765)
-scale = Vector2(2, 2)
-texture = ExtResource("7_5x31q")
+texture = ExtResource("7_sycgb")
 
 [node name="AttackArea" type="Area2D" parent="Body/AttackNodes"]
 unique_name_in_owner = true
@@ -287,6 +291,8 @@ shape = SubResource("CircleShape2D_q5rlg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Body"]
 unique_name_in_owner = true
+z_index = 10
+material = SubResource("ShaderMaterial_1nn58")
 sprite_frames = SubResource("SpriteFrames_ls1dv")
 
 [node name="ColliderShape" type="CollisionShape2D" parent="Body"]

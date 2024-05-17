@@ -2,18 +2,19 @@
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_oh0kx"]
 [ext_resource type="Resource" uid="uid://fri3d7swbojf" path="res://Resources/Enemies/slime.tres" id="2_hphjp"]
-[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="7_4d3um"]
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="3_bf2ek"]
 
-[sub_resource type="Resource" id="Resource_ubh3n"]
-script = ExtResource("7_4d3um")
+[sub_resource type="Resource" id="Resource_eqbco"]
+script = ExtResource("3_bf2ek")
+outline_colour = Color(1, 1, 1, 1)
 time_start = 0
-has_duration = true
-duration = 1
-wave_delay = 1
+has_duration = false
+duration = 10
+wave_delay = 0
 enemy_resource = ExtResource("2_hphjp")
 spawn_type = 0
 
 [resource]
 script = ExtResource("1_oh0kx")
 stage_number = 0
-spawns = Array[ExtResource("7_4d3um")]([SubResource("Resource_ubh3n")])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([SubResource("Resource_eqbco")])

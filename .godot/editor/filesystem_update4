@@ -1,6 +1,8 @@
-res://Scripits/Enemy/knight_resource.gd
-res://Scripits/Enemy/knight_ai.gd
-res://Scripits/Enemy/knight_shell.gd
+res://Scripits/entity.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/Enemy/box_slime_shell.gd
+res://Scripits/Enemy/spawn_data.gd
+res://Scripits/Enemy/elite_spawn_data.gd
 res://Objects/Enemy Spawning/box_slime.tscn
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -15,7 +17,7 @@ res://Scripits/GUI/ability_hud.gd
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
 res://Scripits/Shaders/outline.gdshader
-res://Resources/Enemies/slime.tres
+res://flash_color.gdshader
 res://Objects/Main Menu/main_menu.tscn
 res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
 res://Objects/Enemy Spawning/burning_shard.tscn
@@ -26,7 +28,4 @@ res://Objects/Enemy Spawning/enemy_turret.tscn
 res://Objects/Enemy Spawning/enemy_soldier.tscn
 res://Objects/Enemy Spawning/enemy_knight.tscn
 res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
-res://Scripits/Enemy/box_slime_shell.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/entity.gd
-res://flash_color.gdshader
+res://Scripits/Enemy/enemy_resource.gd
