@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="1_lyoxk"]
 [ext_resource type="Texture2D" uid="uid://ctoccfbavy0iw" path="res://Art/Enemies/blue_wisp.png" id="7_1281r"]
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_grunt_resource.gd" id="7_sum2g"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_shell.gd" id="7_sum2g"]
 [ext_resource type="Script" path="res://Scripits/Enemy/grunt_enemy_ai.gd" id="8_gn205"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="9_hlgdm"]
 [ext_resource type="PackedScene" uid="uid://5ehknm0xq8i5" path="res://enemy_spawn_animation.tscn" id="11_g12ne"]

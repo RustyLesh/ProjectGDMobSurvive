@@ -2,16 +2,16 @@ class_name TurretLazorShell extends EnemyShell
 
 @onready var collision_shape: CollisionShape2D 
 @onready var navigation_agent: NavigationAgent2D
-@onready var spawn_animation: AnimatedSprite2D
+
 @onready var lazor: ShapeCastLazor
 @onready var lazor_animation_player: AnimationPlayer 
 
 func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)
-	collision_shape = %ColliderShape
 	navigation_agent = %NavAgent
 	spawn_animation = %SpawnAnimation
 	lazor_animation_player= %LazorAnimiationPlayer
+	collision_shape = %ColliderShape
 	lazor = %Lazor
 	collision_shape.disabled = true
 	character_body.visible = false

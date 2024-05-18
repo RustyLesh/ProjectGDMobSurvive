@@ -2,6 +2,7 @@ class_name EnemyShell extends Entity
 ## Base logic for assembling an enemy from given enemy resource
 
 @onready var player_node: CharacterBody2D = get_tree().get_first_node_in_group(("Player")).player_body
+@onready var spawn_animation: AnimatedSprite2D
 
 var xp_drop: PackedScene = preload("res://Objects/xp_drop.tscn")
 @export var stage_xp_value : float
@@ -25,6 +26,7 @@ func init_enemy(_enemy_resource: EnemyResource):
 	init_entity()
 	enemy_resource = _enemy_resource
 	slow_timer = $SlowTimer as Timer
+	spawn_animation = %SpawnAnimation
 
 func _on_health_died():
 	print("Dead")

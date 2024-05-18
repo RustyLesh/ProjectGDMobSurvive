@@ -1,7 +1,5 @@
-extends EnemyResource
-class_name ShellTurretResource
+class_name ShellTurretResource extends EnemyResource
 
-@export_category("Turret Resource")
 @export var move_speed: int = 100
 @export var contact_damage: int
 @export var follow_range: int

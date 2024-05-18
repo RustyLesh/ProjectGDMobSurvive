@@ -2,7 +2,6 @@ class_name ShellTurret extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
 
-@onready var spawn_animation: AnimatedSprite2D
 @export var projectile_scene: PackedScene
 
 var bullet_resource: BulletResource

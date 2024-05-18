@@ -1,60 +1,66 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmvnb8r3pe8kr"]
+[gd_scene load_steps=10 format=3 uid="uid://bmvnb8r3pe8kr"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/boss.gd" id="1_llghj"]
 [ext_resource type="Script" path="res://Scripits/Enemy/boss_totem_attack_ai.gd" id="2_jmhvo"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="3_8kbki"]
 [ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="3_fasqh"]
+[ext_resource type="PackedScene" uid="uid://gfy5ro5buysv" path="res://Objects/Enemy Spawning/enemy_spawn_animation.tscn" id="3_lal4p"]
 [ext_resource type="Texture2D" uid="uid://dbcfsl4n15x3t" path="res://Art/Enemies/red_pentagram.png" id="4_bkaiv"]
 [ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="4_mo014"]
+
+[sub_resource type="Resource" id="Resource_rxt3f"]
+script = ExtResource("4_mo014")
+bullet_scene = ExtResource("3_fasqh")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwmlv"]
 radius = 16.1012
 
-[sub_resource type="Resource" id="Resource_487iu"]
-script = ExtResource("4_mo014")
-bullet_scene = ExtResource("3_fasqh")
-
-[node name="Totem" type="Node" groups=["Enemy"]]
+[node name="Totem" type="Node2D" groups=["Enemy"]]
 script = ExtResource("1_llghj")
 entity_type = 1
 
 [node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_8kbki")
 
 [node name="SlowTimer" type="Timer" parent="."]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="SpawnAnimation" parent="." instance=ExtResource("3_lal4p")]
+unique_name_in_owner = true
+
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
+script = ExtResource("2_jmhvo")
+bullet_resource = SubResource("Resource_rxt3f")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("4_bkaiv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
 position = Vector2(1.78814e-07, -1.78814e-07)
 rotation = 0.785398
 shape = SubResource("CircleShape2D_kwmlv")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
 
-[node name="Timer" type="Timer" parent="CharacterBody2D"]
+[node name="Timer" type="Timer" parent="Body"]
 wait_time = 0.25
 autostart = true
 
-[node name="Attack AI" type="Node2D" parent="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("2_jmhvo")
-bullet_resource = SubResource("Resource_487iu")
+[node name="Phase1" type="Timer" parent="Body"]
 
-[node name="Phase1" type="Timer" parent="CharacterBody2D/Attack AI"]
+[node name="Phase2" type="Timer" parent="Body"]
 
-[node name="Phase2" type="Timer" parent="CharacterBody2D/Attack AI"]
-
-[node name="AttackTimer" type="Timer" parent="CharacterBody2D/Attack AI"]
+[node name="AttackTimer" type="Timer" parent="Body"]
 
 [connection signal="current_health_percent_changed" from="Health" to="." method="current_hp_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

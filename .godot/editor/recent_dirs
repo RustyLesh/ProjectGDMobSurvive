@@ -1,7 +1,9 @@
-res://Art/Enemies
-res://Resources/Enemies
-res://
+res://Resources/Enemy Waves/C1-1
 res://Scripits/Enemy
+res://Resources/Enemies
+C:/Users/flame/Documents/Godot Projects/ProjectGDMobSurvive/Scripits
+res://Art/Enemies
+res://
 res://Resources/Enemy Stages/C1
 res://Scripits/Main Menu
 C:/Users/flame/Documents/Godot Projects/Builds
@@ -18,6 +20,3 @@ res://Objects/Enemy Spawning/Shaders
 res://Objects/Main Menu
 res://Objects/GUI
 res://Resources/Upgrades/On Hit Upgrades
-res://Resources/Upgrades/Base Stat Upgrades
-res://test
-C:/Users/flame/AppData/Local/Programs/Microsoft VS Code

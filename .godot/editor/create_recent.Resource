@@ -1,3 +1,5 @@
+SpawnDataResource
+EliteSpawnDataResource
 KnightResource
 ShellTurretResource
 TurretLazorResource
@@ -10,11 +12,3 @@ EnemySpawns
 EnemyResource
 SlowOnHit
 ChainLightningOnHit
-OnHitEffectUpgrade
-OnHitEffect
-BaseStatUpgrade
-TestResource
-DropColours
-UpgradeResource
-WeaponResource
-WeaponUpgrade

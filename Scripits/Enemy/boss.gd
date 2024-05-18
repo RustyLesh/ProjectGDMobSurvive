@@ -1,14 +1,8 @@
 class_name ShellBoss extends EnemyShell
 ## Base for boss classes
 
-@onready var navigation_agent: NavigationAgent2D = $CharacterBody2D/NavigationAgent2D
-
-var enemy_ai_movement: EnemyMovementAI
-var enemy_shell_resource 
-var enemy_resource
-var spawn_position
-var parent
-var spawn_animation_node
+@onready var navigation_agent: NavigationAgent2D = %NavAgent
+@onready var collision_shape: CollisionShape2D 
 
 signal on_boss_death()
 signal on_current_hp_changed(current_hp)
@@ -21,18 +15,32 @@ func _on_health_died():
 	print("boss dead")
 	super()
 
-func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
-	character_body = $CharacterBody2D
-	sprite = character_body.get_node("Sprite2D")
-	enemy_resource = _enemy_resource
-	enemy_shell_resource = _enemy_resource.enemy_shell_resource
-	spawn_position = _spawn_position
-	drop_pool = enemy_resource.drop_pool
-	parent = _parent
-	parent.add_child(self)
-	set_spawn_position(spawn_position)
+func init_enemy(_enemy_resource: EnemyResource):
+	super(_enemy_resource)
+	navigation_agent = %NavAgent
+	spawn_animation = %SpawnAnimation
+	collision_shape = %ColliderShape
 
+	collision_shape.disabled = true
+	character_body.visible = false
+	spawn_animation.visible = true
+
+	#Resource setup
+	stage_xp_value = enemy_resource.stage_xp_value
+	drop_pool = enemy_resource.drop_pool
 	health.init_health(enemy_resource.max_health)
+	
+	#Spawn
+	spawn_animation.play()
+	await spawn_animation.animation_finished
+	_enable_enemy()
+
 
 func current_hp_changed(current_hp):
 	on_current_hp_changed.emit(current_hp)
+
+func _enable_enemy():
+	spawn_animation.visible = false
+	character_body.visible = true
+	%ColliderShape.disabled = false
+	character_body.start()

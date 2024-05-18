@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-var plugin = preload("res://addons/RustyPlugins/inspector_plugin.gd")
+var plugin = preload("res://addons/RustyPlugins/spawn_data_plugin.gd")
 
 func _enter_tree():
 	# Initialization of the plugin goes here.

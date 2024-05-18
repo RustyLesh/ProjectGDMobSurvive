@@ -2,7 +2,6 @@ class_name GruntShell extends EnemyShell
 
 @onready var collision_shape: CollisionShape2D 
 @onready var navigation_agent: NavigationAgent2D
-@onready var spawn_animation: AnimatedSprite2D
 
 func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)

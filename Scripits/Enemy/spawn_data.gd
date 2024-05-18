@@ -1,4 +1,5 @@
 @tool
+@icon("res://Art/Bubble.png")
 class_name SpawnDataResource extends Resource
 ## Used in [EnemySpawnManager] to spawn enemies
 ## Data for spawning enemies. Calls the enemyresource to get an instance of the enemy scene. [EnemyShell]
@@ -9,13 +10,17 @@ enum SpawnType{
 }
 
 enum SpawnPattern{
-	SINGLE_CENTER,
+	CENTER,
 	CLUSTER_RANDOM,
 	RANDOM,
 }
 
 @export var time_start: int
-@export var has_duration: bool
+@export var one_shot: bool: 
+	set(value):
+		one_shot = value
+		notify_property_list_changed()
+
 @export var duration: int
 @export var wave_delay: int
 @export var enemy_resource: EnemyResource
@@ -40,3 +45,7 @@ func spawn_enemy(spawn_position: Vector2, parent):
 
 func get_time_end() -> int:
 	return time_start + duration
+
+func _validate_property(property: Dictionary):
+	if (property.name == "duration" || property.name == "wave_delay") and one_shot:
+		property.usage = PROPERTY_USAGE_NO_EDITOR

@@ -2,7 +2,6 @@ class_name BoxSlimeShell extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
 
-@onready var spawn_animation: AnimatedSprite2D
 @export var projectile_scene: PackedScene
 @export var animation_player: AnimationPlayer
 var attack_damage

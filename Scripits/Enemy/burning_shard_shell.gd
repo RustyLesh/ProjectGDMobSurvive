@@ -1,7 +1,6 @@
 class_name  BurningShardShell extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
-@onready var spawn_animation: AnimatedSprite2D
 
 func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)

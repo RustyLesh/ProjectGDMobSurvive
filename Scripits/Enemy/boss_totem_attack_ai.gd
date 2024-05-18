@@ -8,7 +8,7 @@ enum Phase
 	PHASE_2,
 }
 
-@onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("PlayerBody")
+@onready var player: Node2D = get_tree().get_first_node_in_group(("Player")).get_node("Body")
 @onready var attack_timer = $"AttackTimer" as Timer
 @onready var timer_phase_1 = $"Phase1" as Timer
 @onready var timer_phase_2 = $"Phase2" as Timer
@@ -24,6 +24,9 @@ var bullet_scene
 var current_phase = Phase.PHASE_0
 var time: int = 0
 var alternate_counter = 0
+
+var enabled = false
+
 @export var boss_diff = 2
 
 func _ready():
@@ -35,14 +38,12 @@ func _ready():
 
 	timer_phase_1.timeout.connect(on_phase_1_finish)
 	timer_phase_2.timeout.connect(on_phase_2_finish)
-	switch_phase(Phase.PHASE_1)
 
 #Odd proj_per_shot count only
 func shoot_at_player(shots_per_burst: int, delay: float, proj_per_shot, angle_betweeb_proj):
 	var shots_from_center = (proj_per_shot - 1) / 2
 	var start_angle = angle_betweeb_proj*shots_from_center
 
-	print("boss shooting at player")
 	for burst_index in shots_per_burst:
 		for proj_index in proj_per_shot:
 			var bullet = create_bullet()
@@ -56,7 +57,7 @@ func shoot_at_player(shots_per_burst: int, delay: float, proj_per_shot, angle_be
 #Shots bullets in a radial patern from source. angle_degrees is angle between each shot.
 func bullet_nova(no_of_shots, alternates_angle: bool):
 	var angles = 360 / no_of_shots
-	print("boss shooting nova")
+
 	for i in no_of_shots:
 		var bullet = create_bullet()
 		bullet.lifetime = 10
@@ -101,7 +102,6 @@ func switch_phase(next_phase : Phase):
 			attack_timer.stop()
 
 		Phase.PHASE_2:
-			print("phase2")
 			timer_phase_2.stop()
 			attack_timer.timeout.disconnect(on_phase_2_attack)	
 			attack_timer.stop()	
@@ -118,3 +118,7 @@ func switch_phase(next_phase : Phase):
 			timer_phase_2.start(phase_2_length)		
 			attack_timer.timeout.connect(on_phase_2_attack)
 			attack_timer.start(base_shoot_delay)			
+
+func start():
+	enabled = true
+	switch_phase(Phase.PHASE_1)

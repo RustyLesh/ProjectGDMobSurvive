@@ -1,9 +1,9 @@
-res://Scripits/entity.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Enemy/box_slime_shell.gd
 res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/elite_spawn_data.gd
-res://Objects/Enemy Spawning/box_slime.tscn
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/Enemy/boss_totem_attack_ai.gd
+res://Scripits/Enemy/shell_boss_resource.gd
+res://Scripits/Enemy/boss.gd
+res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
@@ -14,18 +14,18 @@ res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
-res://Resources/Enemy Stages/C1/testing.tres
-res://Resources/Gear/save_test_gear1.tres
 res://Scripits/Shaders/outline.gdshader
 res://flash_color.gdshader
-res://Objects/Main Menu/main_menu.tscn
-res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
-res://Objects/Enemy Spawning/burning_shard.tscn
-res://Objects/combat_level.tscn
-res://Objects/Enemy Spawning/grunt.tscn
-res://Objects/Enemy Spawning/enemy_grunt.tscn
-res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Objects/Enemy Spawning/enemy_soldier.tscn
-res://Objects/Enemy Spawning/enemy_knight.tscn
-res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
-res://Scripits/Enemy/enemy_resource.gd
+res://Resources/Enemy Waves/C1-1/w1.tres
+res://Resources/Enemy Waves/C1-1/boss.tres
+res://Resources/Gear/helm_ice_crown.tres
+res://Resources/Enemies/Bosses/hell_totem.tres
+res://Resources/Enemy Stages/C1/testing.tres
+res://Objects/Enemy Spawning/box_slime.tscn
+res://Scripits/Enemy/turret_lazor_resource.gd
+res://Scripits/Enemy/turret_lazor_shell.gd
+res://Scripits/Enemy/turret_lazor_ai.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/entity.gd
+res://Scripits/Enemy/grunt_shell.gd
+res://Scripits/Enemy/knight_ai.gd

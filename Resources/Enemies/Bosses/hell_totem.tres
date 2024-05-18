@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://kcwdexkjbfcf"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://kcwdexkjbfcf"]
 
 [ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="1_wen7b"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_852mf"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_38xh6"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="4_ohy8n"]
-[ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="5_r5yj5"]
-[ext_resource type="Script" path="res://Scripits/Enemy/shell_boss_resource.gd" id="6_viu28"]
+[ext_resource type="PackedScene" uid="uid://bmvnb8r3pe8kr" path="res://Objects/Enemy Spawning/Bosses/boss_totem.tscn" id="5_o0gb8"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="6_vfkpc"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="7_ijgs5"]
 
 [sub_resource type="Resource" id="Resource_mfjl3"]
@@ -18,11 +18,6 @@ rarity = 2
 script = ExtResource("3_38xh6")
 drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3")])
 
-[sub_resource type="Resource" id="Resource_t086v"]
-script = ExtResource("6_viu28")
-hp_bar_texture_resource = ExtResource("5_r5yj5")
-difficulty = 0
-
 [resource]
 script = ExtResource("7_ijgs5")
 enemy_icon = ExtResource("4_ohy8n")
@@ -30,6 +25,6 @@ enemy_type = 1
 enemy_name = "empty_name"
 max_health = 500
 stage_xp_value = 0.0
-weapon_xp_value = 0.0
 drop_pool = SubResource("Resource_syjpa")
-enemy_shell_resource = SubResource("Resource_t086v")
+spawn_sprite_frames = ExtResource("6_vfkpc")
+enemy_scene = ExtResource("5_o0gb8")
