@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1vebupoqfj8y"]
+[gd_scene load_steps=14 format=3 uid="uid://d1vebupoqfj8y"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_shell.gd" id="1_okkut"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="2_6m3uv"]
@@ -6,10 +6,12 @@
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_2vcui"]
 [ext_resource type="Texture2D" uid="uid://btckng5rax583" path="res://Art/quarter_circle.png" id="5_pnu4j"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="6_ggdfi"]
+[ext_resource type="Shader" path="res://Scripits/Shaders/outline.gdshader" id="7_dweai"]
 [ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="7_t5lph"]
 
 [sub_resource type="Animation" id="Animation_ee6ca"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -86,6 +88,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_daxsb"]
 resource_name = "attack"
 length = 2.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,7 +145,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 2.1),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 57.6799),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
 }
@@ -198,6 +201,13 @@ _data = {
 "RESET": SubResource("Animation_ee6ca"),
 "attack": SubResource("Animation_daxsb")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owtvy"]
+shader = ExtResource("7_dweai")
+shader_parameter/line_color = Color(1, 0, 1, 1)
+shader_parameter/line_thickness = 1.0
+shader_parameter/flash_opacity = 1.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8nxu"]
 radius = 5.0
@@ -269,6 +279,7 @@ polygon = PackedVector2Array(192, 0, 185, -53, 162, -104, 128, -143, 89, -170, 4
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true
 texture_filter = 1
+material = SubResource("ShaderMaterial_owtvy")
 texture = ExtResource("7_t5lph")
 
 [node name="ColliderShape" type="CollisionShape2D" parent="Body"]

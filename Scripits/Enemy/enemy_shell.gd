@@ -18,8 +18,8 @@ var slow_dutation: int
 var min_move_speed: int = 10
 var default_move_speed: float
 
-var flash_length: float = 0.3
-
+var flash_length: float = .2
+var in_iframes:= false
 @onready var slow_timer
 
 func init_enemy(_enemy_resource: EnemyResource):
@@ -61,11 +61,16 @@ func roll_drop():
 		get_parent().add_child(drop)
 
 func take_damage(damage):
+	if in_iframes:
+		return
+		
 	if health is Health:
 		health.take_damage(damage)
-		sprite.modulate = damage_flash_color	
+		sprite.material.set_shader_parameter("flash_opacity", 1.0)
+		in_iframes = true
 		await get_tree().create_timer(flash_length).timeout
-		sprite.modulate = Color.WHITE
+		sprite.material.set_shader_parameter("flash_opacity", 0.0)
+		in_iframes = false
 
 func spawn_enemy(_enemy_resource: EnemyResource, _spawn_position: Vector2, _parent):
 	pass

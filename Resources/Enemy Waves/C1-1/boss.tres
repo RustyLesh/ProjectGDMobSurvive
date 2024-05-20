@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpawnDataResource" load_steps=3 format=3 uid="uid://cp2t44bfknj6r"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="1_8u5nh"]
-[ext_resource type="Resource" uid="uid://kcwdexkjbfcf" path="res://Resources/Enemies/Bosses/hell_totem.tres" id="1_wbd0v"]
+[ext_resource type="Resource" uid="uid://u6d80dk1gitd" path="res://Resources/Enemies/knight.tres" id="1_n87hf"]
 
 [resource]
 script = ExtResource("1_8u5nh")
@@ -9,5 +9,5 @@ time_start = 0
 one_shot = true
 duration = 1
 wave_delay = 0
-enemy_resource = ExtResource("1_wbd0v")
+enemy_resource = ExtResource("1_n87hf")
 spawn_type = 0

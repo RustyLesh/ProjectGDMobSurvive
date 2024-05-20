@@ -47,7 +47,7 @@ func take_damage(damage):
 func i_frame_timer():
 	is_invulnerable = true
 	# TODO change colour when invul
-	sprite.modulate = i_frame_colour
+	sprite.material.set_shader_parameter("flash_opacity", 1.0)
 	await get_tree().create_timer(i_frame_duration).timeout
 	is_invulnerable = false
-	sprite.modulate = Color.WHITE
+	sprite.material.set_shader_parameter("flash_opacity", 0.0)
