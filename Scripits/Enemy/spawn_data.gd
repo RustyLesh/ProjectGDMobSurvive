@@ -49,3 +49,4 @@ func get_time_end() -> int:
 func _validate_property(property: Dictionary):
 	if (property.name == "duration" || property.name == "wave_delay") and one_shot:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
+		duration = 1

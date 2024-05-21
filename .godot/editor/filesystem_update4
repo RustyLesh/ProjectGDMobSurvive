@@ -1,28 +1,7 @@
-res://Objects/Enemy Spawning/enemy_knight.tscn
-res://Objects/enemy_spawn_animations/default_spawn.tres
-res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
-res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
-res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
-res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
-res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
-res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
-res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
-res://Resources/Weapons/rifle.tres
-res://Scripits/Shaders/outline.gdshader
-res://flash_color.gdshader
-res://Scripits/Enemy/knight_shell.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Enemy/elite_spawn_data.gd
-res://Scripits/entity.gd
+res://Scripits/Enemy/enemy_spawn_manager.gd
 res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/GUI/ability_hud.gd
-res://Objects/Enemy Spawning/box_slime.tscn
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
-res://Resources/Gear/helm_ice_crown.tres
-res://Resources/Enemies/Bosses/hell_totem.tres
-res://Resources/Enemy Waves/C1-1/boss.tres
-res://Resources/Enemy Stages/C1/testing.tres
-res://Scripits/health.gd
-res://Objects/player.tscn
-res://Scripits/player.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/base_stat_upgrade.gd
+res://Scripits/GUI/upgrade_option.gd
+res://Scripits/GUI/upgrade_description_panel.gd
+res://Scripits/Upgrade/upgrade_resource.gd
