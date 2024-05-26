@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_2yjqe"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_kcady"]
 
-[sub_resource type="Resource" id="Resource_e11hf"]
+[sub_resource type="Resource" id="Resource_21xex"]
 script = ExtResource("3_kcady")
 _value = 1.0
 _mod_type = 0
@@ -15,7 +15,7 @@ script = ExtResource("2_2yjqe")
 _name = "Bullet Lifetime"
 _description = ""
 _icon = ExtResource("1_j6fwg")
-upgrade = SubResource("Resource_e11hf")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_21xex")])
 added_upgrades = Array[ExtResource("2_2yjqe")]([])
 _max_uses = 5
 weight = 0

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfwq2mxyxa4td" path="res://Art/Upgrade Icons/Sword.png" id="1_uvvgn"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_5kpnk"]
 
-[sub_resource type="Resource" id="Resource_xo5uc"]
+[sub_resource type="Resource" id="Resource_awgfl"]
 script = ExtResource("3_5kpnk")
 _value = 25.0
 _mod_type = 1
@@ -15,7 +15,7 @@ script = ExtResource("1_l7csg")
 _name = "damage +%"
 _description = ""
 _icon = ExtResource("1_uvvgn")
-upgrade = SubResource("Resource_xo5uc")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_awgfl")])
 added_upgrades = Array[ExtResource("1_l7csg")]([])
 _max_uses = 5
 weight = 0

@@ -7,6 +7,7 @@ class_name WeaponResource
 @export var description: String
 @export var weapon: Resource
 @export var upgrades: Array[UpgradeResource]
+@export var specializations: Array[UpgradeResource]
 @export var weapon_xp: int
 @export var level: int:
 	get:

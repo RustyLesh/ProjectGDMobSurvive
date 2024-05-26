@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="1_7ubrr"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_61i2n"]
 
-[sub_resource type="Resource" id="Resource_a1ge1"]
+[sub_resource type="Resource" id="Resource_byct7"]
 script = ExtResource("3_61i2n")
-_value = 20.0
+_value = 50.0
 _mod_type = 1
 _base_stat_type = 2
 
@@ -15,7 +15,7 @@ script = ExtResource("1_3am54")
 _name = "fire rate %"
 _description = ""
 _icon = ExtResource("1_7ubrr")
-upgrade = SubResource("Resource_a1ge1")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_byct7")])
 added_upgrades = Array[ExtResource("1_3am54")]([])
 _max_uses = 2
 weight = 0

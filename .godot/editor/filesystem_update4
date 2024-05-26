@@ -1,7 +1,30 @@
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Scripits/Upgrade/upgrade.gd
-res://Scripits/Upgrade/base_stat_upgrade.gd
-res://Scripits/GUI/upgrade_option.gd
-res://Scripits/GUI/upgrade_description_panel.gd
 res://Scripits/Upgrade/upgrade_resource.gd
+res://Objects/GUI/upgrade_option.tscn
+res://flash_color.gdshader
+res://Objects/enemy_spawn_animations/default_spawn.tres
+res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
+res://Resources/Upgrades/Base Stat Upgrades/attack_speed_percent.tres
+res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
+res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
+res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
+res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
+res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
+res://Resources/Weapons/rifle.tres
+res://Scripits/GUI/ability_hud.gd
+res://Scripits/Shaders/outline.gdshader
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/GUI/upgrade_option.gd
+res://Scripits/Weapons/weapon_resource.gd
+res://Scripits/base_stat_mod.gd
+res://player_setup.gd
+res://Scripits/Main Menu/combat_menu.gd
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/GUI/upgrade_menu.gd
+res://Objects/GUI/upgrade_menu.tscn
+res://Scripits/Weapons/pistol.gd
+res://Objects/combat_level.tscn
+res://Objects/GUI/in_level_ui.tscn
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/gear.gd

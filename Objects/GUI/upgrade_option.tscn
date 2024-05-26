@@ -1,24 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://thxjct4poi0m"]
 
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_option.gd" id="1_d8ypy"]
-[ext_resource type="Texture2D" uid="uid://d0i2u6ko3orig" path="res://Art/Upgrade Icons/Bullets.png" id="2_5kd7r"]
+[ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="3_k6x8c"]
 [ext_resource type="Script" path="res://Scripits/GUI/upgrade_description_panel.gd" id="3_q4asw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3sqf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 9
+border_width_top = 10
+border_width_right = 4
+border_width_bottom = 10
 border_color = Color(0.368627, 0.447059, 0.552941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yjvh"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8vkfq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_cwann"]
-line_spacing = 4.0
-font_size = 18
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkknk"]
 content_margin_left = 7.0
@@ -31,6 +23,14 @@ border_color = Color(0.368627, 0.447059, 0.552941, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_twx0o"]
 font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yjvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vkfq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwann"]
+line_spacing = 4.0
+font_size = 18
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c74qu"]
 bg_color = Color(1, 1, 1, 0)
@@ -60,14 +60,28 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l3sqf")
 script = ExtResource("3_q4asw")
 
+[node name="Title" type="Label" parent="Info Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -240.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkknk")
+text = "Upgrade Title -- Filler text to see"
+label_settings = SubResource("LabelSettings_twx0o")
+
 [node name="Icon" type="TextureRect" parent="Info Panel"]
 texture_filter = 1
+texture_repeat = 2
 layout_mode = 0
-offset_top = 40.0
-offset_right = 136.0
-offset_bottom = 176.0
-texture = ExtResource("2_5kd7r")
-stretch_mode = 3
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 128.0
+offset_bottom = 168.0
+texture = ExtResource("3_k6x8c")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Description" type="Label" parent="Info Panel"]
 layout_mode = 1
@@ -77,9 +91,11 @@ anchor_bottom = 1.0
 offset_left = 136.0
 offset_top = 40.0
 offset_right = -240.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3yjvh")
+text = "apple sauce Dances around the block..... welp here we go again, dot dot dot sometimes it do be that way."
 label_settings = SubResource("LabelSettings_8vkfq")
 autowrap_mode = 3
 
@@ -90,6 +106,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -232.0
+offset_top = 8.0
+offset_right = 6.10352e-05
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Strength
@@ -101,7 +120,6 @@ Better
 Faster
 Stronger"
 label_settings = SubResource("LabelSettings_cwann")
-vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Uses Counter" type="Label" parent="Info Panel"]
@@ -109,24 +127,38 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 80.0
+offset_left = 8.0
+offset_top = -48.0
+offset_right = 88.0
+offset_bottom = -8.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 text = "99/99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title" type="Label" parent="Info Panel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -240.0
-offset_bottom = 40.0
-grow_horizontal = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rkknk")
-text = "Upgrade Title"
-label_settings = SubResource("LabelSettings_twx0o")
+[node name="AddedUpgrades" type="HBoxContainer" parent="Info Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 160.0
+offset_right = 360.0
+offset_bottom = 232.0
+alignment = 1
+
+[node name="AddedUpgrade1" type="TextureRect" parent="Info Panel/AddedUpgrades"]
+layout_mode = 2
+texture = ExtResource("3_k6x8c")
+expand_mode = 2
+
+[node name="AddedUpgrade2" type="TextureRect" parent="Info Panel/AddedUpgrades"]
+layout_mode = 2
+texture = ExtResource("3_k6x8c")
+expand_mode = 2
+
+[node name="AddedUpgrade3" type="TextureRect" parent="Info Panel/AddedUpgrades"]
+layout_mode = 2
+texture = ExtResource("3_k6x8c")
+expand_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

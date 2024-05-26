@@ -2,8 +2,8 @@ extends Control
 class_name UpgradeMenu
 #Shows the player avaliable upgrades, and applies upgrades on selection
 
-var upgrade_option_resources : Array[UpgradeResource]
-var upgrade_option_ui : Array[UpgradeOption]
+var upgrade_option_resources : Array[UpgradeResource] #upgrade pool
+var upgrade_option_ui : Array[UpgradeOption] #upgrade button scenes
 @onready var upgrade_option_button: Resource = preload("res://Objects/GUI/upgrade_option.tscn")
 @onready var upgrade_manager: UpgradeManager = get_parent().get_parent().get_node("Upgrade Manager")
 @onready var xp_manger: XPManager = $"../../XP Manager"

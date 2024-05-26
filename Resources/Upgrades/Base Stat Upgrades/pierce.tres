@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_q50y6"]
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="1_sisl1"]
 
-[sub_resource type="Resource" id="Resource_ajvot"]
+[sub_resource type="Resource" id="Resource_co3wm"]
 script = ExtResource("1_oebdw")
 _value = 1.0
 _mod_type = 0
@@ -15,7 +15,7 @@ script = ExtResource("1_q50y6")
 _name = "Pierce"
 _description = ""
 _icon = ExtResource("1_sisl1")
-upgrade = SubResource("Resource_ajvot")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_co3wm")])
 added_upgrades = Array[ExtResource("1_q50y6")]([])
 _max_uses = 3
 weight = 0

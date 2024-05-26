@@ -15,6 +15,7 @@ var current_upgrade_points : int = 0:
 		
 var spent_points: int = 0
 var current_level: int = 0
+var specialization_selected:= false
 
 @export var bonus_points: int
 @export var reroll_points = 0
@@ -43,12 +44,23 @@ func level_changed(level: int):
 	current_upgrade_points_changed.emit(current_upgrade_points)
 
 func get_upgrade(choice: int) -> UpgradeResource:
+	if !specialization_selected:
+		return PlayerSetup.weapon_resource.specializations[choice - 1]
+
 	if upgrade_pool.size() > 0:
 		return upgrade_pool[upgrade_pool.size() - choice]
+
 	return null
 
+
 func select_upgrade(choice: int):
-	print("upgrade manager selected: ", choice)
+	if !specialization_selected:
+		print("hit: ", choice - 1)
+		for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].upgrades:
+			upgrade.apply_upgrade(player)
+			specialization_selected = true
+			print("specialization_selected")
+
 	if current_upgrade_points > 0:
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]
 		if selected_upgrade.current_uses >=  selected_upgrade._max_uses - 1:
@@ -56,7 +68,9 @@ func select_upgrade(choice: int):
 		else:
 			selected_upgrade.current_uses += 1
 		
-		selected_upgrade.upgrade.apply_upgrade(player)
+		for upgrade in selected_upgrade.upgrades:
+			upgrade.apply_upgrade(player)
+
 		#Check if there are any added upgrades and if this is the first time applying the selecting upgrade.
 		if selected_upgrade.added_upgrades.size() > 0 && selected_upgrade.current_uses == 0: 
 			upgrade_pool.append(selected_upgrade.added_upgrades)

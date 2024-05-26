@@ -51,7 +51,7 @@ func get_save_data() -> Dictionary:
 		"value": _value,
 		"mod_type": _mod_type,
 		"base_stat_type": _base_stat_type,
-		"resource_path": base_res_path,
+		"base_res_path": base_res_path,
 	}
 
 func set_resource_data(data_dict):

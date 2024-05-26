@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="1_4gipl"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="3_kgpi0"]
 
-[sub_resource type="Resource" id="Resource_mybaq"]
+[sub_resource type="Resource" id="Resource_6ahtp"]
 script = ExtResource("3_kgpi0")
-_value = 5.0
+_value = 10.0
 _mod_type = 0
 _base_stat_type = 1
 
@@ -15,7 +15,7 @@ script = ExtResource("1_4gipl")
 _name = "damage +"
 _description = ""
 _icon = ExtResource("1_1gov2")
-upgrade = SubResource("Resource_mybaq")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_6ahtp")])
 added_upgrades = Array[ExtResource("1_4gipl")]([])
 _max_uses = 5
 weight = 0

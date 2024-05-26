@@ -82,7 +82,6 @@ func equip_weapon(weapon_resource):
 	upgrade_manage_menu.remove_upgrade_by_slot_type(GearResource.GearType.WEAPON)
 	for upgrade in weapon_resource.upgrades:
 		upgrade.source_type = GearResource.GearType.WEAPON
-		upgrade.upgrade.source_type = GearResource.GearType.WEAPON
 		upgrade_manage_menu.selected_upgrades.append(upgrade)
 	
 	for base_stat in stat_container.base_stats:
