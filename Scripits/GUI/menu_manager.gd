@@ -16,7 +16,6 @@ class_name MenuManager
 @onready var touch_divider = $"TouchSticks/Test/Sticks/Seperator"
 
 var is_player_dead: bool = false
-var specialization_selected:= false
 
 var hp_bar_instance
 

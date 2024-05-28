@@ -1,6 +1,6 @@
 extends Node
 class_name WeaponManager
-var bullet_scene = preload("res://Objects/bullet.tscn")
+var bullet_scene = preload("res://Objects/Weapons/Player Bullets/bullet.tscn")
 
 #Holds data for weapon stats
 

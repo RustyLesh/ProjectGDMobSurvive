@@ -29,12 +29,14 @@ func init_enemy(_enemy_resource: EnemyResource):
 	spawn_animation = %SpawnAnimation
 
 func _on_health_died():
-	print("Dead")
+	print("Dedge")
 	is_dead = true
+	on_death.emit(self)
+	PlayerStats.weapon_xp += weapon_xp_value
+	
 	call_deferred("roll_drop")
 	call_deferred("spawn_XP")
-	queue_free()
-	PlayerStats.weapon_xp += weapon_xp_value
+	call_deferred("queue_free")
 
 func spawn_XP():
 	if xp_drop is PackedScene:
@@ -63,8 +65,8 @@ func roll_drop():
 func take_damage(damage):
 	if in_iframes:
 		return
-		
 	if health is Health:
+		print("damaged: ", damage, " Hp: ",health.current_health)
 		health.take_damage(damage)
 		sprite.material.set_shader_parameter("flash_opacity", 1.0)
 		in_iframes = true

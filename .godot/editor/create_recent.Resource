@@ -1,3 +1,5 @@
+OnKillExplode
+OnKillEffectUpgrade
 SpawnDataResource
 EliteSpawnDataResource
 KnightResource
@@ -11,4 +13,3 @@ BulletChangeUpgrade
 EnemySpawns
 EnemyResource
 SlowOnHit
-ChainLightningOnHit

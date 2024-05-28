@@ -5,7 +5,7 @@ class_name Upgrade
 var source_type: GearResource.GearType
 var base_res_path: String
 
-func apply_upgrade(_player: Node):
+func apply_upgrade(_player: Node2D):
 	pass
 
 func apply_upgrade_main_menu(stat_container: StatContainer, gear_type: GearResource.GearType):
@@ -18,7 +18,9 @@ func get_upgrade_string() -> String:
 	return "empty"
 
 func get_save_data() -> Dictionary:
-	return {}
+		return {
+		"base_res_path": base_res_path
+	}
 
 func set_resource_data(_data_dict):
 	print("Upgrade class set data")

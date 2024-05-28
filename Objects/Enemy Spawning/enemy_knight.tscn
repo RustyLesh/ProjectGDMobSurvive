@@ -295,6 +295,7 @@ unique_name_in_owner = true
 wait_time = 0.1
 autostart = true
 
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="AttackTimer" to="Body" method="attack"]
 [connection signal="body_entered" from="Body/AttackNodes/AttackArea" to="Body" method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Body/MovementTimer" to="Body" method="_on_timer_timeout"]

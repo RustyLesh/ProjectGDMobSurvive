@@ -4,7 +4,7 @@ class_name EliteSpawnDataResource extends SpawnDataResource
 @export var scale = 1.2
 var outline_shader = preload("res://Scripits/Shaders/outline.gdshader")
 
-func spawn_enemy(spawn_position: Vector2, parent):
+func spawn_enemy(spawn_position: Vector2, parent)-> EnemyShell:
 	#Spawn animation init
 	has_spawned = true
 
@@ -18,3 +18,4 @@ func spawn_enemy(spawn_position: Vector2, parent):
 	enemy_instance.get_sprite().material.set_shader(outline_shader)
 	enemy_instance.get_sprite().material.set_shader_parameter("line_color", Vector4(outline_colour.r, outline_colour.g, outline_colour.b, outline_colour.a))
 	enemy_instance.get_sprite().material.set_shader_parameter("flash_color", Vector4(1.0, 0.0, 0.0, 1.0))
+	return enemy_instance

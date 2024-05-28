@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OnKillExplode" load_steps=2 format=3 uid="uid://cl8brh1c2xjki"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_explode.gd" id="1_s0v6m"]
+
+[resource]
+script = ExtResource("1_s0v6m")
+size = 10
+damage = 10

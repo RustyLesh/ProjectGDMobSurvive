@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://cui7dhok4j3tb"]
+
+[ext_resource type="Script" path="res://Scripits/Weapons/Player Bullets/bullet.gd" id="1_facew"]
+[ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="2_ql0l1"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="3_lgc1n"]
+
+[sub_resource type="Curve" id="Curve_gog3q"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.504484, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fuerp"]
+curve = SubResource("Curve_gog3q")
+
+[sub_resource type="Gradient" id="Gradient_7qomb"]
+colors = PackedColorArray(1, 1, 1, 1, 0.226707, 0.226707, 0.226707, 0.486275)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ksorg"]
+gradient = SubResource("Gradient_7qomb")
+
+[sub_resource type="Curve" id="Curve_3g1ky"]
+_data = [Vector2(0, 0.863158), 0.0, 0.0, 0, 0, Vector2(1, 0.389474), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r274x"]
+curve = SubResource("Curve_3g1ky")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4fn2"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = -15.0
+angle_max = 15.0
+angle_curve = SubResource("CurveTexture_fuerp")
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 2.0
+initial_velocity_max = 7.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_r274x")
+color = Color(1, 1, 1, 0.639216)
+color_ramp = SubResource("GradientTexture1D_ksorg")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bxk4r"]
+radius = 2.0
+height = 10.0
+
+[node name="Bullet" type="Area2D"]
+process_mode = 1
+z_index = 100
+texture_filter = 1
+collision_layer = 32
+collision_mask = 6
+script = ExtResource("1_facew")
+speed = 150
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_u4fn2")
+lifetime = 4.0
+speed_scale = 2.5
+trail_lifetime = 0.02
+script = ExtResource("2_ql0l1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lgc1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_bxk4r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="destroy" from="." to="GPUParticles2D" method="_on_bullet_destroy"]
+[connection signal="kill" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_kill"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cui7dhok4j3tb"]
+[gd_scene load_steps=12 format=3 uid="uid://siycqoevmldu"]
 
-[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="1_1cij1"]
-[ext_resource type="Script" path="res://Scripits/bullet.gd" id="1_yyddl"]
-[ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="3_dspmq"]
+[ext_resource type="Script" path="res://Scripits/Weapons/Player Bullets/explosive_bullet.gd" id="1_0tpg1"]
+[ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="2_3hwma"]
+[ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="3_lqm3b"]
 
 [sub_resource type="Curve" id="Curve_gog3q"]
 min_value = -360.0
@@ -29,16 +29,14 @@ curve = SubResource("Curve_3g1ky")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4fn2"]
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 15.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 7.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 angle_min = -15.0
 angle_max = 15.0
 angle_curve = SubResource("CurveTexture_fuerp")
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 2.0
+initial_velocity_max = 7.0
+gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_max = 2.5
 scale_curve = SubResource("CurveTexture_r274x")
@@ -49,13 +47,13 @@ color_ramp = SubResource("GradientTexture1D_ksorg")
 radius = 2.0
 height = 10.0
 
-[node name="Bullet" type="Area2D"]
+[node name="Explosive Bullet" type="Area2D"]
 process_mode = 1
 z_index = 100
 texture_filter = 1
 collision_layer = 32
 collision_mask = 6
-script = ExtResource("1_yyddl")
+script = ExtResource("1_0tpg1")
 speed = 150
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -64,10 +62,10 @@ process_material = SubResource("ParticleProcessMaterial_u4fn2")
 lifetime = 4.0
 speed_scale = 2.5
 trail_lifetime = 0.02
-script = ExtResource("3_dspmq")
+script = ExtResource("2_3hwma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1cij1")
+texture = ExtResource("3_lqm3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

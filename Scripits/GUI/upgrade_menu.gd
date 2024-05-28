@@ -56,7 +56,7 @@ func update_upgrade_options():
 	for upgrade_option in upgrade_option_ui: #init buttons, refresh their ui
 		if upgrade_option is UpgradeOption:
 			upgrade_option.init_button(upgrade_option_ui.find(upgrade_option) + 1, upgrade_manager.get_upgrade(upgrade_option_ui.find(upgrade_option) + 1))
-			if upgrade_manager.current_upgrade_points <= 0:
+			if upgrade_manager.current_upgrade_points <= 0 && upgrade_manager.specialization_selected:
 				upgrade_option.disable_button()
 			else:
 				upgrade_option.enable_button()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://14pmcnlmox4s"]
 
-[ext_resource type="Script" path="res://Scripits/bullet.gd" id="1_13mud"]
+[ext_resource type="Script" path="res://Scripits/Weapons/Player Bullets/bullet.gd" id="1_13mud"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="1_bj84t"]
 [ext_resource type="Script" path="res://Scripits/particle_system_bullet.gd" id="3_j0klu"]
 

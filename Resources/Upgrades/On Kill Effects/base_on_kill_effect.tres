@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="OnKillEffectUpgrade" load_steps=2 format=3 uid="uid://butad0tryj28m"]
+
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_effect_upgrade.gd" id="1_nugcb"]
+
+[resource]
+script = ExtResource("1_nugcb")

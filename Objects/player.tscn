@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq0utpd576hbh"]
+[gd_scene load_steps=10 format=3 uid="uid://dq0utpd576hbh"]
 
 [ext_resource type="Script" path="res://Scripits/player.gd" id="1_5g5kj"]
 [ext_resource type="Script" path="res://Scripits/player_controller.gd" id="2_cktqb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripits/health.gd" id="5_yio5s"]
 [ext_resource type="Texture2D" uid="uid://dar4wj000kt41" path="res://Art/Player.png" id="6_sot50"]
 [ext_resource type="Script" path="res://Scripits/Lazor.gd" id="7_4mab5"]
+[ext_resource type="Script" path="res://Scripits/on_kill_effects_manager.gd" id="8_sxwqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kysfn"]
 radius = 8.06226
@@ -61,5 +62,9 @@ position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.827869, 1)
 points = PackedVector2Array(0, 0, 1.43995e-07, -168)
 default_color = Color(0, 1, 1, 1)
+
+[node name="On Kill Effects Manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_sxwqw")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

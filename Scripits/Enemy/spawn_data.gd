@@ -34,7 +34,7 @@ var has_spawned = false
 ## Keeps track of time between spawns
 var spawn_delay_counter := 9999
 
-func spawn_enemy(spawn_position: Vector2, parent):
+func spawn_enemy(spawn_position: Vector2, parent)-> EnemyShell:
 	#Spawn animation init
 	has_spawned = true
 
@@ -42,6 +42,7 @@ func spawn_enemy(spawn_position: Vector2, parent):
 	var enemy_instance = enemy_resource.create_enemy_instance()
 	enemy_instance.position = spawn_position
 	parent.add_child(enemy_instance)
+	return enemy_instance
 
 func get_time_end() -> int:
 	return time_start + duration

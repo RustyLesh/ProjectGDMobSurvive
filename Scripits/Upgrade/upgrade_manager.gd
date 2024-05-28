@@ -3,7 +3,7 @@ class_name UpgradeManager
 ## For in stage. Tracks upgrade pool, and upgrade points. Lets player spend points on upgrades.
 
 @onready var xp_manager = get_parent().get_node("XP Manager")
-@onready var player: Node = get_tree().get_first_node_in_group(("Player"))
+@onready var player: Node2D = get_tree().get_first_node_in_group(("Player"))
 @onready var player_stat_container = player.combat_stat_container
 @onready var player_body 
 
@@ -55,11 +55,15 @@ func get_upgrade(choice: int) -> UpgradeResource:
 
 func select_upgrade(choice: int):
 	if !specialization_selected:
-		print("hit: ", choice - 1)
 		for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].upgrades:
 			upgrade.apply_upgrade(player)
 			specialization_selected = true
-			print("specialization_selected")
+		
+		if PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades.size() > 0:
+			for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades:
+				upgrade_pool.append(upgrade)
+		roll_upgrade_options()
+		return
 
 	if current_upgrade_points > 0:
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]

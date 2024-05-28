@@ -72,7 +72,6 @@ func shoot():
 	enemy_shell.shoot(player.global_position)
 
 func start():
-	print("Range: ", follow_range)
 	enabled = true
 	timer.start()
 

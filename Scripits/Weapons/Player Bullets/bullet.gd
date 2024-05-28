@@ -1,5 +1,5 @@
-extends Area2D
-class_name Bullet
+class_name Bullet extends Area2D
+
 signal destroy()
 
 #Projectile movement 

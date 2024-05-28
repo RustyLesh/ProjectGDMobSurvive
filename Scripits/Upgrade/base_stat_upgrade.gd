@@ -1,5 +1,5 @@
-extends Upgrade
-class_name BaseStatUpgrade
+class_name BaseStatUpgrade extends Upgrade
+
 #Upgrade to modify a base stat
 
 @export var _value: float

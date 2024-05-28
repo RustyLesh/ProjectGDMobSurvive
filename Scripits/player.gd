@@ -6,7 +6,7 @@ class_name Player
 @onready var weapon_manager: WeaponManager = $"Weapon Manager"
 @onready var combat_stat_container: StatContainer = $"Combat Stat Container"
 @onready var player_body: PlayerController = $Body
-
+@onready var on_kill_effect_manager: OnKillEffectsManager = %"On Kill Effects Manager"
 @export var i_frame_colour:= Color.RED
 @export var i_frame_duration : float  = 0.5#seconds
 @export var weapon_resource: WeaponResource

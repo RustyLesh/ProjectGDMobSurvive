@@ -3,7 +3,9 @@ class_name EnemySpawnManager extends Node2D
 
 @export var enemy_spawns: EnemySpawns
 
-@onready var player = get_tree().get_first_node_in_group("Player").get_node("Body")
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player_body = player.get_node("Body")
+
 @onready var tilemap = $"../Tile_Map"
 @onready var enemy_container = $"Enemy Container"
 @onready var ui_scene = $"../UI" as MenuManager
@@ -26,6 +28,7 @@ var center: Vector2
 @export var disable_spawns: bool
 
 signal stage_win()
+signal enemy_death(entity: Entity)
 
 func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
@@ -51,6 +54,8 @@ func _ready():
 		spawns = enemy_spawns.spawns
 	
 	game_win_time = spawns[spawns.size() - 1].time_end + delay_for_stage_end
+
+	enemy_death.connect(player.on_kill_effect_manager._on_entity_killed)
 
 #Pause spawn timer
 func pause_timer():
@@ -79,21 +84,22 @@ func spawn(spawn_data: SpawnDataResource):
 		return
 
 	if spawn_data.spawn_type == SpawnDataResource.SpawnType.ONE_SHOT:
-		spawn_data.spawn_enemy(player.position, enemy_container)
+		spawn_data.spawn_enemy(player_body.position, enemy_container)
 
 	if time >= spawn_data.time_start && time <= spawn_data.time_end: # Wave start and end time check
 		if spawn_data.spawn_delay_counter >= spawn_data.wave_delay: # Wave delay check
-			spawn_data.spawn_enemy(player.position, enemy_container)
+			var enemy = spawn_data.spawn_enemy(player_body.position, enemy_container)
+			enemy.on_death.connect(on_enemy_death)
 			spawn_data.wave_delay = 0
 		spawn_data.wave_delay += 1
 			
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
-	var player_pos = player.global_position
-	var top_left = Vector2(player_pos.x - vpr.x/2, player_pos.y - vpr.y/2)
-	var top_right = Vector2(player_pos.x + vpr.x/2, player_pos.y - vpr.y/2)
-	var bottom_left= Vector2(player_pos.x - vpr.x/2, player_pos.y + vpr.y/2)
-	var bottom_right = Vector2(player_pos.x + vpr.x/2, player_pos.y + vpr.y/2)
+	var player_body_pos = player_body.global_position
+	var top_left = Vector2(player_body_pos.x - vpr.x/2, player_body_pos.y - vpr.y/2)
+	var top_right = Vector2(player_body_pos.x + vpr.x/2, player_body_pos.y - vpr.y/2)
+	var bottom_left= Vector2(player_body_pos.x - vpr.x/2, player_body_pos.y + vpr.y/2)
+	var bottom_right = Vector2(player_body_pos.x + vpr.x/2, player_body_pos.y + vpr.y/2)
 	var pos_side = ["up", "down", "left", "right"].pick_random()
 	var spawn_pos1 = Vector2.ZERO
 	var spawn_pos2 = Vector2.ZERO
@@ -135,3 +141,7 @@ func on_stage_win():
 
 func on_elite_killed():
 	upgrade_manager.add_reroll_points(1)
+
+func on_enemy_death(entity: Entity):
+	print("Dedge")
+	enemy_death.emit(entity)

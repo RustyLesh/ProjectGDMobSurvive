@@ -1,5 +1,4 @@
-extends Resource
-class_name BaseStatMod
+class_name BaseStatMod extends Resource
 
 @export var base_stat_type: BaseStat.BaseStatType
 @export var value: float
