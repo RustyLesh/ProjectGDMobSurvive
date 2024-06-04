@@ -10,7 +10,8 @@ enum BaseStatType
 	PROJ_COUNT, #Extra pojectiles 
 	BULLET_LIFE_TIME,
 	PIERCE,
-	COUNT
+	SPREAD_ANGLE,
+	SPREAD_ACC,
 }
 
 @export var base_type: BaseStatType
