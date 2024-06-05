@@ -5,7 +5,6 @@ class_name KnightAi extends CharacterBody2D
 @onready var enemy_shell := $".." as EnemyShell
 @onready var timer = $MovementTimer
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var attack_timer: Timer = %AttackTimer
 @onready var attack_area_check: Area2D = %AttackArea
 @onready var attack_nodes: Node2D = % AttackNodes
 @export var follow_range: int
@@ -43,30 +42,30 @@ func _physics_process(_delta: float):
 	#if state == AI_State.ATTACKING:
 
 
-#creates path from movement resource attached to enemy node
+# Creates path from movement resource attached to enemy node
+# Also controls state machine
 func make_path():
 	if !enabled:
 		return
 
 	distance_from_player = global_position.distance_to(player.global_position)
 
-	if distance_from_player <= follow_range && !is_player_in_range:
-		is_player_in_range = true
-		nav_agent.target_position = global_position
-		animation_player.play("attack")
-		state = AI_State.ATTACKING
+	# If player is in range, change to attack
+	if distance_from_player <= follow_range && !is_player_in_range && state != AI_State.ATTACKING:  
+		change_state(AI_State.ATTACKING)
 
-	elif distance_from_player > follow_range + 10 && is_player_in_range:
-		await animation_player.animation_finished
-		is_player_in_range = false
-		state = AI_State.MOVING
+	# If player is not in range, change to move
+	elif distance_from_player > follow_range + 10 && is_player_in_range && state != AI_State.MOVING:
+		change_state(AI_State.MOVING)
 
-	if !is_player_in_range:
-		nav_agent.target_position = player.global_position
-	
+	if state == AI_State.MOVING && !animation_player.is_playing():
+		nav_agent.target_position = player.global_position # Move to player
+
+	if state == AI_State.ATTACKING && !animation_player.is_playing():
+		attack()
+
 func _on_timer_timeout():
 	make_path()
-	pass
 
 func shoot():
 	enemy_shell.shoot(player.global_position)
@@ -75,7 +74,9 @@ func start():
 	enabled = true
 	timer.start()
 
+# Stop moving and play attack animations
 func attack():
+	nav_agent.target_position = global_position
 	animation_player.play("attack")
 
 func change_state(new_state: AI_State):
@@ -89,19 +90,18 @@ func change_state(new_state: AI_State):
 
 	match state:
 		AI_State.MOVING:
-			pass
+			print("moving")
+			is_player_in_range = false
 		AI_State.ATTACKING:
-			pass
+			print("attacking")
+			nav_agent.target_position = global_position # Set nav target to current position
+			is_player_in_range = true
 
 func look_at_player():
 		attack_nodes.look_at(player.position)
 		attack_nodes.rotate(PI/LOOK_VALUE)
 
-func start_attack_timer():
-	attack_timer.start(delay_betweeen_shots)
-
 func _on_attack_area_body_entered(body:Node2D):
-	print("hit attack")
 	var collided = body.get_parent()
 	if collided is Player:
 		collided.take_damage(enemy_shell.deal_damage())

@@ -1,4 +1,4 @@
-res://Objects/player.tscn
+res://Objects/Enemy Spawning/enemy_knight.tscn
 res://flash_color.gdshader
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -11,3 +11,22 @@ res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
 res://Scripits/GUI/ability_hud.gd
 res://Scripits/Shaders/outline.gdshader
+res://Objects/GUI/upgrade_option.tscn
+res://Objects/combat_level.tscn
+res://Objects/GUI/in_level_ui.tscn
+res://Objects/GUI/upgrade_menu.tscn
+res://Objects/Weapons/Player Bullets/bullet.tscn
+res://Objects/Weapons/Player Bullets/explosive_bullet.tscn
+res://Objects/Weapons/rifle.tscn
+res://Objects/player.tscn
+res://Objects/enemy_spawn_manager.tscn
+res://Objects/BulletHelper.tscn
+res://Scripits/GUI/upgrade_description_panel.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Main Menu/upgrade_manage_menu.gd
+res://Scripits/GUI/upgrade_option.gd
+res://Scripits/Enemy/knight_ai.gd
+res://Resources/Enemies/knight.tres
+res://Resources/Enemy Stages/C1/testing.tres
+res://Scripits/player.gd

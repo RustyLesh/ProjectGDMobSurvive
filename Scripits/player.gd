@@ -40,7 +40,6 @@ func take_damage(damage):
 	if !is_invulnerable:
 		if health is Health:
 			#Damage logic here
-			print("D2amage: ", damage)
 			health.take_damage(damage)
 			i_frame_timer()
 
