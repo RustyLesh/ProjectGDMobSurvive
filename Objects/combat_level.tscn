@@ -166,8 +166,9 @@ unique_name_in_owner = true
 number_of_choices = 3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6oxpp")]
-wallSpawnBuffer = 10.0
+time = 0
 delay_for_stage_end = 999
+disable_spawns = false
 
 [node name="Container" type="Node" parent="EnemySpawner"]
 
@@ -185,7 +186,7 @@ drop_colours = ExtResource("16_lqmu6")
 script = ExtResource("15_k7mlb")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(496, 397)
+position = Vector2(496, 464)
 
 [editable path="UI"]
 [editable path="UI/Uprade Menu"]

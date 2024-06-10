@@ -1,3 +1,5 @@
+@tool
+@icon("res://Art/Inspector Icons/Square32x32_blue_red.png")
 class_name EliteSpawnDataResource extends SpawnDataResource
 
 @export var outline_colour: Color
@@ -10,6 +12,7 @@ func spawn_enemy(spawn_position: Vector2, parent)-> EnemyShell:
 
 	#spawn Enemy
 	var enemy_instance = enemy_resource.create_enemy_instance()
+	enemy_instance.get_node("SpawnAnimation").scale = Vector2(scale, scale)
 	enemy_instance.character_body.scale = Vector2(scale, scale)
 	enemy_instance.position = spawn_position
 	parent.add_child(enemy_instance)

@@ -1,18 +1,13 @@
 @tool
-@icon("res://Art/Bubble.png")
+@icon("res://Art/Inspector Icons/Square32x32_white.png")
 class_name SpawnDataResource extends Resource
 ## Used in [EnemySpawnManager] to spawn enemies
 ## Data for spawning enemies. Calls the enemyresource to get an instance of the enemy scene. [EnemyShell]
 
-enum SpawnType{
-	REPEAT,
-	ONE_SHOT
-}
-
 enum SpawnPattern{
 	CENTER,
 	CLUSTER_RANDOM,
-	RANDOM,
+	RANDOM_SINGLE,
 }
 
 @export var time_start: int
@@ -22,9 +17,10 @@ enum SpawnPattern{
 		notify_property_list_changed()
 
 @export var duration: int
-@export var wave_delay: int
+@export var wave_delay: int 
+@export var amount: int # How many to spawn at once
 @export var enemy_resource: EnemyResource
-@export var spawn_type: SpawnType
+@export var spawn_pattern : SpawnPattern
 var spawn_animation_node: AnimatedSprite2D
 
 var time_end: get = get_time_end

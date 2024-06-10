@@ -1,11 +1,13 @@
+res://Resources/Enemy Stages/C1
+res://Resources/Enemies
+res://Art/Enemies/Spawn Animations
+res://Objects/enemy_spawn_animations
 res://Resources/Upgrades/On Kill Effects
 res://Resources/Enemy Waves/C1-1
 res://Scripits/Enemy
-res://Resources/Enemies
 C:/Users/flame/Documents/Godot Projects/ProjectGDMobSurvive/Scripits
 res://Art/Enemies
 res://
-res://Resources/Enemy Stages/C1
 res://Scripits/Main Menu
 C:/Users/flame/Documents/Godot Projects/Builds
 res://Scripits/GUI
@@ -18,5 +20,3 @@ res://Scripits
 C:/Users/flame/Documents
 res://Resources/Enemies/Bosses
 res://Objects/Enemy Spawning/Shaders
-res://Objects/Main Menu
-res://Objects/GUI

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=85 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/combat_menu.gd" id="16_0maer"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/difficulty_select_button.gd" id="16_ktv4v"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_tree_description.gd" id="17_flrow"]
+[ext_resource type="Resource" uid="uid://bt4lmcvjwvv6t" path="res://Resources/Enemy Stages/C1/C1M1.tres" id="20_bs3de"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 [ext_resource type="Resource" uid="uid://b3r4qs35etuh7" path="res://Resources/Enemy Stages/C1/testing.tres" id="23_gte4s"]
@@ -499,7 +500,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "1"
 script = ExtResource("16_ktv4v")
 difficulty = 1
-enemy_spawns = ExtResource("23_gte4s")
+enemy_spawns = ExtResource("20_bs3de")
 
 [node name="Diff2" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)

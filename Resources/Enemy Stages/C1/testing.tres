@@ -1,21 +1,20 @@
 [gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://b3r4qs35etuh7"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_oh0kx"]
-[ext_resource type="Resource" uid="uid://u6d80dk1gitd" path="res://Resources/Enemies/knight.tres" id="2_aipqc"]
-[ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="3_goq2w"]
+[ext_resource type="Resource" uid="uid://d3pxet6kxkdh2" path="res://Resources/Enemies/skelleton.tres" id="2_h55w0"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="3_yph5i"]
 
-[sub_resource type="Resource" id="Resource_mpbiu"]
-script = ExtResource("3_goq2w")
-outline_colour = Color(0.737193, 0.737193, 0.737193, 1)
-scale = 1.2
-time_start = 0
+[sub_resource type="Resource" id="Resource_bgh2d"]
+script = ExtResource("3_yph5i")
+time_start = 1
 one_shot = false
-duration = 1
+duration = 20
 wave_delay = 2
-enemy_resource = ExtResource("2_aipqc")
-spawn_type = 0
+amount = 0
+enemy_resource = ExtResource("2_h55w0")
+spawn_pattern = 0
 
 [resource]
 script = ExtResource("1_oh0kx")
 stage_number = 0
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([SubResource("Resource_mpbiu")])
+spawns = Array[ExtResource("3_yph5i")]([SubResource("Resource_bgh2d")])

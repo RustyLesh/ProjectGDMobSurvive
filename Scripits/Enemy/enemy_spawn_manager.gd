@@ -22,8 +22,8 @@ var topLeft : Vector2
 var botRight : Vector2 
 var center: Vector2 
 
-@export var wallSpawnBuffer = 5.0
-@export var time = 0
+const WALL_SPAWN_BUFFER = 10.0 # Minimum distance from walls for spawning enemies
+@export var time := 0
 @export var delay_for_stage_end: int
 @export var disable_spawns: bool
 
@@ -40,12 +40,6 @@ func _ready():
 		center.y = botRight.y
 		botRight.x *= 2
 		botRight.y *= 2
-
-		topLeft.x += wallSpawnBuffer
-		topLeft.y += wallSpawnBuffer
-		
-		botRight.x -= wallSpawnBuffer
-		botRight.y -= wallSpawnBuffer
 
 		if disable_spawns == true:
 			pause_timer()
@@ -69,7 +63,7 @@ func play_timer():
 
 #Adds time to spawn timer, called by a timer every 1 second
 func _on_timer_timeout():
-	time += 1
+	time = time + 1
 	ui_scene.stage_timer.update_timer(time)
 	ui_scene.seconds_timer.update_timer(time)
 	for i in spawns:
@@ -80,19 +74,31 @@ func _on_timer_timeout():
 			PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 
 func spawn(spawn_data: SpawnDataResource):
-	if spawn_data.spawn_type == SpawnDataResource.SpawnType.ONE_SHOT && spawn_data.has_spawned:
+	if spawn_data.one_shot && spawn_data.has_spawned:
 		return
-
-	if spawn_data.spawn_type == SpawnDataResource.SpawnType.ONE_SHOT:
-		spawn_data.spawn_enemy(player_body.position, enemy_container)
 
 	if time >= spawn_data.time_start && time <= spawn_data.time_end: # Wave start and end time check
 		if spawn_data.spawn_delay_counter >= spawn_data.wave_delay: # Wave delay check
-			var enemy = spawn_data.spawn_enemy(player_body.position, enemy_container)
-			enemy.on_death.connect(on_enemy_death)
-			spawn_data.wave_delay = 0
-		spawn_data.wave_delay += 1
-			
+			print("Timings, delay counter: ", spawn_data.spawn_delay_counter, " wave delay: ", spawn_data.wave_delay)
+			# Spawn Patterns
+			match spawn_data.spawn_pattern:
+				SpawnDataResource.SpawnPattern.CLUSTER_RANDOM:
+					var cluster_spawn_positions = random_cluster(spawn_data.amount, 32)
+					for pos_vector in cluster_spawn_positions:
+						await get_tree().process_frame
+						var enemy = spawn_data.spawn_enemy(pos_vector, enemy_container)
+						enemy.on_death.connect(on_enemy_death)
+						
+				SpawnDataResource.SpawnPattern.RANDOM_SINGLE:
+					var enemy = spawn_data.spawn_enemy(get_random_position(0), enemy_container)
+					enemy.on_death.connect(on_enemy_death)
+					await get_tree().process_frame
+
+			spawn_data.spawn_delay_counter = 0
+
+		spawn_data.spawn_delay_counter += 1
+
+# Jank	
 func get_random_position_off_screen():
 	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
 	var player_body_pos = player_body.global_position
@@ -122,7 +128,13 @@ func get_random_position_off_screen():
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
 	return Vector2(x_spawn, y_spawn)
 
-func get_random_position() -> Vector2:
+## Gets a random position on the stage. 
+## [wall_bauffer] is extra padding from wall to avoid enemies spawning inside out walls
+func get_random_position(wall_buffer: int) -> Vector2:
+	wall_buffer += WALL_SPAWN_BUFFER
+	var pos_x = Vector2(topLeft.x + wall_buffer, topLeft.y + wall_buffer)
+	var pos_y = Vector2(botRight.x - wall_buffer, botRight.y - wall_buffer)
+
 	var pos : Vector2 = Vector2.ZERO
 	pos.x = randf_range(topLeft.x, botRight.x)
 	pos.y = randf_range(topLeft.y, botRight.y)
@@ -130,6 +142,20 @@ func get_random_position() -> Vector2:
 
 func spawn_boss(enemy_resource: EnemyResource):
 	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
+
+# Choose number of spawn, spawns the monsters in a random position in a cluster.
+# The cluster size is based on area_radius.
+func random_cluster(no_spawn: int, area_radius: int)-> Array[Vector2]:
+	var spawn_cord_array: Array[Vector2]
+	var cluster_center = get_random_position(area_radius)
+	spawn_cord_array.append(cluster_center)
+	var spawn_area = Vector4i(cluster_center.x - area_radius, cluster_center.y - area_radius, cluster_center.x + area_radius, cluster_center.y + area_radius) # x,y = Top left cords. z,w = Bot right cords
+	for i in no_spawn:
+		var spawn_pos = Vector2(randi_range(spawn_area.x, spawn_area.z), randi_range(spawn_area.y, spawn_area.w))
+		spawn_cord_array.append(spawn_pos)
+
+	return spawn_cord_array
+
 
 func on_boss_death():
 	play_timer()
@@ -143,5 +169,4 @@ func on_elite_killed():
 	upgrade_manager.add_reroll_points(1)
 
 func on_enemy_death(entity: Entity):
-	print("Dedge")
 	enemy_death.emit(entity)

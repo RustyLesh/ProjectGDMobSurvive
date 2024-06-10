@@ -1,0 +1,283 @@
+[gd_scene load_steps=12 format=3 uid="uid://tjv1ric658h8"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_shell.gd" id="1_sarn7"]
+[ext_resource type="Script" path="res://Scripits/health.gd" id="2_pelib"]
+[ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_47qr8"]
+[ext_resource type="SpriteFrames" uid="uid://bnvlcl80ls34p" path="res://Objects/enemy_spawn_animations/skelleton_spawn.tres" id="4_ra87s"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="5_poyyc"]
+[ext_resource type="Texture2D" uid="uid://coxxmkem7dcm4" path="res://Art/quarter_circle_tranparent.png" id="6_py514"]
+[ext_resource type="Texture2D" uid="uid://278pcqc3al76" path="res://Art/Enemies/skellington.png" id="8_xhwm7"]
+
+[sub_resource type="Animation" id="Animation_ee6ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.411765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/AttackNodes/CleaveArea:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_daxsb"]
+resource_name = "attack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AttackNodes/CleaveAreaBG:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.411765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/AttackNodes/CleaveArea:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 8.87654, 0.307787, 8.87654),
+"update": 1,
+"values": [Color(0.733333, 0, 0, 0.392157), Color(0.733333, 0, 0, 0.392157), Color(0.831324, 0, 0.153608, 1), Color(0.733333, 0, 0, 0.494118)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/AttackNodes/CleaveArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/AttackNodes/CleaveAreaBG:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/AttackNodes/CleaveArea:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 57.6799),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"look_at_player"
+}, {
+"args": [],
+"method": &"start_attack_timer"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("Body")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"attack_toggle"
+}, {
+"args": [false],
+"method": &"attack_toggle"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/AttackNodes/AttackArea:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qdhv"]
+_data = {
+"RESET": SubResource("Animation_ee6ca"),
+"attack": SubResource("Animation_daxsb")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8nxu"]
+radius = 5.0
+height = 26.0
+
+[node name="Skelleton" type="Node2D"]
+script = ExtResource("1_sarn7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8qdhv")
+}
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_pelib")
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpawnAnimation" parent="." instance=ExtResource("3_47qr8")]
+unique_name_in_owner = true
+top_level = false
+sprite_frames = ExtResource("4_ra87s")
+
+[node name="Body" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 39
+script = ExtResource("5_poyyc")
+
+[node name="AttackNodes" type="Node2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="CleaveArea" type="Sprite2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(1.52588e-05, 0)
+rotation = 1.5708
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_py514")
+offset = Vector2(-64, -64)
+
+[node name="CleaveAreaBG" type="Sprite2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 0, 0, 0.411765)
+rotation = 1.5708
+texture = ExtResource("6_py514")
+offset = Vector2(-64, -64)
+
+[node name="AttackArea" type="Area2D" parent="Body/AttackNodes"]
+unique_name_in_owner = true
+collision_layer = 128
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body/AttackNodes/AttackArea"]
+polygon = PackedVector2Array(127, 0, 123, -33, 111, -63, 91, -90, 69, -107, 40, -121, 0, -127, 0, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Body"]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("8_xhwm7")
+
+[node name="ColliderShape" type="CollisionShape2D" parent="Body"]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_q8nxu")
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
+[node name="NavAgent" type="NavigationAgent2D" parent="Body"]
+unique_name_in_owner = true
+
+[node name="MovementTimer" type="Timer" parent="Body"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="body_entered" from="Body/AttackNodes/AttackArea" to="Body" method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="Body/MovementTimer" to="Body" method="_on_timer_timeout"]

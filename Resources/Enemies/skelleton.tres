@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="KnightResource" load_steps=4 format=3 uid="uid://d3pxet6kxkdh2"]
+
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="1_d0qx4"]
+[ext_resource type="PackedScene" uid="uid://tjv1ric658h8" path="res://Objects/Enemy Spawning/skelleton.tscn" id="1_hubqj"]
+[ext_resource type="SpriteFrames" uid="uid://bnvlcl80ls34p" path="res://Objects/enemy_spawn_animations/skelleton_spawn.tres" id="3_pkqul"]
+
+[resource]
+script = ExtResource("1_d0qx4")
+move_speed = 30
+contact_damage = 0
+follow_range = 100
+keep_following = false
+attack_damaage = 1
+delay_betweeen_shots = 0.0
+enemy_type = 0
+enemy_name = "empty_name"
+max_health = 10
+stage_xp_value = 0.0
+spawn_sprite_frames = ExtResource("3_pkqul")
+enemy_scene = ExtResource("1_hubqj")

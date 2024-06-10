@@ -1,8 +1,10 @@
+EnemySpawns
+KnightResource
+SpriteFrames
 OnKillExplode
 OnKillEffectUpgrade
 SpawnDataResource
 EliteSpawnDataResource
-KnightResource
 ShellTurretResource
 TurretLazorResource
 BuringShardResource
@@ -10,6 +12,3 @@ ShellGruntResource
 GearResource
 BulletResource
 BulletChangeUpgrade
-EnemySpawns
-EnemyResource
-SlowOnHit

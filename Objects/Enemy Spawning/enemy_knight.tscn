@@ -202,9 +202,9 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_owtvy"]
 shader = ExtResource("7_dweai")
-shader_parameter/line_color = Color(1, 0, 1, 1)
+shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
-shader_parameter/flash_opacity = 1.0
+shader_parameter/flash_opacity = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8nxu"]

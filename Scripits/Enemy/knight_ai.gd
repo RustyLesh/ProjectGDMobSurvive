@@ -90,10 +90,8 @@ func change_state(new_state: AI_State):
 
 	match state:
 		AI_State.MOVING:
-			print("moving")
 			is_player_in_range = false
 		AI_State.ATTACKING:
-			print("attacking")
 			nav_agent.target_position = global_position # Set nav target to current position
 			is_player_in_range = true
 

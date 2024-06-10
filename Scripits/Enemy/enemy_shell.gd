@@ -29,7 +29,6 @@ func init_enemy(_enemy_resource: EnemyResource):
 	spawn_animation = %SpawnAnimation
 
 func _on_health_died():
-	print("Dedge")
 	is_dead = true
 	on_death.emit(self)
 	PlayerStats.weapon_xp += weapon_xp_value
@@ -66,7 +65,6 @@ func take_damage(damage):
 	if in_iframes:
 		return
 	if health is Health:
-		print("damaged: ", damage, " Hp: ",health.current_health)
 		health.take_damage(damage)
 		sprite.material.set_shader_parameter("flash_opacity", 1.0)
 		in_iframes = true

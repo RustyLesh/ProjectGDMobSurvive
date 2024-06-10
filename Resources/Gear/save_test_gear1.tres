@@ -1,24 +1,15 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=22 format=3 uid="uid://djrh1ql01whw0"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=13 format=3 uid="uid://djrh1ql01whw0"]
 
 [ext_resource type="Texture2D" uid="uid://dgmhfbpufdpiw" path="res://Art/player_blue.png" id="1_4f7ko"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_n3ry1"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_v1lax"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_1x2d6"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_4bem8"]
-[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="5_rga2l"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="6_6hpvv"]
-
-[sub_resource type="Resource" id="Resource_tnow3"]
-script = ExtResource("4_4bem8")
-_value = 120.0
-_mod_type = 0
-_base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_7wa1b"]
 script = ExtResource("3_1x2d6")
 _name = ""
 _description = ""
-upgrade = SubResource("Resource_tnow3")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_1x2d6")]([])
 _max_uses = 0
 weight = 0
@@ -30,22 +21,11 @@ upgrade_resource = SubResource("Resource_7wa1b")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_uqe2t"]
-script = ExtResource("5_rga2l")
-_proc_range = 50.0
-_max_chain_count = 5
-_damage = 20.0
-_proc_chance = 50.0
-
-[sub_resource type="Resource" id="Resource_60fvk"]
-script = ExtResource("6_6hpvv")
-_effect = SubResource("Resource_uqe2t")
-
 [sub_resource type="Resource" id="Resource_d46tf"]
 script = ExtResource("3_1x2d6")
 _name = ""
 _description = ""
-upgrade = SubResource("Resource_60fvk")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_1x2d6")]([])
 _max_uses = 0
 weight = 0
@@ -57,18 +37,12 @@ upgrade_resource = SubResource("Resource_d46tf")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_vqb4v"]
-script = ExtResource("4_4bem8")
-_value = 50.0
-_mod_type = 0
-_base_stat_type = 3
-
 [sub_resource type="Resource" id="Resource_3dmag"]
 script = ExtResource("3_1x2d6")
 _name = ""
 _description = ""
 _icon = ExtResource("1_4f7ko")
-upgrade = SubResource("Resource_vqb4v")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_1x2d6")]([])
 _max_uses = 1
 weight = 0
@@ -80,22 +54,11 @@ upgrade_resource = SubResource("Resource_3dmag")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_2gd07"]
-script = ExtResource("5_rga2l")
-_proc_range = 100.0
-_max_chain_count = 5
-_damage = 100.0
-_proc_chance = 80.0
-
-[sub_resource type="Resource" id="Resource_ntorg"]
-script = ExtResource("6_6hpvv")
-_effect = SubResource("Resource_2gd07")
-
 [sub_resource type="Resource" id="Resource_sx4x2"]
 script = ExtResource("3_1x2d6")
 _name = ""
 _description = ""
-upgrade = SubResource("Resource_ntorg")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_1x2d6")]([])
 _max_uses = 0
 weight = 0
