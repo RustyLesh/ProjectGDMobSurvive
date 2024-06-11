@@ -10,6 +10,12 @@ enum SpawnPattern{
 	RANDOM_SINGLE,
 }
 
+enum EnemyRank{
+	MINION,
+	ELITE,
+	BOSS,
+}
+
 @export var time_start: int
 @export var one_shot: bool: 
 	set(value):
@@ -21,14 +27,18 @@ enum SpawnPattern{
 @export var amount: int # How many to spawn at once
 @export var enemy_resource: EnemyResource
 @export var spawn_pattern : SpawnPattern
+@export var rank: EnemyRank
 var spawn_animation_node: AnimatedSprite2D
 
 var time_end: get = get_time_end
 var has_spawned = false
 
-#Default high value to spawn immediatly on time start
+
+func _init():
+	rank = EnemyRank.MINION
+
 ## Keeps track of time between spawns
-var spawn_delay_counter := 9999
+var spawn_delay_counter := 9999 # Default high value to spawn immediatly on time start
 
 func spawn_enemy(spawn_position: Vector2, parent)-> EnemyShell:
 	#Spawn animation init

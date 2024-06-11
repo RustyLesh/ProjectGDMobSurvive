@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=6 format=3 uid="uid://bt4lmcvjwvv6t"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=15 format=3 uid="uid://bt4lmcvjwvv6t"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_nl1ro"]
 [ext_resource type="Resource" uid="uid://d3pxet6kxkdh2" path="res://Resources/Enemies/skelleton.tres" id="2_q18pn"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="2_ukvbm"]
+[ext_resource type="Resource" uid="uid://cknq6n4v2iwt6" path="res://Resources/Enemies/turret.tres" id="4_wi40l"]
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="5_iso8n"]
+[ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="6_t3w4s"]
+[ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="7_2lb3n"]
 
 [sub_resource type="Resource" id="Resource_rcsth"]
 script = ExtResource("2_ukvbm")
@@ -13,17 +17,77 @@ wave_delay = 10
 amount = 4
 enemy_resource = ExtResource("2_q18pn")
 spawn_pattern = 1
+rank = 0
 
 [sub_resource type="Resource" id="Resource_pwxv4"]
 script = ExtResource("2_ukvbm")
+time_start = 60
+one_shot = false
+duration = 60
+wave_delay = 20
+amount = 4
+enemy_resource = ExtResource("2_q18pn")
+spawn_pattern = 1
+rank = 0
+
+[sub_resource type="Resource" id="Resource_lii7o"]
+script = ExtResource("2_ukvbm")
+time_start = 60
+one_shot = false
+duration = 60
+wave_delay = 10
+amount = 0
+enemy_resource = ExtResource("4_wi40l")
+spawn_pattern = 2
+rank = 0
+
+[sub_resource type="Resource" id="Resource_4x2xp"]
+script = ExtResource("2_ukvbm")
+time_start = 120
+one_shot = false
+duration = 60
+wave_delay = 20
+amount = 5
+enemy_resource = ExtResource("2_q18pn")
+spawn_pattern = 1
+rank = 0
+
+[sub_resource type="Resource" id="Resource_w5eib"]
+script = ExtResource("2_ukvbm")
+time_start = 120
+one_shot = false
+duration = 0
+wave_delay = 0
+amount = 0
+enemy_resource = ExtResource("4_wi40l")
+spawn_pattern = 2
+rank = 0
+
+[sub_resource type="Resource" id="Resource_psodj"]
+script = ExtResource("5_iso8n")
+outline_colour = Color(0, 0, 0, 1)
+scale = 1.2
 time_start = 0
 one_shot = false
 duration = 0
 wave_delay = 0
 amount = 0
-spawn_pattern = 2
+spawn_pattern = 0
+rank = 1
+
+[sub_resource type="Resource" id="Resource_n3vpi"]
+script = ExtResource("7_2lb3n")
+difficulty = 0
+hp_bar_texture_resource = ExtResource("6_t3w4s")
+time_start = 0
+one_shot = false
+duration = 0
+wave_delay = 0
+amount = 0
+spawn_pattern = 0
+rank = 2
 
 [resource]
 script = ExtResource("1_nl1ro")
 stage_number = 0
-spawns = Array[ExtResource("2_ukvbm")]([SubResource("Resource_rcsth"), SubResource("Resource_pwxv4")])
+spawns = Array[ExtResource("2_ukvbm")]([SubResource("Resource_rcsth"), SubResource("Resource_pwxv4"), SubResource("Resource_lii7o"), SubResource("Resource_4x2xp"), SubResource("Resource_w5eib"), SubResource("Resource_psodj"), SubResource("Resource_n3vpi")])

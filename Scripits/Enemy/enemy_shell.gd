@@ -58,7 +58,7 @@ func roll_drop():
 		
 	if drop_gen["has_rolled_drop"]:
 		var drop = drop_gen["drop"] #May be able to streamline by not creating a new variable and using directly
-		drop.global_position = $CharacterBody2D.global_position
+		drop.global_position = character_body.global_position
 		get_parent().add_child(drop)
 
 func take_damage(damage):

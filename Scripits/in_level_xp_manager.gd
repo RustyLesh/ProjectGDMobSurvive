@@ -19,7 +19,6 @@ var level_buffer
 
 func xp_gained(value : float):
 	#add to current xp
-	print("XP gained: ", value)
 	current_total_xp += value
 	level_buffer = current_level
 	current_level = xp_constant * sqrt(current_total_xp)

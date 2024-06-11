@@ -22,7 +22,7 @@ var topLeft : Vector2
 var botRight : Vector2 
 var center: Vector2 
 
-const WALL_SPAWN_BUFFER = 10.0 # Minimum distance from walls for spawning enemies
+const WALL_SPAWN_BUFFER = 26.0 # Minimum distance from walls for spawning enemies (inc walls)
 @export var time := 0
 @export var delay_for_stage_end: int
 @export var disable_spawns: bool
@@ -34,13 +34,15 @@ func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
 	if tilemap is TileMap:
 		topLeft = tilemap.map_to_local(Vector2(0,0))
-		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(0)
-		botRight = tilemap.map_to_local(botRightArray[botRightArray.size() - 1])
-		center.x = botRight.x
-		center.y = botRight.y
-		botRight.x *= 2
-		botRight.y *= 2
-
+		print("top left: ", topLeft)
+		
+		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(1)
+		botRight = tilemap.get_used_rect().size # Get size of tile map in no of tiles
+		# Convert tiles to units
+		botRight.x *= 16
+		botRight.y *= 16
+		center = Vector2(botRight.x / 2, botRight.y / 2) # Calculate center
+		
 		if disable_spawns == true:
 			pause_timer()
 		
@@ -79,21 +81,28 @@ func spawn(spawn_data: SpawnDataResource):
 
 	if time >= spawn_data.time_start && time <= spawn_data.time_end: # Wave start and end time check
 		if spawn_data.spawn_delay_counter >= spawn_data.wave_delay: # Wave delay check
-			print("Timings, delay counter: ", spawn_data.spawn_delay_counter, " wave delay: ", spawn_data.wave_delay)
 			# Spawn Patterns
+			var enemy
 			match spawn_data.spawn_pattern:
 				SpawnDataResource.SpawnPattern.CLUSTER_RANDOM:
 					var cluster_spawn_positions = random_cluster(spawn_data.amount, 32)
 					for pos_vector in cluster_spawn_positions:
 						await get_tree().process_frame
-						var enemy = spawn_data.spawn_enemy(pos_vector, enemy_container)
+						enemy = spawn_data.spawn_enemy(pos_vector, enemy_container)
 						enemy.on_death.connect(on_enemy_death)
 						
 				SpawnDataResource.SpawnPattern.RANDOM_SINGLE:
-					var enemy = spawn_data.spawn_enemy(get_random_position(0), enemy_container)
+					enemy = spawn_data.spawn_enemy(get_random_position(0), enemy_container)
 					enemy.on_death.connect(on_enemy_death)
 					await get_tree().process_frame
-
+				
+				SpawnDataResource.SpawnPattern.CENTER:
+					enemy = spawn_data.spawn_enemy(center, enemy_container)
+					enemy.on_death.connect(on_enemy_death)
+			match spawn_data.rank:
+				SpawnDataResource.EnemyRank.BOSS:
+					print("Boss spawning")
+					spawn_boss(spawn_data)
 			spawn_data.spawn_delay_counter = 0
 
 		spawn_data.spawn_delay_counter += 1
@@ -136,12 +145,12 @@ func get_random_position(wall_buffer: int) -> Vector2:
 	var pos_y = Vector2(botRight.x - wall_buffer, botRight.y - wall_buffer)
 
 	var pos : Vector2 = Vector2.ZERO
-	pos.x = randf_range(topLeft.x, botRight.x)
-	pos.y = randf_range(topLeft.y, botRight.y)
+	pos.x = randf_range(pos_x.x, pos_y.x)
+	pos.y = randf_range(pos_x.y, pos_y.y)
 	return pos
 
-func spawn_boss(enemy_resource: EnemyResource):
-	ui_scene.on_boss_spawn(enemy_resource.enemy_shell_resource.hp_bar_texture_resource)
+func spawn_boss(enemy_spawn_data: SpawnDataResource):
+	ui_scene.on_boss_spawn(enemy_spawn_data.hp_bar_texture_resource)
 
 # Choose number of spawn, spawns the monsters in a random position in a cluster.
 # The cluster size is based on area_radius.

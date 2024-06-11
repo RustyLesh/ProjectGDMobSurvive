@@ -3,7 +3,7 @@ class_name ShellBoss extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D = %NavAgent
 @onready var collision_shape: CollisionShape2D 
-
+@onready var body
 signal on_boss_death()
 signal on_current_hp_changed(current_hp)
 

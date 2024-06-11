@@ -1,10 +1,13 @@
 @tool
-@icon("res://Art/Inspector Icons/Square32x32_blue_red.png")
+@icon("res://Art/Inspector Icons/Square32x32_blue.png")
 class_name EliteSpawnDataResource extends SpawnDataResource
 
 @export var outline_colour: Color
 @export var scale = 1.2
 var outline_shader = preload("res://Scripits/Shaders/outline.gdshader")
+
+func _init():
+	rank = EnemyRank.ELITE
 
 func spawn_enemy(spawn_position: Vector2, parent)-> EnemyShell:
 	#Spawn animation init

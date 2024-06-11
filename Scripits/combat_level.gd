@@ -7,7 +7,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if camera_node is Camera2D:
-		player_body_node.global_position = $Tile_Map.global_position
+		await get_tree().process_frame
+		player_body_node.global_position = $EnemySpawner.center
 		await get_tree().create_timer(.5).timeout
 		camera_node.position_smoothing_enabled = true
 	

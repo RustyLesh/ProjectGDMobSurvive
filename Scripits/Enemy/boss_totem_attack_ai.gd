@@ -27,10 +27,9 @@ var alternate_counter = 0
 
 var enabled = false
 
-@export var boss_diff = 2
+@export var difficulty = 2
 
 func _ready():
-	boss_diff = PlayerSetup.difficulty
 	bullet_scene = bullet_resource.get_bullet_scene()
 
 	timer_phase_1.one_shot = true
@@ -61,7 +60,7 @@ func bullet_nova(no_of_shots, alternates_angle: bool):
 	for i in no_of_shots:
 		var bullet = create_bullet()
 		bullet.lifetime = 10
-		bullet.speed = 50 * boss_diff
+		bullet.speed = 50 * difficulty
 		if alternates_angle:
 			if (alternate_counter % 2 == 1):
 				bullet.rotate(deg_to_rad((angles * i) + (angles / 2)))
@@ -86,10 +85,11 @@ func on_phase_2_finish():
 	switch_phase(Phase.PHASE_1)
 
 func on_phase_1_attack():
-	bullet_nova(4 * boss_diff, true)
+	print("diff: ", difficulty)
+	bullet_nova(4 * difficulty, true)
 
 func on_phase_2_attack():
-	shoot_at_player(1 * boss_diff, 0.5 / boss_diff, 3, 45)
+	shoot_at_player(1 * difficulty, 0.5 / difficulty, 3, 45)
 
 func switch_phase(next_phase : Phase):
 	match current_phase:	
