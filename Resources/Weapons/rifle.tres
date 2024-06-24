@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=149 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=147 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
-[ext_resource type="Script" path="res://Scripits/base_stat_mod.gd" id="1_e82fx"]
 [ext_resource type="PackedScene" uid="uid://63r643f2g1xu" path="res://Objects/Weapons/rifle.tscn" id="2_3nes6"]
 [ext_resource type="Resource" uid="uid://cd45e5xtfstgy" path="res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres" id="3_1oe0l"]
 [ext_resource type="Texture2D" uid="uid://t6psobihjovw" path="res://Art/Upgrade Icons/FireRate.png" id="4_13oo7"]
@@ -34,13 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://b7b1mvv58ehlh" path="res://Art/explosion_circle.png" id="21_ga46l"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_explode.gd" id="22_rxpy1"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_effect_upgrade.gd" id="23_c0soq"]
-
-[sub_resource type="Resource" id="Resource_8geys"]
-script = ExtResource("1_e82fx")
-base_stat_type = 1
-value = 100.0
-stat_mod_type = 0
-source_type = 0
 
 [sub_resource type="Resource" id="Resource_iojo6"]
 script = ExtResource("9_yailh")
@@ -893,4 +885,4 @@ weapon_xp = 0
 level = 0
 weapon_tree = SubResource("Resource_jc18q")
 unlocked = false
-base_stat_mods = Array[ExtResource("1_e82fx")]([SubResource("Resource_8geys")])
+base_stat_mods = Array[Resource("res://Scripits/base_stat_mod.gd")]([])

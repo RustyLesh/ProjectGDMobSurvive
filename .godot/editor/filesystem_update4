@@ -1,6 +1,4 @@
-res://Scripits/Enemy/boss_spawn_data.gd
-res://Scripits/Enemy/boss.gd
-res://Objects/player.tscn
+res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
 res://flash_color.gdshader
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -11,36 +9,20 @@ res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
 res://Resources/Upgrades/Base Stat Upgrades/pierce.tres
 res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres
 res://Resources/Weapons/rifle.tres
-res://Scripits/Shaders/outline.gdshader
 res://Scripits/GUI/ability_hud.gd
 res://Objects/enemy_spawn_animations/skelleton_spawn.tres
-res://Resources/Enemies/turret.tres
+res://Resources/Enemy Waves/C1-1/W1-Skele.tres
+res://Resources/Enemy Waves/C1-1/W2-Skele.tres
+res://Resources/Enemy Waves/C1-1/W2-Turret.tres
+res://Scripits/Shaders/outline.gdshader
+res://Resources/Enemy Waves/C1-1/W3-EliteKnight.tres
+res://Resources/Enemy Waves/C1-1/W3-Skele.tres
+res://Resources/Gear/helm_ice_crown.tres
+res://Resources/Enemies/Bosses/hell_totem.tres
+res://Resources/Enemy Waves/C1-1/W3-Turret.tres
+res://Resources/Enemy Waves/C1-1/W4-EliteKnight.tres
 res://Resources/Enemy Stages/C1/C1M1.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
-res://Resources/Gear/helm_ice_crown.tres
-res://Resources/Enemies/Bosses/hell_totem.tres
-res://Objects/GUI/upgrade_option.tscn
-res://Objects/combat_level.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://Objects/GUI/upgrade_menu.tscn
-res://Objects/Weapons/Player Bullets/bullet.tscn
-res://Objects/Weapons/Player Bullets/explosive_bullet.tscn
-res://Objects/Weapons/rifle.tscn
-res://Objects/enemy_spawn_manager.tscn
-res://Objects/Enemy Spawning/enemy_knight.tscn
-res://Objects/BulletHelper.tscn
-res://Objects/Enemy Spawning/skelleton.tscn
-res://Objects/Main Menu/main_menu.tscn
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/GUI/menu_manager.gd
-res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
-res://Scripits/Enemy/boss_totem_attack_ai.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/Enemy/spawn_data.gd
-res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Enemy/elite_spawn_data.gd
-res://Scripits/Enemy/knight_shell.gd
-res://Scripits/entity.gd
+res://Resources/Enemy Waves/C1-1/W4-Skele.tres
+res://Resources/Enemy Waves/C1-1/W4-Turret.tres

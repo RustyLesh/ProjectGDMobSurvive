@@ -8,10 +8,10 @@ enum EnemyClass
 	ELITE,
 }
 
+@export var max_health : int = 10
 @export var enemy_icon: CompressedTexture2D
 @export var enemy_type: EnemyClass
 @export var enemy_name : String = "empty_name"
-@export var max_health : int = 10
 @export var stage_xp_value: float
 
 #@export var weapon_xp_value: float

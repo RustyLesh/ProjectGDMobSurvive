@@ -103,6 +103,8 @@ func spawn(spawn_data: SpawnDataResource):
 				SpawnDataResource.EnemyRank.BOSS:
 					print("Boss spawning")
 					spawn_boss(spawn_data)
+					enemy.on_death.connect(ui_scene.on_boss_death)
+					enemy.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
 			spawn_data.spawn_delay_counter = 0
 
 		spawn_data.spawn_delay_counter += 1
@@ -150,7 +152,7 @@ func get_random_position(wall_buffer: int) -> Vector2:
 	return pos
 
 func spawn_boss(enemy_spawn_data: SpawnDataResource):
-	ui_scene.on_boss_spawn(enemy_spawn_data.hp_bar_texture_resource)
+	ui_scene.on_boss_spawn(enemy_spawn_data)
 
 # Choose number of spawn, spawns the monsters in a random position in a cluster.
 # The cluster size is based on area_radius.

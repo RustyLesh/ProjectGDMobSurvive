@@ -18,6 +18,7 @@ class_name MenuManager
 var is_player_dead: bool = false
 
 var hp_bar_instance
+var touch_mode:= true
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -33,7 +34,10 @@ func _ready():
 	touch_joysticks.visible = ConfigManager.show_touch_joy_stick
 	touch_divider.visible = ConfigManager.show_touch_divider
 	touch_joysticks.set_opacity(ConfigManager.trouch_controls_opacity / 100)
-	
+	InputManager.on_controller_input.connect(on_controller_input)
+
+	if InputManager.controller_was_used_last:
+		toggle_touch_mode(false)
 
 func _input(event):
 	if event.is_action_pressed("open_upgrade_menu"):
@@ -43,13 +47,17 @@ func _on_button_pressed():
 	toggle_upgrade_menu()
 
 func toggle_upgrade_menu():
+	if touch_mode:
+		toggle_touch_sticks()
+
 	upgrade_menu.visible = !upgrade_menu.visible
 	get_tree().paused = upgrade_menu.visible
 	if upgrade_menu.visible:
 		upgrade_menu.on_upgrade_menu_opened()
 
-func on_boss_spawn(hp_bar_resource: Resource):
-	hp_bar_instance = hp_bar_resource.instantiate()
+func on_boss_spawn(enemy_spawn_data: SpawnDataResource):
+	hp_bar_instance = enemy_spawn_data.hp_bar_texture_resource.instantiate()
+	#TODO: Set hp value number value here
 	hp_bar_instance.global_position = boss_hp_bar_poss.global_position
 	add_child(hp_bar_instance)
 
@@ -64,3 +72,17 @@ func update_upgrade_menu_toggle_button(current_upgrade_points):
 		upgrade_menu_toggle.toggle_icon(false)
 	else:
 		upgrade_menu_toggle.toggle_icon(true)
+
+func toggle_touch_sticks():
+	touch_joysticks.visible = !touch_joysticks.visible
+	touch_divider.visible = !touch_divider.visible
+	print("touch toggle")
+
+func toggle_touch_mode(value: bool):
+	touch_mode = value
+
+	touch_joysticks.visible = value
+	touch_divider.visible = value
+
+func on_controller_input():
+	toggle_touch_mode(false)

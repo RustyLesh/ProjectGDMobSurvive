@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=10 format=3 uid="uid://dw6rqtdcxbpgm"]
+
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="1_3yoqj"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="2_2nv2a"]
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="3_lgohw"]
+[ext_resource type="PackedScene" uid="uid://i1h1yymb246d" path="res://Objects/Enemy Spawning/enemy_turret.tscn" id="4_lhkqf"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="5_4bhj2"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="6_j3q16"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="7_hst2o"]
+
+[sub_resource type="Resource" id="Resource_thchf"]
+script = ExtResource("2_2nv2a")
+bullet_scene = ExtResource("1_3yoqj")
+
+[sub_resource type="Resource" id="Resource_vokq5"]
+script = ExtResource("5_4bhj2")
+move_speed = 30
+contact_damage = 1
+follow_range = 150
+keep_following = false
+bullet_resource = SubResource("Resource_thchf")
+bullet_damage = 10
+bullet_speed = 60
+bullet_lifetime = 2
+delay_betweeen_shots = 5.0
+max_health = 50
+enemy_icon = ExtResource("3_lgohw")
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 20.0
+spawn_sprite_frames = ExtResource("6_j3q16")
+enemy_scene = ExtResource("4_lhkqf")
+
+[resource]
+script = ExtResource("7_hst2o")
+time_start = 240
+one_shot = false
+duration = 60
+wave_delay = 10
+amount = 3
+enemy_resource = SubResource("Resource_vokq5")
+spawn_pattern = 0
+rank = 0

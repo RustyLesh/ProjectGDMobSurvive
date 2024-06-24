@@ -38,6 +38,7 @@ func init_enemy(_enemy_resource: EnemyResource):
 
 func current_hp_changed(current_hp):
 	on_current_hp_changed.emit(current_hp)
+	print("Boss hp: ", current_hp)
 
 func _enable_enemy():
 	spawn_animation.visible = false

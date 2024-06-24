@@ -27,6 +27,7 @@ func take_damage(damage):
 		current_health_changed.emit(current_health)
 		var current_percent = ((current_health * 100 /max_health * 100) )
 		current_health_percent_changed.emit(current_percent)
+		on_damaged.emit(damage)
 
 func heal(value):
 	if value > 0:

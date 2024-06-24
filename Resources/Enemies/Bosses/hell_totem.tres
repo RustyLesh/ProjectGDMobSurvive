@@ -20,10 +20,10 @@ drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubRe
 
 [resource]
 script = ExtResource("7_ijgs5")
+max_health = 5000
 enemy_icon = ExtResource("4_ohy8n")
 enemy_type = 1
 enemy_name = "empty_name"
-max_health = 500
 stage_xp_value = 0.0
 drop_pool = SubResource("Resource_syjpa")
 spawn_sprite_frames = ExtResource("6_vfkpc")
