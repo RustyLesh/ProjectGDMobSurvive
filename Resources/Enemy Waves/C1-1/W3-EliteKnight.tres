@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=6 format=3 uid="uid://fvdgnlyjh4sr"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=8 format=3 uid="uid://fvdgnlyjh4sr"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="1_d60ex"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="1_iupjq"]
 [ext_resource type="PackedScene" uid="uid://d1vebupoqfj8y" path="res://Objects/Enemy Spawning/enemy_knight.tscn" id="1_oxuey"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_xs8f2"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_xepsh"]
+
+[sub_resource type="Resource" id="Resource_vygc5"]
+script = ExtResource("1_iupjq")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([])
 
 [sub_resource type="Resource" id="Resource_8h3xj"]
 script = ExtResource("2_xs8f2")
@@ -17,6 +22,7 @@ max_health = 100
 enemy_type = 0
 enemy_name = "empty_name"
 stage_xp_value = 50.0
+drop_pool = SubResource("Resource_vygc5")
 spawn_sprite_frames = ExtResource("3_xepsh")
 enemy_scene = ExtResource("1_oxuey")
 

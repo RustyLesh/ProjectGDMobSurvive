@@ -1,4 +1,4 @@
-res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
+res://Objects/combat_level.tscn
 res://flash_color.gdshader
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -21,8 +21,14 @@ res://Resources/Gear/helm_ice_crown.tres
 res://Resources/Enemies/Bosses/hell_totem.tres
 res://Resources/Enemy Waves/C1-1/W3-Turret.tres
 res://Resources/Enemy Waves/C1-1/W4-EliteKnight.tres
+res://Resources/Enemy Waves/C1-1/W4-Skele.tres
+res://Resources/Enemy Waves/C1-1/W4-Turret.tres
 res://Resources/Enemy Stages/C1/C1M1.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/save_test_gear1.tres
-res://Resources/Enemy Waves/C1-1/W4-Skele.tres
-res://Resources/Enemy Waves/C1-1/W4-Turret.tres
+res://config_manager.tscn
+res://Objects/Main Menu/main_menu.tscn
+res://Objects/player.tscn
+res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
+res://Objects/Enemy Spawning/enemy_knight.tscn
+res://Objects/GUI/upgrade_manager.tscn

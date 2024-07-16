@@ -54,30 +54,36 @@ func get_upgrade(choice: int) -> UpgradeResource:
 
 
 func select_upgrade(choice: int):
+	# Specialization select
 	if !specialization_selected:
 		for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].upgrades:
 			upgrade.apply_upgrade(player)
-			specialization_selected = true
+	
 		
 		if PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades.size() > 0:
 			for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades:
 				upgrade_pool.append(upgrade)
+				print("if hit")
+		specialization_selected = true
 		roll_upgrade_options()
 		return
 
 	if current_upgrade_points > 0:
+		# Get selected upgrade and remove it from the pool if no uses remain
 		var selected_upgrade: UpgradeResource = upgrade_pool[upgrade_pool.size() - (choice)]
 		if selected_upgrade.current_uses >=  selected_upgrade._max_uses - 1:
 			removed_upgrades.append(upgrade_pool.pop_at(upgrade_pool.size() - (choice)))
 		else:
 			selected_upgrade.current_uses += 1
 		
+		# Apply 
 		for upgrade in selected_upgrade.upgrades:
 			upgrade.apply_upgrade(player)
 
 		#Check if there are any added upgrades and if this is the first time applying the selecting upgrade.
-		if selected_upgrade.added_upgrades.size() > 0 && selected_upgrade.current_uses == 0: 
-			upgrade_pool.append(selected_upgrade.added_upgrades)
+		if selected_upgrade.added_upgrades.size() > 0 && selected_upgrade.current_uses == 0:
+			print("size", selected_upgrade.added_upgrades.size())
+			upgrade_pool.append_array(selected_upgrade.added_upgrades)
 		spent_points += 1
 		current_upgrade_points_changed.emit(current_upgrade_points)
 		

@@ -57,7 +57,7 @@ func toggle_upgrade_menu():
 
 func on_boss_spawn(enemy_spawn_data: SpawnDataResource):
 	hp_bar_instance = enemy_spawn_data.hp_bar_texture_resource.instantiate()
-	#TODO: Set hp value number value here
+	#TODO: Set hp label value (number) value here
 	hp_bar_instance.global_position = boss_hp_bar_poss.global_position
 	add_child(hp_bar_instance)
 
