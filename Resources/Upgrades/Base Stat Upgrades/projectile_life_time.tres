@@ -13,7 +13,7 @@ _base_stat_type = 5
 [resource]
 script = ExtResource("2_2yjqe")
 _name = "Bullet Lifetime"
-_description = ""
+_description = "bullet travel farther"
 _icon = ExtResource("1_j6fwg")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_21xex")])
 added_upgrades = Array[ExtResource("2_2yjqe")]([])

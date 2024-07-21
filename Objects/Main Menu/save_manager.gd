@@ -3,12 +3,13 @@ extends Node
 # dict of relevant variables.
 
 var has_first_load: bool = false
+var load_on_start = false
 
 func _ready():
 	await get_tree().create_timer(.3).timeout
 	
 		#Check if game has loaded since launch
-	if has_first_load == false:
+	if has_first_load == false and load_on_start:
 		has_first_load = true
 		load_game()
 

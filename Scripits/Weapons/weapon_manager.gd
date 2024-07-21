@@ -6,9 +6,12 @@ var bullet_scene = preload("res://Objects/Weapons/Player Bullets/bullet.tscn")
 
 @export var extra_proj_count: int = 0;
 @export var pierce: int = 0
-@export var fire_rate: float = 2.0: set = set_fire_rate 
-@export var shot_angle_variation: float = 15
+@export var fire_rate: float = 2.0: set = set_fire_rate # Bullets per second
+@export var spread_angle: float = 0 # Bullet spread, determines the bullets initial angle. Bullets will be spread evenly initially.
+@export var spread_variation: float = 15 # Bullet accuracy, how much it can deviate from its original angle (random)
 @export var bullet_lifetime: float = 1.0
+@export var bullet_speed: float = 150
+@export var bullet_damage: float = 1
 
 @onready var bullet_container = $"Bullet Container"
 @onready var player_body = %Body

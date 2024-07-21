@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=6 format=3 uid="uid://cpy3lhbut8yns"]
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=7 format=3 uid="uid://cpy3lhbut8yns"]
 
+[ext_resource type="Texture2D" uid="uid://278pcqc3al76" path="res://Art/Enemies/skellington.png" id="1_gkdrk"]
 [ext_resource type="PackedScene" uid="uid://tjv1ric658h8" path="res://Objects/Enemy Spawning/skelleton.tscn" id="1_u0jpx"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_4v5ha"]
 [ext_resource type="SpriteFrames" uid="uid://bnvlcl80ls34p" path="res://Objects/enemy_spawn_animations/skelleton_spawn.tres" id="3_2ov0u"]
@@ -14,6 +15,7 @@ keep_following = false
 attack_damaage = 10
 delay_betweeen_shots = 0.0
 max_health = 35
+enemy_icon = ExtResource("1_gkdrk")
 enemy_type = 0
 enemy_name = "empty_name"
 stage_xp_value = 15.0

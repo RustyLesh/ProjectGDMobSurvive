@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=8 format=3 uid="uid://fvdgnlyjh4sr"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=9 format=3 uid="uid://fvdgnlyjh4sr"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="1_d60ex"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="1_iupjq"]
 [ext_resource type="PackedScene" uid="uid://d1vebupoqfj8y" path="res://Objects/Enemy Spawning/enemy_knight.tscn" id="1_oxuey"]
+[ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="2_h2re8"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_xs8f2"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_xepsh"]
 
@@ -16,9 +17,10 @@ move_speed = 40
 contact_damage = 1
 follow_range = 200
 keep_following = false
-attack_damaage = 1
+attack_damaage = 20
 delay_betweeen_shots = 1.0
 max_health = 100
+enemy_icon = ExtResource("2_h2re8")
 enemy_type = 0
 enemy_name = "empty_name"
 stage_xp_value = 50.0

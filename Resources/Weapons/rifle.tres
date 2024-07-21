@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=86 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=91 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
@@ -50,12 +50,24 @@ added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_efe51")])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_5qoxh"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_vk0iv"]
+script = ExtResource("9_sh81w")
+_value = 15.0
+_mod_type = 0
+_base_stat_type = 7
+
 [sub_resource type="Resource" id="Resource_timvu"]
 script = ExtResource("13_300w3")
 _name = "More Pellets "
 _description = "More bullet, less acc"
 _icon = ExtResource("4_v52oy")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_5qoxh"), SubResource("Resource_vk0iv")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_85h34")])
 _max_uses = 0
 weight = 0
@@ -112,16 +124,34 @@ weight = 0
 
 [sub_resource type="Resource" id="Resource_bxyis"]
 script = ExtResource("9_sh81w")
-_value = 123.0
+_value = 3.0
 _mod_type = 0
-_base_stat_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_ci7jj"]
+script = ExtResource("9_sh81w")
+_value = -0.5
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_ejmqb"]
+script = ExtResource("9_sh81w")
+_value = 45.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_8xkf4"]
+script = ExtResource("9_sh81w")
+_value = -40.0
+_mod_type = 0
+_base_stat_type = 9
 
 [sub_resource type="Resource" id="Resource_eull3"]
 script = ExtResource("13_300w3")
 _name = "Shotgun"
 _description = "Multi projectiles in a large spread."
 _icon = ExtResource("4_13oo7")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_bxyis")])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_bxyis"), SubResource("Resource_ci7jj"), SubResource("Resource_ejmqb"), SubResource("Resource_8xkf4")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_timvu"), SubResource("Resource_y63ml"), SubResource("Resource_uaddh")])
 _max_uses = 0
 weight = 0

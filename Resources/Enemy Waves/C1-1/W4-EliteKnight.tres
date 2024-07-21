@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=6 format=3 uid="uid://22w056axcat4"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=7 format=3 uid="uid://22w056axcat4"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="1_2voog"]
+[ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="1_p7txk"]
 [ext_resource type="PackedScene" uid="uid://d1vebupoqfj8y" path="res://Objects/Enemy Spawning/enemy_knight.tscn" id="1_wb04b"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_mf647"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_hfs3t"]
@@ -14,6 +15,7 @@ keep_following = false
 attack_damaage = 20
 delay_betweeen_shots = 0.0
 max_health = 1000
+enemy_icon = ExtResource("1_p7txk")
 enemy_type = 2
 enemy_name = "empty_name"
 stage_xp_value = 100.0
@@ -24,7 +26,7 @@ enemy_scene = ExtResource("1_wb04b")
 script = ExtResource("1_2voog")
 outline_colour = Color(1, 0.462745, 0, 1)
 scale = 1.2
-time_start = 0
+time_start = 240
 one_shot = true
 duration = 1
 wave_delay = 0

@@ -15,7 +15,7 @@ func remove_upgrade(stat_container: StatContainer, gear_type: GearResource.GearT
 	pass
 
 func get_upgrade_string() -> String:
-	return "empty"
+	return "Empty upgrade string"
 
 func get_save_data() -> Dictionary:
 		return {

@@ -13,7 +13,7 @@ _base_stat_type = 2
 [resource]
 script = ExtResource("1_3am54")
 _name = "fire rate %"
-_description = ""
+_description = "more shoot"
 _icon = ExtResource("1_7ubrr")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_byct7")])
 added_upgrades = Array[ExtResource("1_3am54")]([])

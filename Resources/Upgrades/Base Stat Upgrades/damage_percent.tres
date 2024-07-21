@@ -13,7 +13,7 @@ _base_stat_type = 1
 [resource]
 script = ExtResource("1_l7csg")
 _name = "damage +%"
-_description = ""
+_description = "more damage"
 _icon = ExtResource("1_uvvgn")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_awgfl")])
 added_upgrades = Array[ExtResource("1_l7csg")]([])

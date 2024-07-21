@@ -16,3 +16,6 @@ func get_save_data() -> Dictionary:
 
 func set_resource_data(_data_dict):
 	pass
+
+func get_upgrade_string() -> String:
+	return on_kill_effect.get_upgrade_string()

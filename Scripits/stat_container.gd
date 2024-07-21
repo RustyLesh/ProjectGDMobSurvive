@@ -69,6 +69,26 @@ func init_base_stats():
 	movement_speed_mod.stat_mod_type = StatMod.StatModType.FLAT	
 	base_mods.append(movement_speed_mod)
 
+	var bullet_life_time_mod:= StatMod.new()
+	bullet_life_time_mod.value = weapon_manager.bullet_lifetime
+	bullet_life_time_mod.stat_mod_type = StatMod.StatModType.FLAT
+	base_mods.append(bullet_life_time_mod)
+
+	var spread_angle_mod:= StatMod.new()
+	spread_angle_mod.value = weapon_manager.spread_angle
+	spread_angle_mod.stat_mod_type = StatMod.StatModType.FLAT
+	base_mods.append(spread_angle_mod)
+
+	var spread_variation_mod:= StatMod.new()
+	spread_variation_mod.value = weapon_manager.spread_variation
+	spread_variation_mod.stat_mod_type = StatMod.StatModType.FLAT
+	base_mods.append(spread_variation_mod)
+
+	var bullet_speed_mod:= StatMod.new()
+	bullet_speed_mod.value = weapon_manager.bullet_speed
+	bullet_speed_mod.stat_mod_type = StatMod.StatModType.FLAT
+	base_mods.append(bullet_speed_mod)
+
 	for statmod in base_mods:
 		statmod.source = GearResource.GearType.BASE
 		
@@ -81,6 +101,10 @@ func init_base_stats():
 	base_stats[BaseStat.BaseStatType.DAMAGE].apply_stat(damage_mod)
 	base_stats[BaseStat.BaseStatType.FIRE_RATE].apply_stat(fire_rate_mod)
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].apply_stat(movement_speed_mod)
+	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].apply_stat(bullet_life_time_mod)
+	base_stats[BaseStat.BaseStatType.SPREAD_ANGLE].apply_stat(spread_angle_mod)
+	base_stats[BaseStat.BaseStatType.SPREAD_ACC].apply_stat(spread_variation_mod)
+	base_stats[BaseStat.BaseStatType.BULLET_SPEED].apply_stat(bullet_speed_mod)
 
 
 func add_mod_to_base_stat(stat_mod : StatMod, stat_type : BaseStat.BaseStatType):
@@ -111,6 +135,15 @@ func update_bullet_lifetime(value: float):
 func update_pierce(value: float):
 	weapon_manager.pierce = value
 
+func update_spread_angle(value: float):
+	weapon_manager.spread_angle = value
+
+func update_spread_variation(value: float):
+	weapon_manager.spread_variation = value
+
+func update_bullet_speed(value: float):
+	weapon_manager.bullet_speed = value
+
 #Connect signals for base stats
 func init_stat_signals():
 	base_stats[BaseStat.BaseStatType.MAX_LIFE].on_value_changed.connect(update_max_life)
@@ -119,3 +152,6 @@ func init_stat_signals():
 	base_stats[BaseStat.BaseStatType.PROJ_COUNT].on_value_changed.connect(update_extra_prop_count)
 	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
 	base_stats[BaseStat.BaseStatType.PIERCE].on_value_changed.connect(update_pierce)
+	base_stats[BaseStat.BaseStatType.SPREAD_ANGLE].on_value_changed.connect(update_spread_angle)
+	base_stats[BaseStat.BaseStatType.SPREAD_ACC].on_value_changed.connect(update_spread_variation)
+	base_stats[BaseStat.BaseStatType.BULLET_SPEED].on_value_changed.connect(update_bullet_speed)

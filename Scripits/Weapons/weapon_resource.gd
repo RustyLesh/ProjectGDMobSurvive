@@ -26,6 +26,9 @@ func _init():
 	for upgrade in upgrades:
 		upgrade.source_type = GearResource.GearType.WEAPON
 
+	for specialization in specializations:
+		specialization.source_type = GearResource.GearType.SPECIALIZATION
+
 	for base_stat in base_stat_mods:
 		base_stats.append(base_stat.get_stat_mod())
 

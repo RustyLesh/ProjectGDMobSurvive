@@ -6,6 +6,5 @@
 [node name="rifle" type="Node"]
 process_mode = 1
 script = ExtResource("1_lvux2")
-shot_angle_variation = 5
 fire_rate = 1.0
 bullet_resource = ExtResource("2_kgmhd")

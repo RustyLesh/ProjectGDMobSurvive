@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=6 format=3 uid="uid://cd45e5xtfstgy"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=5 format=3 uid="uid://cd45e5xtfstgy"]
 
 [ext_resource type="Texture2D" uid="uid://t6psobihjovw" path="res://Art/Upgrade Icons/FireRate.png" id="1_6xnq1"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="2_d6m14"]
@@ -10,18 +10,12 @@ _value = 0.75
 _mod_type = 0
 _base_stat_type = 2
 
-[sub_resource type="Resource" id="Resource_vu7vp"]
-script = ExtResource("3_be0p4")
-_value = 10.0
-_mod_type = 0
-_base_stat_type = 0
-
 [resource]
 script = ExtResource("2_d6m14")
 _name = "attack speed"
-_description = ""
+_description = "increased shoot"
 _icon = ExtResource("1_6xnq1")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_x6tol"), SubResource("Resource_vu7vp")])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_x6tol")])
 added_upgrades = Array[ExtResource("2_d6m14")]([])
 _max_uses = 5
 weight = 0

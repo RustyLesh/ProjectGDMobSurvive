@@ -32,3 +32,19 @@ res://Objects/player.tscn
 res://Objects/Boss HP Bars/Base Boss HP Bar.tscn
 res://Objects/Enemy Spawning/enemy_knight.tscn
 res://Objects/GUI/upgrade_manager.tscn
+res://Objects/Enemy Spawning/enemy_turret.tscn
+res://Objects/Weapons/rifle.tscn
+res://Objects/Weapons/Player Bullets/bullet.tscn
+res://Objects/stat_container.tscn
+res://Objects/GUI/in_level_ui.tscn
+res://Scripits/GUI/menu_manager.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/gear.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/upgrade_resource.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/stat_container.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Weapons/rifle.gd
+res://Scripits/Weapons/weapon_resource.gd
+res://Scripits/Weapons/pistol.gd

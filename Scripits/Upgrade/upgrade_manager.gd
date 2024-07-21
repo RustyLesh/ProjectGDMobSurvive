@@ -7,7 +7,7 @@ class_name UpgradeManager
 @onready var player_stat_container = player.combat_stat_container
 @onready var player_body 
 
-var upgrade_pool: Array[UpgradeResource] #When upgrades are rolled an choseen, the are removed from here.
+var upgrade_pool: Array[UpgradeResource] #When upgrades are rolled an chosen, then are removed from here.
 var removed_upgrades: Array[UpgradeResource]
 var current_upgrade_points : int = 0:
 	get:
@@ -56,14 +56,15 @@ func get_upgrade(choice: int) -> UpgradeResource:
 func select_upgrade(choice: int):
 	# Specialization select
 	if !specialization_selected:
+		# Apply specialization upgrades to player
 		for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].upgrades:
 			upgrade.apply_upgrade(player)
 	
-		
+		# Apend added upgrades to pool
 		if PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades.size() > 0:
 			for upgrade in PlayerSetup.weapon_resource.specializations[choice - 1].added_upgrades:
+				upgrade.source_type = GearResource.GearType.SPECIALIZATION
 				upgrade_pool.append(upgrade)
-				print("if hit")
 		specialization_selected = true
 		roll_upgrade_options()
 		return
@@ -76,19 +77,31 @@ func select_upgrade(choice: int):
 		else:
 			selected_upgrade.current_uses += 1
 		
-		# Apply 
+		# Apply upgrades to player
 		for upgrade in selected_upgrade.upgrades:
 			upgrade.apply_upgrade(player)
 
-		#Check if there are any added upgrades and if this is the first time applying the selecting upgrade.
+		# If specialization sub type selected, remove other subtypes
+		if selected_upgrade.source_type == GearResource.GearType.SPECIALIZATION:
+			for i in range(upgrade_pool.size() -1, -1, -1):
+				if upgrade_pool[i].source_type == GearResource.GearType.SPECIALIZATION		:
+					upgrade_pool.remove_at(i)
+
+		# Check if there are any added upgrades and if this is the first time applying the selecting upgrade.
 		if selected_upgrade.added_upgrades.size() > 0 && selected_upgrade.current_uses == 0:
 			print("size", selected_upgrade.added_upgrades.size())
+			for upgrade in upgrade_pool:
+				if selected_upgrade.source_type == GearResource.GearType.SPECIALIZATION: # If a specialization is selected, added upgrades source will be weapon
+					upgrade.source_type = GearResource.GearType.WEAPON
+				else:
+					upgrade.source_type = selected_upgrade.source_type
 			upgrade_pool.append_array(selected_upgrade.added_upgrades)
+
 		spent_points += 1
 		current_upgrade_points_changed.emit(current_upgrade_points)
-		
 		roll_upgrade_options()
 
+# Get the last 3 upgrades in the upgrade pool
 func get_upgrade_options() -> Array[UpgradeResource]:
 	var options_return: Array[UpgradeResource]
 	if upgrade_pool.size() >= number_of_choices:
@@ -99,11 +112,13 @@ func get_upgrade_options() -> Array[UpgradeResource]:
 			options_return.append(upgrade)
 	return options_return
 
+# Shuffle upgrade pool array
 func roll_upgrade_options():
 	upgrade_pool.shuffle()
 	on_reroll.emit()
-	
-func print_upgrade_option_names(): #Prints to console the names of upgrades from upgrade options array
+
+# Prints to console the names of upgrades from upgrade options array
+func print_upgrade_option_names(): 
 	if upgrade_pool.size() >= number_of_choices:
 		for i in range(upgrade_pool.size()-1, upgrade_pool.size()-(number_of_choices + 1), -1):
 			print(upgrade_pool[i]._name)
@@ -111,16 +126,20 @@ func print_upgrade_option_names(): #Prints to console the names of upgrades from
 		for upgrade in upgrade_pool:
 			print(upgrade._name)
 
-func print_upgrade_pool_names(): #Prints to console the names of upgrades from upgrade options array
-	print("manager pool")
+# Prints to console the names of upgrades from upgrade options array
+func print_upgrade_pool_names():
+	print("--manager pool--")
 	for upgrade in upgrade_pool:
-		print(upgrade._name)
+		print("-------")
+		print("name: ",upgrade._name)
+		print("type", GearResource.GearType.keys()[upgrade.source_type])
 	
-	print("player setup pool")
-	for upgrade in PlayerSetup.selected_upgrades:
-		print(upgrade._name)
+	# print("player setup pool")
+	# for upgrade in PlayerSetup.selected_upgrades:
+	# 	print(upgrade._name)
 
-func reset_upgrade_uses(): #Reset resource uses to 0
+# Reset upgrade resource uses to 0
+func reset_upgrade_uses(): 
 	if removed_upgrades.size() > 0:
 		for upgrade in removed_upgrades:
 			if upgrade is UpgradeResource:

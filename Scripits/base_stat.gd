@@ -12,6 +12,7 @@ enum BaseStatType
 	PIERCE,
 	SPREAD_ANGLE,
 	SPREAD_ACC,
+	BULLET_SPEED,
 }
 
 @export var base_type: BaseStatType

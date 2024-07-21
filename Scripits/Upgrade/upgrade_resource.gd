@@ -12,7 +12,7 @@ class_name UpgradeResource
 
 var forced_upgrade: bool
 var source_type: GearResource.GearType
-
+var marked_for_removal := false
 var current_uses: int = 0
 
 func get_save_data() -> Dictionary:

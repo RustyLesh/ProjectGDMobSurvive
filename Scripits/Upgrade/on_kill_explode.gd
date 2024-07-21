@@ -11,3 +11,6 @@ func trigger_effect(object: Entity):
 		if entity is Entity:
 			print("Explode hit")
 			entity.take_damage(damage)
+
+func get_upgrade_string() -> String:
+	return str("Enemies explode on death in an area of ", size, " Units dealing ", damage, " damage.")
