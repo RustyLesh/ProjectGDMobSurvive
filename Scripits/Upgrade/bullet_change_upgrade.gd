@@ -18,7 +18,8 @@ func get_upgrade_string() ->String:
 
 func get_save_data() -> Dictionary:
 	return {
-		"bullet_resource": bullet_resource.resource_path
+		"bullet_resource": bullet_resource.resource_path,
+		"base_res_path": base_res_path,
 	}
 
 func set_resource_data(data_dict):

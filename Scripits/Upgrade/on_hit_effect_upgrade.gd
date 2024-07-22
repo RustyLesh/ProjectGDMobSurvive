@@ -16,11 +16,11 @@ func get_upgrade_string() -> String:
 
 func get_save_data() -> Dictionary:
 	return {
-		"effect": _effect.get_save_data(),
 		"base_res_path": base_res_path,
+		"effect": _effect.get_save_data(),
 	}
 
 func set_resource_data(data_dict):
 	var effect_data = data_dict["effect"]
-	_effect = load(effect_data["base_res_path"]).duplicate()
+	_effect = load(effect_data.base_res_path).duplicate()
 	_effect.set_resource_data(effect_data)

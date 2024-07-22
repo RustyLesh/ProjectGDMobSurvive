@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://din4lwsewk0lt"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://din4lwsewk0lt"]
 
 [ext_resource type="Texture2D" uid="uid://d07yoo6p26ssd" path="res://Art/Equipment/purple ammy.png" id="1_v8trg"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_foh1x"]
@@ -6,9 +6,27 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_tsbax"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="5_s8k6s"]
 
-[sub_resource type="Resource" id="Resource_7sd1j"]
+[sub_resource type="Resource" id="Resource_mnwpa"]
+script = ExtResource("4_tsbax")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_sotbd"]
 script = ExtResource("4_tsbax")
 _value = 5.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_5x3yj"]
+script = ExtResource("4_tsbax")
+_value = -5.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_qr6vy"]
+script = ExtResource("4_tsbax")
+_value = 10.0
 _mod_type = 0
 _base_stat_type = 3
 
@@ -16,7 +34,8 @@ _base_stat_type = 3
 script = ExtResource("3_p8d8k")
 _name = ""
 _description = ""
-upgrade = SubResource("Resource_7sd1j")
+_icon = ExtResource("1_v8trg")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_mnwpa"), SubResource("Resource_sotbd"), SubResource("Resource_5x3yj"), SubResource("Resource_qr6vy")])
 added_upgrades = Array[ExtResource("3_p8d8k")]([])
 _max_uses = 0
 weight = 0
@@ -28,55 +47,10 @@ upgrade_resource = SubResource("Resource_j26b0")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_klhic"]
-script = ExtResource("4_tsbax")
-_value = 30.0
-_mod_type = 0
-_base_stat_type = 0
-
-[sub_resource type="Resource" id="Resource_ttenp"]
-script = ExtResource("3_p8d8k")
-_name = "Movement Speed"
-_description = ""
-_icon = ExtResource("1_v8trg")
-upgrade = SubResource("Resource_klhic")
-added_upgrades = Array[ExtResource("3_p8d8k")]([])
-_max_uses = 3
-weight = 0
-
-[sub_resource type="Resource" id="Resource_i5ij4"]
-script = ExtResource("2_foh1x")
-mod_type = 0
-upgrade_resource = SubResource("Resource_ttenp")
-slot_source = 0
-forced_upgrade = false
-
-[sub_resource type="Resource" id="Resource_tjnu8"]
-script = ExtResource("4_tsbax")
-_value = 1.0
-_mod_type = 0
-_base_stat_type = 5
-
-[sub_resource type="Resource" id="Resource_t8q5e"]
-script = ExtResource("3_p8d8k")
-_name = ""
-_description = ""
-upgrade = SubResource("Resource_tjnu8")
-added_upgrades = Array[ExtResource("3_p8d8k")]([])
-_max_uses = 0
-weight = 0
-
-[sub_resource type="Resource" id="Resource_3uy8l"]
-script = ExtResource("2_foh1x")
-mod_type = 0
-upgrade_resource = SubResource("Resource_t8q5e")
-slot_source = 0
-forced_upgrade = false
-
 [resource]
 script = ExtResource("5_s8k6s")
 _item_name = "Minor amulet"
 _description = "A little bit of stats"
 _icon = ExtResource("1_v8trg")
 _gear_type = 2
-mod_list = Array[ExtResource("2_foh1x")]([SubResource("Resource_swmbu"), SubResource("Resource_i5ij4"), SubResource("Resource_3uy8l")])
+mod_list = Array[ExtResource("2_foh1x")]([SubResource("Resource_swmbu")])

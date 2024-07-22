@@ -8,13 +8,18 @@ signal current_health_changed(current_health)
 signal current_health_percent_changed(current_health_percent)
 signal died()
 
-@export var max_health = 100
-@export var current_health: int
+@export var max_health: float:
+	set = set_max_hp
+
+@export var current_health: float
 var is_alive = true
 
-func init_health(maxHealth : int):
-	set_max_health((maxHealth))
-	current_health = maxHealth
+func init_health(maxHealth : float):
+	set_max_health(maxHealth)
+	current_health = max_health
+
+func set_max_hp(value):
+	max_health = value
 
 func take_damage(damage):
 	if (damage > 0):
@@ -35,7 +40,7 @@ func heal(value):
 		current_health_changed.emit(current_health)
 		current_health_percent_changed.emit((current_health/max_health) * 100)
 
-func set_max_health(value : int):
+func set_max_health(value : float):
 	if max_health != value:
 		var difference = value - max_health
 		

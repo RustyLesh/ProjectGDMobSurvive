@@ -63,6 +63,7 @@ func on_weapon_select(weapon, index):
 		current_infobox_index = -1
 		return #Clicked on already selected weapon
 	if current_infobox_index >= 0:
+		print("current box index: ", current_infobox_index)
 		weapon_list_container.get_child(current_infobox_index).queue_free()
 	var weapon_info_instance = weapon_info_scene.instantiate()
 	weapon_list_container.add_child(weapon_info_instance)
@@ -70,11 +71,10 @@ func on_weapon_select(weapon, index):
 	weapon_info_instance.skill_tree_button.pressed.connect(open_weapon_skill_tree)
 	weapon_info_instance.init_info_panel(weapon)
 	if index >= current_infobox_index && current_infobox_index > -1:
-		weapon_list_container.move_child(weapon_info_instance, index + 2)
-	else:
 		weapon_list_container.move_child(weapon_info_instance, index + 1)
-	current_infobox_index = index + 1
-
+	else:
+		weapon_list_container.move_child(weapon_info_instance, index)
+	current_infobox_index = index
 	selected_weapon_infobox.on_weapon_select(weapon, index)
 
 func equip_weapon(weapon_resource):

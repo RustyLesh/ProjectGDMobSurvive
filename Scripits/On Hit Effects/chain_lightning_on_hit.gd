@@ -38,7 +38,7 @@ func get_save_data() -> Dictionary:
 		"max_chain_count": _max_chain_count,
 		"damage": _damage,
 		"proc_chance": _proc_chance,
-		"resource_path": base_res_path,
+		"base_res_path": base_res_path,
 	}
 
 func set_resource_data(data_dict):

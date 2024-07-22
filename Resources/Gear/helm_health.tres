@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_og7y8"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_vhnn8"]
 
-[sub_resource type="Resource" id="Resource_wfpk3"]
+[sub_resource type="Resource" id="Resource_bi6cu"]
 script = ExtResource("5_vhnn8")
-_value = 100.0
+_value = 0.0
 _mod_type = 0
 _base_stat_type = 0
 
@@ -16,7 +16,7 @@ _base_stat_type = 0
 script = ExtResource("4_og7y8")
 _name = "flat life"
 _description = ""
-upgrade = SubResource("Resource_wfpk3")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_bi6cu")])
 added_upgrades = Array[ExtResource("4_og7y8")]([])
 _max_uses = 0
 weight = 0
@@ -28,18 +28,18 @@ upgrade_resource = SubResource("Resource_iw3ih")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_fx8nk"]
+[sub_resource type="Resource" id="Resource_o14sm"]
 script = ExtResource("5_vhnn8")
-_value = 50.0
+_value = 100.0
 _mod_type = 0
 _base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_bjrwu"]
 script = ExtResource("4_og7y8")
-_name = ""
-_description = ""
+_name = "hp"
+_description = "basically a heal"
 _icon = ExtResource("1_0jjw5")
-upgrade = SubResource("Resource_fx8nk")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_o14sm")])
 added_upgrades = Array[ExtResource("4_og7y8")]([])
 _max_uses = 3
 weight = 0

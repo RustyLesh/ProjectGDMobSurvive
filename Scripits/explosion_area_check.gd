@@ -3,7 +3,6 @@ class_name ExplosionAreaCheck extends Area2D
 @onready var collision_shape = $CollisionShape2D.shape as CircleShape2D
 
 func explode(center_position: Vector2, radius: float) -> Array[Node2D] :
-    print("Explode area called")
-    global_position = center_position
-    collision_shape.radius = radius
-    return get_overlapping_bodies()
+	global_position = center_position
+	collision_shape.radius = radius
+	return get_overlapping_bodies()

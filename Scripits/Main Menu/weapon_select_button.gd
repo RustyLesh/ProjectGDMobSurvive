@@ -19,4 +19,5 @@ func _ready():
 	lvl_label.text = str(weapon.level)
 	
 func _on_pressed():
-	on_weapon_select.emit(weapon, index)
+	pass
+	#on_weapon_select.emit(weapon, index)

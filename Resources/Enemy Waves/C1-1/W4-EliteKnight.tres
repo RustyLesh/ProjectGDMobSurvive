@@ -1,10 +1,23 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=7 format=3 uid="uid://22w056axcat4"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=12 format=3 uid="uid://22w056axcat4"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="1_2voog"]
+[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="1_g30hy"]
 [ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="1_p7txk"]
 [ext_resource type="PackedScene" uid="uid://d1vebupoqfj8y" path="res://Objects/Enemy Spawning/enemy_knight.tscn" id="1_wb04b"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_1fuaj"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_mf647"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_1apv5"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_hfs3t"]
+
+[sub_resource type="Resource" id="Resource_tlk45"]
+script = ExtResource("2_1fuaj")
+gear_resource = ExtResource("1_g30hy")
+drop_weight = 0.0
+rarity = 0
+
+[sub_resource type="Resource" id="Resource_tt0wx"]
+script = ExtResource("3_1apv5")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_tlk45")])
 
 [sub_resource type="Resource" id="Resource_2hhl5"]
 script = ExtResource("2_mf647")
@@ -14,11 +27,12 @@ follow_range = 200
 keep_following = false
 attack_damaage = 20
 delay_betweeen_shots = 0.0
-max_health = 1000
+max_health = 500
 enemy_icon = ExtResource("1_p7txk")
 enemy_type = 2
 enemy_name = "empty_name"
 stage_xp_value = 100.0
+drop_pool = SubResource("Resource_tt0wx")
 spawn_sprite_frames = ExtResource("3_hfs3t")
 enemy_scene = ExtResource("1_wb04b")
 

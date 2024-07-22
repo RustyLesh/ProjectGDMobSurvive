@@ -1,15 +1,24 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://c65r4cfexckwn"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://c65r4cfexckwn"]
 
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="1_8ljcp"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_vi01t"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_xk7fc"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_xrleg"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_ouwl3"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="5_i8a0p"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="6_mgoby"]
+
+[sub_resource type="Resource" id="Resource_ij1ag"]
+script = ExtResource("4_ouwl3")
+_value = 50.0
+_mod_type = 0
+_base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_36psi"]
 script = ExtResource("3_xrleg")
 _name = "Life"
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_ij1ag")])
 added_upgrades = Array[ExtResource("3_xrleg")]([])
 _max_uses = 0
 weight = 0
@@ -21,12 +30,22 @@ upgrade_resource = SubResource("Resource_36psi")
 slot_source = 0
 forced_upgrade = false
 
+[sub_resource type="Resource" id="Resource_epxpe"]
+script = ExtResource("5_i8a0p")
+_duration = 10
+_slow_amount = 30.0
+_proc_chance = 35.0
+
+[sub_resource type="Resource" id="Resource_7fwju"]
+script = ExtResource("6_mgoby")
+_effect = SubResource("Resource_epxpe")
+
 [sub_resource type="Resource" id="Resource_2oq81"]
 script = ExtResource("3_xrleg")
 _name = "Slow on hit"
 _description = "Big slow to enemies on hit"
 _icon = ExtResource("1_8ljcp")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_7fwju")])
 added_upgrades = Array[ExtResource("3_xrleg")]([])
 _max_uses = 1
 weight = 0

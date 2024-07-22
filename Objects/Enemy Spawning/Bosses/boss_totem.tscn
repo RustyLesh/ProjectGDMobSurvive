@@ -62,5 +62,6 @@ autostart = true
 
 [node name="AttackTimer" type="Timer" parent="Body"]
 
+[connection signal="current_health_changed" from="Health" to="." method="current_hp_percent_changed"]
 [connection signal="current_health_percent_changed" from="Health" to="." method="current_hp_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

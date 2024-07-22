@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="5_a3n1k"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="6_x80aw"]
 
-[sub_resource type="Resource" id="Resource_liu0k"]
+[sub_resource type="Resource" id="Resource_i051q"]
 script = ExtResource("5_a3n1k")
 _value = 1.0
 _mod_type = 0
@@ -17,9 +17,9 @@ script = ExtResource("4_j8saq")
 _name = "Multi Prodge"
 _description = "more shots"
 _icon = ExtResource("1_qpuyl")
-upgrade = SubResource("Resource_liu0k")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_i051q")])
 added_upgrades = Array[ExtResource("4_j8saq")]([])
-_max_uses = 2
+_max_uses = 1
 weight = 0
 
 [sub_resource type="Resource" id="Resource_s0d0f"]

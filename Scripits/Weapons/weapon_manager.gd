@@ -8,7 +8,9 @@ var bullet_scene = preload("res://Objects/Weapons/Player Bullets/bullet.tscn")
 @export var pierce: int = 0
 @export var fire_rate: float = 2.0: set = set_fire_rate # Bullets per second
 @export var spread_angle: float = 0 # Bullet spread, determines the bullets initial angle. Bullets will be spread evenly initially.
-@export var spread_variation: float = 15 # Bullet accuracy, how much it can deviate from its original angle (random)
+@export var spread_variation: float = 15: # Bullet accuracy, how much it can deviate from its original angle (random)
+	set = set_spread_variation
+
 @export var bullet_lifetime: float = 1.0
 @export var bullet_speed: float = 150
 @export var bullet_damage: float = 1
@@ -33,4 +35,10 @@ func set_fire_rate(value : float):
 
 func apply_on_hit_effect_to_weapons(effect: OnHitEffect):
 	get_parent().weapon_inst.on_hit_effects.append(effect)
+
+func set_spread_angle(value: float):
+	spread_angle = max(0, value)
+
+func set_spread_variation(value: float):
+	spread_variation = max(0, value)
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=91 format=3 uid="uid://csqmkf7ke8qby"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=150 format=3 uid="uid://csqmkf7ke8qby"]
 
 [ext_resource type="Texture2D" uid="uid://leppq3elwt6d" path="res://Art/Weapon Icons/AssaultRifle.png" id="1_3ter6"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_resource.gd" id="1_380wp"]
@@ -11,9 +11,10 @@
 [ext_resource type="Resource" uid="uid://bosd6cm7dcgh" path="res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres" id="6_4ufd7"]
 [ext_resource type="Texture2D" uid="uid://c50iy0b1yvuls" path="res://Art/no_icon.png" id="6_e3s2p"]
 [ext_resource type="Texture2D" uid="uid://c0apiq8vtwnyh" path="res://Art/GUI/Icons/char_icon.png" id="6_tl5it"]
+[ext_resource type="PackedScene" uid="uid://c0pshu21fs2t7" path="res://Objects/rocket.tscn" id="7_i8lvl"]
 [ext_resource type="Resource" uid="uid://cdf6hawehunhv" path="res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres" id="7_ogqs4"]
-[ext_resource type="Resource" uid="uid://cdn30i7s7ws3e" path="res://Resources/Upgrades/Base Stat Upgrades/pierce.tres" id="8_cfu0p"]
-[ext_resource type="Resource" uid="uid://e8tem5dlqo3n" path="res://Resources/Upgrades/Base Stat Upgrades/movement_speed_flat_upgrade.tres" id="9_23ks5"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="8_10mkb"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/bullet_change_upgrade.gd" id="9_2b0ma"]
 [ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="9_bququ"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="9_sh81w"]
 [ext_resource type="Script" path="res://Scripits/Weapons/weapon_xp_tree.gd" id="10_0diw7"]
@@ -26,26 +27,40 @@
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="18_c3jal"]
 [ext_resource type="Texture2D" uid="uid://chp3yeikscd3q" path="res://Art/Upgrade Icons/Life.png" id="18_xd3ad"]
 [ext_resource type="Texture2D" uid="uid://rrn4joq58nuh" path="res://Art/Bullet.png" id="19_wycb0"]
-[ext_resource type="Texture2D" uid="uid://b7b1mvv58ehlh" path="res://Art/explosion_circle.png" id="21_ga46l"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_explode.gd" id="22_rxpy1"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_effect_upgrade.gd" id="23_c0soq"]
+[ext_resource type="Texture2D" uid="uid://cbig1ugnuto6u" path="res://Art/Enemies/ember_shard.png" id="25_onnlt"]
+
+[sub_resource type="Resource" id="Resource_njryu"]
+script = ExtResource("8_10mkb")
+bullet_scene = ExtResource("7_i8lvl")
+
+[sub_resource type="Resource" id="Resource_cfwth"]
+script = ExtResource("9_2b0ma")
+bullet_resource = SubResource("Resource_njryu")
 
 [sub_resource type="Resource" id="Resource_efe51"]
 script = ExtResource("13_300w3")
 _name = "Explosive Shot"
-_description = ""
+_description = "Frag rounds"
 _icon = ExtResource("6_e3s2p")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_cfwth")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_5t76f"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 4
 
 [sub_resource type="Resource" id="Resource_85h34"]
 script = ExtResource("13_300w3")
 _name = "Even More Pellets "
 _description = "Mooore bullet, less acc"
 _icon = ExtResource("4_v52oy")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_5t76f")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_efe51")])
 _max_uses = 0
 weight = 0
@@ -60,7 +75,7 @@ _base_stat_type = 4
 script = ExtResource("9_sh81w")
 _value = 15.0
 _mod_type = 0
-_base_stat_type = 7
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_timvu"]
 script = ExtResource("13_300w3")
@@ -72,52 +87,134 @@ added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_85h34")])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_1mb05"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_6b2ov"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 5
+
 [sub_resource type="Resource" id="Resource_78rs2"]
 script = ExtResource("13_300w3")
 _name = "Choke 3"
 _description = "The chokining"
 _icon = ExtResource("6_tl5it")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_1mb05"), SubResource("Resource_6b2ov")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_aj0va"]
+script = ExtResource("9_sh81w")
+_value = -15.0
+_mod_type = 0
+_base_stat_type = 7
+
+[sub_resource type="Resource" id="Resource_41f4n"]
+script = ExtResource("9_sh81w")
+_value = -0.5
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_gxdad"]
+script = ExtResource("9_sh81w")
+_value = 0.5
+_mod_type = 0
+_base_stat_type = 5
 
 [sub_resource type="Resource" id="Resource_pst3f"]
 script = ExtResource("13_300w3")
 _name = "Choke 2"
 _description = "one for each foot"
 _icon = ExtResource("6_tl5it")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_aj0va"), SubResource("Resource_41f4n"), SubResource("Resource_gxdad")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_78rs2")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_ucdc8"]
+script = ExtResource("9_sh81w")
+_value = -10.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_luiov"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 1
 
 [sub_resource type="Resource" id="Resource_y63ml"]
 script = ExtResource("13_300w3")
 _name = "Choke"
 _description = "More acc"
 _icon = ExtResource("6_tl5it")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_ucdc8"), SubResource("Resource_luiov")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_pst3f")])
 _max_uses = 0
 weight = 0
 
-[sub_resource type="Resource" id="Resource_1wrmq"]
+[sub_resource type="Resource" id="Resource_j14ou"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_ut2tt"]
 script = ExtResource("13_300w3")
-_name = "Full Auto 2"
-_description = ""
+_name = "Fullest auto"
+_description = "------"
 _icon = ExtResource("15_cu7qd")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_j14ou")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_i8eeu"]
+script = ExtResource("9_sh81w")
+_value = 0.5
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_ctyap"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_1wrmq"]
+script = ExtResource("13_300w3")
+_name = "Full Auto 2"
+_description = "--"
+_icon = ExtResource("15_cu7qd")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_i8eeu"), SubResource("Resource_ctyap")])
+added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_ut2tt")])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_d7itp"]
+script = ExtResource("9_sh81w")
+_value = 0.5
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_rjhos"]
+script = ExtResource("9_sh81w")
+_value = -5.0
+_mod_type = 0
+_base_stat_type = 1
 
 [sub_resource type="Resource" id="Resource_uaddh"]
 script = ExtResource("13_300w3")
 _name = "Full Auto"
 _description = "Channel your inner AA12"
 _icon = ExtResource("15_cu7qd")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_d7itp"), SubResource("Resource_rjhos")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_1wrmq")])
 _max_uses = 0
 weight = 0
@@ -146,42 +243,84 @@ _value = -40.0
 _mod_type = 0
 _base_stat_type = 9
 
+[sub_resource type="Resource" id="Resource_g24a6"]
+script = ExtResource("9_sh81w")
+_value = -50.0
+_mod_type = 1
+_base_stat_type = 1
+
 [sub_resource type="Resource" id="Resource_eull3"]
 script = ExtResource("13_300w3")
 _name = "Shotgun"
 _description = "Multi projectiles in a large spread."
 _icon = ExtResource("4_13oo7")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_bxyis"), SubResource("Resource_ci7jj"), SubResource("Resource_ejmqb"), SubResource("Resource_8xkf4")])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_bxyis"), SubResource("Resource_ci7jj"), SubResource("Resource_ejmqb"), SubResource("Resource_8xkf4"), SubResource("Resource_g24a6")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_timvu"), SubResource("Resource_y63ml"), SubResource("Resource_uaddh")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_0etl6"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_l3kel"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_33l3b"]
 script = ExtResource("13_300w3")
 _name = "More proj 3"
 _description = "again again"
 _icon = ExtResource("15_cu7qd")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_0etl6"), SubResource("Resource_l3kel")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_6ofu8"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_kgmff"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_f0dog"]
 script = ExtResource("13_300w3")
 _name = "More proj again"
 _description = ""
 _icon = ExtResource("15_cu7qd")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_6ofu8"), SubResource("Resource_kgmff")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_33l3b")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_ky773"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_k3r8j"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_mwd5q"]
 script = ExtResource("13_300w3")
 _name = "More proj"
 _description = "Long range shotgun i guess"
 _icon = ExtResource("15_cu7qd")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_ky773"), SubResource("Resource_k3r8j")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_f0dog")])
 _max_uses = 0
 weight = 0
@@ -205,183 +344,389 @@ added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_0qu3g"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_cepb8"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_y3b6s"]
+script = ExtResource("9_sh81w")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 1
+
 [sub_resource type="Resource" id="Resource_f5i1v"]
 script = ExtResource("13_300w3")
 _name = "Stronger Shot"
 _description = "Even more"
 _icon = ExtResource("18_xd3ad")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_0qu3g"), SubResource("Resource_cepb8"), SubResource("Resource_y3b6s")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_3y4rq")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_fsdnw"]
+script = ExtResource("9_sh81w")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_3xu7c"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_eejih"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_r15u3"]
+script = ExtResource("9_sh81w")
+_value = -15.0
+_mod_type = 0
+_base_stat_type = 7
 
 [sub_resource type="Resource" id="Resource_ovk0i"]
 script = ExtResource("13_300w3")
 _name = "Strong Shot"
 _description = "More pierce, more snipe"
 _icon = ExtResource("18_xd3ad")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_fsdnw"), SubResource("Resource_3xu7c"), SubResource("Resource_eejih"), SubResource("Resource_r15u3")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_f5i1v")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_1pgq3"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_3os8a"]
 script = ExtResource("13_300w3")
 _name = "DMR3"
 _description = "Level3 semi auto"
 _icon = ExtResource("4_13oo7")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_1pgq3")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_rbvp6"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_3oqbg"]
 script = ExtResource("13_300w3")
 _name = "DMR2"
 _description = "Level2 semi auto"
 _icon = ExtResource("4_13oo7")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_rbvp6")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_3os8a")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_4ckr0"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_fe5y6"]
 script = ExtResource("13_300w3")
 _name = "DMR"
 _description = "Semi auto action"
 _icon = ExtResource("4_13oo7")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_4ckr0")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_3oqbg")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_4cep7"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_xbmd1"]
+script = ExtResource("9_sh81w")
+_value = 25.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_etato"]
+script = ExtResource("9_sh81w")
+_value = -0.5
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_qhogk"]
 script = ExtResource("13_300w3")
 _name = "Sniper"
 _description = "Sniper.I.Monkey.P"
 _icon = ExtResource("9_bququ")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_4cep7"), SubResource("Resource_xbmd1"), SubResource("Resource_etato")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_mwd5q"), SubResource("Resource_ovk0i"), SubResource("Resource_fe5y6")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_52ybj"]
+script = ExtResource("8_10mkb")
+bullet_scene = ExtResource("7_i8lvl")
+
+[sub_resource type="Resource" id="Resource_rqef0"]
+script = ExtResource("9_2b0ma")
+bullet_resource = SubResource("Resource_52ybj")
 
 [sub_resource type="Resource" id="Resource_fjaif"]
 script = ExtResource("13_300w3")
 _name = "Rockets!"
 _description = ""
 _icon = ExtResource("18_c3jal")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_rqef0")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_2c8op"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_uwpvm"]
+script = ExtResource("9_sh81w")
+_value = 15.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_mtpw1"]
 script = ExtResource("13_300w3")
 _name = "More proectiles "
 _description = ""
 _icon = ExtResource("18_c3jal")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_2c8op"), SubResource("Resource_uwpvm")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_fjaif")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_jhjq2"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_wc4om"]
+script = ExtResource("9_sh81w")
+_value = 15.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_kde11"]
 script = ExtResource("13_300w3")
 _name = "More proectiles"
 _description = "Explosive suprise once fully upgraded"
 _icon = ExtResource("18_c3jal")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_jhjq2"), SubResource("Resource_wc4om")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_mtpw1")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_44ewx"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_yynvm"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_hn2fp"]
 script = ExtResource("13_300w3")
 _name = "Pew pew pew!"
 _description = "I need more bullet!"
 _icon = ExtResource("17_0disk")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_44ewx"), SubResource("Resource_yynvm")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_aj1os"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_52suv"]
 script = ExtResource("13_300w3")
 _name = "Pew pew!"
 _description = "More bullet"
 _icon = ExtResource("17_0disk")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_aj1os")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_hn2fp")])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_hu01h"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_mrjmq"]
 script = ExtResource("13_300w3")
 _name = "Pew!"
 _description = "bullet"
 _icon = ExtResource("17_0disk")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_hu01h")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_52suv")])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_fsoho"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_ta6va"]
+script = ExtResource("9_sh81w")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_im5e4"]
+script = ExtResource("9_sh81w")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_yt3qi"]
+script = ExtResource("9_sh81w")
+_value = 50.0
+_mod_type = 0
+_base_stat_type = 9
+
 [sub_resource type="Resource" id="Resource_wwofm"]
 script = ExtResource("13_300w3")
 _name = "Semi-ist"
-_description = ""
+_description = "the most semi it can be"
 _icon = ExtResource("16_ntka3")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_fsoho"), SubResource("Resource_ta6va"), SubResource("Resource_im5e4"), SubResource("Resource_yt3qi")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
 _max_uses = 0
 weight = 0
+
+[sub_resource type="Resource" id="Resource_s2so7"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_qld4h"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_45u4p"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
 
 [sub_resource type="Resource" id="Resource_sjiop"]
 script = ExtResource("13_300w3")
 _name = "Semi-er"
-_description = ""
+_description = "more seminess"
 _icon = ExtResource("16_ntka3")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_s2so7"), SubResource("Resource_qld4h"), SubResource("Resource_45u4p")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_wwofm")])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_5wdla"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_no5oo"]
+script = ExtResource("9_sh81w")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_o5rlv"]
+script = ExtResource("9_sh81w")
+_value = 50.0
+_mod_type = 0
+_base_stat_type = 9
+
 [sub_resource type="Resource" id="Resource_retyn"]
 script = ExtResource("13_300w3")
 _name = "Semi auto"
-_description = ""
+_description = "Single fire mode"
 _icon = ExtResource("16_ntka3")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_5wdla"), SubResource("Resource_no5oo"), SubResource("Resource_o5rlv")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_sjiop")])
 _max_uses = 0
 weight = 0
 
+[sub_resource type="Resource" id="Resource_7vcvl"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_ekyup"]
+script = ExtResource("9_sh81w")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
 [sub_resource type="Resource" id="Resource_81ljp"]
 script = ExtResource("13_300w3")
 _name = "Assualt Rifle"
-_description = ""
+_description = "Shoots faster"
 _icon = ExtResource("1_3ter6")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_7vcvl"), SubResource("Resource_ekyup")])
 added_upgrades = Array[ExtResource("13_300w3")]([SubResource("Resource_kde11"), SubResource("Resource_mrjmq"), SubResource("Resource_retyn")])
 _max_uses = 0
 weight = 0
 
-[sub_resource type="Resource" id="Resource_loe7w"]
+[sub_resource type="Resource" id="Resource_lhlfo"]
 script = ExtResource("22_rxpy1")
-size = 200
-damage = 50
+size = 50
+damage = 10
 
-[sub_resource type="Resource" id="Resource_blxac"]
+[sub_resource type="Resource" id="Resource_umnn5"]
 script = ExtResource("23_c0soq")
-on_kill_effect = SubResource("Resource_loe7w")
+on_kill_effect = SubResource("Resource_lhlfo")
 
-[sub_resource type="Resource" id="Resource_jlxo2"]
+[sub_resource type="Resource" id="Resource_htg44"]
 script = ExtResource("13_300w3")
-_name = "Explode on kill"
-_description = "boom?!"
-_icon = ExtResource("21_ga46l")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_blxac")])
+_name = "Explode"
+_description = ""
+_icon = ExtResource("25_onnlt")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_umnn5")])
 added_upgrades = Array[ExtResource("13_300w3")]([])
-_max_uses = 1
+_max_uses = 0
 weight = 0
 
 [sub_resource type="Resource" id="Resource_lgxfq"]
@@ -571,7 +916,7 @@ icon = ExtResource("1_3ter6")
 weapon_name = "Rifle"
 description = "Pew"
 weapon = ExtResource("2_3nes6")
-upgrades = Array[ExtResource("13_300w3")]([ExtResource("3_1oe0l"), ExtResource("4_kxeyq"), ExtResource("5_u5lyu"), ExtResource("6_4ufd7"), ExtResource("7_ogqs4"), ExtResource("8_cfu0p"), ExtResource("9_23ks5"), SubResource("Resource_jlxo2")])
+upgrades = Array[ExtResource("13_300w3")]([ExtResource("3_1oe0l"), ExtResource("4_kxeyq"), ExtResource("5_u5lyu"), ExtResource("6_4ufd7"), ExtResource("7_ogqs4"), SubResource("Resource_htg44")])
 specializations = Array[ExtResource("13_300w3")]([SubResource("Resource_eull3"), SubResource("Resource_qhogk"), SubResource("Resource_81ljp")])
 weapon_xp = 0
 level = 0

@@ -103,7 +103,7 @@ func init_base_stats():
 	base_stats[BaseStat.BaseStatType.MOVEMENT_SPEED].apply_stat(movement_speed_mod)
 	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].apply_stat(bullet_life_time_mod)
 	base_stats[BaseStat.BaseStatType.SPREAD_ANGLE].apply_stat(spread_angle_mod)
-	base_stats[BaseStat.BaseStatType.SPREAD_ACC].apply_stat(spread_variation_mod)
+	base_stats[BaseStat.BaseStatType.SPREAD_VARIATION].apply_stat(spread_variation_mod)
 	base_stats[BaseStat.BaseStatType.BULLET_SPEED].apply_stat(bullet_speed_mod)
 
 
@@ -153,5 +153,5 @@ func init_stat_signals():
 	base_stats[BaseStat.BaseStatType.BULLET_LIFE_TIME].on_value_changed.connect(update_bullet_lifetime)
 	base_stats[BaseStat.BaseStatType.PIERCE].on_value_changed.connect(update_pierce)
 	base_stats[BaseStat.BaseStatType.SPREAD_ANGLE].on_value_changed.connect(update_spread_angle)
-	base_stats[BaseStat.BaseStatType.SPREAD_ACC].on_value_changed.connect(update_spread_variation)
+	base_stats[BaseStat.BaseStatType.SPREAD_VARIATION].on_value_changed.connect(update_spread_variation)
 	base_stats[BaseStat.BaseStatType.BULLET_SPEED].on_value_changed.connect(update_bullet_speed)

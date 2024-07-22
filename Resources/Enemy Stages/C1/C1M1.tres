@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=15 format=3 uid="uid://bt4lmcvjwvv6t"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=29 format=3 uid="uid://bt4lmcvjwvv6t"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_nl1ro"]
 [ext_resource type="Resource" uid="uid://frkdkn68i8kg" path="res://Resources/Enemy Waves/C1-1/W1-Skele.tres" id="2_w2oia"]
@@ -6,13 +6,50 @@
 [ext_resource type="Resource" uid="uid://dyo4mwx4q7d4x" path="res://Resources/Enemy Waves/C1-1/W2-Turret.tres" id="4_ak052"]
 [ext_resource type="Resource" uid="uid://fvdgnlyjh4sr" path="res://Resources/Enemy Waves/C1-1/W3-EliteKnight.tres" id="5_fx18u"]
 [ext_resource type="Resource" uid="uid://dta63gd7oyomx" path="res://Resources/Enemy Waves/C1-1/W3-Skele.tres" id="6_0qb2x"]
-[ext_resource type="Resource" uid="uid://kcwdexkjbfcf" path="res://Resources/Enemies/Bosses/hell_totem.tres" id="6_gn2mj"]
 [ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="6_t3w4s"]
 [ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="7_2lb3n"]
 [ext_resource type="Resource" uid="uid://cumr6nuwulkci" path="res://Resources/Enemy Waves/C1-1/W3-Turret.tres" id="7_k04m7"]
 [ext_resource type="Resource" uid="uid://22w056axcat4" path="res://Resources/Enemy Waves/C1-1/W4-EliteKnight.tres" id="8_m6q6e"]
 [ext_resource type="Resource" uid="uid://cpy3lhbut8yns" path="res://Resources/Enemy Waves/C1-1/W4-Skele.tres" id="9_f8fkl"]
 [ext_resource type="Resource" uid="uid://dw6rqtdcxbpgm" path="res://Resources/Enemy Waves/C1-1/W4-Turret.tres" id="10_m0a5k"]
+[ext_resource type="Resource" uid="uid://dpp2euyvm2dml" path="res://Resources/Enemy Waves/C1-1/W5-EliteKnight.tres" id="11_fe58f"]
+[ext_resource type="Resource" uid="uid://bnsdmfhm47407" path="res://Resources/Enemy Waves/C1-1/W5-Skele.tres" id="12_ousfg"]
+[ext_resource type="Resource" uid="uid://bmaloadyfaekw" path="res://Resources/Enemy Waves/C1-1/W5-Turret.tres" id="13_q8lj2"]
+[ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="14_4to03"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="15_l3f3q"]
+[ext_resource type="Resource" uid="uid://jl8a3omdr58i" path="res://Resources/Gear/ammy_astramentis.tres" id="16_m1xty"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="17_3acpo"]
+[ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="18_nlrjs"]
+[ext_resource type="PackedScene" uid="uid://bmvnb8r3pe8kr" path="res://Objects/Enemy Spawning/Bosses/boss_totem.tscn" id="19_fsnis"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="20_0m1ee"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="21_mth5x"]
+
+[sub_resource type="Resource" id="Resource_mfjl3"]
+script = ExtResource("15_l3f3q")
+gear_resource = ExtResource("14_4to03")
+drop_weight = 1.0
+rarity = 2
+
+[sub_resource type="Resource" id="Resource_aoh2q"]
+script = ExtResource("15_l3f3q")
+gear_resource = ExtResource("16_m1xty")
+drop_weight = 0.0
+rarity = 0
+
+[sub_resource type="Resource" id="Resource_syjpa"]
+script = ExtResource("17_3acpo")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3"), SubResource("Resource_aoh2q")])
+
+[sub_resource type="Resource" id="Resource_tx1wb"]
+script = ExtResource("20_0m1ee")
+max_health = 5000
+enemy_icon = ExtResource("18_nlrjs")
+enemy_type = 1
+enemy_name = "Hell Totem"
+stage_xp_value = 0.0
+drop_pool = SubResource("Resource_syjpa")
+spawn_sprite_frames = ExtResource("21_mth5x")
+enemy_scene = ExtResource("19_fsnis")
 
 [sub_resource type="Resource" id="Resource_blnss"]
 script = ExtResource("7_2lb3n")
@@ -23,11 +60,11 @@ one_shot = true
 duration = 1
 wave_delay = 0
 amount = 1
-enemy_resource = ExtResource("6_gn2mj")
+enemy_resource = SubResource("Resource_tx1wb")
 spawn_pattern = 0
 rank = 2
 
 [resource]
 script = ExtResource("1_nl1ro")
 stage_number = 0
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_w2oia"), ExtResource("3_jw4u1"), ExtResource("4_ak052"), ExtResource("5_fx18u"), ExtResource("6_0qb2x"), ExtResource("7_k04m7"), ExtResource("8_m6q6e"), ExtResource("9_f8fkl"), ExtResource("10_m0a5k"), SubResource("Resource_blnss")])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_w2oia"), ExtResource("3_jw4u1"), ExtResource("4_ak052"), ExtResource("5_fx18u"), ExtResource("6_0qb2x"), ExtResource("7_k04m7"), ExtResource("8_m6q6e"), ExtResource("9_f8fkl"), ExtResource("10_m0a5k"), ExtResource("11_fe58f"), ExtResource("12_ousfg"), ExtResource("13_q8lj2"), SubResource("Resource_blnss")])

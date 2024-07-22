@@ -34,7 +34,6 @@ func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
 	if tilemap is TileMap:
 		topLeft = tilemap.map_to_local(Vector2(0,0))
-		print("top left: ", topLeft)
 		
 		var botRightArray :Array[Vector2i] = tilemap.get_used_cells(1)
 		botRight = tilemap.get_used_rect().size # Get size of tile map in no of tiles

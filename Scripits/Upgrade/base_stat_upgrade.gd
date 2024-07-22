@@ -36,7 +36,7 @@ func get_upgrade_string() -> String:
 	if _value >= 0:
 		return_string = "+"
 	else:
-		return_string = "-"
+		return_string = ""
 	
 	return_string += str(_value)
 	
@@ -48,10 +48,10 @@ func get_upgrade_string() -> String:
 
 func get_save_data() -> Dictionary:
 	return{
+		"base_res_path": base_res_path,
 		"value": _value,
 		"mod_type": _mod_type,
 		"base_stat_type": _base_stat_type,
-		"base_res_path": base_res_path,
 	}
 
 func set_resource_data(data_dict):

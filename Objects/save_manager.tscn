@@ -4,3 +4,4 @@
 
 [node name="Save Manager" type="Node"]
 script = ExtResource("1_rpmnc")
+load_on_start = true

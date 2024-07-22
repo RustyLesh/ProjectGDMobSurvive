@@ -57,15 +57,15 @@ func toggle_upgrade_menu():
 
 func on_boss_spawn(enemy_spawn_data: SpawnDataResource):
 	hp_bar_instance = enemy_spawn_data.hp_bar_texture_resource.instantiate()
-	#TODO: Set hp label value (number) value here
 	hp_bar_instance.global_position = boss_hp_bar_poss.global_position
 	add_child(hp_bar_instance)
+	hp_bar_instance.init_ui(enemy_spawn_data.enemy_resource.max_health)
 
 func on_boss_death():
 	hp_bar_instance.queue_free()
 
 func on_boss_current_health_changed(value):
-	hp_bar_instance.value = value / 100
+	hp_bar_instance.update_hp(value)
 
 func update_upgrade_menu_toggle_button(current_upgrade_points):
 	if current_upgrade_points <= 0:

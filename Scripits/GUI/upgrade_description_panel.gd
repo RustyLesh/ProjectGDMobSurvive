@@ -16,6 +16,9 @@ func update_ui(upgrade_resource : UpgradeResource):
 	description.text = upgrade_resource._description
 	description_Auto_gen.text = ""
 	for upgrade in upgrade_resource.upgrades:
+		if upgrade == null:
+			print("Null ugrade: ", upgrade_resource._name)
+		print("Upgrade option name: ", upgrade_resource._name)
 		description_Auto_gen.text += str(upgrade.get_upgrade_string(), "\n")
 	uses_counter.text = str(upgrade_resource.current_uses, "/", upgrade_resource._max_uses)
 

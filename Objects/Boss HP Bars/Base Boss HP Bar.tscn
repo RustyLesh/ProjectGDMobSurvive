@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dicuj8xj3j0s2"]
+[gd_scene load_steps=7 format=3 uid="uid://dicuj8xj3j0s2"]
 
 [ext_resource type="Texture2D" uid="uid://dxygiq3yquohk" path="res://Art/default_boss_hp_bar.png" id="1_4w4wk"]
+[ext_resource type="Script" path="res://Objects/Boss HP Bars/boss_hp_bar.gd" id="2_186vc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35vnq"]
 atlas = ExtResource("1_4w4wk")
@@ -14,6 +15,11 @@ region = Rect2(0, 0, 720, 32)
 atlas = ExtResource("1_4w4wk")
 region = Rect2(0, 32, 720, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fnwp"]
+bg_color = Color(0, 0, 0, 0.443137)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
 [node name="TextureProgressBar" type="TextureProgressBar"]
 offset_right = 720.0
 offset_bottom = 32.0
@@ -21,3 +27,16 @@ value = 100.0
 texture_under = SubResource("AtlasTexture_35vnq")
 texture_over = SubResource("AtlasTexture_2g6l0")
 texture_progress = SubResource("AtlasTexture_s8yi4")
+script = ExtResource("2_186vc")
+
+[node name="LifeCounter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -32.0
+offset_right = 472.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fnwp")
+text = "999/999"
+horizontal_alignment = 1
+vertical_alignment = 2

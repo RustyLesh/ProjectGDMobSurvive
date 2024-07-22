@@ -18,9 +18,8 @@ func get_upgrade_string() -> String:
 	return "Empty upgrade string"
 
 func get_save_data() -> Dictionary:
-		return {
-		"base_res_path": base_res_path
-	}
+		print("Upgrade save data func not set")
+		return {"base_res_path": base_res_path}
 
 func set_resource_data(_data_dict):
-	print("Upgrade class set data")
+	print("Upgrade set data func not set")

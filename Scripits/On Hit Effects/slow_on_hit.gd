@@ -16,10 +16,10 @@ func get_upgrade_string() -> String:
 	
 func get_save_data() -> Dictionary:
 	return {
+		"base_res_path": base_res_path,
 		"duration": _duration,
 		"slow_amount": _slow_amount,
 		"proc_chance": _proc_chance,
-		"resource_path": base_res_path,
 	}
 
 func set_resource_data(data_dict):

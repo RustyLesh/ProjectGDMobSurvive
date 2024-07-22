@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=10 format=3 uid="uid://bmaloadyfaekw"]
+
+[ext_resource type="PackedScene" uid="uid://14pmcnlmox4s" path="res://Objects/enemy_bullet.tscn" id="1_py3gw"]
+[ext_resource type="Script" path="res://Scripits/bullet_resource.gd" id="2_cvvxs"]
+[ext_resource type="Texture2D" uid="uid://cbig1ugnuto6u" path="res://Art/Enemies/ember_shard.png" id="3_mtbk3"]
+[ext_resource type="PackedScene" uid="uid://i1h1yymb246d" path="res://Objects/Enemy Spawning/enemy_turret.tscn" id="4_g6qdv"]
+[ext_resource type="Script" path="res://Scripits/Enemy/shell_turrent_resource.gd" id="5_v30v0"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="6_2ovcl"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="7_1ep5x"]
+
+[sub_resource type="Resource" id="Resource_thchf"]
+script = ExtResource("2_cvvxs")
+bullet_scene = ExtResource("1_py3gw")
+
+[sub_resource type="Resource" id="Resource_eav7b"]
+script = ExtResource("5_v30v0")
+move_speed = 30
+contact_damage = 1
+follow_range = 150
+keep_following = false
+bullet_resource = SubResource("Resource_thchf")
+bullet_damage = 10
+bullet_speed = 60
+bullet_lifetime = 2
+delay_betweeen_shots = 1.0
+max_health = 75
+enemy_icon = ExtResource("3_mtbk3")
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 20.0
+spawn_sprite_frames = ExtResource("6_2ovcl")
+enemy_scene = ExtResource("4_g6qdv")
+
+[resource]
+script = ExtResource("7_1ep5x")
+time_start = 240
+one_shot = false
+duration = 60
+wave_delay = 5
+amount = 3
+enemy_resource = SubResource("Resource_eav7b")
+spawn_pattern = 0
+rank = 0

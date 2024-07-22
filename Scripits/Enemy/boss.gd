@@ -5,8 +5,8 @@ class_name ShellBoss extends EnemyShell
 @onready var collision_shape: CollisionShape2D 
 @onready var body
 signal on_boss_death()
-signal on_current_hp_changed(current_hp)
-
+signal on_current_hp_changed(current_hp: float)
+signal on_current_hp_percent_changed(current_hp_percent: float)
 func ready():
 	entity_type = EntityType.BOSS
 
@@ -38,7 +38,9 @@ func init_enemy(_enemy_resource: EnemyResource):
 
 func current_hp_changed(current_hp):
 	on_current_hp_changed.emit(current_hp)
-	print("Boss hp: ", current_hp)
+
+func current_hp_percent_changed(current_hp_percent):
+	on_current_hp_percent_changed.emit(current_hp_percent)
 
 func _enable_enemy():
 	spawn_animation.visible = false

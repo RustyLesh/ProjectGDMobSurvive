@@ -22,7 +22,7 @@ bullet_resource = SubResource("Resource_thchf")
 bullet_damage = 10
 bullet_speed = 60
 bullet_lifetime = 2
-delay_betweeen_shots = 5.0
+delay_betweeen_shots = 1.0
 max_health = 50
 enemy_icon = ExtResource("3_cx6wf")
 enemy_type = 0
@@ -33,10 +33,10 @@ enemy_scene = ExtResource("4_lhkqf")
 
 [resource]
 script = ExtResource("7_hst2o")
-time_start = 240
+time_start = 180
 one_shot = false
 duration = 60
-wave_delay = 10
+wave_delay = 5
 amount = 3
 enemy_resource = SubResource("Resource_vokq5")
 spawn_pattern = 0
