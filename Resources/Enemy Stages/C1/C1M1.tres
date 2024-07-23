@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=29 format=3 uid="uid://bt4lmcvjwvv6t"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=28 format=3 uid="uid://bt4lmcvjwvv6t"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_nl1ro"]
 [ext_resource type="Resource" uid="uid://frkdkn68i8kg" path="res://Resources/Enemy Waves/C1-1/W1-Skele.tres" id="2_w2oia"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="6_t3w4s"]
 [ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="7_2lb3n"]
 [ext_resource type="Resource" uid="uid://cumr6nuwulkci" path="res://Resources/Enemy Waves/C1-1/W3-Turret.tres" id="7_k04m7"]
-[ext_resource type="Resource" uid="uid://22w056axcat4" path="res://Resources/Enemy Waves/C1-1/W4-EliteKnight.tres" id="8_m6q6e"]
 [ext_resource type="Resource" uid="uid://cpy3lhbut8yns" path="res://Resources/Enemy Waves/C1-1/W4-Skele.tres" id="9_f8fkl"]
 [ext_resource type="Resource" uid="uid://dw6rqtdcxbpgm" path="res://Resources/Enemy Waves/C1-1/W4-Turret.tres" id="10_m0a5k"]
 [ext_resource type="Resource" uid="uid://dpp2euyvm2dml" path="res://Resources/Enemy Waves/C1-1/W5-EliteKnight.tres" id="11_fe58f"]
@@ -67,4 +66,4 @@ rank = 2
 [resource]
 script = ExtResource("1_nl1ro")
 stage_number = 0
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_w2oia"), ExtResource("3_jw4u1"), ExtResource("4_ak052"), ExtResource("5_fx18u"), ExtResource("6_0qb2x"), ExtResource("7_k04m7"), ExtResource("8_m6q6e"), ExtResource("9_f8fkl"), ExtResource("10_m0a5k"), ExtResource("11_fe58f"), ExtResource("12_ousfg"), ExtResource("13_q8lj2"), SubResource("Resource_blnss")])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_w2oia"), ExtResource("3_jw4u1"), ExtResource("4_ak052"), ExtResource("5_fx18u"), ExtResource("6_0qb2x"), ExtResource("7_k04m7"), ExtResource("9_f8fkl"), ExtResource("10_m0a5k"), ExtResource("11_fe58f"), ExtResource("12_ousfg"), ExtResource("13_q8lj2"), SubResource("Resource_blnss")])

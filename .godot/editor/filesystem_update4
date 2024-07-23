@@ -36,3 +36,26 @@ res://Resources/Enemy Waves/C1-2/W3-EliteSlime.tres
 res://Resources/Enemy Stages/C1/C1M2.tres
 res://Resources/Enemy Stages/C1/testing.tres
 res://Resources/Gear/ammy_purple.tres
+res://Objects/Enemy Spawning/enemy_turret.tscn
+res://Resources/Enemy Waves/C1-2/W4-Knight.tres
+res://Resources/Enemy Waves/C1-2/W4-Turret.tres
+res://Resources/Enemy Waves/C1-2/W5-EliteSlime.tres
+res://Resources/Enemy Waves/C1-2/W3-Knight.tres
+res://Resources/Enemy Waves/C1-2/W3-Turret.tres
+res://Resources/Enemy Waves/C1-2/W5-Knight.tres
+res://Resources/Enemy Waves/C1-2/W5-Turret.tres
+res://Resources/Enemies/Bosses/hell_totem.tres
+res://Objects/combat_level.tscn
+res://Objects/GUI/in_level_ui.tscn
+res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
+res://Objects/enemy_bullet.tscn
+res://player_setup.tscn
+res://player_stats.tscn
+res://Objects/dev_tools.tscn
+res://Scripits/Enemy/enemy_spawn_manager.gd
+res://Scripits/Enemy/knight_ai.gd
+res://Scripits/Enemy/box_slime_shell.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/Enemy/enemy_resource.gd
+res://Scripits/Enemy/knight_resource.gd
+res://Objects/Enemy Spawning/box_slime.tscn

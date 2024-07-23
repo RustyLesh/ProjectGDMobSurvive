@@ -27,6 +27,7 @@ const WALL_SPAWN_BUFFER = 26.0 # Minimum distance from walls for spawning enemie
 @export var time := 0
 @export var delay_for_stage_end: int
 @export var disable_spawns: bool
+@export var disable_end_timer: bool 
 
 signal stage_win()
 signal enemy_death(entity: Entity)
@@ -72,7 +73,7 @@ func _on_timer_timeout():
 	ui_scene.seconds_timer.update_timer(time)
 	for i in spawns:
 		spawn(i)
-	if time > spawn_end_time:
+	if time > spawn_end_time && !disable_end_timer: # Start countdown 
 		if !countdown_started:
 			on_countdown_started.emit()
 			countdown_started = true
