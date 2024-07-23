@@ -4,4 +4,3 @@
 
 [node name="Node" type="Node"]
 script = ExtResource("1_4k6xp")
-cheat_menu_visible = false

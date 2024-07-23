@@ -15,13 +15,14 @@ class_name EnemySpawnManager extends Node2D
 @onready var timer: Timer = $Timer
 signal on_spawn_timer_pause()
 signal on_spawn_timer_play()
-var game_win_time
-
+signal on_time_remaining_tick(time_left: int)
+var spawn_end_time # Tme when all enemies are dead and no spawns left
+var game_win_time # Time when player wins, and stage finished. spawn end time + stage win delay
 var spawns: Array[SpawnDataResource]
 var topLeft : Vector2
 var botRight : Vector2 
 var center: Vector2 
-
+var countdown_started: bool = false
 const WALL_SPAWN_BUFFER = 26.0 # Minimum distance from walls for spawning enemies (inc walls)
 @export var time := 0
 @export var delay_for_stage_end: int
@@ -29,6 +30,7 @@ const WALL_SPAWN_BUFFER = 26.0 # Minimum distance from walls for spawning enemie
 
 signal stage_win()
 signal enemy_death(entity: Entity)
+signal on_countdown_started()
 
 func _ready():
 	#Creates points for each corner of the tilemap for spawning algorithm
@@ -48,8 +50,8 @@ func _ready():
 		enemy_spawns = PlayerSetup.enemy_spawns
 		spawns = enemy_spawns.spawns
 	
-	game_win_time = spawns[spawns.size() - 1].time_end + delay_for_stage_end
-
+	spawn_end_time = spawns[spawns.size() - 1].time_end 
+	game_win_time = spawn_end_time + delay_for_stage_end
 	enemy_death.connect(player.on_kill_effect_manager._on_entity_killed)
 
 #Pause spawn timer
@@ -59,6 +61,7 @@ func pause_timer():
 
 #Resume spawn timer
 func play_timer():
+	print("start timer")
 	timer.paused = false
 	on_spawn_timer_play.emit()
 
@@ -69,6 +72,11 @@ func _on_timer_timeout():
 	ui_scene.seconds_timer.update_timer(time)
 	for i in spawns:
 		spawn(i)
+	if time > spawn_end_time:
+		if !countdown_started:
+			on_countdown_started.emit()
+			countdown_started = true
+		ui_scene.countdown_timer(delay_for_stage_end - (time - spawn_end_time))
 	if time >= game_win_time:
 		on_stage_win()
 		if	enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
@@ -102,7 +110,8 @@ func spawn(spawn_data: SpawnDataResource):
 				SpawnDataResource.EnemyRank.BOSS:
 					print("Boss spawning")
 					spawn_boss(spawn_data)
-					enemy.on_death.connect(ui_scene.on_boss_death)
+					enemy.on_boss_death.connect(ui_scene.on_boss_death)
+					enemy.on_boss_death.connect(on_boss_death)
 					enemy.on_current_hp_changed.connect(ui_scene.on_boss_current_health_changed)
 			spawn_data.spawn_delay_counter = 0
 
@@ -152,6 +161,7 @@ func get_random_position(wall_buffer: int) -> Vector2:
 
 func spawn_boss(enemy_spawn_data: SpawnDataResource):
 	ui_scene.on_boss_spawn(enemy_spawn_data)
+	pause_timer()
 
 # Choose number of spawn, spawns the monsters in a random position in a cluster.
 # The cluster size is based on area_radius.
@@ -166,12 +176,13 @@ func random_cluster(no_spawn: int, area_radius: int)-> Array[Vector2]:
 
 	return spawn_cord_array
 
-
 func on_boss_death():
+	print("on boss death spawn manager")
 	play_timer()
 
 func on_stage_win():
-	if enemy_spawns.stage_number < PlayerStats.highest_stage_completed:
+	if enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
+		print("Highest level changed from: ",PlayerStats.highest_stage_completed, "to: ", enemy_spawns.stage_number)
 		PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 	stage_win.emit()
 

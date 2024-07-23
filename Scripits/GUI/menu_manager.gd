@@ -10,6 +10,8 @@ class_name MenuManager
 @onready var seconds_timer = $"HUD/Seconds Timer"
 @onready var upgrade_manager = $"../Upgrade Manager"
 @onready var upgrade_menu_toggle: UpgradeMenuButton = $"HUD/CanvasLayer/Upgrade Menu Button"
+@onready var count_down_timer: Label = $"HUD/CountdownTimer"
+@onready var countdown_started_text: Label = $"HUD/CountdownStarted"
 
 #GUI Options
 @onready var touch_joysticks = $"TouchSticks/Test/Sticks"
@@ -25,6 +27,7 @@ func _ready():
 	upgrade_menu.visible = false
 	end_screen.visible = false
 	spawn_manager.stage_win.connect(end_screen.on_stage_win)
+	spawn_manager.on_countdown_started.connect(countdown_start)
 
 	await get_tree().create_timer(0.01).timeout
 	upgrade_manager.current_upgrade_points_changed.connect(update_upgrade_menu_toggle_button)
@@ -86,3 +89,12 @@ func toggle_touch_mode(value: bool):
 
 func on_controller_input():
 	toggle_touch_mode(false)
+
+func countdown_start():
+	stage_timer.visible = false
+	count_down_timer.visible = true
+	countdown_started_text.visible = true
+
+func countdown_timer(seconds: int):
+	count_down_timer.text = str(seconds)
+	print("Countdown: ",seconds)

@@ -36,7 +36,7 @@ func init_enemy(_enemy_resource: EnemyResource):
 	slow_timer.timeout.connect(revert_slow)
 
 	#Attack setup
-
+	attack_damage = _enemy_resource.attack_damage
 	#Spawn
 	spawn_animation.play()
 	await spawn_animation.animation_finished

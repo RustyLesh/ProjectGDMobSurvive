@@ -28,13 +28,13 @@
 script = ExtResource("15_l3f3q")
 gear_resource = ExtResource("14_4to03")
 drop_weight = 1.0
-rarity = 2
+rarity = 3
 
 [sub_resource type="Resource" id="Resource_aoh2q"]
 script = ExtResource("15_l3f3q")
 gear_resource = ExtResource("16_m1xty")
-drop_weight = 0.0
-rarity = 0
+drop_weight = 4.0
+rarity = 2
 
 [sub_resource type="Resource" id="Resource_syjpa"]
 script = ExtResource("17_3acpo")

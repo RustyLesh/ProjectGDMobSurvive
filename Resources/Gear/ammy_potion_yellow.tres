@@ -1,29 +1,16 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://dla4oliw161u2"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=7 format=3 uid="uid://dla4oliw161u2"]
 
 [ext_resource type="Texture2D" uid="uid://byblhpuwmd37f" path="res://Art/Equipment/potion_amule yellowt.png" id="1_prnhg"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_61d0o"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_da46s"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_eygx2"]
-[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="4_nyuas"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="5_xdp18"]
-
-[sub_resource type="Resource" id="Resource_yyev3"]
-script = ExtResource("4_nyuas")
-_proc_range = 50.0
-_max_chain_count = 1
-_damage = 20.0
-_proc_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_lwhlj"]
-script = ExtResource("5_xdp18")
-_effect = SubResource("Resource_yyev3")
 
 [sub_resource type="Resource" id="Resource_xdhd1"]
 script = ExtResource("3_eygx2")
 _name = "Minor Lightning"
 _description = ""
 _icon = ExtResource("1_prnhg")
-upgrade = SubResource("Resource_lwhlj")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_eygx2")]([])
 _max_uses = 0
 weight = 0

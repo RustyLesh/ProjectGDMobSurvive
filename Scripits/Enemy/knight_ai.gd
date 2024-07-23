@@ -102,7 +102,7 @@ func look_at_player():
 func _on_attack_area_body_entered(body:Node2D):
 	var collided = body.get_parent()
 	if collided is Player:
-		collided.take_damage(enemy_shell.deal_damage())
+		collided.take_damage(enemy_shell.attack_damage)
 
 func attack_toggle(value: bool):
 	attack_area_check.monitoring = value

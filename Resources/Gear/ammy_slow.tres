@@ -1,28 +1,16 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://dujk6sj2cfjjg"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=7 format=3 uid="uid://dujk6sj2cfjjg"]
 
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="1_3uc7b"]
 [ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="1_vb8fe"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_bvewt"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="4_kv2co"]
-[ext_resource type="Script" path="res://Scripits/On Hit Effects/slow_on_hit.gd" id="5_jyv1u"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="6_jsir1"]
-
-[sub_resource type="Resource" id="Resource_cuud7"]
-script = ExtResource("5_jyv1u")
-_duration = 2
-_slow_amount = 30.0
-_proc_chance = 0.5
-
-[sub_resource type="Resource" id="Resource_o8gnt"]
-script = ExtResource("6_jsir1")
-_effect = SubResource("Resource_cuud7")
 
 [sub_resource type="Resource" id="Resource_ui2dq"]
 script = ExtResource("4_kv2co")
 _name = "Slow on hit"
 _description = "Too fast? no"
 _icon = ExtResource("1_vb8fe")
-upgrade = SubResource("Resource_o8gnt")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("4_kv2co")]([])
 _max_uses = 1
 weight = 0

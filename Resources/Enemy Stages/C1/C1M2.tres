@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=5 format=3 uid="uid://cssckm02e0x6m"]
+
+[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_j2mvt"]
+[ext_resource type="Resource" uid="uid://oh6snngjpdoj" path="res://Resources/Enemy Waves/C1-2/W1-Knight.tres" id="2_mqegu"]
+[ext_resource type="Resource" uid="uid://nwv2bdwv0871" path="res://Resources/Enemy Waves/C1-2/W2-Turret.tres" id="8_tehkd"]
+[ext_resource type="Resource" uid="uid://dw7k3ttoeakh1" path="res://Resources/Enemy Waves/C1-2/W3-EliteSlime.tres" id="9_hpkft"]
+
+[resource]
+script = ExtResource("1_j2mvt")
+stage_number = 0
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_mqegu"), ExtResource("8_tehkd"), ExtResource("9_hpkft")])

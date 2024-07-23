@@ -22,10 +22,10 @@ drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubRe
 [sub_resource type="Resource" id="Resource_2hhl5"]
 script = ExtResource("2_mf647")
 move_speed = 40
-contact_damage = 1
+contact_damage = 10
 follow_range = 200
 keep_following = false
-attack_damaage = 20
+attack_damage = 25
 delay_betweeen_shots = 0.0
 max_health = 500
 enemy_icon = ExtResource("1_p7txk")

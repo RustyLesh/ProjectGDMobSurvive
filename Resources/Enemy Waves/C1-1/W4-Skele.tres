@@ -12,7 +12,7 @@ move_speed = 30
 contact_damage = 1
 follow_range = 100
 keep_following = false
-attack_damaage = 10
+attack_damage = 15
 delay_betweeen_shots = 0.0
 max_health = 35
 enemy_icon = ExtResource("1_gkdrk")
@@ -24,7 +24,7 @@ enemy_scene = ExtResource("1_u0jpx")
 
 [resource]
 script = ExtResource("4_4mhcp")
-time_start = 240
+time_start = 180
 one_shot = false
 duration = 60
 wave_delay = 4

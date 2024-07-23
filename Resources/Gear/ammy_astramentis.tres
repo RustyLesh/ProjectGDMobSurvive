@@ -69,5 +69,5 @@ script = ExtResource("5_8umjn")
 _item_name = "Astramentis"
 _description = "All stats"
 _icon = ExtResource("1_q13jg")
-_gear_type = 0
+_gear_type = 2
 mod_list = Array[ExtResource("2_04kub")]([SubResource("Resource_42gok")])

@@ -1,22 +1,15 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=12 format=3 uid="uid://bawy805k03xpe"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://bawy805k03xpe"]
 
 [ext_resource type="Texture2D" uid="uid://bu4sryyj4nj32" path="res://Art/Equipment/flame_crown.png" id="1_swrsk"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_ja2av"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_qvk6u"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_o0qjq"]
-[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_1qod5"]
-
-[sub_resource type="Resource" id="Resource_60lsl"]
-script = ExtResource("4_1qod5")
-_value = 100.0
-_mod_type = 0
-_base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_aw7xa"]
 script = ExtResource("3_o0qjq")
 _name = "Life"
 _description = ""
-upgrade = SubResource("Resource_60lsl")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_o0qjq")]([])
 _max_uses = 0
 weight = 0
@@ -28,18 +21,12 @@ upgrade_resource = SubResource("Resource_aw7xa")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_clrjd"]
-script = ExtResource("4_1qod5")
-_value = 25.0
-_mod_type = 1
-_base_stat_type = 1
-
 [sub_resource type="Resource" id="Resource_8e1uw"]
 script = ExtResource("3_o0qjq")
 _name = "More damage"
 _description = "You get more damage"
 _icon = ExtResource("1_swrsk")
-upgrade = SubResource("Resource_clrjd")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
 added_upgrades = Array[ExtResource("3_o0qjq")]([])
 _max_uses = 5
 weight = 0

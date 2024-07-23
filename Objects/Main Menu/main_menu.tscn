@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=91 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_tree_description.gd" id="17_flrow"]
 [ext_resource type="Resource" uid="uid://bt4lmcvjwvv6t" path="res://Resources/Enemy Stages/C1/C1M1.tres" id="20_bs3de"]
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
+[ext_resource type="Resource" uid="uid://cssckm02e0x6m" path="res://Resources/Enemy Stages/C1/C1M2.tres" id="21_2wkqa"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
 [ext_resource type="Resource" uid="uid://b3r4qs35etuh7" path="res://Resources/Enemy Stages/C1/testing.tres" id="23_gte4s"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
@@ -37,8 +38,13 @@
 [ext_resource type="Texture2D" uid="uid://bsa3rai1ow8co" path="res://Art/Equipment/ice_crown.png" id="30_05pl0"]
 [ext_resource type="Texture2D" uid="uid://bkwsklubs1lqi" path="res://Art/Equipment/gold_ring.png" id="31_te1yv"]
 [ext_resource type="Texture2D" uid="uid://1mo147s8hfi4" path="res://Art/Equipment/amulet1.png" id="32_2vy7k"]
+[ext_resource type="Resource" uid="uid://jl8a3omdr58i" path="res://Resources/Gear/ammy_astramentis.tres" id="33_i665f"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/cheat_menu.gd" id="33_ns07y"]
-[ext_resource type="Resource" uid="uid://djrh1ql01whw0" path="res://Resources/Gear/save_test_gear1.tres" id="34_7mq5c"]
+[ext_resource type="Resource" uid="uid://din4lwsewk0lt" path="res://Resources/Gear/ammy_mini_stats.tres" id="34_psoma"]
+[ext_resource type="Resource" uid="uid://41r2pnr54srt" path="res://Resources/Gear/ammy_purple.tres" id="35_dc42c"]
+[ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="36_qi6nu"]
+[ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="37_hodeb"]
+[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="38_m32wb"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/return_continue_panel.gd" id="45_5exvu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
@@ -519,7 +525,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "2"
 script = ExtResource("16_ktv4v")
 difficulty = 2
-enemy_spawns = ExtResource("23_gte4s")
+enemy_spawns = ExtResource("21_2wkqa")
 
 [node name="Diff3" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -931,7 +937,7 @@ offset_top = 896.0
 offset_right = 704.0
 offset_bottom = 1016.0
 script = ExtResource("33_ns07y")
-gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("34_7mq5c")])
+gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("33_i665f"), ExtResource("34_psoma"), ExtResource("35_dc42c"), ExtResource("36_qi6nu"), ExtResource("37_hodeb"), ExtResource("38_m32wb")])
 
 [node name="Save Data" type="TextEdit" parent="Options Menu/Cheat Menu"]
 layout_mode = 0

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=12 format=3 uid="uid://dpp2euyvm2dml"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=14 format=3 uid="uid://dpp2euyvm2dml"]
 
 [ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="1_gnl5q"]
 [ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="1_uueti"]
@@ -6,18 +6,25 @@
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_oydri"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_n0733"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="3_ov8pn"]
+[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="3_trrf4"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_oboon"]
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="5_hak6o"]
 
 [sub_resource type="Resource" id="Resource_sc6e4"]
 script = ExtResource("2_oydri")
 gear_resource = ExtResource("1_uueti")
-drop_weight = 0.0
+drop_weight = 1.0
+rarity = 2
+
+[sub_resource type="Resource" id="Resource_h1tjl"]
+script = ExtResource("2_oydri")
+gear_resource = ExtResource("3_trrf4")
+drop_weight = 9.0
 rarity = 0
 
 [sub_resource type="Resource" id="Resource_apnj8"]
 script = ExtResource("3_n0733")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_sc6e4")])
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_sc6e4"), SubResource("Resource_h1tjl")])
 
 [sub_resource type="Resource" id="Resource_lgxe5"]
 script = ExtResource("3_ov8pn")
@@ -25,7 +32,7 @@ move_speed = 40
 contact_damage = 1
 follow_range = 200
 keep_following = false
-attack_damaage = 20
+attack_damage = 0
 delay_betweeen_shots = 0.0
 max_health = 1000
 enemy_icon = ExtResource("1_gnl5q")

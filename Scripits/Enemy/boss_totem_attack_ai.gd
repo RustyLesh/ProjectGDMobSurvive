@@ -18,6 +18,8 @@ enum Phase
 @export var phase_2_length: int = 10
 
 @export var base_shoot_delay = 1
+@export var base_damage: float = 15
+
 @export var bullet_resource: BulletResource
 var bullet_scene
 
@@ -50,6 +52,7 @@ func shoot_at_player(shots_per_burst: int, delay: float, proj_per_shot, angle_be
 			bullet.look_at(player.global_position)
 			bullet.rotate(PI/2)
 			bullet.rotate(deg_to_rad(start_angle - (angle_betweeb_proj * proj_index)))
+			bullet.base_damage = base_damage * difficulty
 		
 		await get_tree().create_timer(delay).timeout
 

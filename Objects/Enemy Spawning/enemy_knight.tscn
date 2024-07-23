@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1vebupoqfj8y"]
+[gd_scene load_steps=12 format=3 uid="uid://d1vebupoqfj8y"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_shell.gd" id="1_okkut"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="2_6m3uv"]
@@ -6,7 +6,6 @@
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_2vcui"]
 [ext_resource type="Texture2D" uid="uid://coxxmkem7dcm4" path="res://Art/quarter_circle_tranparent.png" id="6_1emng"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_ai.gd" id="6_ggdfi"]
-[ext_resource type="Shader" path="res://Scripits/Shaders/outline.gdshader" id="7_dweai"]
 [ext_resource type="Texture2D" uid="uid://wnmyogqr8muh" path="res://Art/Enemies/knight.png" id="7_t5lph"]
 
 [sub_resource type="Animation" id="Animation_ee6ca"]
@@ -200,13 +199,6 @@ _data = {
 "attack": SubResource("Animation_daxsb")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_owtvy"]
-shader = ExtResource("7_dweai")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
-shader_parameter/flash_opacity = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8nxu"]
 radius = 5.0
 height = 26.0
@@ -273,7 +265,6 @@ polygon = PackedVector2Array(192, 0, 185, -53, 162, -104, 128, -143, 89, -170, 4
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true
 texture_filter = 1
-material = SubResource("ShaderMaterial_owtvy")
 texture = ExtResource("7_t5lph")
 
 [node name="ColliderShape" type="CollisionShape2D" parent="Body"]
