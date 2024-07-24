@@ -1,11 +1,15 @@
 class_name  BurningShardShell extends EnemyShell
 
 @onready var navigation_agent: NavigationAgent2D
+var damage_shape: CollisionShape2D
 
 func init_enemy(_enemy_resource: EnemyResource):
 	super(_enemy_resource)
 	navigation_agent = %NavAgent
 	spawn_animation = %SpawnAnimation
+	damage_shape = $Body/Area2D/DamageShape
+
+	damage_shape.disabled = true
 	%ColliderShape.disabled = true
 	character_body.visible = false
 	spawn_animation.visible = true
@@ -31,4 +35,5 @@ func _enable_enemy():
 	spawn_animation.visible = false
 	character_body.visible = true
 	%ColliderShape.disabled = false
+	damage_shape.disabled = false
 	character_body.start()

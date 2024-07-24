@@ -20,14 +20,14 @@ follow_range = 150
 keep_following = false
 bullet_resource = SubResource("Resource_thchf")
 bullet_damage = 10
-bullet_speed = 50
+bullet_speed = 80
 bullet_lifetime = 2
 delay_betweeen_shots = 1.0
-max_health = 100
+max_health = 1000
 enemy_icon = ExtResource("3_y00nq")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 7.0
+stage_xp_value = 40.0
 spawn_sprite_frames = ExtResource("6_eocf1")
 enemy_scene = ExtResource("4_mnguw")
 

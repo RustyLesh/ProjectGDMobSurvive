@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://vnfr5eyvnfur"]
+[gd_scene load_steps=96 format=3 uid="uid://vnfr5eyvnfur"]
 
 [ext_resource type="Script" path="res://Scripits/Main Menu/main_menu.gd" id="1_74mk5"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/weapon_select_menu.gd" id="2_0m2n6"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://Objects/Main Menu/gear_filters.gd" id="20_rjjum"]
 [ext_resource type="Resource" uid="uid://cssckm02e0x6m" path="res://Resources/Enemy Stages/C1/C1M2.tres" id="21_2wkqa"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/selected_item_options.gd" id="21_86al2"]
+[ext_resource type="Resource" uid="uid://ih8scofk5thc" path="res://Resources/Enemy Stages/C1/C1M3.tres" id="22_tqj55"]
 [ext_resource type="Resource" uid="uid://b3r4qs35etuh7" path="res://Resources/Enemy Stages/C1/testing.tres" id="23_gte4s"]
 [ext_resource type="Texture2D" uid="uid://b72lsyuegw6r6" path="res://Art/Bubble.png" id="23_tud67"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/upgrade_manage_menu.gd" id="26_4foof"]
@@ -44,7 +45,11 @@
 [ext_resource type="Resource" uid="uid://41r2pnr54srt" path="res://Resources/Gear/ammy_purple.tres" id="35_dc42c"]
 [ext_resource type="Resource" uid="uid://c8fvcr1d28t2b" path="res://Resources/Gear/ring_proj.tres" id="36_qi6nu"]
 [ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="37_hodeb"]
-[ext_resource type="Resource" uid="uid://ogu7hf2eyv01" path="res://Resources/Gear/helm_health.tres" id="38_m32wb"]
+[ext_resource type="Resource" uid="uid://dhtjhnyghnkf7" path="res://Resources/Gear/ring_silver.tres" id="40_b76wk"]
+[ext_resource type="Resource" uid="uid://bx7rhnd7qmeok" path="res://Resources/Gear/ring_red.tres" id="41_gcqfw"]
+[ext_resource type="Resource" uid="uid://dgtcva4lw0ddv" path="res://Resources/Gear/helm_silver_crown.tres" id="42_bsuc2"]
+[ext_resource type="Resource" uid="uid://bawy805k03xpe" path="res://Resources/Gear/helm_fire_crown.tres" id="43_pq1yx"]
+[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/ammy_lightning_pot.tres" id="44_8pxh0"]
 [ext_resource type="Script" path="res://Scripits/Main Menu/return_continue_panel.gd" id="45_5exvu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mpyl"]
@@ -544,7 +549,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_mj0ql")
 text = "3"
 script = ExtResource("16_ktv4v")
 difficulty = 3
-enemy_spawns = ExtResource("23_gte4s")
+enemy_spawns = ExtResource("22_tqj55")
 
 [node name="Test" type="Button" parent="Combat Prep Menu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -675,6 +680,7 @@ offset_top = 56.0
 offset_right = 296.0
 offset_bottom = 152.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xakal")
+autowrap_mode = 2
 
 [node name="Mod list" type="RichTextLabel" parent="Gear Menu/Item Info"]
 layout_mode = 0
@@ -937,7 +943,7 @@ offset_top = 896.0
 offset_right = 704.0
 offset_bottom = 1016.0
 script = ExtResource("33_ns07y")
-gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("33_i665f"), ExtResource("34_psoma"), ExtResource("35_dc42c"), ExtResource("36_qi6nu"), ExtResource("37_hodeb"), ExtResource("38_m32wb")])
+gear_to_give = Array[Resource("res://Scripits/gear.gd")]([ExtResource("33_i665f"), ExtResource("34_psoma"), ExtResource("35_dc42c"), ExtResource("36_qi6nu"), ExtResource("37_hodeb"), ExtResource("40_b76wk"), ExtResource("41_gcqfw"), ExtResource("42_bsuc2"), ExtResource("44_8pxh0"), ExtResource("43_pq1yx")])
 
 [node name="Save Data" type="TextEdit" parent="Options Menu/Cheat Menu"]
 layout_mode = 0

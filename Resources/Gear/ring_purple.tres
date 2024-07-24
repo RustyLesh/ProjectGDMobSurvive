@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://bx5yn8em881lu"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://bx5yn8em881lu"]
 
 [ext_resource type="Texture2D" uid="uid://do4m7ra7amti" path="res://Art/Equipment/purple_ring.png" id="1_5g8yh"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_54vlc"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_roorw"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_3814u"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_857ne"]
+
+[sub_resource type="Resource" id="Resource_dq3wg"]
+script = ExtResource("4_857ne")
+_value = 0.0
+_mod_type = 0
+_base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_eskax"]
 script = ExtResource("3_3814u")
 _name = ""
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_dq3wg")])
 added_upgrades = Array[ExtResource("3_3814u")]([])
 _max_uses = 0
 weight = 0

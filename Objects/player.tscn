@@ -34,7 +34,7 @@ unique_name_in_owner = true
 collision_mask = 142
 collision_priority = 10.0
 script = ExtResource("2_cktqb")
-speed = 60
+speed = 70
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
 unique_name_in_owner = true

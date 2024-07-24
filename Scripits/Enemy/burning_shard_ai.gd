@@ -8,18 +8,18 @@ var speed: float = 100.0
 @onready var enemy_shell := $".." as EnemyShell
 
 @export var attack_pause_time: int = 1
+var reached_target = false
 
 func _physics_process(_delta: float):
 	if nav_agent.distance_to_target() > 2:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed
 		move_and_slide()
-	#Checks if colliding with player during movement and applies contact damage
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i).get_collider().get_parent()
-		if collision is Player:
-			collision.take_damage(enemy_shell.deal_damage())
-			return
 
 func start():
 	nav_agent.target_position = player.position
+
+func _on_area_2d_body_entered(body:Node2D):
+	var collided = body.get_parent()
+	if collided is Player:
+		collided.take_damage(enemy_shell.contact_damage)	

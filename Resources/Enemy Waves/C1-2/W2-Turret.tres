@@ -23,11 +23,11 @@ bullet_damage = 10
 bullet_speed = 50
 bullet_lifetime = 2
 delay_betweeen_shots = 1.0
-max_health = 75
+max_health = 150
 enemy_icon = ExtResource("3_obyab")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 7.0
+stage_xp_value = 15.0
 spawn_sprite_frames = ExtResource("6_061ce")
 enemy_scene = ExtResource("4_wpk4m")
 

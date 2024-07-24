@@ -1,5 +1,8 @@
-res://Scripits/Main Menu/gear_menu.gd
-res://Objects/Main Menu/main_menu.tscn
+res://Scripits/Enemy/box_slime_shell.gd
+res://Scripits/Enemy/burning_shard_ai.gd
+res://Scripits/Enemy/enemy_shell.gd
+res://Scripits/entity.gd
+res://Objects/Enemy Spawning/burning_shard.tscn
 res://flash_color.gdshader
 res://Objects/enemy_spawn_animations/default_spawn.tres
 res://Resources/Upgrades/Base Stat Upgrades/attack_speed_flat.tres
@@ -8,6 +11,7 @@ res://Resources/Upgrades/Base Stat Upgrades/damage_flat.tres
 res://Resources/Upgrades/Base Stat Upgrades/damage_percent.tres
 res://Resources/Upgrades/Base Stat Upgrades/projectile_life_time.tres
 res://Resources/Weapons/rifle.tres
+res://Scripits/Shaders/outline.gdshader
 res://Scripits/GUI/ability_hud.gd
 res://Scripits/Weapons/pistol.gd
 res://Objects/enemy_spawn_animations/skelleton_spawn.tres
@@ -15,15 +19,13 @@ res://Resources/Enemy Waves/C1-1/W1-Skele.tres
 res://Resources/Enemy Waves/C1-1/W2-Skele.tres
 res://Resources/Enemy Waves/C1-1/W2-Turret.tres
 res://Resources/Gear/ammy_mini_stats.tres
-res://Scripits/Shaders/outline.gdshader
 res://Resources/Enemy Waves/C1-1/W3-EliteKnight.tres
 res://Resources/Enemy Waves/C1-1/W3-Skele.tres
 res://Resources/Enemy Waves/C1-1/W3-Turret.tres
-res://Resources/Gear/helm_health.tres
-res://Resources/Enemy Waves/C1-1/W4-EliteKnight.tres
 res://Resources/Enemy Waves/C1-1/W4-Skele.tres
 res://Resources/Enemy Waves/C1-1/W4-Turret.tres
 res://Resources/Gear/ring_proj.tres
+res://Resources/Gear/helm_health.tres
 res://Resources/Enemy Waves/C1-1/W5-EliteKnight.tres
 res://Resources/Enemy Waves/C1-1/W5-Skele.tres
 res://Resources/Enemy Waves/C1-1/W5-Turret.tres
@@ -31,31 +33,60 @@ res://Resources/Gear/helm_ice_crown.tres
 res://Resources/Gear/ammy_astramentis.tres
 res://Resources/Enemy Stages/C1/C1M1.tres
 res://Resources/Enemy Waves/C1-2/W1-Knight.tres
-res://Resources/Enemy Waves/C1-2/W2-Turret.tres
-res://Resources/Enemy Waves/C1-2/W3-EliteSlime.tres
-res://Resources/Enemy Stages/C1/C1M2.tres
-res://Resources/Enemy Stages/C1/testing.tres
-res://Resources/Gear/ammy_purple.tres
-res://Objects/Enemy Spawning/enemy_turret.tscn
-res://Resources/Enemy Waves/C1-2/W4-Knight.tres
-res://Resources/Enemy Waves/C1-2/W4-Turret.tres
-res://Resources/Enemy Waves/C1-2/W5-EliteSlime.tres
+res://Resources/Enemy Waves/C1-2/W2-Knight.tres
 res://Resources/Enemy Waves/C1-2/W3-Knight.tres
 res://Resources/Enemy Waves/C1-2/W3-Turret.tres
+res://Resources/Enemy Waves/C1-2/W4-Knight.tres
+res://Resources/Enemy Waves/C1-2/W2-Turret.tres
+res://Resources/Enemy Waves/C1-2/W4-Turret.tres
+res://Resources/Enemy Waves/C1-2/W3-EliteSlime.tres
+res://Resources/Enemy Waves/C1-2/W5-EliteSlime.tres
 res://Resources/Enemy Waves/C1-2/W5-Knight.tres
 res://Resources/Enemy Waves/C1-2/W5-Turret.tres
-res://Resources/Enemies/Bosses/hell_totem.tres
+res://Resources/Enemy Stages/C1/C1M2.tres
+res://Resources/Enemy Waves/C1-3/W1-Skeleton.tres
+res://Resources/Enemy Waves/C1-3/W1-Turret.tres
+res://Resources/Enemy Waves/C1-3/W3-EliteLazorTurret.tres
+res://Resources/Enemy Stages/C1/C1M3.tres
+res://Resources/Enemy Stages/C1/testing.tres
+res://Resources/Gear/ammy_purple.tres
+res://Resources/Enemy Waves/C1-3/W2-Knight.tres
+res://Resources/Gear/ammy_blue.tres
+res://Resources/Gear/ammy_lightning_pot.tres
+res://Resources/Gear/ammy_potion_yellow.tres
+res://Resources/Gear/helm_gold_2.tres
+res://Resources/Gear/helm_silver_crown.tres
+res://Resources/Gear/helm_fire_crown.tres
+res://Resources/Gear/ring_red.tres
+res://Resources/Gear/ring_silver.tres
+res://Resources/Gear/ring_purple.tres
 res://Objects/combat_level.tscn
-res://Objects/GUI/in_level_ui.tscn
-res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
+res://Objects/Main Menu/main_menu.tscn
 res://Objects/enemy_bullet.tscn
 res://player_setup.tscn
 res://player_stats.tscn
 res://Objects/dev_tools.tscn
-res://Scripits/Enemy/enemy_spawn_manager.gd
-res://Scripits/Enemy/knight_ai.gd
-res://Scripits/Enemy/box_slime_shell.gd
-res://Scripits/Enemy/enemy_shell.gd
-res://Scripits/Enemy/enemy_resource.gd
-res://Scripits/Enemy/knight_resource.gd
+res://Objects/Enemy Spawning/enemy_turret.tscn
 res://Objects/Enemy Spawning/box_slime.tscn
+res://Objects/Enemy Spawning/enemy_knight.tscn
+res://Objects/Enemy Spawning/skelleton.tscn
+res://Objects/Enemy Spawning/Bosses/boss_totem.tscn
+res://Objects/player.tscn
+res://Objects/Enemy Spawning/enemy_turret_lazor.tscn
+res://Scripits/On Hit Effects/chain_lightning_on_hit.gd
+res://Scripits/On Hit Effects/on_hit_effect.gd
+res://Scripits/Upgrade/on_hit_effect_upgrade.gd
+res://Scripits/Upgrade/upgrade.gd
+res://Scripits/Upgrade/upgrade_resource.gd
+res://Scripits/Enemy/turret_ai.gd
+res://Resources/Enemies/burning_shard.tres
+res://Resources/Enemy Waves/C1-3/W2-EmberShards.tres
+res://Resources/Enemy Waves/C1-3/W1-Knight.tres
+res://Scripits/player.gd
+res://Scripits/Weapons/weapon_manager.gd
+res://Scripits/Weapons/Player Bullets/bullet.gd
+res://Scripits/Weapons/Player Bullets/explosive_bullet.gd
+res://Scripits/Weapons/weapon.gd
+res://Scripits/Upgrade/upgrade_manager.gd
+res://Scripits/Main Menu/weapon_tree_description.gd
+res://Scripits/GUI/upgrade_description_panel.gd

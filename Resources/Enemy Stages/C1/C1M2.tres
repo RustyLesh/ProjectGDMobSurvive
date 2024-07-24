@@ -1,15 +1,19 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=23 format=3 uid="uid://cssckm02e0x6m"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=33 format=3 uid="uid://cssckm02e0x6m"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_j2mvt"]
+[ext_resource type="Resource" uid="uid://frkdkn68i8kg" path="res://Resources/Enemy Waves/C1-1/W1-Skele.tres" id="2_3rhww"]
 [ext_resource type="Resource" uid="uid://oh6snngjpdoj" path="res://Resources/Enemy Waves/C1-2/W1-Knight.tres" id="2_mqegu"]
 [ext_resource type="Resource" uid="uid://dwus63b516m8t" path="res://Resources/Enemy Waves/C1-2/W2-Knight.tres" id="3_dl7nb"]
+[ext_resource type="Resource" uid="uid://1pi7oo22alq5" path="res://Resources/Enemy Waves/C1-1/W2-Skele.tres" id="4_f26ws"]
 [ext_resource type="Resource" uid="uid://koynm1cm68ty" path="res://Resources/Enemy Waves/C1-2/W3-Knight.tres" id="6_h4cfi"]
 [ext_resource type="Resource" uid="uid://ba3nc1bwjrsmf" path="res://Resources/Enemy Waves/C1-2/W3-Turret.tres" id="7_h58i0"]
 [ext_resource type="Resource" uid="uid://cel4s2b26cphs" path="res://Resources/Enemy Waves/C1-2/W4-Knight.tres" id="8_c6pqk"]
+[ext_resource type="Resource" uid="uid://dta63gd7oyomx" path="res://Resources/Enemy Waves/C1-1/W3-Skele.tres" id="8_mj4tl"]
 [ext_resource type="Resource" uid="uid://nwv2bdwv0871" path="res://Resources/Enemy Waves/C1-2/W2-Turret.tres" id="8_tehkd"]
 [ext_resource type="Resource" uid="uid://dpib731niujad" path="res://Resources/Enemy Waves/C1-2/W4-Turret.tres" id="9_25irq"]
 [ext_resource type="Resource" uid="uid://dw7k3ttoeakh1" path="res://Resources/Enemy Waves/C1-2/W3-EliteSlime.tres" id="9_hpkft"]
 [ext_resource type="Resource" uid="uid://4hlqjili7tti" path="res://Resources/Enemy Waves/C1-2/W5-EliteSlime.tres" id="10_203km"]
+[ext_resource type="Resource" uid="uid://cpy3lhbut8yns" path="res://Resources/Enemy Waves/C1-1/W4-Skele.tres" id="11_ek0t3"]
 [ext_resource type="Resource" uid="uid://dnl8yi0fhne06" path="res://Resources/Enemy Waves/C1-2/W5-Knight.tres" id="11_njslx"]
 [ext_resource type="Resource" uid="uid://ckptj5ikmuggl" path="res://Resources/Enemy Waves/C1-2/W5-Turret.tres" id="12_r3atj"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="13_kfkci"]
@@ -17,12 +21,28 @@
 [ext_resource type="PackedScene" uid="uid://bmvnb8r3pe8kr" path="res://Objects/Enemy Spawning/Bosses/boss_totem.tscn" id="15_3h68h"]
 [ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="16_d34m8"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="17_a3lbh"]
+[ext_resource type="Resource" uid="uid://bnsdmfhm47407" path="res://Resources/Enemy Waves/C1-1/W5-Skele.tres" id="17_g65ly"]
+[ext_resource type="Resource" uid="uid://bawy805k03xpe" path="res://Resources/Gear/helm_fire_crown.tres" id="18_vf1t8"]
 [ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="18_yrndc"]
 [ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="19_8o3oh"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="19_xmlts"]
+[ext_resource type="Resource" uid="uid://dhtjhnyghnkf7" path="res://Resources/Gear/ring_silver.tres" id="20_fhrj2"]
+
+[sub_resource type="Resource" id="Resource_0nhu3"]
+script = ExtResource("19_xmlts")
+gear_resource = ExtResource("18_vf1t8")
+drop_weight = 3.0
+rarity = 3
+
+[sub_resource type="Resource" id="Resource_xjdpq"]
+script = ExtResource("19_xmlts")
+gear_resource = ExtResource("20_fhrj2")
+drop_weight = 0.0
+rarity = 0
 
 [sub_resource type="Resource" id="Resource_syjpa"]
 script = ExtResource("13_kfkci")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([])
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_0nhu3"), SubResource("Resource_xjdpq")])
 
 [sub_resource type="Resource" id="Resource_ac6ie"]
 script = ExtResource("16_d34m8")
@@ -50,5 +70,5 @@ rank = 2
 
 [resource]
 script = ExtResource("1_j2mvt")
-stage_number = 0
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_mqegu"), ExtResource("3_dl7nb"), ExtResource("8_tehkd"), ExtResource("9_hpkft"), ExtResource("6_h4cfi"), ExtResource("7_h58i0"), ExtResource("8_c6pqk"), ExtResource("9_25irq"), ExtResource("10_203km"), ExtResource("11_njslx"), ExtResource("12_r3atj"), SubResource("Resource_o7147")])
+stage_number = 2
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_3rhww"), ExtResource("2_mqegu"), ExtResource("4_f26ws"), ExtResource("3_dl7nb"), ExtResource("8_tehkd"), ExtResource("9_hpkft"), ExtResource("8_mj4tl"), ExtResource("6_h4cfi"), ExtResource("7_h58i0"), ExtResource("11_ek0t3"), ExtResource("8_c6pqk"), ExtResource("9_25irq"), ExtResource("10_203km"), ExtResource("11_njslx"), ExtResource("12_r3atj"), ExtResource("17_g65ly"), SubResource("Resource_o7147")])

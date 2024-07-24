@@ -8,17 +8,17 @@
 
 [sub_resource type="Resource" id="Resource_d32ec"]
 script = ExtResource("3_j26af")
-move_speed = 30
+move_speed = 70
 contact_damage = 1
 follow_range = 100
 keep_following = false
 attack_damage = 15
 delay_betweeen_shots = 0.0
-max_health = 75
+max_health = 350
 enemy_icon = ExtResource("1_84b1k")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 15.0
+stage_xp_value = 30.0
 spawn_sprite_frames = ExtResource("4_wdrxo")
 enemy_scene = ExtResource("2_s5d7e")
 
@@ -30,5 +30,5 @@ duration = 60
 wave_delay = 4
 amount = 5
 enemy_resource = SubResource("Resource_d32ec")
-spawn_pattern = 0
+spawn_pattern = 1
 rank = 0

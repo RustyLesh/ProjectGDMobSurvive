@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq1gsbqcujadv"]
+[gd_scene load_steps=8 format=3 uid="uid://bq1gsbqcujadv"]
 
 [ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_shell.gd" id="1_e34sg"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="2_smh0p"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bu4gytatdr6w1" path="res://Art/Enemies/ember_shard_small.png" id="5_qolh4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ek03a"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj8vm"]
 radius = 8.0
 height = 32.0
 
@@ -44,4 +47,12 @@ debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
 [node name="NavAgent" type="NavigationAgent2D" parent="Body"]
 unique_name_in_owner = true
 
+[node name="Area2D" type="Area2D" parent="Body"]
+
+[node name="DamageShape" type="CollisionShape2D" parent="Body/Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape2D_cj8vm")
+debug_color = Color(0.968627, 0.101961, 0.380392, 0.419608)
+
 [connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="body_entered" from="Body/Area2D" to="Body" method="_on_area_2d_body_entered"]

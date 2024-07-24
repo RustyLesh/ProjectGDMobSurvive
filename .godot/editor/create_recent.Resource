@@ -1,10 +1,10 @@
+SpawnDataResource
+EliteSpawnDataResource
 EnemySpawns
 KnightResource
 SpriteFrames
 OnKillExplode
 OnKillEffectUpgrade
-SpawnDataResource
-EliteSpawnDataResource
 ShellTurretResource
 TurretLazorResource
 BuringShardResource

@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://bx7rhnd7qmeok"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://bx7rhnd7qmeok"]
 
 [ext_resource type="Texture2D" uid="uid://5mhcpl2frp1a" path="res://Art/Equipment/red_ring.png" id="1_kpvp0"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_5udec"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_mpb00"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_kyv1q"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_8230q"]
+
+[sub_resource type="Resource" id="Resource_xbok7"]
+script = ExtResource("4_8230q")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 1
 
 [sub_resource type="Resource" id="Resource_uvcps"]
 script = ExtResource("3_kyv1q")
 _name = "flat damage"
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_xbok7")])
 added_upgrades = Array[ExtResource("3_kyv1q")]([])
 _max_uses = 0
 weight = 0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=7 format=3 uid="uid://ih8scofk5thc"]
+
+[ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_wummt"]
+[ext_resource type="Resource" uid="uid://df8847qvh3ur1" path="res://Resources/Enemy Waves/C1-3/W1-Skeleton.tres" id="2_e7cth"]
+[ext_resource type="Resource" uid="uid://cuwbgg8urt41d" path="res://Resources/Enemy Waves/C1-3/W1-Knight.tres" id="3_mep3w"]
+[ext_resource type="Resource" uid="uid://c38oxhbh4dbyu" path="res://Resources/Enemy Waves/C1-3/W1-Turret.tres" id="3_rjmfl"]
+[ext_resource type="Resource" uid="uid://lft5k8mswb7w" path="res://Resources/Enemy Waves/C1-3/W2-EmberShards.tres" id="4_cevxm"]
+[ext_resource type="Resource" uid="uid://b75h2gg30mrif" path="res://Resources/Enemy Waves/C1-3/W3-EliteLazorTurret.tres" id="5_nwika"]
+
+[resource]
+script = ExtResource("1_wummt")
+stage_number = 3
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_e7cth"), ExtResource("3_mep3w"), ExtResource("3_rjmfl"), ExtResource("4_cevxm"), ExtResource("5_nwika")])

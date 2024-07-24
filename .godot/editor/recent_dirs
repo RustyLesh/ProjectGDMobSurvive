@@ -1,5 +1,6 @@
-res://Resources/Enemy Waves/C1-1
+res://Resources/Enemy Waves/C1-3
 res://Resources/Enemy Stages/C1
+res://Resources/Enemy Waves/C1-1
 res://Resources/Enemies
 res://Art/Enemies/Spawn Animations
 res://Objects/enemy_spawn_animations
@@ -19,4 +20,3 @@ res://Scripits/Combat
 res://Scripits
 C:/Users/flame/Documents
 res://Resources/Enemies/Bosses
-res://Objects/Enemy Spawning/Shaders

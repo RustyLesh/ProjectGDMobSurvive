@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=7 format=3 uid="uid://rxdwc5iaencg"]
+
+[ext_resource type="Texture2D" uid="uid://278pcqc3al76" path="res://Art/Enemies/skellington.png" id="1_vutc1"]
+[ext_resource type="PackedScene" uid="uid://tjv1ric658h8" path="res://Objects/Enemy Spawning/skelleton.tscn" id="2_sukoe"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="3_m126p"]
+[ext_resource type="SpriteFrames" uid="uid://bnvlcl80ls34p" path="res://Objects/enemy_spawn_animations/skelleton_spawn.tres" id="4_22egs"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="5_jq42g"]
+
+[sub_resource type="Resource" id="Resource_06ipy"]
+script = ExtResource("3_m126p")
+move_speed = 40
+contact_damage = 1
+follow_range = 60
+keep_following = false
+attack_damage = 10
+delay_betweeen_shots = 0.0
+max_health = 20
+enemy_icon = ExtResource("1_vutc1")
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 2.0
+spawn_sprite_frames = ExtResource("4_22egs")
+enemy_scene = ExtResource("2_sukoe")
+
+[resource]
+script = ExtResource("5_jq42g")
+time_start = 0
+one_shot = false
+duration = 60
+wave_delay = 9
+amount = 5
+enemy_resource = SubResource("Resource_06ipy")
+spawn_pattern = 1
+rank = 0

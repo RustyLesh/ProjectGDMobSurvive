@@ -1,15 +1,28 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://dgtcva4lw0ddv"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=13 format=3 uid="uid://dgtcva4lw0ddv"]
 
 [ext_resource type="Texture2D" uid="uid://b83vjckyoayf6" path="res://Art/Equipment/silvercrown.png" id="1_p4rtv"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_3twnp"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_qw35x"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_0jogw"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_6mh15"]
+
+[sub_resource type="Resource" id="Resource_apn17"]
+script = ExtResource("4_6mh15")
+_value = 100.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_d11fo"]
+script = ExtResource("4_6mh15")
+_value = 25.0
+_mod_type = 0
+_base_stat_type = 3
 
 [sub_resource type="Resource" id="Resource_01w3q"]
 script = ExtResource("3_0jogw")
-_name = "hp"
+_name = ""
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_apn17"), SubResource("Resource_d11fo")])
 added_upgrades = Array[ExtResource("3_0jogw")]([])
 _max_uses = 0
 weight = 0
@@ -21,20 +34,26 @@ upgrade_resource = SubResource("Resource_01w3q")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_rydq4"]
+[sub_resource type="Resource" id="Resource_p02n6"]
+script = ExtResource("4_6mh15")
+_value = 200.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_cwrse"]
 script = ExtResource("3_0jogw")
-_name = "Big life"
-_description = "gives a lot of life"
+_name = "BEG Heal"
+_description = ""
 _icon = ExtResource("1_p4rtv")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_p02n6")])
 added_upgrades = Array[ExtResource("3_0jogw")]([])
 _max_uses = 1
-weight = 1
+weight = 0
 
-[sub_resource type="Resource" id="Resource_huh7m"]
+[sub_resource type="Resource" id="Resource_7x3pu"]
 script = ExtResource("2_qw35x")
 mod_type = 1
-upgrade_resource = SubResource("Resource_rydq4")
+upgrade_resource = SubResource("Resource_cwrse")
 slot_source = 0
 forced_upgrade = true
 
@@ -44,4 +63,4 @@ _item_name = "Silver crown"
 _description = "Using silvBy harnessing silvers antimicrobial properties, this crown provides the user a great defense."
 _icon = ExtResource("1_p4rtv")
 _gear_type = 0
-mod_list = Array[ExtResource("2_qw35x")]([SubResource("Resource_y0qvw"), SubResource("Resource_huh7m")])
+mod_list = Array[ExtResource("2_qw35x")]([SubResource("Resource_y0qvw"), SubResource("Resource_7x3pu")])

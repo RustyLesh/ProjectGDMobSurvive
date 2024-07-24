@@ -9,6 +9,7 @@ func _init():
 	
 func apply_upgrade(player: Node2D):
 	if player is Player:
+		print("applying on hit effect upgrade")
 		player.weapon_manager.apply_on_hit_effect_to_weapons(_effect)
 
 func get_upgrade_string() -> String:

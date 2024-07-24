@@ -36,12 +36,10 @@ func make_path():
 	distance_from_player = global_position.distance_to(player.global_position)
 
 	if distance_from_player <= follow_range && !is_player_in_range:
-		print("In range")
 		is_player_in_range = true
 		nav_agent.target_position = global_position
 		start_shooting()
 	elif distance_from_player > follow_range + 10 && is_player_in_range:
-		print("Out of range")
 		is_player_in_range = false
 		shoot_timer.stop()
 

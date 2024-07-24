@@ -80,8 +80,6 @@ func _on_timer_timeout():
 		ui_scene.countdown_timer(delay_for_stage_end - (time - spawn_end_time))
 	if time >= game_win_time:
 		on_stage_win()
-		if	enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
-			PlayerStats.highest_stage_completed = enemy_spawns.stage_number
 
 func spawn(spawn_data: SpawnDataResource):
 	if spawn_data.one_shot && spawn_data.has_spawned:
@@ -182,6 +180,8 @@ func on_boss_death():
 	play_timer()
 
 func on_stage_win():
+	print("Stage win func")
+	print("stage vs stats: ", enemy_spawns.stage_number, " / ", PlayerStats.highest_stage_completed)
 	if enemy_spawns.stage_number > PlayerStats.highest_stage_completed:
 		print("Highest level changed from: ",PlayerStats.highest_stage_completed, "to: ", enemy_spawns.stage_number)
 		PlayerStats.highest_stage_completed = enemy_spawns.stage_number

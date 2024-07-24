@@ -8,17 +8,17 @@
 
 [sub_resource type="Resource" id="Resource_7evdp"]
 script = ExtResource("2_b721n")
-move_speed = 40
+move_speed = 55
 contact_damage = 1
 follow_range = 60
 keep_following = false
 attack_damage = 15
 delay_betweeen_shots = 0.0
-max_health = 20
+max_health = 75
 enemy_icon = ExtResource("1_rrb7q")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 5.0
+stage_xp_value = 10.0
 spawn_sprite_frames = ExtResource("3_ppqvv")
 enemy_scene = ExtResource("1_5qtoa")
 

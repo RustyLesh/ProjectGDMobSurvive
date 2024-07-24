@@ -18,10 +18,13 @@ var current_uses: int = 0
 func get_save_data() -> Dictionary:
 	var upgrades_data = []
 	for upgrade_data in upgrades:
+		if upgrade_data == null:
+			print("upgrade name: ", _name)
 		upgrades_data.append(upgrade_data.get_save_data())	
 
 	var added_uprades_data = []
 	for upgrade_data in added_upgrades:
+		print("upgrade name: ", _name)
 		added_uprades_data.append(upgrade_data.get_save_data())
 
 	return {

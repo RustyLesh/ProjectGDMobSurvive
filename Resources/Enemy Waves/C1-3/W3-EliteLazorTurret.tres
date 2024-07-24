@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=9 format=3 uid="uid://b75h2gg30mrif"]
+
+[ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="1_8bp8m"]
+[ext_resource type="PackedScene" uid="uid://cw1wg7hyc5jjy" path="res://Objects/Enemy Spawning/enemy_turret_lazor.tscn" id="2_nxe2o"]
+[ext_resource type="Script" path="res://Scripits/Enemy/turret_lazor_resource.gd" id="3_6m4gl"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_mnak8"]
+[ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="5_f4qup"]
+[ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="6_y2605"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh06i"]
+
+[sub_resource type="Resource" id="Resource_xf35n"]
+script = ExtResource("3_6m4gl")
+move_speed = 100
+contact_damage = 0
+lazor_damage = 1
+sprite = ExtResource("5_f4qup")
+collision_shape = SubResource("RectangleShape2D_lh06i")
+collision_pos_offset = Vector2(0, 0)
+follow_range = 200
+max_health = 10000
+enemy_icon = ExtResource("1_8bp8m")
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 50.0
+spawn_sprite_frames = ExtResource("4_mnak8")
+enemy_scene = ExtResource("2_nxe2o")
+
+[resource]
+script = ExtResource("6_y2605")
+outline_colour = Color(1, 1, 1, 1)
+scale = 2.0
+time_start = 120
+one_shot = true
+duration = 1
+wave_delay = 0
+amount = 1
+enemy_resource = SubResource("Resource_xf35n")
+spawn_pattern = 0
+rank = 1

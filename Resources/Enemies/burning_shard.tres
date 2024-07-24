@@ -8,11 +8,11 @@
 [resource]
 script = ExtResource("1_2atpl")
 move_speed = 100
-contact_damage = 0
+contact_damage = 1
+max_health = 20
 enemy_icon = ExtResource("1_nl7xq")
 enemy_type = 0
 enemy_name = "empty_name"
-max_health = 1000
-stage_xp_value = 0.0
+stage_xp_value = 2.0
 spawn_sprite_frames = ExtResource("2_bt3yf")
 enemy_scene = ExtResource("2_mlwsc")

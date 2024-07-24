@@ -1,16 +1,63 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=7 format=3 uid="uid://dhtjhnyghnkf7"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=15 format=3 uid="uid://dhtjhnyghnkf7"]
 
 [ext_resource type="Texture2D" uid="uid://drjhrt5330mp6" path="res://Art/Equipment/silver_ring.png" id="1_api52"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_7effo"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_pawyd"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_tlrmu"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_xkl4f"]
+
+[sub_resource type="Resource" id="Resource_8ot25"]
+script = ExtResource("4_xkl4f")
+_value = -15.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_u4np8"]
+script = ExtResource("4_xkl4f")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 9
+
+[sub_resource type="Resource" id="Resource_s5shs"]
+script = ExtResource("3_tlrmu")
+_name = ""
+_description = ""
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_8ot25"), SubResource("Resource_u4np8")])
+added_upgrades = Array[ExtResource("3_tlrmu")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_04ayk"]
+script = ExtResource("2_pawyd")
+mod_type = 0
+upgrade_resource = SubResource("Resource_s5shs")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_g7fn3"]
+script = ExtResource("4_xkl4f")
+_value = 0.5
+_mod_type = 0
+_base_stat_type = 2
+
+[sub_resource type="Resource" id="Resource_arunr"]
+script = ExtResource("4_xkl4f")
+_value = 10.0
+_mod_type = 0
+_base_stat_type = 3
+
+[sub_resource type="Resource" id="Resource_k2ddx"]
+script = ExtResource("4_xkl4f")
+_value = 0.25
+_mod_type = 0
+_base_stat_type = 5
 
 [sub_resource type="Resource" id="Resource_74g3e"]
 script = ExtResource("3_tlrmu")
-_name = "+1 Proj"
-_description = "Bullets now 1 more"
+_name = "Stat boost"
+_description = "discoription"
 _icon = ExtResource("1_api52")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_g7fn3"), SubResource("Resource_arunr"), SubResource("Resource_k2ddx")])
 added_upgrades = Array[ExtResource("3_tlrmu")]([])
 _max_uses = 1
 weight = 0
@@ -25,7 +72,7 @@ forced_upgrade = false
 [resource]
 script = ExtResource("2_7effo")
 _item_name = "Sapphire ring"
-_description = "+1 Proj upgrade"
+_description = "why does it look of center"
 _icon = ExtResource("1_api52")
 _gear_type = 1
-mod_list = Array[ExtResource("2_pawyd")]([SubResource("Resource_ire1a")])
+mod_list = Array[ExtResource("2_pawyd")]([SubResource("Resource_04ayk"), SubResource("Resource_ire1a")])

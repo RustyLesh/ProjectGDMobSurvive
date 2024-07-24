@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cai1wkndfr6b1"]
 
-[ext_resource type="Script" path="res://Scripits/Enemy/box_slime_shell.gd" id="1_71acd"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_shell.gd" id="1_7270s"]
 [ext_resource type="Script" path="res://Scripits/health.gd" id="2_wgh8w"]
 [ext_resource type="PackedScene" uid="uid://bqfj5reg2om5" path="res://Objects/enemy_spawn_animations/enemy_spawn_animation_node.tscn" id="3_cx0dc"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_yc87g"]
@@ -231,7 +231,7 @@ radius = 27.0
 
 [node name="Box Slime" type="Node2D"]
 material = SubResource("ShaderMaterial_yid23")
-script = ExtResource("1_71acd")
+script = ExtResource("1_7270s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -309,6 +309,7 @@ unique_name_in_owner = true
 wait_time = 0.1
 autostart = true
 
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="timeout" from="AttackTimer" to="Body" method="attack"]
 [connection signal="body_entered" from="Body/AttackNodes/AttackArea" to="Body" method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Body/MovementTimer" to="Body" method="_on_timer_timeout"]

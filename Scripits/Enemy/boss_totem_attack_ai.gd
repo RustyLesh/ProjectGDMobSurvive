@@ -53,7 +53,7 @@ func shoot_at_player(shots_per_burst: int, delay: float, proj_per_shot, angle_be
 			bullet.rotate(PI/2)
 			bullet.rotate(deg_to_rad(start_angle - (angle_betweeb_proj * proj_index)))
 			bullet.base_damage = base_damage * difficulty
-		
+			bullet.speed = (difficulty * 15) + 30
 		await get_tree().create_timer(delay).timeout
 
 #Shots bullets in a radial patern from source. angle_degrees is angle between each shot.
@@ -63,7 +63,8 @@ func bullet_nova(no_of_shots, alternates_angle: bool):
 	for i in no_of_shots:
 		var bullet = create_bullet()
 		bullet.lifetime = 10
-		bullet.speed = 50 * difficulty
+		bullet.speed = (difficulty * 20) + 30
+		bullet.base_damage = base_damage * difficulty
 		if alternates_angle:
 			if (alternate_counter % 2 == 1):
 				bullet.rotate(deg_to_rad((angles * i) + (angles / 2)))

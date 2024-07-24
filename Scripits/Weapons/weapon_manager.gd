@@ -34,6 +34,7 @@ func set_fire_rate(value : float):
 	delay = 1/fire_rate
 
 func apply_on_hit_effect_to_weapons(effect: OnHitEffect):
+	print("Appended on hit effect to weapon")
 	get_parent().weapon_inst.on_hit_effects.append(effect)
 
 func set_spread_angle(value: float):

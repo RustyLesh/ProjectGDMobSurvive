@@ -1,34 +1,55 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=6 format=3 uid="uid://4hlqjili7tti"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=13 format=3 uid="uid://4hlqjili7tti"]
 
 [ext_resource type="PackedScene" uid="uid://cai1wkndfr6b1" path="res://Objects/Enemy Spawning/box_slime.tscn" id="1_e5swi"]
+[ext_resource type="Resource" uid="uid://buoa3r1ctgur4" path="res://Resources/Gear/ammy_lightning_pot.tres" id="1_j2vko"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_cnxfq"]
 [ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_km32e"]
+[ext_resource type="Resource" uid="uid://dgtcva4lw0ddv" path="res://Resources/Gear/helm_silver_crown.tres" id="3_mcys0"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_mwnwl"]
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="4_s26cw"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="4_uudko"]
+
+[sub_resource type="Resource" id="Resource_4qrkb"]
+script = ExtResource("2_cnxfq")
+gear_resource = ExtResource("1_j2vko")
+drop_weight = 3.0
+rarity = 2
+
+[sub_resource type="Resource" id="Resource_rqnre"]
+script = ExtResource("2_cnxfq")
+gear_resource = ExtResource("3_mcys0")
+drop_weight = 7.0
+rarity = 1
+
+[sub_resource type="Resource" id="Resource_fao0g"]
+script = ExtResource("4_uudko")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_4qrkb"), SubResource("Resource_rqnre")])
 
 [sub_resource type="Resource" id="Resource_n5dhd"]
 script = ExtResource("2_km32e")
-move_speed = 100
+move_speed = 90
 contact_damage = 1
-follow_range = 100
+follow_range = 60
 keep_following = false
 attack_damage = 10
 delay_betweeen_shots = 1.0
-max_health = 10
+max_health = 5000
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 0.0
+stage_xp_value = 100.0
+drop_pool = SubResource("Resource_fao0g")
 spawn_sprite_frames = ExtResource("3_mwnwl")
 enemy_scene = ExtResource("1_e5swi")
 
 [resource]
 script = ExtResource("4_s26cw")
-outline_colour = Color(0, 1, 0.756863, 1)
+outline_colour = Color(0, 1, 0.807843, 1)
 scale = 1.2
-time_start = 0
+time_start = 240
 one_shot = true
 duration = 1
 wave_delay = 0
 amount = 1
 enemy_resource = SubResource("Resource_n5dhd")
-spawn_pattern = 2
+spawn_pattern = 0
 rank = 1

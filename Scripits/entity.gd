@@ -11,7 +11,7 @@ enum EntityType
 
 @onready var health
 @onready var character_body 
-@onready var sprite: Sprite2D
+@onready var sprite
 
 @export var entity_type: EntityType
 @export var damage_flash_color: Color = Color("#ff0000")
