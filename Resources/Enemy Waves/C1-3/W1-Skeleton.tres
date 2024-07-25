@@ -18,7 +18,7 @@ max_health = 50
 enemy_icon = ExtResource("1_ikaiq")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 2.0
+stage_xp_value = 5.0
 spawn_sprite_frames = ExtResource("4_gwxap")
 enemy_scene = ExtResource("2_gq5ec")
 
@@ -27,7 +27,7 @@ script = ExtResource("5_jigbi")
 time_start = 0
 one_shot = false
 duration = 60
-wave_delay = 9
+wave_delay = 4
 amount = 5
 enemy_resource = SubResource("Resource_06ipy")
 spawn_pattern = 1

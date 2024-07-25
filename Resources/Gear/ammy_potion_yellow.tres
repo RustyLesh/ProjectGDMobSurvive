@@ -1,17 +1,97 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=7 format=3 uid="uid://dla4oliw161u2"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=24 format=3 uid="uid://dla4oliw161u2"]
 
 [ext_resource type="Texture2D" uid="uid://byblhpuwmd37f" path="res://Art/Equipment/potion_amule yellowt.png" id="1_prnhg"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_61d0o"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_da46s"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_eygx2"]
+[ext_resource type="Script" path="res://Scripits/On Hit Effects/chain_lightning_on_hit.gd" id="4_c0oyl"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_hit_effect_upgrade.gd" id="5_6e5ql"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_explode.gd" id="6_n8chp"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/on_kill_effect_upgrade.gd" id="7_ypvnl"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="8_60asv"]
+
+[sub_resource type="Resource" id="Resource_rt3cc"]
+script = ExtResource("4_c0oyl")
+_proc_range = 100.0
+_max_chain_count = 10
+_damage = 100.0
+_proc_chance = 50.0
+
+[sub_resource type="Resource" id="Resource_uvlof"]
+script = ExtResource("5_6e5ql")
+_effect = SubResource("Resource_rt3cc")
+
+[sub_resource type="Resource" id="Resource_pf41k"]
+script = ExtResource("3_eygx2")
+_name = "Power of Zues"
+_description = "Power of lightnving"
+_icon = ExtResource("1_prnhg")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_uvlof")])
+added_upgrades = Array[ExtResource("3_eygx2")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_f1d8j"]
+script = ExtResource("6_n8chp")
+size = 100
+damage = 100
+
+[sub_resource type="Resource" id="Resource_efaop"]
+script = ExtResource("7_ypvnl")
+on_kill_effect = SubResource("Resource_f1d8j")
+
+[sub_resource type="Resource" id="Resource_ogxua"]
+script = ExtResource("3_eygx2")
+_name = "Power of Ares"
+_description = "Power of war (explosions)"
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_efaop")])
+added_upgrades = Array[ExtResource("3_eygx2")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_dh556"]
+script = ExtResource("8_60asv")
+_value = 30.0
+_mod_type = 0
+_base_stat_type = 9
+
+[sub_resource type="Resource" id="Resource_q6cit"]
+script = ExtResource("8_60asv")
+_value = 3.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_ih3m1"]
+script = ExtResource("8_60asv")
+_value = 3.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_eocxb"]
+script = ExtResource("8_60asv")
+_value = 2.0
+_mod_type = 0
+_base_stat_type = 5
+
+[sub_resource type="Resource" id="Resource_r62xl"]
+script = ExtResource("8_60asv")
+_value = 1000.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_giypm"]
+script = ExtResource("8_60asv")
+_value = -50.0
+_mod_type = 0
+_base_stat_type = 8
 
 [sub_resource type="Resource" id="Resource_xdhd1"]
 script = ExtResource("3_eygx2")
-_name = "Minor Lightning"
-_description = ""
+_name = "Down the bottle"
+_description = "Drink down the juice. The oppotunity to use the power from gods. Prey your body can handle it"
 _icon = ExtResource("1_prnhg")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
-added_upgrades = Array[ExtResource("3_eygx2")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_dh556"), SubResource("Resource_q6cit"), SubResource("Resource_ih3m1"), SubResource("Resource_eocxb"), SubResource("Resource_r62xl"), SubResource("Resource_giypm")])
+added_upgrades = Array[ExtResource("3_eygx2")]([SubResource("Resource_pf41k"), SubResource("Resource_ogxua")])
 _max_uses = 0
 weight = 0
 
@@ -24,7 +104,7 @@ forced_upgrade = false
 
 [resource]
 script = ExtResource("2_da46s")
-_item_name = "Topaz Potion Trinket"
+_item_name = "Power of gods"
 _description = "Lightning juice in a bottle"
 _icon = ExtResource("1_prnhg")
 _gear_type = 2

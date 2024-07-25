@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=3 format=3 uid="uid://sqxwyxwh24m"]
+
+[ext_resource type="Resource" uid="uid://cxam2i4ttnfq6" path="res://Resources/Enemies/burning_shard.tres" id="1_ijd4m"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="2_nyjl5"]
+
+[resource]
+script = ExtResource("2_nyjl5")
+time_start = 280
+one_shot = false
+duration = 30
+wave_delay = 3
+amount = 1
+enemy_resource = ExtResource("1_ijd4m")
+spawn_pattern = 0
+rank = 0

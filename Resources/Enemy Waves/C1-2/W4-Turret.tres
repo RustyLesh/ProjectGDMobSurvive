@@ -27,7 +27,7 @@ max_health = 500
 enemy_icon = ExtResource("3_c6lj4")
 enemy_type = 0
 enemy_name = "empty_name"
-stage_xp_value = 25.0
+stage_xp_value = 50.0
 spawn_sprite_frames = ExtResource("6_uka41")
 enemy_scene = ExtResource("4_wuq64")
 

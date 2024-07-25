@@ -1,15 +1,30 @@
-[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=3 format=3 uid="uid://lft5k8mswb7w"]
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=7 format=3 uid="uid://lft5k8mswb7w"]
 
-[ext_resource type="Resource" uid="uid://cxam2i4ttnfq6" path="res://Resources/Enemies/burning_shard.tres" id="1_1rl8y"]
 [ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="1_fs65k"]
+[ext_resource type="Texture2D" uid="uid://bu4gytatdr6w1" path="res://Art/Enemies/ember_shard_small.png" id="1_fy0p3"]
+[ext_resource type="PackedScene" uid="uid://bq1gsbqcujadv" path="res://Objects/Enemy Spawning/burning_shard.tscn" id="2_go3jc"]
+[ext_resource type="Script" path="res://Scripits/Enemy/burning_shard_resource.gd" id="3_q2gmj"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_jh1yj"]
+
+[sub_resource type="Resource" id="Resource_tnhaa"]
+script = ExtResource("3_q2gmj")
+move_speed = 30
+contact_damage = 5
+max_health = 50
+enemy_icon = ExtResource("1_fy0p3")
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 2.0
+spawn_sprite_frames = ExtResource("4_jh1yj")
+enemy_scene = ExtResource("2_go3jc")
 
 [resource]
 script = ExtResource("1_fs65k")
 time_start = 60
 one_shot = false
-duration = 60
-wave_delay = 1
+duration = 30
+wave_delay = 2
 amount = 1
-enemy_resource = ExtResource("1_1rl8y")
+enemy_resource = SubResource("Resource_tnhaa")
 spawn_pattern = 0
 rank = 0

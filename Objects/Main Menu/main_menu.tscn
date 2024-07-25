@@ -725,6 +725,7 @@ helmet_colour = Color(0.839216, 0.690196, 0.737255, 1)
 ring_colour = Color(0.737255, 0.741176, 0.619608, 1)
 
 [node name="gear_type_filter" type="Button" parent="Gear Menu/Gear Filters"]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 400.0

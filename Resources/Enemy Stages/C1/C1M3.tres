@@ -1,13 +1,71 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=7 format=3 uid="uid://ih8scofk5thc"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=35 format=3 uid="uid://ih8scofk5thc"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_wummt"]
 [ext_resource type="Resource" uid="uid://df8847qvh3ur1" path="res://Resources/Enemy Waves/C1-3/W1-Skeleton.tres" id="2_e7cth"]
-[ext_resource type="Resource" uid="uid://cuwbgg8urt41d" path="res://Resources/Enemy Waves/C1-3/W1-Knight.tres" id="3_mep3w"]
+[ext_resource type="Resource" uid="uid://3fq8nxpa5chs" path="res://Resources/Enemy Waves/C1-3/W2-Knight.tres" id="3_mep3w"]
 [ext_resource type="Resource" uid="uid://c38oxhbh4dbyu" path="res://Resources/Enemy Waves/C1-3/W1-Turret.tres" id="3_rjmfl"]
+[ext_resource type="Resource" uid="uid://cuwbgg8urt41d" path="res://Resources/Enemy Waves/C1-3/W1-Knight.tres" id="3_t07ls"]
 [ext_resource type="Resource" uid="uid://lft5k8mswb7w" path="res://Resources/Enemy Waves/C1-3/W2-EmberShards.tres" id="4_cevxm"]
 [ext_resource type="Resource" uid="uid://b75h2gg30mrif" path="res://Resources/Enemy Waves/C1-3/W3-EliteLazorTurret.tres" id="5_nwika"]
+[ext_resource type="Resource" uid="uid://dphy3mwj5gw87" path="res://Resources/Enemy Waves/C1-3/W2-Skeleton.tres" id="6_1oxo3"]
+[ext_resource type="Resource" uid="uid://bj1fsyqshmucp" path="res://Resources/Enemy Waves/C1-3/W2-Turret.tres" id="8_ir6sg"]
+[ext_resource type="Resource" uid="uid://cab68o71kvt4o" path="res://Resources/Enemy Waves/C1-3/W3-EmberShards.tres" id="10_w233j"]
+[ext_resource type="Resource" uid="uid://2ls2gtghshtg" path="res://Resources/Enemy Waves/C1-3/W3-Knight.tres" id="11_uwhf1"]
+[ext_resource type="Resource" uid="uid://ckmrovujyjn3k" path="res://Resources/Enemy Waves/C1-3/W3-Skeleton.tres" id="12_unwno"]
+[ext_resource type="Resource" uid="uid://b7qj8e24ffh7v" path="res://Resources/Enemy Waves/C1-3/W3-Turret.tres" id="13_3w0fm"]
+[ext_resource type="Resource" uid="uid://damll105pwt3a" path="res://Resources/Enemy Waves/C1-3/W4-Skeleton.tres" id="14_hqwh1"]
+[ext_resource type="Resource" uid="uid://dpib731niujad" path="res://Resources/Enemy Waves/C1-2/W4-Turret.tres" id="15_0mw72"]
+[ext_resource type="Resource" uid="uid://bvnw14ssj8ouf" path="res://Resources/Enemy Waves/C1-3/W4-Knight.tres" id="16_yltyh"]
+[ext_resource type="Resource" uid="uid://bbgyao1xn67cb" path="res://Resources/Enemy Waves/C1-3/W5-EliteLazorTurret.tres" id="17_f8p5j"]
+[ext_resource type="Resource" uid="uid://bf312m08qyrgx" path="res://Resources/Enemy Waves/C1-3/W5-Skeleton.tres" id="18_jenmf"]
+[ext_resource type="Resource" uid="uid://d0wks38sok4p1" path="res://Resources/Enemy Waves/C1-3/W5-Knight.tres" id="19_plhvq"]
+[ext_resource type="Resource" uid="uid://33dmtgtayeup" path="res://Resources/Enemy Waves/C1-3/W5-Turret.tres" id="20_15orq"]
+[ext_resource type="Resource" uid="uid://sqxwyxwh24m" path="res://Resources/Enemy Waves/C1-3/W5-EmberShards.tres" id="21_2xn5a"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="22_6vcxo"]
+[ext_resource type="Resource" uid="uid://dla4oliw161u2" path="res://Resources/Gear/ammy_potion_yellow.tres" id="22_upf4l"]
+[ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="23_mve3k"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="23_rgsgb"]
+[ext_resource type="PackedScene" uid="uid://dicuj8xj3j0s2" path="res://Objects/Boss HP Bars/Base Boss HP Bar.tscn" id="23_uxiax"]
+[ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="24_0hqsx"]
+[ext_resource type="PackedScene" uid="uid://bmvnb8r3pe8kr" path="res://Objects/Enemy Spawning/Bosses/boss_totem.tscn" id="24_dnj58"]
+[ext_resource type="Script" path="res://Scripits/Enemy/enemy_resource.gd" id="25_1b25q"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="26_a8847"]
+
+[sub_resource type="Resource" id="Resource_d78bf"]
+script = ExtResource("23_rgsgb")
+gear_resource = ExtResource("22_upf4l")
+drop_weight = 10.0
+rarity = 3
+
+[sub_resource type="Resource" id="Resource_syjpa"]
+script = ExtResource("22_6vcxo")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_d78bf")])
+
+[sub_resource type="Resource" id="Resource_eh71d"]
+script = ExtResource("25_1b25q")
+max_health = 10000
+enemy_icon = ExtResource("23_mve3k")
+enemy_type = 1
+enemy_name = "empty_name"
+stage_xp_value = 0.0
+drop_pool = SubResource("Resource_syjpa")
+spawn_sprite_frames = ExtResource("26_a8847")
+enemy_scene = ExtResource("24_dnj58")
+
+[sub_resource type="Resource" id="Resource_432oa"]
+script = ExtResource("24_0hqsx")
+difficulty = 3
+hp_bar_texture_resource = ExtResource("23_uxiax")
+time_start = 300
+one_shot = true
+duration = 1
+wave_delay = 0
+amount = 1
+enemy_resource = SubResource("Resource_eh71d")
+spawn_pattern = 0
+rank = 2
 
 [resource]
 script = ExtResource("1_wummt")
 stage_number = 3
-spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_e7cth"), ExtResource("3_mep3w"), ExtResource("3_rjmfl"), ExtResource("4_cevxm"), ExtResource("5_nwika")])
+spawns = Array[Resource("res://Scripits/Enemy/spawn_data.gd")]([ExtResource("2_e7cth"), ExtResource("3_t07ls"), ExtResource("3_rjmfl"), ExtResource("4_cevxm"), ExtResource("6_1oxo3"), ExtResource("3_mep3w"), ExtResource("8_ir6sg"), ExtResource("5_nwika"), ExtResource("10_w233j"), ExtResource("11_uwhf1"), ExtResource("12_unwno"), ExtResource("13_3w0fm"), ExtResource("14_hqwh1"), ExtResource("15_0mw72"), ExtResource("16_yltyh"), ExtResource("17_f8p5j"), ExtResource("18_jenmf"), ExtResource("19_plhvq"), ExtResource("20_15orq"), ExtResource("21_2xn5a"), SubResource("Resource_432oa")])

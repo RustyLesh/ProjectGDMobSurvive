@@ -7,9 +7,9 @@
 
 [resource]
 script = ExtResource("1_2atpl")
-move_speed = 100
-contact_damage = 1
-max_health = 20
+move_speed = 30
+contact_damage = 5
+max_health = 4000
 enemy_icon = ExtResource("1_nl7xq")
 enemy_type = 0
 enemy_name = "empty_name"

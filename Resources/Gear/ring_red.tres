@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://bx7rhnd7qmeok"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=9 format=3 uid="uid://bx7rhnd7qmeok"]
 
 [ext_resource type="Texture2D" uid="uid://5mhcpl2frp1a" path="res://Art/Equipment/red_ring.png" id="1_kpvp0"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_5udec"]
@@ -28,27 +28,10 @@ upgrade_resource = SubResource("Resource_uvcps")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_h31a6"]
-script = ExtResource("3_kyv1q")
-_name = "More Damage"
-_description = "some good damage"
-_icon = ExtResource("1_kpvp0")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
-added_upgrades = Array[ExtResource("3_kyv1q")]([])
-_max_uses = 5
-weight = 0
-
-[sub_resource type="Resource" id="Resource_fq80a"]
-script = ExtResource("2_mpb00")
-mod_type = 1
-upgrade_resource = SubResource("Resource_h31a6")
-slot_source = 0
-forced_upgrade = true
-
 [resource]
 script = ExtResource("2_5udec")
 _item_name = "Topaz ring"
 _description = "A lil damage"
 _icon = ExtResource("1_kpvp0")
 _gear_type = 1
-mod_list = Array[ExtResource("2_mpb00")]([SubResource("Resource_8gxs2"), SubResource("Resource_fq80a")])
+mod_list = Array[ExtResource("2_mpb00")]([SubResource("Resource_8gxs2")])

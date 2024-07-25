@@ -11,9 +11,9 @@
 [sub_resource type="Resource" id="Resource_24d3c"]
 script = ExtResource("4_mwuke")
 _proc_range = 50.0
-_max_chain_count = 10
-_damage = 50.0
-_proc_chance = 40.0
+_max_chain_count = 5
+_damage = 30.0
+_proc_chance = 15.0
 
 [sub_resource type="Resource" id="Resource_2eu6p"]
 script = ExtResource("5_unicy")
@@ -34,7 +34,7 @@ script = ExtResource("2_mlawb")
 mod_type = 1
 upgrade_resource = SubResource("Resource_rrgvt")
 slot_source = 0
-forced_upgrade = false
+forced_upgrade = true
 
 [sub_resource type="Resource" id="Resource_omfwj"]
 script = ExtResource("6_hnpsj")

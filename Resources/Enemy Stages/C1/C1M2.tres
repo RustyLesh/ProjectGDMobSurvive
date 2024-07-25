@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=33 format=3 uid="uid://cssckm02e0x6m"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=35 format=3 uid="uid://cssckm02e0x6m"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_j2mvt"]
 [ext_resource type="Resource" uid="uid://frkdkn68i8kg" path="res://Resources/Enemy Waves/C1-1/W1-Skele.tres" id="2_3rhww"]
@@ -27,22 +27,29 @@
 [ext_resource type="Script" path="res://Scripits/Enemy/boss_spawn_data.gd" id="19_8o3oh"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="19_xmlts"]
 [ext_resource type="Resource" uid="uid://dhtjhnyghnkf7" path="res://Resources/Gear/ring_silver.tres" id="20_fhrj2"]
+[ext_resource type="Resource" uid="uid://cfc5g1fipjoxv" path="res://Resources/Gear/ring_band_silver.tres" id="21_caifq"]
 
 [sub_resource type="Resource" id="Resource_0nhu3"]
 script = ExtResource("19_xmlts")
 gear_resource = ExtResource("18_vf1t8")
 drop_weight = 3.0
-rarity = 3
+rarity = 2
 
 [sub_resource type="Resource" id="Resource_xjdpq"]
 script = ExtResource("19_xmlts")
 gear_resource = ExtResource("20_fhrj2")
-drop_weight = 0.0
+drop_weight = 6.0
+rarity = 1
+
+[sub_resource type="Resource" id="Resource_c0jb3"]
+script = ExtResource("19_xmlts")
+gear_resource = ExtResource("21_caifq")
+drop_weight = 1.0
 rarity = 0
 
 [sub_resource type="Resource" id="Resource_syjpa"]
 script = ExtResource("13_kfkci")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_0nhu3"), SubResource("Resource_xjdpq")])
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_0nhu3"), SubResource("Resource_xjdpq"), SubResource("Resource_c0jb3")])
 
 [sub_resource type="Resource" id="Resource_ac6ie"]
 script = ExtResource("16_d34m8")

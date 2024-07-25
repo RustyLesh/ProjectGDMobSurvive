@@ -8,13 +8,13 @@
 
 [sub_resource type="Resource" id="Resource_k4frw"]
 script = ExtResource("4_fay5t")
-_value = 100.0
+_value = 200.0
 _mod_type = 0
 _base_stat_type = 0
 
 [sub_resource type="Resource" id="Resource_tb015"]
 script = ExtResource("4_fay5t")
-_value = 25.0
+_value = 30.0
 _mod_type = 0
 _base_stat_type = 1
 
@@ -36,14 +36,14 @@ forced_upgrade = false
 
 [sub_resource type="Resource" id="Resource_1fbl0"]
 script = ExtResource("4_fay5t")
-_value = 20.0
+_value = 50.0
 _mod_type = 0
 _base_stat_type = 1
 
 [sub_resource type="Resource" id="Resource_vecng"]
 script = ExtResource("3_o0qjq")
-_name = "Searing rounds"
-_description = "Oof"
+_name = "Scorching rounds"
+_description = "Big Oof"
 _icon = ExtResource("1_swrsk")
 upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_1fbl0")])
 added_upgrades = Array[ExtResource("3_o0qjq")]([])

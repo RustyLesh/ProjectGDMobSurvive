@@ -1,13 +1,26 @@
-[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=9 format=3 uid="uid://b75h2gg30mrif"]
+[gd_resource type="Resource" script_class="EliteSpawnDataResource" load_steps=14 format=3 uid="uid://b75h2gg30mrif"]
 
 [ext_resource type="Texture2D" uid="uid://xet7f0b14urv" path="res://Art/Enemies/ice_shard.png" id="1_8bp8m"]
+[ext_resource type="Resource" uid="uid://b5kgvt5pq0jkc" path="res://Resources/Gear/helm_fire_crown_full_power.tres" id="1_yemvx"]
 [ext_resource type="PackedScene" uid="uid://cw1wg7hyc5jjy" path="res://Objects/Enemy Spawning/enemy_turret_lazor.tscn" id="2_nxe2o"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="2_t5dxx"]
 [ext_resource type="Script" path="res://Scripits/Enemy/turret_lazor_resource.gd" id="3_6m4gl"]
+[ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="3_js862"]
 [ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="4_mnak8"]
 [ext_resource type="Texture2D" uid="uid://cth6auyhsjd1i" path="res://Art/Enemies/DiamondTurret.png" id="5_f4qup"]
 [ext_resource type="Script" path="res://Scripits/Enemy/elite_spawn_data.gd" id="6_y2605"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh06i"]
+
+[sub_resource type="Resource" id="Resource_e4dph"]
+script = ExtResource("2_t5dxx")
+gear_resource = ExtResource("1_yemvx")
+drop_weight = 10.0
+rarity = 2
+
+[sub_resource type="Resource" id="Resource_xc56r"]
+script = ExtResource("3_js862")
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_e4dph")])
 
 [sub_resource type="Resource" id="Resource_xf35n"]
 script = ExtResource("3_6m4gl")
@@ -23,6 +36,7 @@ enemy_icon = ExtResource("1_8bp8m")
 enemy_type = 0
 enemy_name = "empty_name"
 stage_xp_value = 50.0
+drop_pool = SubResource("Resource_xc56r")
 spawn_sprite_frames = ExtResource("4_mnak8")
 enemy_scene = ExtResource("2_nxe2o")
 

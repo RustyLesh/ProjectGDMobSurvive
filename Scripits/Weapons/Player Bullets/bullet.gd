@@ -28,10 +28,8 @@ func _on_body_entered(body):
 			parent_body.take_damage(base_damage)
 			#Applies hit effects if there are any
 			if on_hit_effects.size() > 0:
-				print("bullet on hit effect chain")
 				for hit_effect in on_hit_effects:
 					var roll = randf()
-					print("Chance: ", hit_effect._proc_chance, " Roll: ", roll)
 					if roll <= hit_effect._proc_chance:
 						hit_effect.trigger_effect(body.get_parent())
 			#Destroy self if 0 pierces remain

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SpawnDataResource" load_steps=6 format=3 uid="uid://3fq8nxpa5chs"]
+
+[ext_resource type="PackedScene" uid="uid://d1vebupoqfj8y" path="res://Objects/Enemy Spawning/enemy_knight.tscn" id="1_jf15b"]
+[ext_resource type="Script" path="res://Scripits/Enemy/knight_resource.gd" id="2_t8o2e"]
+[ext_resource type="SpriteFrames" uid="uid://bek76am48n6e2" path="res://Objects/enemy_spawn_animations/default_spawn.tres" id="3_8omro"]
+[ext_resource type="Script" path="res://Scripits/Enemy/spawn_data.gd" id="4_cqv8v"]
+
+[sub_resource type="Resource" id="Resource_ppjjm"]
+script = ExtResource("2_t8o2e")
+move_speed = 50
+contact_damage = 5
+follow_range = 200
+keep_following = false
+attack_damage = 15
+delay_betweeen_shots = 1.0
+max_health = 200
+enemy_type = 0
+enemy_name = "empty_name"
+stage_xp_value = 30.0
+spawn_sprite_frames = ExtResource("3_8omro")
+enemy_scene = ExtResource("1_jf15b")
+
+[resource]
+script = ExtResource("4_cqv8v")
+time_start = 60
+one_shot = false
+duration = 60
+wave_delay = 10
+amount = 2
+enemy_resource = SubResource("Resource_ppjjm")
+spawn_pattern = 2
+rank = 0

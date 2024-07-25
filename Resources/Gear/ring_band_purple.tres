@@ -1,15 +1,34 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://kkbfmfp826kt"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=16 format=3 uid="uid://kkbfmfp826kt"]
 
 [ext_resource type="Texture2D" uid="uid://bi3eu4qibj4dj" path="res://Art/Equipment/band ring purple.png" id="1_6pw46"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_1iuv0"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_p4o88"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_fd1mo"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_kj5q1"]
+
+[sub_resource type="Resource" id="Resource_8mi5o"]
+script = ExtResource("4_kj5q1")
+_value = 300.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_xo2yo"]
+script = ExtResource("4_kj5q1")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_nelcg"]
+script = ExtResource("4_kj5q1")
+_value = 10.0
+_mod_type = 1
+_base_stat_type = 2
 
 [sub_resource type="Resource" id="Resource_g5g1h"]
 script = ExtResource("3_fd1mo")
 _name = "pierce"
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_8mi5o"), SubResource("Resource_xo2yo"), SubResource("Resource_nelcg")])
 added_upgrades = Array[ExtResource("3_fd1mo")]([])
 _max_uses = 0
 weight = 0
@@ -21,28 +40,30 @@ upgrade_resource = SubResource("Resource_g5g1h")
 slot_source = 0
 forced_upgrade = false
 
-[sub_resource type="Resource" id="Resource_nq5lp"]
-script = ExtResource("3_fd1mo")
-_name = "damage"
-_description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
-added_upgrades = Array[ExtResource("3_fd1mo")]([])
-_max_uses = 0
-weight = 0
+[sub_resource type="Resource" id="Resource_t4wyh"]
+script = ExtResource("4_kj5q1")
+_value = 200.0
+_mod_type = 0
+_base_stat_type = 0
 
-[sub_resource type="Resource" id="Resource_xg8kr"]
-script = ExtResource("2_p4o88")
-mod_type = 0
-upgrade_resource = SubResource("Resource_nq5lp")
-slot_source = 0
-forced_upgrade = false
+[sub_resource type="Resource" id="Resource_a7kwm"]
+script = ExtResource("4_kj5q1")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_qqlxp"]
+script = ExtResource("4_kj5q1")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
 
 [sub_resource type="Resource" id="Resource_cryi6"]
 script = ExtResource("3_fd1mo")
-_name = "Pierce"
+_name = "Harnes the power of her essence"
 _description = "pierce enemies"
 _icon = ExtResource("1_6pw46")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_t4wyh"), SubResource("Resource_a7kwm"), SubResource("Resource_qqlxp")])
 added_upgrades = Array[ExtResource("3_fd1mo")]([])
 _max_uses = 5
 weight = 0
@@ -57,7 +78,7 @@ forced_upgrade = false
 [resource]
 script = ExtResource("2_1iuv0")
 _item_name = "Heaven Piercers Ring"
-_description = "A ring that has the essence of a her contained within."
+_description = "A ring that has the essence of  her contained within."
 _icon = ExtResource("1_6pw46")
 _gear_type = 1
-mod_list = Array[ExtResource("2_p4o88")]([SubResource("Resource_6xyfu"), SubResource("Resource_xg8kr"), SubResource("Resource_gawki")])
+mod_list = Array[ExtResource("2_p4o88")]([SubResource("Resource_6xyfu"), SubResource("Resource_gawki")])

@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="GearResource" load_steps=13 format=3 uid="uid://b5kgvt5pq0jkc"]
+
+[ext_resource type="Texture2D" uid="uid://bu4sryyj4nj32" path="res://Art/Equipment/flame_crown.png" id="1_xbsnq"]
+[ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_d2bri"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_847c0"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_wo8ry"]
+[ext_resource type="Script" path="res://Scripits/gear.gd" id="5_4rfya"]
+
+[sub_resource type="Resource" id="Resource_k4frw"]
+script = ExtResource("4_wo8ry")
+_value = 100.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_tb015"]
+script = ExtResource("4_wo8ry")
+_value = 25.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_aw7xa"]
+script = ExtResource("3_847c0")
+_name = ""
+_description = ""
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_k4frw"), SubResource("Resource_tb015")])
+added_upgrades = Array[ExtResource("3_847c0")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_ntj1a"]
+script = ExtResource("2_d2bri")
+mod_type = 0
+upgrade_resource = SubResource("Resource_aw7xa")
+slot_source = 0
+forced_upgrade = false
+
+[sub_resource type="Resource" id="Resource_1fbl0"]
+script = ExtResource("4_wo8ry")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_vecng"]
+script = ExtResource("3_847c0")
+_name = "Searing rounds"
+_description = "Oof"
+_icon = ExtResource("1_xbsnq")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_1fbl0")])
+added_upgrades = Array[ExtResource("3_847c0")]([])
+_max_uses = 0
+weight = 0
+
+[sub_resource type="Resource" id="Resource_vkcmb"]
+script = ExtResource("2_d2bri")
+mod_type = 1
+upgrade_resource = SubResource("Resource_vecng")
+slot_source = 0
+forced_upgrade = false
+
+[resource]
+script = ExtResource("5_4rfya")
+_item_name = "Crown of fire"
+_description = "Actually just gives a lot health (and a lil damage)"
+_icon = ExtResource("1_xbsnq")
+_gear_type = 0
+mod_list = Array[ExtResource("2_d2bri")]([SubResource("Resource_ntj1a"), SubResource("Resource_vkcmb")])

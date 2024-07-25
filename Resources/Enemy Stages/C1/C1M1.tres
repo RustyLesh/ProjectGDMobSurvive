@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemySpawns" load_steps=28 format=3 uid="uid://bt4lmcvjwvv6t"]
+[gd_resource type="Resource" script_class="EnemySpawns" load_steps=30 format=3 uid="uid://bt4lmcvjwvv6t"]
 
 [ext_resource type="Script" path="res://Scripits/Combat/combat_enemy_spawns.gd" id="1_nl1ro"]
 [ext_resource type="Resource" uid="uid://frkdkn68i8kg" path="res://Resources/Enemy Waves/C1-1/W1-Skele.tres" id="2_w2oia"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://bmaloadyfaekw" path="res://Resources/Enemy Waves/C1-1/W5-Turret.tres" id="13_q8lj2"]
 [ext_resource type="Resource" uid="uid://c65r4cfexckwn" path="res://Resources/Gear/helm_ice_crown.tres" id="14_4to03"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_gear_resource.gd" id="15_l3f3q"]
+[ext_resource type="Resource" uid="uid://kkbfmfp826kt" path="res://Resources/Gear/ring_band_purple.tres" id="16_c0yet"]
 [ext_resource type="Resource" uid="uid://jl8a3omdr58i" path="res://Resources/Gear/ammy_astramentis.tres" id="16_m1xty"]
 [ext_resource type="Script" path="res://Scripits/Drops/drop_pool.gd" id="17_3acpo"]
 [ext_resource type="Texture2D" uid="uid://c80drsg53pe65" path="res://Art/EnemySpawn.png" id="18_nlrjs"]
@@ -26,18 +27,24 @@
 [sub_resource type="Resource" id="Resource_mfjl3"]
 script = ExtResource("15_l3f3q")
 gear_resource = ExtResource("14_4to03")
-drop_weight = 1.0
-rarity = 3
+drop_weight = 3.0
+rarity = 2
 
 [sub_resource type="Resource" id="Resource_aoh2q"]
 script = ExtResource("15_l3f3q")
 gear_resource = ExtResource("16_m1xty")
-drop_weight = 4.0
+drop_weight = 5.0
 rarity = 2
+
+[sub_resource type="Resource" id="Resource_4ibtn"]
+script = ExtResource("15_l3f3q")
+gear_resource = ExtResource("16_c0yet")
+drop_weight = 2.0
+rarity = 3
 
 [sub_resource type="Resource" id="Resource_syjpa"]
 script = ExtResource("17_3acpo")
-drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3"), SubResource("Resource_aoh2q")])
+drop_pool = Array[Resource("res://Scripits/Drops/drop_base_resource.gd")]([SubResource("Resource_mfjl3"), SubResource("Resource_aoh2q"), SubResource("Resource_4ibtn")])
 
 [sub_resource type="Resource" id="Resource_tx1wb"]
 script = ExtResource("20_0m1ee")

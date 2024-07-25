@@ -42,11 +42,11 @@ func _ready():
 			weapon_button_instace.on_weapon_select.connect(on_weapon_select)
 			
 	if PlayerSetup.selected_weapon_index >= 0: #if weapon is already selected, show info
-		selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
+		#selected_weapon_infobox.on_weapon_select(weapons[PlayerSetup.selected_weapon_index], 0)
 		PlayerSetup.weapon_resource = weapons[PlayerSetup.selected_weapon_index]
 		apply_weapon_mods(PlayerSetup.weapon_resource)
 	else:
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(.5).timeout
 		new_game_setup()
 
 
@@ -65,17 +65,17 @@ func on_weapon_select(weapon, index):
 	if current_infobox_index >= 0:
 		print("current box index: ", current_infobox_index)
 		weapon_list_container.get_child(current_infobox_index).queue_free()
-	var weapon_info_instance = weapon_info_scene.instantiate()
-	weapon_list_container.add_child(weapon_info_instance)
-	weapon_info_instance.on_equip.connect(equip_weapon)
-	weapon_info_instance.skill_tree_button.pressed.connect(open_weapon_skill_tree)
-	weapon_info_instance.init_info_panel(weapon)
-	if index >= current_infobox_index && current_infobox_index > -1:
-		weapon_list_container.move_child(weapon_info_instance, index + 1)
-	else:
-		weapon_list_container.move_child(weapon_info_instance, index)
+	# var weapon_info_instance = weapon_info_scene.instantiate()
+	# weapon_list_container.add_child(weapon_info_instance)
+	# weapon_info_instance.on_equip.connect(equip_weapon)
+	# weapon_info_instance.skill_tree_button.pressed.connect(open_weapon_skill_tree)
+	# weapon_info_instance.init_info_panel(weapon)
+	# if index >= current_infobox_index && current_infobox_index > -1:
+	# 	weapon_list_container.move_child(weapon_info_instance, index + 1)
+	# else:
+	# 	weapon_list_container.move_child(weapon_info_instance, index)
 	current_infobox_index = index
-	selected_weapon_infobox.on_weapon_select(weapon, index)
+	#selected_weapon_infobox.on_weapon_select(weapon, index)
 
 func equip_weapon(weapon_resource):
 	PlayerSetup.weapon_resource = weapon_resource
@@ -95,6 +95,6 @@ func apply_weapon_mods(weapon_resource: WeaponResource):
 		base_stat_mod.apply_mod_main_menu(stat_container)
 
 func open_weapon_skill_tree():
-	weapon_skill_tree.visible = true
+	#weapon_skill_tree.visible = true
 	weapon_skill_tree.on_weapon_select(weapons[PlayerSetup.selected_weapon_index])
 	

@@ -1,15 +1,28 @@
-[gd_resource type="Resource" script_class="GearResource" load_steps=11 format=3 uid="uid://dbuql1w23vmdy"]
+[gd_resource type="Resource" script_class="GearResource" load_steps=20 format=3 uid="uid://dbuql1w23vmdy"]
 
 [ext_resource type="Texture2D" uid="uid://b2u6ipde26dgb" path="res://Art/Equipment/band ring gold.png" id="1_uc0pb"]
 [ext_resource type="Script" path="res://Scripits/gear_modifier.gd" id="2_0ihbi"]
 [ext_resource type="Script" path="res://Scripits/gear.gd" id="2_j8kpf"]
 [ext_resource type="Script" path="res://Scripits/Upgrade/upgrade_resource.gd" id="3_rii0m"]
+[ext_resource type="Script" path="res://Scripits/Upgrade/base_stat_upgrade.gd" id="4_q4lhb"]
+
+[sub_resource type="Resource" id="Resource_gxtkt"]
+script = ExtResource("4_q4lhb")
+_value = -100.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_tvag4"]
+script = ExtResource("4_q4lhb")
+_value = 50.0
+_mod_type = 0
+_base_stat_type = 1
 
 [sub_resource type="Resource" id="Resource_t3tr3"]
 script = ExtResource("3_rii0m")
 _name = ""
 _description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_gxtkt"), SubResource("Resource_tvag4")])
 added_upgrades = Array[ExtResource("3_rii0m")]([])
 _max_uses = 0
 weight = 0
@@ -21,36 +34,68 @@ upgrade_resource = SubResource("Resource_t3tr3")
 slot_source = 0
 forced_upgrade = false
 
+[sub_resource type="Resource" id="Resource_ab5gl"]
+script = ExtResource("4_q4lhb")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 3
+
+[sub_resource type="Resource" id="Resource_327vg"]
+script = ExtResource("4_q4lhb")
+_value = 50.0
+_mod_type = 0
+_base_stat_type = 1
+
+[sub_resource type="Resource" id="Resource_qywsq"]
+script = ExtResource("4_q4lhb")
+_value = -50.0
+_mod_type = 0
+_base_stat_type = 0
+
+[sub_resource type="Resource" id="Resource_xfc7a"]
+script = ExtResource("4_q4lhb")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 6
+
+[sub_resource type="Resource" id="Resource_xctpj"]
+script = ExtResource("4_q4lhb")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 4
+
+[sub_resource type="Resource" id="Resource_b3u5i"]
+script = ExtResource("4_q4lhb")
+_value = 20.0
+_mod_type = 0
+_base_stat_type = 8
+
+[sub_resource type="Resource" id="Resource_p2o3o"]
+script = ExtResource("4_q4lhb")
+_value = 30.0
+_mod_type = 0
+_base_stat_type = 9
+
+[sub_resource type="Resource" id="Resource_pi0hn"]
+script = ExtResource("4_q4lhb")
+_value = 1.0
+_mod_type = 0
+_base_stat_type = 5
+
 [sub_resource type="Resource" id="Resource_t4sl2"]
 script = ExtResource("3_rii0m")
-_name = ""
-_description = ""
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
+_name = "Activate Berserk State"
+_description = "can't turn it off"
+_icon = ExtResource("1_uc0pb")
+upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([SubResource("Resource_ab5gl"), SubResource("Resource_327vg"), SubResource("Resource_qywsq"), SubResource("Resource_xfc7a"), SubResource("Resource_xctpj"), SubResource("Resource_b3u5i"), SubResource("Resource_p2o3o"), SubResource("Resource_pi0hn")])
 added_upgrades = Array[ExtResource("3_rii0m")]([])
 _max_uses = 0
 weight = 0
 
 [sub_resource type="Resource" id="Resource_c6v3o"]
 script = ExtResource("2_0ihbi")
-mod_type = 0
-upgrade_resource = SubResource("Resource_t4sl2")
-slot_source = 0
-forced_upgrade = false
-
-[sub_resource type="Resource" id="Resource_rnyqu"]
-script = ExtResource("3_rii0m")
-_name = "Damage"
-_description = "A lotta damage"
-_icon = ExtResource("1_uc0pb")
-upgrades = Array[Resource("res://Scripits/Upgrade/upgrade.gd")]([])
-added_upgrades = Array[ExtResource("3_rii0m")]([])
-_max_uses = 2
-weight = 0
-
-[sub_resource type="Resource" id="Resource_fucx4"]
-script = ExtResource("2_0ihbi")
 mod_type = 1
-upgrade_resource = SubResource("Resource_rnyqu")
+upgrade_resource = SubResource("Resource_t4sl2")
 slot_source = 0
 forced_upgrade = false
 
@@ -60,4 +105,4 @@ _item_name = "Bersekers ring"
 _description = "Thats alotta damage"
 _icon = ExtResource("1_uc0pb")
 _gear_type = 1
-mod_list = Array[ExtResource("2_0ihbi")]([SubResource("Resource_3ja0u"), SubResource("Resource_c6v3o"), SubResource("Resource_fucx4")])
+mod_list = Array[ExtResource("2_0ihbi")]([SubResource("Resource_3ja0u"), SubResource("Resource_c6v3o")])
