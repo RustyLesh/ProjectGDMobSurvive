@@ -552,6 +552,7 @@ difficulty = 3
 enemy_spawns = ExtResource("22_tqj55")
 
 [node name="Test" type="Button" parent="Combat Prep Menu/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.152941, 0, 0, 1)
